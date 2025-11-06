@@ -1,0 +1,192 @@
+.blog-bg {
+  background: #f7f5f2;
+  min-height: 100vh;
+  padding-top: 76px;
+  padding-bottom: 40px;
+}
+
+.blog-header {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 48px 24px 0 24px;
+  text-align: center;
+}
+
+.blog-header h1 {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  color: #183820;
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+}
+
+.blog-subtitle {
+  color: #2e5d34;
+  font-size: 1.2rem;
+  font-family: 'Playfair Display', 'Georgia', serif;
+  margin-bottom: 32px;
+}
+
+.main-section {
+  max-width: 1600px;
+  margin: 64px auto 0 auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 32px rgba(24,56,32,0.06);
+  padding: 48px 40px;
+  scroll-margin-top: 120px;
+  border: 3px solid #e6d7b9;
+}
+
+.main-section h2 {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  color: #183820;
+  font-size: 2rem;
+  margin-bottom: 24px;
+}
+
+.main-section p {
+  color: #183820;
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
+
+/* Subscribe Section */
+.subscribe-section {
+  margin-top: 32px;
+}
+
+.subscribe-form {
+  margin-top: 32px;
+}
+
+.subscribe-input-group {
+  display: flex;
+  gap: 16px;
+  max-width: 600px;
+  margin-top: 24px;
+}
+
+.subscribe-email-input {
+  flex: 1;
+  padding: 14px 20px;
+  border: 2px solid #e6d7b9;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  color: #183820;
+  background: #fff;
+  transition: border-color 0.3s ease;
+}
+
+.subscribe-email-input:focus {
+  outline: none;
+  border-color: #2e5d34;
+}
+
+.subscribe-email-input::placeholder {
+  color: #999;
+}
+
+.subscribe-button {
+  background: #183820;
+  color: #fff;
+  border: none;
+  padding: 14px 32px;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.subscribe-button:hover {
+  background: #2e5d34;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(24, 56, 32, 0.2);
+}
+
+.subscribe-button:active {
+  transform: translateY(0);
+}
+
+.subscribe-error {
+  color: #d32f2f;
+  font-size: 0.9rem;
+  margin-top: 12px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.subscribe-success {
+  margin-top: 24px;
+  padding: 16px 24px;
+  background: #f0f9f0;
+  border: 2px solid #2e5d34;
+  border-radius: 8px;
+  color: #183820;
+}
+
+.subscribe-success p {
+  margin: 0;
+  color: #183820;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+}
+
+@media (max-width: 1200px) {
+  .main-section {
+    max-width: 95%;
+    padding: 40px 32px;
+  }
+
+  .blog-header {
+    max-width: 95%;
+  }
+}
+
+@media (max-width: 900px) {
+  .main-section {
+    max-width: 95%;
+    padding: 32px 24px;
+  }
+
+  .subscribe-input-group {
+    flex-direction: column;
+  }
+
+  .subscribe-button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-section {
+    max-width: 95%;
+    padding: 32px 20px;
+  }
+
+  .blog-header {
+    padding: 32px 16px 0 16px;
+  }
+
+  .blog-header h1 {
+    font-size: 2rem;
+  }
+
+  .blog-subtitle {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-section {
+    max-width: 100%;
+    padding: 24px 16px;
+    margin: 32px auto 0 auto;
+  }
+
+  .subscribe-input-group {
+    gap: 12px;
+  }
+} 

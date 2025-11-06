@@ -1,0 +1,648 @@
+.project-detail-bg {
+  background: #f7f5f2;
+  min-height: 100vh;
+  padding-top: 76px;
+  padding-bottom: 40px;
+}
+
+.project-detail-container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 48px 24px;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  color: #fff;
+  background: #183820;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 8px;
+  margin-bottom: 32px;
+  transition: all 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+  box-shadow: 0 2px 8px rgba(24, 56, 32, 0.2);
+}
+
+.back-link:hover {
+  background: #2e5d34;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(24, 56, 32, 0.3);
+  text-decoration: none;
+}
+
+.project-detail-header {
+  margin-bottom: 32px;
+}
+
+/* Search Bar */
+.search-container {
+  max-width: 1600px;
+  margin: 0 auto 32px auto;
+  padding: 0 24px;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 600px;
+  padding: 14px 20px;
+  border: 3px solid #e6d7b9;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  color: #183820;
+  background: #fff;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #2e5d34;
+  box-shadow: 0 4px 12px rgba(24, 56, 32, 0.1);
+}
+
+.search-input::placeholder {
+  color: #b6a16b;
+}
+
+.search-hidden {
+  display: none;
+}
+
+.project-detail-title-section h1 {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  color: #183820;
+  font-size: 2.8rem;
+  margin: 0 0 12px 0;
+  line-height: 1.2;
+}
+
+.project-detail-subtitle {
+  color: #2e5d34;
+  font-size: 1.3rem;
+  font-family: 'Playfair Display', 'Georgia', serif;
+  font-style: italic;
+  margin: 0 0 20px 0;
+}
+
+.project-detail-meta {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.project-year-badge {
+  background: rgba(46, 93, 52, 0.15);
+  color: #2e5d34;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.project-status {
+  background: rgba(24, 56, 32, 0.1);
+  color: #183820;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.project-detail-section {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 32px rgba(24,56,32,0.06);
+  padding: 40px;
+  margin-bottom: 32px;
+  border: 3px solid #e6d7b9;
+}
+
+.project-detail-section h2 {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  color: #183820;
+  font-size: 2rem;
+  margin: 0 0 24px 0;
+  border-bottom: 2px solid #e6d7b9;
+  padding-bottom: 12px;
+}
+
+.project-detail-section p {
+  color: #183820;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin: 0 0 20px 0;
+}
+
+.project-detail-section p:last-child {
+  margin-bottom: 0;
+}
+
+.research-areas-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.research-areas-list li {
+  color: #183820;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 12px;
+  padding-left: 28px;
+  position: relative;
+}
+
+.research-areas-list li::before {
+  content: "•";
+  color: #2e5d34;
+  position: absolute;
+  left: 0;
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+.project-not-found {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.project-not-found h1 {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  color: #183820;
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+}
+
+.project-not-found p {
+  color: #183820;
+  font-size: 1.2rem;
+  margin-bottom: 32px;
+}
+
+/* FAQ Styles */
+.faq-main-section {
+  margin-top: 32px;
+}
+
+/* Fitness Section Redesign */
+.section-intro {
+  font-size: 1.1rem;
+  color: #2e5d34;
+  font-style: italic;
+  margin-bottom: 32px;
+  line-height: 1.7;
+}
+
+.fitness-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.fitness-card {
+  background: #f7f5f2;
+  border: 2px solid #e6d7b9;
+  border-radius: 12px;
+  padding: 28px;
+  transition: all 0.3s ease;
+}
+
+.fitness-card:hover {
+  border-color: #2e5d34;
+  box-shadow: 0 4px 16px rgba(24, 56, 32, 0.1);
+  transform: translateY(-2px);
+}
+
+.fitness-card h3 {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  color: #183820;
+  font-size: 1.5rem;
+  margin: 0 0 20px 0;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #e6d7b9;
+}
+
+.fitness-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.fitness-list li {
+  color: #183820;
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 12px;
+  padding-left: 24px;
+  position: relative;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.fitness-list li::before {
+  content: "•";
+  color: #2e5d34;
+  position: absolute;
+  left: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.exercise-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.exercise-category h4 {
+  font-family: 'Montserrat', sans-serif;
+  color: #2e5d34;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+}
+
+.exercise-category p {
+  color: #183820;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Nutrition Hacks Redesign */
+.nutrition-hacks-container {
+  margin-top: 40px;
+}
+
+.nutrition-hacks-container h3 {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  color: #183820;
+  font-size: 1.8rem;
+  margin-bottom: 24px;
+}
+
+.hacks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.hack-card {
+  background: #fff;
+  border: 2px solid #e6d7b9;
+  border-radius: 12px;
+  padding: 24px;
+  transition: all 0.3s ease;
+}
+
+.hack-card:hover {
+  border-color: #2e5d34;
+  box-shadow: 0 4px 16px rgba(24, 56, 32, 0.1);
+}
+
+.hack-card h4 {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  color: #183820;
+  font-size: 1.3rem;
+  margin: 0 0 16px 0;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #e6d7b9;
+}
+
+.hack-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.hack-card li {
+  color: #183820;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 10px;
+  padding-left: 20px;
+  position: relative;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.hack-card li::before {
+  content: "•";
+  color: #2e5d34;
+  position: absolute;
+  left: 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Fasting Redesign */
+.fasting-container {
+  margin-top: 48px;
+}
+
+.fasting-container h3 {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  color: #183820;
+  font-size: 1.8rem;
+  margin-bottom: 24px;
+}
+
+.fasting-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.fasting-card {
+  background: #fff;
+  border: 3px solid #e6d7b9;
+  border-radius: 12px;
+  padding: 24px;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.fasting-card:hover {
+  border-color: #2e5d34;
+  box-shadow: 0 4px 16px rgba(24, 56, 32, 0.1);
+  transform: translateY(-2px);
+}
+
+.fasting-title {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  color: #183820;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 16px 0;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #e6d7b9;
+}
+
+.fasting-content {
+  padding: 0;
+  background: transparent;
+}
+
+.fasting-content p {
+  margin: 8px 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #183820;
+}
+
+.fasting-content strong {
+  color: #2e5d34;
+}
+
+/* Dietary Guidelines Redesign */
+.dietary-guidelines-container {
+  margin-top: 48px;
+}
+
+.dietary-guidelines-container h3 {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  color: #183820;
+  font-size: 1.8rem;
+  margin-bottom: 24px;
+}
+
+.dietary-guidelines {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  margin-top: 24px;
+}
+
+.guidelines-column {
+  background: #f7f5f2;
+  padding: 28px;
+  border-radius: 12px;
+  border: 2px solid #e6d7b9;
+}
+
+.guidelines-column h4 {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  color: #183820;
+  font-size: 1.5rem;
+  margin: 0 0 20px 0;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #e6d7b9;
+  text-align: center;
+}
+
+.guidelines-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.guidelines-list li {
+  color: #183820;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 14px;
+  padding-left: 24px;
+  position: relative;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.guidelines-list li:last-child {
+  margin-bottom: 0;
+}
+
+.guidelines-list li::before {
+  content: "✓";
+  color: #2e5d34;
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.guidelines-list.avoid li::before {
+  content: "×";
+  color: #d32f2f;
+  font-weight: bold;
+}
+
+.guidelines-list strong {
+  color: #2e5d34;
+}
+
+
+
+/* FAQ Section Redesign */
+.faq-main-section {
+  margin-top: 32px;
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.faq-card {
+  background: #f7f5f2;
+  border: 2px solid #e6d7b9;
+  border-radius: 12px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+}
+
+.faq-card h3.faq-question {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  color: #183820;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 16px 0;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #e6d7b9;
+  line-height: 1.4;
+}
+
+.faq-card .faq-answer {
+  font-family: 'Montserrat', sans-serif;
+  color: #2e5d34;
+  font-size: 1rem;
+  font-style: italic;
+  margin: 0 0 16px 0;
+  line-height: 1.6;
+}
+
+.faq-card .faq-detail {
+  font-family: 'Montserrat', sans-serif;
+  color: #183820;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+@media (max-width: 1200px) {
+  .project-detail-container {
+    max-width: 95%;
+    padding: 40px 32px;
+  }
+
+  .project-detail-section {
+    padding: 36px 32px;
+  }
+
+  .search-container {
+    padding: 0 32px;
+  }
+}
+
+@media (max-width: 900px) {
+  .project-detail-container {
+    max-width: 95%;
+    padding: 32px 24px;
+  }
+
+  .search-container {
+    padding: 0 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-detail-container {
+    max-width: 95%;
+    padding: 32px 20px;
+  }
+
+  .project-detail-title-section h1 {
+    font-size: 2.2rem;
+  }
+
+  .project-detail-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .project-detail-section {
+    padding: 32px 24px;
+  }
+
+  .project-detail-section h2 {
+    font-size: 1.7rem;
+  }
+
+  .project-detail-section p {
+    font-size: 1rem;
+  }
+
+  .search-container {
+    padding: 0 20px;
+    margin-bottom: 24px;
+  }
+
+  .search-input {
+    font-size: 0.95rem;
+    padding: 12px 16px;
+  }
+}
+
+@media (max-width: 900px) {
+  .fitness-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hacks-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fasting-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dietary-guidelines {
+    grid-template-columns: 1fr;
+  }
+
+  .faq-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-detail-container {
+    max-width: 100%;
+    padding: 24px 16px;
+  }
+
+  .project-detail-section {
+    padding: 24px 16px;
+  }
+
+  .search-container {
+    padding: 0 16px;
+    margin-bottom: 20px;
+  }
+
+  .search-input {
+    font-size: 0.9rem;
+    padding: 10px 14px;
+  }
+
+  .fitness-card,
+  .hack-card,
+  .fasting-card,
+  .guidelines-column {
+    padding: 20px;
+  }
+
+  .fitness-card h3,
+  .hack-card h4,
+  .fasting-title {
+    font-size: 1.2rem;
+  }
+}
+

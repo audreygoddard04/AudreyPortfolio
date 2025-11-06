@@ -1,0 +1,277 @@
+.projects-bg {
+  background: #f7f5f2;
+  min-height: 100vh;
+  padding-top: 76px;
+  padding-bottom: 40px;
+}
+
+.projects-header {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 48px 24px 0 24px;
+  text-align: center;
+}
+
+.projects-header h1 {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  color: #183820;
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+}
+
+.projects-subtitle {
+  color: #2e5d34;
+  font-size: 1.2rem;
+  font-family: 'Playfair Display', 'Georgia', serif;
+  margin-bottom: 32px;
+}
+
+.main-section {
+  max-width: 1600px;
+  margin: 64px auto 0 auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 32px rgba(24,56,32,0.06);
+  padding: 48px 40px;
+  scroll-margin-top: 120px;
+  border: 3px solid #e6d7b9;
+}
+
+.main-section h2 {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  color: #183820;
+  font-size: 2rem;
+  margin-bottom: 32px;
+}
+
+.main-section p {
+  color: #183820;
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
+
+/* Technical Overview Section Styles */
+.technical-overview-section {
+  margin-top: 64px;
+}
+
+.technical-overview-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.technical-overview-content p {
+  color: #183820;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* Projects Grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.project-card {
+  background: #fff;
+  border: 3px solid #e6d7b9;
+  border-radius: 12px;
+  padding: 24px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(24, 56, 32, 0.12);
+  border-color: #2e5d34;
+}
+
+.project-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.project-card h3 {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  color: #183820;
+  font-size: 1.3rem;
+  margin: 0;
+  flex: 1;
+}
+
+.project-year {
+  color: #2e5d34;
+  font-size: 0.9rem;
+  font-weight: 500;
+  background: rgba(46, 93, 52, 0.1);
+  padding: 4px 12px;
+  border-radius: 12px;
+}
+
+.project-subtitle {
+  color: #2e5d34;
+  font-size: 1rem;
+  font-family: 'Playfair Display', 'Georgia', serif;
+  margin: 0 0 12px 0;
+  font-style: italic;
+}
+
+.project-description {
+  color: #183820;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0 0 20px 0;
+  flex: 1;
+}
+
+.project-card-footer {
+  margin-top: auto;
+}
+
+.project-link {
+  color: #2e5d34;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.project-card:hover .project-link {
+  color: #183820;
+}
+
+/* Coming Soon Section */
+.coming-soon-section {
+  margin-top: 64px;
+}
+
+.coming-soon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  margin-top: 24px;
+}
+
+.coming-soon-card {
+  background: #fff;
+  border: 3px solid #e6d7b9;
+  border-radius: 12px;
+  padding: 32px;
+  text-align: center;
+  transition: all 0.3s ease;
+  opacity: 0.8;
+}
+
+.coming-soon-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(24, 56, 32, 0.12);
+  border-color: #2e5d34;
+  opacity: 1;
+}
+
+.coming-soon-card h3 {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  color: #183820;
+  font-size: 1.8rem;
+  margin: 0 0 12px 0;
+}
+
+.coming-soon-subtitle {
+  color: #2e5d34;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 0;
+  font-style: italic;
+}
+
+@media (max-width: 1200px) {
+  .main-section {
+    max-width: 95%;
+    padding: 40px 32px;
+  }
+
+  .projects-header {
+    max-width: 95%;
+  }
+}
+
+@media (max-width: 900px) {
+  .main-section {
+    max-width: 95%;
+    margin: 32px auto 0 auto;
+    padding: 32px 24px;
+  }
+
+  .projects-header {
+    max-width: 95%;
+    padding: 32px 16px 0 16px;
+  }
+
+  .projects-header h1 {
+    font-size: 2rem;
+  }
+
+  .projects-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .project-card {
+    padding: 20px;
+  }
+  
+  .project-card h3 {
+    font-size: 1.2rem;
+  }
+  
+  .project-subtitle {
+    font-size: 0.95rem;
+  }
+  
+  .project-description {
+    font-size: 0.9rem;
+  }
+
+  .coming-soon-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .workout-types {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-section {
+    max-width: 95%;
+    margin: 24px auto 0 auto;
+    padding: 32px 20px;
+  }
+
+  .projects-header {
+    padding: 24px 16px 0 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-section {
+    max-width: 100%;
+    margin: 16px auto 0 auto;
+    padding: 24px 16px;
+  }
+}

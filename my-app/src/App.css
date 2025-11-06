@@ -1,0 +1,485 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@400;500;600&display=swap');
+
+body {
+  background-color: #f7f5f2;
+  background-image: url('https://www.transparenttextures.com/patterns/linen.png'); /* subtle linen texture */
+  background-repeat: repeat;
+  margin: 0;
+  padding: 0;
+  font-family: 'Playfair Display', 'Georgia', serif;
+  color: #183820;
+  letter-spacing: 0.01em;
+}
+
+.home-bg {
+  min-height: 100vh;
+  background: #f7f5f2;
+  padding-top: 76px; /* Height of the header */
+}
+
+.hero-section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 48px 0 0 0;
+  min-height: 60vh;
+  position: relative;
+}
+
+.hero-col.left {
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+.hero-col.right {
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 500px;
+  padding-left: 48px;
+}
+
+.hero-img {
+  width: 320px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 18px;
+  margin-top: 32px;
+  box-shadow: 0 8px 36px rgba(46,93,52,0.10);
+  border: 2.5px solid #e6d7b9;
+  background: linear-gradient(120deg, #f7f5f2 60%, #e6d7b9 100%);
+  padding: 8px;
+}
+
+/* Remove center image styles */
+.hero-col.center, .hero-portrait {
+  display: none;
+}
+
+.hero-title {
+  font-size: 2.3rem;
+  font-family: 'Playfair Display', 'Georgia', serif;
+  font-weight: bold;
+  color: #183820;
+  margin-bottom: 28px;
+  margin-top: 64px;
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-bottom: 2px solid #e6d7b9;
+  padding-bottom: 8px;
+}
+.hero-title span {
+  font-style: italic;
+  color: #b6a16b;
+}
+
+.hero-desc {
+  font-size: 1.3rem;
+  color: #183820;
+  font-family: 'Playfair Display', 'Georgia', serif;
+  margin-bottom: 32px;
+  margin-top: 0;
+}
+
+.social-bar {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: #fffefb;
+  border: 1.5px solid #e6d7b9;
+  border-radius: 12px 0 0 12px;
+  padding: 8px 4px 8px 8px;
+  z-index: 10;
+  box-shadow: 0 2px 12px rgba(24,56,32,0.06);
+}
+
+.social-icon {
+  display: block;
+  width: 32px;
+  height: 32px;
+  background: #183820;
+  color: #fff;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 32px;
+  margin-bottom: 4px;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, border 0.2s, box-shadow 0.2s;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  border: 1.5px solid #e6d7b9;
+}
+.social-icon:hover {
+  background: #b6a16b;
+  color: #fffefb;
+  border: 2px solid #b6a16b;
+  box-shadow: 0 4px 16px rgba(182,161,107,0.13);
+}
+
+.social-icon.goodreads {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* Main sections below hero */
+.main-section {
+  max-width: 1000px;
+  margin: 64px auto 0 auto;
+  background: #fffefb;
+  border-radius: 18px;
+  box-shadow: 0 6px 32px rgba(24,56,32,0.08), 0 1.5px 0 #e6d7b9;
+  border: 1.5px solid #e6d7b9;
+  padding: 56px 120px;
+  scroll-margin-top: 120px;
+  margin-bottom: 40px;
+  animation: fadeInUp 1.1s cubic-bezier(.23,1.01,.32,1) both;
+  box-sizing: border-box;
+}
+
+.projects-bg,
+.home-bg,
+.blog-bg,
+.health-bg {
+  padding-left: 24px;
+  padding-right: 24px;
+  box-sizing: border-box;
+}
+
+.main-section h2 {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  color: #183820;
+  font-size: 2rem;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-bottom: 2px solid #e6d7b9;
+  padding-bottom: 8px;
+}
+
+.main-section p {
+  color: #183820;
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
+
+html {
+  font-size: 80%;
+  scroll-behavior: smooth;
+}
+
+@media (max-width: 1100px) {
+  .hero-section {
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 0 0 0;
+  }
+  .hero-col.left, .hero-col.center, .hero-col.right {
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    max-width: 100%;
+  }
+  .hero-col.right {
+    padding-left: 0;
+    margin-top: 32px;
+  }
+  .social-bar {
+    position: static;
+    flex-direction: row;
+    justify-content: center;
+    margin: 24px auto 0 auto;
+    transform: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+  }
+}
+
+.health-bg {
+  background: #f7f5f2;
+  min-height: 100vh;
+}
+.health-header {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 48px 0 0 0;
+  text-align: center;
+}
+.health-header h1 {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  color: #183820;
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+}
+.health-nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px 0;
+}
+.health-nav a {
+  color: #2e5d34;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-family: 'Playfair Display', 'Georgia', serif;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+.health-nav a:hover {
+  color: #183820;
+  text-decoration: underline;
+}
+
+/* Add the first name and last name styles */
+.nav-logo .first-name {
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  font-style: normal;
+  color: #183820;
+}
+
+.nav-logo .last-name {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 400;
+  color: #183820;
+  margin-left: -2px;
+}
+
+/* Experience Section Styles */
+.achievement-item {
+  margin-bottom: 32px;
+  padding: 24px;
+  background: #f8f8f8;
+  border-radius: 8px;
+  border-left: 4px solid #2e5d34;
+}
+
+.achievement-item h3 {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  color: #183820;
+  font-size: 1.5rem;
+  margin: 0 0 8px 0;
+}
+
+.achievement-date {
+  color: #2e5d34;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  margin: 0 0 16px 0;
+}
+
+.achievement-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.achievement-list li {
+  position: relative;
+  padding-left: 24px;
+  margin-bottom: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #183820;
+}
+
+.achievement-list li::before {
+  content: "•";
+  position: absolute;
+  left: 8px;
+  color: #2e5d34;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .achievement-item {
+    padding: 16px;
+  }
+  
+  .achievement-list li {
+    font-size: 1rem;
+  }
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: none; }
+}
+
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 32px;
+  margin-top: 36px;
+  margin-bottom: 16px;
+}
+
+.book-card {
+  background: #fffefb;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(24,56,32,0.06);
+  border: 1.5px solid #e6d7b9;
+  padding: 28px 22px 20px 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: box-shadow 0.2s, transform 0.2s, border 0.2s;
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 1.2s cubic-bezier(.23,1.01,.32,1) both;
+}
+.book-card:hover {
+  box-shadow: 0 10px 32px rgba(182,161,107,0.13);
+  border: 2.5px solid #b6a16b;
+  transform: translateY(-6px) scale(1.04);
+  background: linear-gradient(120deg, #fffefb 80%, #f7f5f2 100%);
+}
+.book-title {
+  font-weight: bold;
+  font-size: 1.13rem;
+  color: #183820;
+  margin-bottom: 8px;
+  font-family: 'Playfair Display', 'Georgia', serif;
+}
+.book-author {
+  font-style: italic;
+  color: #2e5d34;
+  font-size: 1rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Decorative botanical accent (example, can be replaced with SVG or PNG) */
+.books-grid::before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: -40px;
+  top: -40px;
+  width: 120px;
+  height: 120px;
+  background: url('https://www.transparenttextures.com/patterns/flowers.png');
+  opacity: 0.08;
+  z-index: 0;
+}
+
+/* Pill-shaped button style */
+button, .pill-btn {
+  border-radius: 999px;
+  border: 1.5px solid #e6d7b9;
+  background: #fffefb;
+  color: #183820;
+  padding: 10px 32px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1.08rem;
+  letter-spacing: 0.04em;
+  transition: background 0.2s, color 0.2s, border 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(182,161,107,0.06);
+  margin: 8px 0;
+}
+button:hover, .pill-btn:hover {
+  background: #f7f5f2;
+  color: #b6a16b;
+  border: 2px solid #b6a16b;
+  box-shadow: 0 6px 18px rgba(182,161,107,0.13);
+}
+
+/* Add more white space and padding to all main sections */
+.main-section {
+  padding: 56px 40px;
+  margin-bottom: 40px;
+}
+
+/* Responsive adjustments for new style */
+@media (max-width: 900px) {
+  .main-section {
+    padding: 32px 32px;
+  }
+  .achievement-item, .book-card {
+    padding: 32px 16px;
+  }
+  .books-grid {
+    gap: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-section {
+    max-width: 100%;
+    padding: 24px 8px;
+    margin: 32px auto 0 auto;
+  }
+  .projects-bg, .home-bg, .blog-bg, .health-bg {
+    padding-left: 3px;
+    padding-right: 3px;
+  }
+}
+
+/* Subtle gold line accent for section dividers */
+.section-divider {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #e6d7b9 0%, #fffefb 100%);
+  border: none;
+  margin: 48px 0 32px 0;
+  opacity: 0.7;
+}
+
+/* Example for abstract shape accent */
+.hero-section::after {
+  content: '';
+  position: absolute;
+  right: -80px;
+  top: 40px;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle at 60% 40%, #e6d7b9 0%, #fffefb 80%);
+  opacity: 0.13;
+  z-index: 0;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* --- Fitlab.nl-inspired entrance animations --- */
+@keyframes fadeSlideInUp {
+  0% { opacity: 0; transform: translateY(40px) scale(0.98); }
+  60% { opacity: 0.7; transform: translateY(-8px) scale(1.01); }
+  100% { opacity: 1; transform: none; }
+}
+
+@keyframes fadeSlideInLeft {
+  0% { opacity: 0; transform: translateX(-40px) scale(0.98); }
+  60% { opacity: 0.7; transform: translateX(8px) scale(1.01); }
+  100% { opacity: 1; transform: none; }
+}
+
+@keyframes fadeSlideInRight {
+  0% { opacity: 0; transform: translateX(40px) scale(0.98); }
+  60% { opacity: 0.7; transform: translateX(-8px) scale(1.01); }
+  100% { opacity: 1; transform: none; }
+}
+
+.main-section, .tdee-calculator-box {
+  animation: fadeSlideInUp 1.1s cubic-bezier(.23,1.01,.32,1) both;
+}
+
+.achievement-item, .book-card {
+  animation: fadeSlideInLeft 1.2s cubic-bezier(.23,1.01,.32,1) both;
+}
+
+@media (max-width: 900px) {
+  .main-section, .tdee-calculator-box {
+    animation: fadeSlideInUp 1.1s cubic-bezier(.23,1.01,.32,1) both;
+  }
+  .achievement-item, .book-card {
+    animation: fadeSlideInRight 1.2s cubic-bezier(.23,1.01,.32,1) both;
+  }
+}
+/* --- End fitlab.nl-inspired entrance animations --- */
