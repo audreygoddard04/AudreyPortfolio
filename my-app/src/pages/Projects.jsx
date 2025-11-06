@@ -20,13 +20,6 @@ function Projects() {
       year: '2025'
     },
     {
-      id: 'athletics',
-      title: 'Athletics',
-      subtitle: 'Track & Field and Volleyball',
-      description: 'Competitive athletics in track & field and volleyball. Training, competition highlights, and athletic achievements.',
-      year: '2025'
-    },
-    {
       id: 'pathology-website',
       title: 'Pathology Website',
       subtitle: 'Interactive Pathology Learning Platform',
@@ -43,9 +36,9 @@ function Projects() {
         <p className="projects-subtitle">The things that occupy my time :D</p>
       </header>
 
-      {/* Technical Overview Section */}
+      {/*Overview Section */}
       <section className="main-section technical-overview-section">
-        <h2>Technical Overview</h2>
+        <h2>Overview</h2>
         <div className="technical-overview-content">
           <p>
             I am currently pursuing an Honors Specialization in Genetics at Western University (2022-2026). My studies are focused on the study of genetics, genomics, and genetic variation.

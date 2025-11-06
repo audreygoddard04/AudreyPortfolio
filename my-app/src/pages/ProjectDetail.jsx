@@ -178,8 +178,26 @@ function ProjectDetail() {
             />
           </div>
 
+          {/* Athletics Box */}
+          <Link to="/projects/athletics" className="athletics-featured-box">
+            <div className="athletics-featured-content">
+              <div className="athletics-featured-left">
+                <h3 className="athletics-featured-title">Athletics</h3>
+                <p className="athletics-featured-subtitle">Track & Field and Volleyball</p>
+              </div>
+              <div className="athletics-featured-right">
+                <ul className="athletics-featured-list">
+                  <li>Varsity Track & Field Athlete – Western University</li>
+                  <li>Team Ontario Volleyball – Canada Summer Games</li>
+                  <li>Competitive athletics and training highlights</li>
+                </ul>
+                <div className="athletics-featured-link">Read more →</div>
+              </div>
+            </div>
+          </Link>
+
           {/* Fitness Section - Redesigned */}
-          <section id="fitness" className={`main-section project-detail-section ${!matchesSearch('Fitness Non-Negotiables Lifting Exercises Cardio') ? 'search-hidden' : ''}`}>
+          <section id="fitness" className={`main-section project-detail-section ${!matchesSearch('Fitness Non-Negotiables Lifting Exercises Cardio Athletics Track Volleyball') ? 'search-hidden' : ''}`}>
             <h2>Fitness</h2>
             <p className="section-intro">Little tidbits about the health practices I like most. For more detailed information, stay tuned for my dedicated health coaching website.</p>
             
