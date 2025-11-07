@@ -32,4 +32,3 @@ fi
 git push -u origin main --force || git push -u origin main
 
 echo "Push to GitHub completed!"
-

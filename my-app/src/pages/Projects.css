@@ -1,13 +1,13 @@
 .projects-bg {
   background: #f7f5f2;
-  padding-top: 76px;
-  padding-bottom: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .projects-header {
   max-width: 1600px;
   margin: 0 auto;
-  padding: 48px 24px 0 24px;
+  padding: 24px 24px 0 24px;
   text-align: center;
 }
 
@@ -27,7 +27,7 @@
 
 .main-section {
   max-width: 1600px;
-  margin: 64px auto 0 auto;
+  margin: 32px auto 0 auto;
   background: #fff;
   border-radius: 16px;
   box-shadow: 0 4px 32px rgba(24,56,32,0.06);

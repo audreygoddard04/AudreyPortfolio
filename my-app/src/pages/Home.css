@@ -1,6 +1,6 @@
 .home-bg {
   background: #f7f5f2;
-  padding-top: 76px;
+  padding-top: 20px;
   padding-bottom: 0;
   margin: 0;
   display: flex;
@@ -12,7 +12,7 @@
 .hero-section-redesign {
   max-width: 1700px;
   margin: 0 auto;
-  padding: 80px 24px 40px 24px;
+  padding: 40px 24px 20px 24px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
@@ -118,6 +118,7 @@
 .grid-item img {
   width: 100%;
   height: 100%;
+  max-width: 100%;
   object-fit: cover;
   object-position: center;
   display: block;
@@ -267,7 +268,7 @@
   .hero-section-redesign {
     max-width: 95%;
     gap: 60px;
-    padding: 80px 32px;
+    padding: 40px 32px 20px 32px;
   }
 
   .main-section {
@@ -279,7 +280,7 @@
 @media (max-width: 1200px) {
   .hero-section-redesign {
     gap: 40px;
-    padding: 60px 28px;
+    padding: 40px 28px 20px 28px;
   }
 
   .home-headline {
@@ -295,7 +296,7 @@
 @media (max-width: 1000px) {
   .hero-section-redesign {
     gap: 32px;
-    padding: 60px 24px;
+    padding: 40px 24px 20px 24px;
   }
 
   .home-headline {
@@ -310,7 +311,7 @@
 @media (max-width: 900px) {
   .hero-section-redesign {
     gap: 28px;
-    padding: 50px 20px;
+    padding: 32px 20px 16px 20px;
   }
 
   .home-headline {
@@ -331,7 +332,7 @@
 @media (max-width: 768px) {
   .hero-section-redesign {
     gap: 24px;
-    padding: 40px 16px;
+    padding: 32px 16px 16px 16px;
   }
 
   .home-headline {
@@ -356,7 +357,7 @@
 @media (max-width: 600px) {
   .hero-section-redesign {
     gap: 20px;
-    padding: 40px 12px;
+    padding: 32px 12px 16px 12px;
   }
 
   .home-headline {
@@ -373,7 +374,7 @@
   .hero-section-redesign {
     grid-template-columns: 1fr;
     gap: 24px;
-    padding: 32px 16px;
+    padding: 24px 16px 16px 16px;
   }
 
   .home-headline {

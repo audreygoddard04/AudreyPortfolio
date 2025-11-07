@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Projects.css';
+import './ProjectDetail.css';
 
 function Projects() {
   const projects = [
@@ -24,13 +25,19 @@ function Projects() {
 
   return (
     <div className="projects-bg">
-      <header className="projects-header">
-        <h1>Projects</h1>
-        <p className="projects-subtitle">The things that occupy my time :D</p>
-      </header>
+      <div className="project-detail-container">
+        <header className="project-detail-header">
+          <div className="project-detail-title-section">
+            <h1>Projects</h1>
+            <p className="project-detail-subtitle">The things that occupy my time :D</p>
+            <div className="project-detail-meta">
+              <span className="project-year-badge">2025</span>
+            </div>
+          </div>
+        </header>
 
       {/* Projects List */}
-      <section className="main-section">
+      <section className="main-section project-detail-section">
         <div className="projects-grid">
           {projects.map((project) => {
             if (project.externalLink) {
@@ -76,7 +83,7 @@ function Projects() {
       </section>
 
       {/* Coming Soon Section */}
-      <section className="main-section coming-soon-section">
+      <section className="main-section project-detail-section coming-soon-section">
         <h2>Coming Soon...</h2>
         <div className="coming-soon-grid">
           <div className="coming-soon-card">
@@ -93,6 +100,7 @@ function Projects() {
           </div>
         </div>
       </section>
+      </div>
     </div>
   );
 }
