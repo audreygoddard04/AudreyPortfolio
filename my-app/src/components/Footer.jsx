@@ -33,7 +33,7 @@ function Footer() {
             <a href="https://www.instagram.com/audrey_goddard/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <FaInstagram />
             </a>
-            <a href="https://x.com/aletheia_444" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+            <a href="https://x.com/audreygoddard_" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
               <span style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>X</span>
             </a>
           </div>

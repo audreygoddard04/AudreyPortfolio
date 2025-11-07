@@ -45,7 +45,7 @@ function Header() {
               </a>
             </li>
             <li>
-              <a href="https://x.com/aletheia_444" className="social-icon-link" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+              <a href="https://x.com/audreygoddard_" className="social-icon-link" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
                 <span style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>X</span>
               </a>
             </li>
