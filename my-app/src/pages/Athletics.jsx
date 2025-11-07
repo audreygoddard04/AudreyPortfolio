@@ -85,23 +85,20 @@ function Athletics() {
           </div>
         </section>
 
-        {/* Nutrition Link Box */}
-        <Link to="/athletics/nutrition" className="athletics-featured-box" style={{ textDecoration: 'none', color: 'inherit', marginTop: '48px', marginBottom: '48px' }}>
-          <div className="athletics-featured-content">
-            <div className="athletics-featured-left">
-              <h3 className="athletics-featured-title">Nutrition</h3>
-              <p className="athletics-featured-subtitle">Evidence-based nutrition, vitamins, and wellness</p>
-            </div>
-            <div className="athletics-featured-right">
-              <ul className="athletics-featured-list">
-                <li>Nutrition hacks and smart eating habits</li>
-                <li>Fasting protocols and dietary guidelines</li>
-                <li>Vitamins, supplements, and FAQs</li>
-              </ul>
-              <div className="athletics-featured-link">Read more →</div>
-            </div>
-          </div>
-        </Link>
+        {/* Nutrition Section */}
+        <section className={`main-section project-detail-section ${!matchesSearch('Nutrition') ? 'search-hidden' : ''}`} style={{ marginTop: '48px' }}>
+          <h2>Nutrition</h2>
+          <p className="section-intro">Evidence-based nutrition, vitamins, and wellness</p>
+          <Link to="/athletics/nutrition" className="fitness-card" style={{ textDecoration: 'none', color: 'inherit', display: 'block', padding: '24px', minHeight: 'auto' }}>
+            <h3 style={{ marginBottom: '16px', paddingBottom: '12px' }}>Nutrition Resources</h3>
+            <ul className="fitness-list" style={{ marginBottom: '12px' }}>
+              <li>Nutrition hacks and smart eating habits</li>
+              <li>Fasting protocols and dietary guidelines</li>
+              <li>Vitamins, supplements, and FAQs</li>
+            </ul>
+            <div style={{ marginTop: '8px', color: '#2e5d34', fontWeight: 500, fontFamily: 'Montserrat, sans-serif' }}>Read more →</div>
+          </Link>
+        </section>
 
         {/* Fitness Section */}
         <section id="fitness" className={`main-section project-detail-section ${!matchesSearch('Fitness Non-Negotiables Lifting Exercises Cardio') ? 'search-hidden' : ''}`}>

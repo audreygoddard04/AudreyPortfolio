@@ -8,6 +8,14 @@
   max-width: 1600px;
   margin: 0 auto;
   padding: 24px 24px;
+  box-sizing: border-box;
+}
+
+/* Override main-section centering to align with title */
+.project-detail-container .main-section {
+  margin-left: 0;
+  margin-right: 0;
+  max-width: 100%;
 }
 
 .back-link {
@@ -59,16 +67,21 @@
 
 /* Athletics Featured Box */
 .athletics-featured-box {
-  display: block;
+  display: flex;
   background: #fff;
   border: 3px solid #e6d7b9;
   border-radius: 16px;
-  padding: 32px;
+  padding: 36px;
   margin-bottom: 0;
   text-decoration: none;
   color: inherit;
   transition: all 0.3s ease;
   box-shadow: 0 4px 32px rgba(24,56,32,0.06);
+  min-height: 400px;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .athletics-featured-box:hover {
@@ -83,10 +96,13 @@
   display: flex;
   gap: 32px;
   align-items: flex-start;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .athletics-featured-left {
   flex: 0 0 200px;
+  min-width: 0;
 }
 
 .athletics-featured-title {
@@ -106,6 +122,7 @@
 
 .athletics-featured-right {
   flex: 1;
+  min-width: 0;
 }
 
 .athletics-featured-list {
@@ -141,6 +158,26 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+@media (max-width: 900px) {
+  .athletics-featured-box {
+    padding: 28px;
+    min-height: auto;
+  }
+
+  .athletics-featured-content {
+    gap: 24px;
+  }
+
+  .athletics-featured-title {
+    font-size: 1.8rem;
+  }
+
+  .fitness-card {
+    padding: 28px;
+    min-height: auto;
+  }
+}
+
 @media (max-width: 768px) {
   .athletics-featured-content {
     flex-direction: column;
@@ -149,14 +186,33 @@
 
   .athletics-featured-left {
     flex: 1;
+    flex-basis: auto;
   }
 
   .athletics-featured-title {
     font-size: 1.7rem;
   }
 
+  .athletics-featured-subtitle {
+    font-size: 1rem;
+  }
+
+  .athletics-featured-list li {
+    font-size: 1rem;
+  }
+
   .athletics-featured-box {
     padding: 24px;
+    min-height: auto;
+  }
+
+  .fitness-card {
+    padding: 24px;
+    min-height: auto;
+  }
+
+  .fitness-card h3 {
+    font-size: 1.5rem;
   }
 }
 
@@ -309,6 +365,9 @@
   padding: 40px;
   margin-bottom: 32px;
   border: 3px solid #e6d7b9;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .project-detail-section h2 {
@@ -404,6 +463,10 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  min-height: 400px;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .fitness-card:hover {
@@ -738,6 +801,11 @@
     padding: 40px 32px;
   }
 
+  .project-detail-container .main-section {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
   .project-detail-section {
     padding: 36px 32px;
   }
@@ -753,6 +821,11 @@
     padding: 32px 24px;
   }
 
+  .project-detail-container .main-section {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
   .search-container {
     padding: 0;
   }
@@ -762,6 +835,11 @@
   .project-detail-container {
     max-width: 95%;
     padding: 32px 20px;
+  }
+
+  .project-detail-container .main-section {
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .project-detail-title-section h1 {
@@ -821,6 +899,11 @@
   .project-detail-container {
     max-width: 100%;
     padding: 24px 16px;
+  }
+
+  .project-detail-container .main-section {
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .project-detail-section {
@@ -897,6 +980,29 @@
 
   .fitness-card {
     padding: 24px;
+    min-height: auto;
+  }
+
+  .athletics-featured-box {
+    min-height: auto;
+    padding: 20px;
+  }
+
+  .athletics-featured-content {
+    gap: 16px;
+  }
+
+  .athletics-featured-title {
+    font-size: 1.5rem;
+  }
+
+  .athletics-featured-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .athletics-featured-list li {
+    font-size: 0.95rem;
+    padding-left: 20px;
   }
 
   .fitness-card h3 {
@@ -924,6 +1030,32 @@
   }
 
   .exercise-category p {
+    font-size: 0.95rem;
+  }
+
+  .exercise-group {
+    gap: 16px;
+  }
+
+  .exercise-category {
+    padding: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  .athletics-featured-box {
+    padding: 20px;
+  }
+
+  .fitness-card {
+    padding: 20px;
+  }
+
+  .fitness-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .fitness-list li {
     font-size: 0.95rem;
   }
 }
