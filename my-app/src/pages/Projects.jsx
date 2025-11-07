@@ -13,13 +13,6 @@ function Projects() {
       comingSoon: true
     },
     {
-      id: 'fitness',
-      title: 'Fitness & Health',
-      subtitle: 'Evidence-based fitness, nutrition, and wellness routines',
-      description: 'Little tidbits about the health practices I like most. Including fitness routines, nutrition tips, vitamins, and wellness strategies.',
-      year: '2025'
-    },
-    {
       id: 'pathology-website',
       title: 'Pathology Website',
       subtitle: 'Interactive Pathology Learning Platform',
@@ -36,23 +29,8 @@ function Projects() {
         <p className="projects-subtitle">The things that occupy my time :D</p>
       </header>
 
-      {/*Overview Section */}
-      <section className="main-section technical-overview-section">
-        <h2>Overview</h2>
-        <div className="technical-overview-content">
-          <p>
-            I am currently pursuing an Honors Specialization in Genetics at Western University (2022-2026). My studies are focused on the study of genetics, genomics, and genetic variation.
-          </p>
-          <p>
-          My technical expertise spans laboratory techniques such as PCR, restriction enzyme digestion, and pipetting, as well as proficiency in molecular biology protocols, statistical analysis, and computer science.
-          My research experience includes participation in the USRI Program Student Research (2025), where I was a recipient of the Student Internship Scholarship in a genetics lab. Through this program, I have mastered essential molecular biology techniques including PCR and restriction enzyme digestion, building a strong foundation in laboratory protocols and experimental design.
-          </p>
-        </div>
-      </section>
-
       {/* Projects List */}
       <section className="main-section">
-        <h2>Projects</h2>
         <div className="projects-grid">
           {projects.map((project) => {
             if (project.externalLink) {

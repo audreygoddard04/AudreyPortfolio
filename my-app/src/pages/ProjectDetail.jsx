@@ -2,6 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import './ProjectDetail.css';
 import '../pages/Health.css';
+import fitnessImg1 from '../images/Screenshot-2025-11-06-at-4.42.19-PM.png';
+import fitnessImg2 from '../images/IMG_9299.JPG';
+import fitnessImg3 from '../images/IMG_7427.jpg';
+import fitnessImg4 from '../images/IMG_3562.jpg';
+import fitnessImg5 from '../images/52163810-EFF1-4012-A146-3B56C5FD5862.jpg';
+import fitnessImg6 from '../images/081822_BradDemers031.JPG';
+import fitnessImg7 from '../images/081522_AshleyBustonWhite034.JPG';
+import fitnessImg8 from '../images/081522_AshleyBustonWhite020.JPG';
+import fitnessImg9 from '../images/5D53BECC-FAF0-446A-A6C4-BD43F2593935_1_105_c.jpeg';
 
 function ProjectDetail() {
   const { projectId } = useParams();
@@ -26,8 +35,14 @@ function ProjectDetail() {
   // Project data - in a real app, this would come from an API or database
   const projects = {
     'fitness': {
-      title: 'Fitness & Health',
-      subtitle: 'Health Practices & Wellness',
+      title: 'Fitness',
+      subtitle: 'Evidence-based fitness routines and training',
+      year: '2025',
+      status: 'Ongoing'
+    },
+    'nutrition': {
+      title: 'Nutrition',
+      subtitle: 'Evidence-based nutrition, vitamins, and wellness',
       year: '2025',
       status: 'Ongoing'
     },
@@ -150,7 +165,7 @@ function ProjectDetail() {
     return text.toLowerCase().includes(searchLower);
   };
 
-  // Render fitness/health content
+  // Render fitness content
   if (projectId === 'fitness') {
     return (
       <div className="project-detail-bg health-bg">
@@ -179,7 +194,7 @@ function ProjectDetail() {
           </div>
 
           {/* Athletics Box */}
-          <Link to="/projects/athletics" className="athletics-featured-box">
+          <Link to="/athletics" className="athletics-featured-box">
             <div className="athletics-featured-content">
               <div className="athletics-featured-left">
                 <h3 className="athletics-featured-title">Athletics</h3>
@@ -195,6 +210,19 @@ function ProjectDetail() {
               </div>
             </div>
           </Link>
+
+          {/* Fitness Images Grid 1 */}
+          <div className="fitness-image-grid">
+            <div className="grid-item large">
+              <img src={fitnessImg2} alt="Fitness training" />
+            </div>
+            <div className="grid-item medium">
+              <img src={fitnessImg3} alt="Fitness activity" />
+            </div>
+            <div className="grid-item small">
+              <img src={fitnessImg4} alt="Fitness workout" />
+            </div>
+          </div>
 
           {/* Fitness Section - Redesigned */}
           <section id="fitness" className={`main-section project-detail-section ${!matchesSearch('Fitness Non-Negotiables Lifting Exercises Cardio Athletics Track Volleyball') ? 'search-hidden' : ''}`}>
@@ -254,6 +282,65 @@ function ProjectDetail() {
               </div>
             </div>
           </section>
+
+          {/* Fitness Images Grid 2 */}
+          <div className="fitness-image-grid">
+            <div className="grid-item large">
+              <img src={fitnessImg5} alt="Fitness training" />
+            </div>
+            <div className="grid-item medium">
+              <img src={fitnessImg6} alt="Fitness activity" />
+            </div>
+            <div className="grid-item small">
+              <img src={fitnessImg7} alt="Fitness workout" />
+            </div>
+          </div>
+
+          {/* Fitness Images Grid 3 */}
+          <div className="fitness-image-grid">
+            <div className="grid-item large">
+              <img src={fitnessImg8} alt="Fitness training" />
+            </div>
+            <div className="grid-item medium">
+              <img src={fitnessImg9} alt="Fitness activity" />
+            </div>
+            <div className="grid-item small">
+              <img src={fitnessImg1} alt="Fitness workout" />
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Render nutrition content
+  if (projectId === 'nutrition') {
+    const project = projects[projectId];
+    return (
+      <div className="project-detail-bg health-bg">
+        <div className="project-detail-container">
+          <Link to="/projects" className="back-link">Back to Projects</Link>
+          
+          <header className="project-detail-header">
+            <div className="project-detail-title-section">
+              <h1>{project.title}</h1>
+              <p className="project-detail-subtitle">{project.subtitle}</p>
+              <div className="project-detail-meta">
+                <span className="project-year-badge">{project.year}</span>
+              </div>
+            </div>
+          </header>
+
+          {/* Search Bar */}
+          <div className="search-container">
+            <input
+              type="text"
+              className="search-input"
+              placeholder="Search for sections, vitamins, fasting types, FAQs..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+          </div>
 
           {/* Nutrition Section - Redesigned */}
           <section id="nutrition" className={`main-section project-detail-section ${!matchesSearch('Nutrition Hacks Craving Control Smart Eating Habits Macronutrient') ? 'search-hidden' : ''}`}>

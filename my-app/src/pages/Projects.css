@@ -1,6 +1,5 @@
 .projects-bg {
   background: #f7f5f2;
-  min-height: 100vh;
   padding-top: 76px;
   padding-bottom: 40px;
 }
@@ -70,10 +69,10 @@
 
 /* Projects Grid */
 .projects-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-direction: column;
   gap: 24px;
-  margin-top: 24px;
+  margin-top: 0;
 }
 
 .project-card {
@@ -225,7 +224,6 @@
   }
 
   .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
   }
   

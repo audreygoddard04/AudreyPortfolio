@@ -29,6 +29,7 @@ function Header() {
             <li><Link to="/" onClick={() => setIsMenuOpen(false)} className={isActive('/') ? 'active' : ''}>Home</Link></li>
             <li><Link to="/books" onClick={() => setIsMenuOpen(false)} className={isActive('/books') ? 'active' : ''}>Bookshelf</Link></li>
             <li><Link to="/projects" onClick={() => setIsMenuOpen(false)} className={isActive('/projects') ? 'active' : ''}>Projects</Link></li>
+            <li><Link to="/athletics" onClick={() => setIsMenuOpen(false)} className={isActive('/athletics') ? 'active' : ''}>Athletics</Link></li>
           </ul>
         </nav>
         <nav className="nav-right">

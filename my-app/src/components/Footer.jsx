@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FaLinkedin, FaInstagram } from 'react-icons/fa';
 import './Footer.css';
 
@@ -6,6 +7,16 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="footer-content">
+        <div className="footer-section">
+          <h3>Navigation</h3>
+          <nav className="footer-nav">
+            <Link to="/">Home</Link>
+            <Link to="/books">Bookshelf</Link>
+            <Link to="/projects">Projects</Link>
+            <Link to="/athletics">Athletics</Link>
+          </nav>
+        </div>
+        
         <div className="footer-section">
           <h3>Contact</h3>
           <p>

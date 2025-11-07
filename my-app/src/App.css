@@ -1,20 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@400;500;600&display=swap');
 
+html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
 body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
   background-color: #f7f5f2;
   background-image: url('https://www.transparenttextures.com/patterns/linen.png'); /* subtle linen texture */
   background-repeat: repeat;
-  margin: 0;
-  padding: 0;
   font-family: 'Playfair Display', 'Georgia', serif;
   color: #183820;
   letter-spacing: 0.01em;
 }
 
-.home-bg {
+#root {
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
-  background: #f7f5f2;
-  padding-top: 76px; /* Height of the header */
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .hero-section {
@@ -200,7 +217,6 @@ html {
 
 .health-bg {
   background: #f7f5f2;
-  min-height: 100vh;
 }
 .health-header {
   max-width: 900px;

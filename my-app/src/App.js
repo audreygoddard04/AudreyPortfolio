@@ -9,20 +9,28 @@ import Health from './pages/Health.jsx';
 import Books from './pages/Books.jsx';
 import Projects from './pages/Projects.jsx';
 import ProjectDetail from './pages/ProjectDetail.jsx';
+import Athletics from './pages/Athletics.jsx';
+import Nutrition from './pages/Nutrition.jsx';
 
 function App() {
   return (
     <Router>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/books" element={<Books />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/projects/:projectId" element={<ProjectDetail />} />
-        <Route path="/health" element={<Health />} />
-      </Routes>
-      <BottomNav />
-      <Footer />
+      <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', margin: 0, padding: 0 }}>
+        <Header />
+        <main style={{ flex: '1', margin: 0, padding: 0 }}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/books" element={<Books />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/projects/:projectId" element={<ProjectDetail />} />
+            <Route path="/athletics" element={<Athletics />} />
+            <Route path="/athletics/nutrition" element={<Nutrition />} />
+            <Route path="/health" element={<Health />} />
+          </Routes>
+        </main>
+        <BottomNav />
+        <Footer />
+      </div>
     </Router>
   );
 }
