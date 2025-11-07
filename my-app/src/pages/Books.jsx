@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import './Books.css';
+import './ProjectDetail.css';
 
 const books = [
     // Business
@@ -100,10 +101,19 @@ function Books() {
 
   return (
     <div className="bookshelf-outer">
-      <div className="main-section">
-        <h1>Bookshelf</h1>
+      <div className="project-detail-container">
+        <header className="project-detail-header">
+          <div className="project-detail-title-section">
+            <h1>Bookshelf</h1>
+            <p className="project-detail-subtitle">My growoing library :D</p>
+            <div className="project-detail-meta">
+              <span className="project-year-badge">2025</span>
+            </div>
+          </div>
+        </header>
         
-        <div className="bookshelf-controls">
+        <div className="main-section project-detail-section">
+          <div className="bookshelf-controls">
           <input
             type="text"
             className="bookshelf-search"
@@ -169,6 +179,7 @@ function Books() {
             ))}
           </tbody>
         </table>
+        </div>
       </div>
     </div>
   );
