@@ -86,7 +86,7 @@ function Athletics() {
         </section>
 
         {/* Nutrition Link Box */}
-        <Link to="/athletics/nutrition" className="athletics-featured-box" style={{ textDecoration: 'none', color: 'inherit' }}>
+        <Link to="/athletics/nutrition" className="athletics-featured-box" style={{ textDecoration: 'none', color: 'inherit', marginTop: '48px', marginBottom: '48px' }}>
           <div className="athletics-featured-content">
             <div className="athletics-featured-left">
               <h3 className="athletics-featured-title">Nutrition</h3>
