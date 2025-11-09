@@ -19,7 +19,7 @@ function Home() {
             <a href="https://www.instagram.com/audrey_goddard/" className="home-social-icon" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <FaInstagram />
             </a>
-            <a href="https://x.com/aletheia_444" className="home-social-icon" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+            <a href="https://x.com/audreygoddard_" className="home-social-icon" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
               <span style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>X</span>
             </a>
           </div>
