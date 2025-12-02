@@ -11,6 +11,7 @@ import Projects from './pages/Projects.jsx';
 import ProjectDetail from './pages/ProjectDetail.jsx';
 import Athletics from './pages/Athletics.jsx';
 import Nutrition from './pages/Nutrition.jsx';
+import Contact from './pages/Contact.jsx';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path="/athletics" element={<Athletics />} />
             <Route path="/athletics/nutrition" element={<Nutrition />} />
             <Route path="/health" element={<Health />} />
+            <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>
         <BottomNav />
