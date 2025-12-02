@@ -185,25 +185,6 @@
   }
 }
 
-@media (max-width: 600px) {
-  .bookshelf-outer {
-    padding-left: 16px;
-    padding-right: 24px; /* More padding on the right */
-  }
-
-  .bookshelf-controls {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .bookshelf-search,
-  .bookshelf-sort {
-    width: 100%;
-    min-width: 100%;
-    box-sizing: border-box;
-  }
-}
-
 @media (max-width: 768px) {
   .bookshelf-section {
     max-width: 95%;
@@ -217,11 +198,38 @@
 
   .bookshelf-controls {
     flex-direction: column;
+    gap: 12px;
   }
 
   .bookshelf-search,
   .bookshelf-sort {
     width: 100%;
+    min-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .bookshelf-table {
+    font-size: 0.9rem;
+    width: 100%;
+    table-layout: auto;
+  }
+
+  .bookshelf-table th,
+  .bookshelf-table td {
+    padding: 12px 10px;
+  }
+
+  .book-title-cell,
+  .book-author-cell,
+  .book-note-cell {
+    word-break: break-word;
+  }
+}
+
+@media (max-width: 600px) {
+  .bookshelf-outer {
+    padding-left: 16px;
+    padding-right: 24px; /* More padding on the right */
   }
 
   .bookshelf-table {
