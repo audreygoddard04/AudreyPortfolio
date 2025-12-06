@@ -2,17 +2,27 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import MealPlanGenerator from '../components/MealPlanGenerator';
+import RecipeModal from '../components/RecipeModal';
 import './ProjectDetail.css';
 import '../pages/Health.css';
 
 function Nutrition() {
   const [expandedSections, setExpandedSections] = useState({});
+  const [selectedRecipe, setSelectedRecipe] = useState(null);
 
   const toggleSection = (sectionId) => {
     setExpandedSections(prev => ({
       ...prev,
       [sectionId]: !prev[sectionId]
     }));
+  };
+
+  const openRecipe = (recipe) => {
+    setSelectedRecipe(recipe);
+  };
+
+  const closeRecipe = () => {
+    setSelectedRecipe(null);
   };
 
   return (
@@ -351,8 +361,27 @@ function Nutrition() {
               </div>
             )}
           </div>
+
+          <div className="cta-section">
+            <button className="cta-card" onClick={() => toggleSection('browseRecipes')}>
+              <div className="cta-content">
+                <h2>Browse All Recipes</h2>
+                <p>View all available recipes with full ingredients and directions</p>
+              </div>
+              {expandedSections.browseRecipes ? <FaChevronUp /> : <FaChevronDown />}
+            </button>
+            {expandedSections.browseRecipes && (
+              <div className="cta-expanded-content">
+                <MealPlanGenerator showBrowseOnly={true} onRecipeClick={openRecipe} />
+              </div>
+            )}
+          </div>
         </section>
       </div>
+
+      {selectedRecipe && (
+        <RecipeModal recipe={selectedRecipe} onClose={closeRecipe} />
+      )}
     </div>
   );
 }

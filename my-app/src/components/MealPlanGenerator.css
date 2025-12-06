@@ -109,10 +109,10 @@
 }
 
 .checkbox-label {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 12px;
+  padding: 6px 10px;
   background: #fffefb;
   border: 2px solid #e6d7b9;
   border-radius: 8px;
@@ -121,6 +121,7 @@
   font-family: 'Inter', sans-serif;
   font-size: 0.95rem;
   color: #183820;
+  white-space: nowrap;
 }
 
 .checkbox-label:hover {
@@ -128,16 +129,26 @@
   background: rgba(182, 161, 107, 0.05);
 }
 
-.checkbox-label input[type="checkbox"] {
+.checkbox-label input[type="checkbox"],
+.checkbox-label input[type="radio"] {
   width: 18px;
   height: 18px;
   cursor: pointer;
   accent-color: #b6a16b;
+  flex-shrink: 0;
+  margin: 0;
+  vertical-align: middle;
 }
 
-.checkbox-label input[type="checkbox"]:checked + span {
+.checkbox-label input[type="checkbox"]:checked + span,
+.checkbox-label input[type="radio"]:checked + span {
   font-weight: 600;
   color: #183820;
+}
+
+.checkbox-label span {
+  line-height: 1.4;
+  vertical-align: middle;
 }
 
 .generate-btn {
@@ -203,6 +214,17 @@
   background: #fffefb;
   border-radius: 6px;
   border-left: 3px solid #b6a16b;
+  transition: all 0.3s ease;
+}
+
+.meal-item.clickable {
+  cursor: pointer;
+}
+
+.meal-item.clickable:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(182, 161, 107, 0.2);
+  background: rgba(182, 161, 107, 0.05);
 }
 
 .meal-item.dessert {
@@ -242,6 +264,122 @@
   font-size: 1rem;
 }
 
+.browse-recipes-btn {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #b6a16b 0%, #d4a574 100%);
+  color: #fffefb;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.browse-recipes-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(182, 161, 107, 0.3);
+}
+
+.browse-recipes-section {
+  margin-bottom: 32px;
+  padding: 24px;
+  background: linear-gradient(135deg, rgba(255, 254, 251, 0.6) 0%, rgba(247, 245, 242, 0.6) 100%);
+  border: 2px solid #e6d7b9;
+  border-radius: 12px;
+}
+
+.browse-recipes-section h4 {
+  font-family: 'Poppins', sans-serif;
+  color: #183820;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 20px 0;
+}
+
+.recipes-browse-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.recipe-browse-card {
+  background: #fffefb;
+  border: 2px solid #e6d7b9;
+  border-radius: 12px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.recipe-browse-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(182, 161, 107, 0.2);
+  border-color: #b6a16b;
+}
+
+.recipe-category-group {
+  margin-bottom: 32px;
+}
+
+.recipe-category-group:last-child {
+  margin-bottom: 0;
+}
+
+.recipe-category-title {
+  font-family: 'Poppins', sans-serif;
+  color: #183820;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 0 0 16px 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #b6a16b;
+  text-transform: capitalize;
+}
+
+.recipe-browse-card h5,
+.recipe-browse-card h6 {
+  font-family: 'Poppins', sans-serif;
+  color: #183820;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+}
+
+.recipe-browse-card .recipe-category {
+  font-family: 'Inter', sans-serif;
+  color: #b6a16b;
+  font-size: 0.85rem;
+  text-transform: capitalize;
+  margin: 4px 0;
+}
+
+.recipe-browse-card .recipe-calories {
+  font-family: 'Inter', sans-serif;
+  color: #2e5d34;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin: 4px 0;
+}
+
+.recipe-browse-card .recipe-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.recipe-browse-card .recipe-tag {
+  background: rgba(46, 93, 52, 0.1);
+  color: #2e5d34;
+  padding: 3px 8px;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+}
+
 @media (max-width: 768px) {
   .checkbox-grid {
     grid-template-columns: 1fr;
@@ -249,6 +387,15 @@
 
   .meal-plan-grid {
     grid-template-columns: 1fr;
+  }
+
+  .recipes-browse-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .browse-recipes-btn {
+    font-size: 0.85rem;
+    padding: 8px 16px;
   }
 }
 
