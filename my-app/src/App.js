@@ -4,6 +4,7 @@ import './App.css';
 import Header from './components/Header.jsx';
 import BottomNav from './components/BottomNav.jsx';
 import Footer from './components/Footer.jsx';
+import ScrollToTop from './components/ScrollToTop.jsx';
 import Home from './pages/Home.jsx';
 import Health from './pages/Health.jsx';
 import Books from './pages/Books.jsx';
@@ -18,6 +19,7 @@ import Services from './pages/Services.jsx';
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', margin: 0, padding: 0 }}>
         <Header />
         <main style={{ flex: '1', margin: 0, padding: 0 }}>
