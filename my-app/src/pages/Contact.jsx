@@ -15,6 +15,7 @@ function Contact() {
   });
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -30,41 +31,68 @@ function Contact() {
     return emailRegex.test(email);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+    setIsSubmitting(true);
 
     if (!formData.name || !formData.email || !formData.message) {
       setError('Please fill in all required fields.');
+      setIsSubmitting(false);
       return;
     }
 
     if (formData.projectType === 'other' && !formData.otherSpecify) {
       setError('Please specify your project type.');
+      setIsSubmitting(false);
       return;
     }
 
     if (!validateEmail(formData.email)) {
       setError('Please enter a valid email address.');
+      setIsSubmitting(false);
       return;
     }
 
-    // TODO: Integrate with your email service or backend
-    console.log('Form submitted:', formData);
-    setSubmitted(true);
-    
-    // Reset form after 5 seconds
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({
-        name: '',
-        email: '',
-        businessName: '',
-        projectType: '',
-        otherSpecify: '',
-        message: ''
+    try {
+      // Use the API endpoint (works in both dev and production on Vercel)
+      const apiUrl = '/api/send-email';
+
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
-    }, 5000);
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send email');
+      }
+
+      // Success
+      setSubmitted(true);
+      
+      // Reset form after 5 seconds
+      setTimeout(() => {
+        setSubmitted(false);
+        setFormData({
+          name: '',
+          email: '',
+          businessName: '',
+          projectType: '',
+          otherSpecify: '',
+          message: ''
+        });
+      }, 5000);
+    } catch (err) {
+      console.error('Error submitting form:', err);
+      setError(err.message || 'Failed to send email. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -73,7 +101,7 @@ function Contact() {
         <Link to="/projects" className="back-link">Back to Projects</Link>
         <header className="project-detail-header">
           <div className="project-detail-title-section">
-            <h1>Website Design Inquiry</h1>
+            <h1>Website Design & Development</h1>
             <p className="project-detail-subtitle">Get a custom website built for your business or personal portfolio</p>
           </div>
         </header>
@@ -178,8 +206,12 @@ function Contact() {
 
                 {error && <p className="form-error">{error}</p>}
 
-                <button type="submit" className="submit-button">
-                  Submit Inquiry
+                <button 
+                  type="submit" 
+                  className="submit-button"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? 'Sending...' : 'Submit Inquiry'}
                 </button>
               </form>
             </>

@@ -946,39 +946,54 @@
 .athletics-images-container {
   display: flex;
   gap: 16px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: flex-start;
+  overflow-x: auto;
+  width: 100%;
 }
 
 .athletics-images-container img {
-  max-width: 100%;
   height: auto;
+  max-height: 300px;
   object-fit: contain;
+  flex-shrink: 0;
 }
 
 @media (max-width: 768px) {
   .athletics-images-container {
-    justify-content: center;
+    justify-content: flex-start;
     gap: 12px;
   }
   
   .athletics-images-container img {
-    max-width: calc(50% - 6px);
-    height: auto;
+    height: 250px;
+    width: auto;
+    max-width: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .athletics-images-container {
+    gap: 8px;
+  }
+
+  .athletics-images-container img {
+    height: 150px !important;
+    width: auto;
+    max-width: none;
   }
 }
 
 @media (max-width: 480px) {
   .athletics-images-container {
-    flex-direction: column;
-    align-items: center;
+    gap: 6px;
   }
   
   .athletics-images-container img {
-    max-width: 100%;
-    width: 100%;
-    height: auto;
+    height: 120px !important;
+    width: auto;
+    max-width: none;
   }
 
   .fitness-grid {
@@ -1085,9 +1100,9 @@
   }
 
   .athletics-images-container img {
-    height: 100px !important;
-    max-width: calc(33.333% - 6px);
+    height: 150px !important;
     width: auto;
+    max-width: none;
   }
 }
 

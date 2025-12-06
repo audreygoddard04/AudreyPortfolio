@@ -61,10 +61,10 @@ function Athletics() {
             </ul>
             
             {/* Track & Field Images */}
-            <div className="athletics-images-container" style={{ marginTop: '24px', display: 'flex', gap: '16px', alignItems: 'center', justifyContent: 'flex-start', flexWrap: 'wrap' }}>
-              <img src={trackImg2} alt="Track & Field" style={{ height: '300px', width: 'auto', maxWidth: '100%', objectFit: 'contain', objectPosition: 'center', display: 'block' }} />
-              <img src={trackImg3} alt="Track & Field" style={{ height: '300px', width: 'auto', maxWidth: '100%', objectFit: 'contain', objectPosition: 'center', display: 'block' }} />
-              <img src={trackImg4} alt="Track & Field" style={{ height: '300px', width: 'auto', maxWidth: '100%', objectFit: 'contain', objectPosition: 'center', display: 'block' }} />
+            <div className="athletics-images-container" style={{ marginTop: '24px' }}>
+              <img src={trackImg2} alt="Track & Field" style={{ height: '300px', width: 'auto', objectFit: 'contain', objectPosition: 'center', display: 'block' }} />
+              <img src={trackImg3} alt="Track & Field" style={{ height: '300px', width: 'auto', objectFit: 'contain', objectPosition: 'center', display: 'block' }} />
+              <img src={trackImg4} alt="Track & Field" style={{ height: '300px', width: 'auto', objectFit: 'contain', objectPosition: 'center', display: 'block' }} />
             </div>
           </div>
 
@@ -77,10 +77,10 @@ function Athletics() {
             </ul>
             
             {/* Volleyball Images */}
-            <div className="athletics-images-container" style={{ marginTop: '24px', display: 'flex', gap: '16px', alignItems: 'center', justifyContent: 'flex-start', flexWrap: 'wrap' }}>
-              <img src={volleyballImg1} alt="Volleyball" style={{ height: '220px', width: 'auto', maxWidth: '100%', objectFit: 'contain', objectPosition: 'center', display: 'block' }} />
-              <img src={volleyballImg2} alt="Volleyball" style={{ height: '220px', width: 'auto', maxWidth: '100%', objectFit: 'contain', objectPosition: 'center', display: 'block' }} />
-              <img src={volleyballImg3} alt="Volleyball" style={{ height: '220px', width: 'auto', maxWidth: '100%', objectFit: 'contain', objectPosition: 'center', display: 'block' }} />
+            <div className="athletics-images-container" style={{ marginTop: '24px' }}>
+              <img src={volleyballImg1} alt="Volleyball" style={{ height: '220px', width: 'auto', objectFit: 'contain', objectPosition: 'center', display: 'block' }} />
+              <img src={volleyballImg2} alt="Volleyball" style={{ height: '220px', width: 'auto', objectFit: 'contain', objectPosition: 'center', display: 'block' }} />
+              <img src={volleyballImg3} alt="Volleyball" style={{ height: '220px', width: 'auto', objectFit: 'contain', objectPosition: 'center', display: 'block' }} />
             </div>
           </div>
         </section>

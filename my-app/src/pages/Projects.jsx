@@ -8,11 +8,12 @@ function Projects() {
   const projects = [
     {
       id: 'website-designing',
-      title: 'Website Designing',
+      title: 'Website Design & Development',
       subtitle: 'Custom Web Development & Design Services',
       description: 'Interested in having a website built for your business or personal portfolio? Fill out our contact form to get started. Creating beautiful, functional, and user-friendly websites tailored to client needs.',
       year: '2025',
-      contactForm: true
+      contactForm: true,
+      thumbnail: '/website-design-thumbnail.png'
     },
     {
       id: 'pathology-website',
@@ -34,8 +35,8 @@ function Projects() {
     },
     {
       id: 'rhamm-breast-cancer',
-      title: 'RHAMM-deficient Breast Cancer & Tumor Heterogeneity Thesis Proposal',
-      subtitle: 'PacBio HIFI Long-read sequencing | Genomic, Epigenetic, & Mitochondrial Diversity',
+      title: 'Thesis Proposal',
+      subtitle: 'Breast Cancer & Tumor Heterogeneity | PacBio HIFI Long-read sequencing | Genomic, Epigenetic, & Mitochondrial Diversity',
       description: `Characterizing nuclear, epigenetic, and mitochondrial heterogeneity in RHAMM-deficient breast cancer lung metastases using PacBio HiFi sequencing. A multi-omic project bridging cancer genetics, long-read analysis, and therapeutic insight.`,
       year: '2025',
       comingSoon: true
