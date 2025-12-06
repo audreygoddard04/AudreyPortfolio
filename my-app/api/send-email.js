@@ -15,7 +15,8 @@ function escapeHtml(text) {
 
 // Vercel serverless function handler
 module.exports = async (req, res) => {
-  // Enable CORS
+  // Always set JSON content type and CORS headers first
+  res.setHeader('Content-Type', 'application/json');
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -28,6 +29,15 @@ module.exports = async (req, res) => {
   // Only allow POST requests
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
+  }
+
+  // Check for required environment variables
+  if (!process.env.RESEND_API_KEY) {
+    console.error('RESEND_API_KEY is not set');
+    return res.status(500).json({ 
+      error: 'Server configuration error',
+      message: 'Email service is not configured. Please contact the administrator.'
+    });
   }
 
   try {
@@ -91,10 +101,14 @@ ${message}
 
   } catch (error) {
     console.error('Error sending email:', error);
+    // Always return JSON, never let errors crash the function
     return res.status(500).json({ 
       error: 'Failed to send email',
-      message: error.message 
+      message: error.message || 'An unexpected error occurred'
     });
   }
 };
+
+// Export as default for Vercel
+module.exports.default = module.exports;
 
