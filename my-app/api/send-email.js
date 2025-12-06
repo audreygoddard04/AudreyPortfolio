@@ -1,5 +1,6 @@
 const { Resend } = require('resend');
 
+// Initialize Resend with API key from environment variable
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 // HTML escape function to prevent XSS in email content
@@ -84,7 +85,7 @@ ${message}
     `;
 
     // Send email using Resend
-    const data = await resend.emails.send({
+    const { data, error } = await resend.emails.send({
       from: process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev',
       to: process.env.RESEND_TO_EMAIL || 'your-email@example.com',
       replyTo: email,
@@ -93,10 +94,20 @@ ${message}
       text: emailText,
     });
 
+    // Check for Resend API errors
+    if (error) {
+      console.error('Resend API error:', error);
+      return res.status(500).json({ 
+        error: 'Failed to send email',
+        message: error.message || 'Email service returned an error'
+      });
+    }
+
+    // Success - Resend returns { data: { id: "..." } }
     return res.status(200).json({ 
       success: true, 
       message: 'Email sent successfully',
-      id: data.id 
+      id: data?.id || 'unknown'
     });
 
   } catch (error) {
