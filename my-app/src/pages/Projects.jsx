@@ -7,15 +7,6 @@ import notionDashboardImage from '../images/notion-dashboard.png';
 function Projects() {
   const projects = [
     {
-      id: 'website-designing',
-      title: 'Website Design & Development',
-      subtitle: 'Custom Web Development & Design Services',
-      description: 'Interested in having a website built for your business or personal portfolio? Fill out our contact form to get started. Creating beautiful, functional, and user-friendly websites tailored to client needs.',
-      year: '2025',
-      contactForm: true,
-      thumbnail: '/website-design-thumbnail.png'
-    },
-    {
       id: 'pathology-website',
       title: 'Pathology Website',
       subtitle: 'Interactive Pathology Learning Platform',
