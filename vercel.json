@@ -4,3 +4,4 @@
   "installCommand": "cd my-app && npm install",
   "framework": null
 }
+
