@@ -27,7 +27,7 @@ function Nutrition() {
   return (
     <div className="project-detail-bg health-bg">
       <div className="project-detail-container">
-        <Link to="/athletics" className="back-link">Back to Athletics</Link>
+        <Link to="/services" className="back-link">Back to Services</Link>
         
         <header className="project-detail-header">
           <div className="project-detail-title-section">

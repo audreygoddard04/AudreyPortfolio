@@ -18,7 +18,7 @@ function Services() {
       title: 'Nutrition',
       subtitle: 'Evidence-based nutrition, vitamins, and wellness',
       description: 'Nutrition hacks and smart eating habits, fasting protocols and dietary guidelines, vitamins, supplements, and FAQs. Learn about evidence-based nutrition strategies for optimal health and wellness.',
-      link: '/athletics/nutrition',
+      link: '/services/nutrition',
       thumbnail: null
     },
     {
@@ -26,7 +26,7 @@ function Services() {
       title: 'Fitness',
       subtitle: 'Training, exercises, and health practices',
       description: 'Little tidbits about the health practices I like most. Non-negotiables, lifting exercises, cardio options, and fitness routines. For more detailed information, stay tuned for my dedicated health coaching website.',
-      link: '/athletics',
+      link: '/services/fitness',
       thumbnail: null
     }
   ];

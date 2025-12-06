@@ -21,6 +21,13 @@ function Header() {
     if (path === '/') {
       return location.pathname === '/';
     }
+    // Special handling for Services - should be active for /services, /services/nutrition, /services/fitness, and /contact
+    if (path === '/services') {
+      return location.pathname === '/services' || 
+             location.pathname === '/services/nutrition' || 
+             location.pathname === '/services/fitness' || 
+             location.pathname === '/contact';
+    }
     return location.pathname.startsWith(path);
   };
 
