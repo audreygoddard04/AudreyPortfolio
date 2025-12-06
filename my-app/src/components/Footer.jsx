@@ -14,6 +14,7 @@ function Footer() {
             <Link to="/books">Bookshelf</Link>
             <Link to="/projects">Projects</Link>
             <Link to="/athletics">Athletics</Link>
+            <Link to="/services">Services</Link>
           </nav>
         </div>
         

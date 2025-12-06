@@ -60,8 +60,8 @@ function Header() {
             <li><Link to="/" onClick={closeMenu} className={isActive('/') ? 'active' : ''}>Home</Link></li>
             <li><Link to="/books" onClick={closeMenu} className={isActive('/books') ? 'active' : ''}>Bookshelf</Link></li>
             <li><Link to="/projects" onClick={closeMenu} className={isActive('/projects') ? 'active' : ''}>Projects</Link></li>
-            <li><Link to="/services" onClick={closeMenu} className={isActive('/services') ? 'active' : ''}>Services</Link></li>
             <li><Link to="/athletics" onClick={closeMenu} className={isActive('/athletics') ? 'active' : ''}>Athletics</Link></li>
+            <li><Link to="/services" onClick={closeMenu} className={isActive('/services') ? 'active' : ''}>Services</Link></li>
           </ul>
         </nav>
         <nav className="nav-right">
