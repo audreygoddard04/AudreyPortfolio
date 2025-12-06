@@ -67,16 +67,23 @@ function Contact() {
       });
 
       // Check if response is JSON before parsing
-      const contentType = response.headers.get('content-type');
+      const contentType = response.headers.get('content-type') || '';
       let data;
       
-      if (contentType && contentType.includes('application/json')) {
-        data = await response.json();
+      if (contentType.includes('application/json')) {
+        try {
+          data = await response.json();
+        } catch (jsonError) {
+          // If JSON parsing fails, get the text response
+          const text = await response.text();
+          console.error('JSON parse error. Response text:', text.substring(0, 200));
+          throw new Error('Server returned an invalid response. The API endpoint may not be configured correctly.');
+        }
       } else {
         // If not JSON, get text response (likely an error page)
         const text = await response.text();
-        console.error('Non-JSON response:', text);
-        throw new Error('Server returned an invalid response. Please try again later.');
+        console.error('Non-JSON response:', text.substring(0, 200));
+        throw new Error('Server returned an invalid response. Please check that the API is properly deployed.');
       }
 
       if (!response.ok) {
