@@ -126,7 +126,7 @@ function Contact() {
   return (
     <div className="projects-bg">
       <div className="project-detail-container">
-        <Link to="/projects" className="back-link">Back to Projects</Link>
+        <Link to="/services" className="back-link">Back to Services</Link>
         <header className="project-detail-header">
           <div className="project-detail-title-section">
             <h1>Website Design & Development</h1>
