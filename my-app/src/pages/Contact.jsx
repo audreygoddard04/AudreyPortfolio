@@ -82,8 +82,18 @@ function Contact() {
       } else {
         // If not JSON, get text response (likely an error page)
         const text = await response.text();
-        console.error('Non-JSON response:', text.substring(0, 200));
-        throw new Error('Server returned an invalid response. Please check that the API is properly deployed.');
+        console.error('Non-JSON response:', text.substring(0, 500));
+        console.error('Response status:', response.status);
+        console.error('Response headers:', Object.fromEntries(response.headers.entries()));
+        
+        // Provide more specific error message
+        if (response.status === 404) {
+          throw new Error('API endpoint not found. Please ensure Root Directory is set to "my-app" in Vercel settings.');
+        } else if (text.includes('server error') || text.includes('Server Error')) {
+          throw new Error('Server error occurred. Check Vercel function logs and ensure environment variables are set.');
+        } else {
+          throw new Error(`Server returned an invalid response (${response.status}). The API may not be properly deployed.`);
+        }
       }
 
       if (!response.ok) {
