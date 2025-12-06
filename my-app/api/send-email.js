@@ -2,6 +2,17 @@ const { Resend } = require('resend');
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+// HTML escape function to prevent XSS in email content
+function escapeHtml(text) {
+  if (!text) return '';
+  return String(text)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
 // Vercel serverless function handler
 module.exports = async (req, res) => {
   // Enable CORS
@@ -33,19 +44,22 @@ module.exports = async (req, res) => {
       return res.status(400).json({ error: 'Invalid email address' });
     }
 
-    // Build email content
+    // Build email content with HTML escaping
     const projectTypeText = projectType === 'other' 
-      ? `Other: ${otherSpecify || 'Not specified'}` 
-      : projectType || 'Not specified';
+      ? `Other: ${escapeHtml(otherSpecify || 'Not specified')}` 
+      : escapeHtml(projectType || 'Not specified');
+
+    // Escape message and convert newlines to <br> safely
+    const escapedMessage = escapeHtml(message).replace(/\n/g, '<br>');
 
     const emailHtml = `
       <h2>New Website Design Inquiry</h2>
-      <p><strong>Name:</strong> ${name}</p>
-      <p><strong>Email:</strong> ${email}</p>
-      ${businessName ? `<p><strong>Business/Organization:</strong> ${businessName}</p>` : ''}
+      <p><strong>Name:</strong> ${escapeHtml(name)}</p>
+      <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+      ${businessName ? `<p><strong>Business/Organization:</strong> ${escapeHtml(businessName)}</p>` : ''}
       <p><strong>Project Type:</strong> ${projectTypeText}</p>
       <p><strong>Message:</strong></p>
-      <p>${message.replace(/\n/g, '<br>')}</p>
+      <p>${escapedMessage}</p>
     `;
 
     const emailText = `
@@ -64,7 +78,7 @@ ${message}
       from: process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev',
       to: process.env.RESEND_TO_EMAIL || 'your-email@example.com',
       replyTo: email,
-      subject: `Website Design Inquiry from ${name}`,
+      subject: `Website Design Inquiry from ${escapeHtml(name)}`,
       html: emailHtml,
       text: emailText,
     });
