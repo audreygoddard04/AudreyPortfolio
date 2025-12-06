@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
+import FitnessPlanGenerator from '../components/FitnessPlanGenerator';
 import './ProjectDetail.css';
 import '../pages/Health.css';
 
 function Fitness() {
+  const [expandedSections, setExpandedSections] = useState({});
+
+  const toggleSection = (sectionId) => {
+    setExpandedSections(prev => ({
+      ...prev,
+      [sectionId]: !prev[sectionId]
+    }));
+  };
+
   return (
     <div className="project-detail-bg health-bg">
       <div className="project-detail-container">
@@ -12,7 +23,7 @@ function Fitness() {
         <header className="project-detail-header">
           <div className="project-detail-title-section">
             <h1>Fitness</h1>
-            <p className="project-detail-subtitle">Training, exercises, and health practices</p>
+            <p className="project-detail-subtitle">Strength and conditioning plans that fit your week. Build muscle, improve conditioning, and see visible changes without living in the gym.</p>
             <div className="project-detail-meta">
               <span className="project-year-badge">2025</span>
             </div>
@@ -20,60 +31,63 @@ function Fitness() {
         </header>
 
         <section className="main-section project-detail-section">
-          <h2>Fitness</h2>
-          <p className="section-intro">Little tidbits about the health practices I like most. For more detailed information, stay tuned for my dedicated health coaching website.</p>
-          
-          <div className="fitness-grid">
-            <div className="fitness-card">
-              <h3>Non-Negotiables</h3>
-              <ul className="fitness-list">
-                <li>Consistency is key</li>
-                <li>10k steps per day</li>
-                <li>1 hour of movement per day</li>
-                <li>2 weight training sessions per week</li>
-                <li>Mix it up: Combine strength, cardio, and flexibility</li>
-                <li>Track your progress: Keep a workout journal or download my app (Coming Soon)</li>
-                <li>Rest and recovery: Allow time for your body to heal</li>
-                <li>Listen to your body: Adjust intensity as needed</li>
-              </ul>
-            </div>
+          <div className="cta-section">
+            <button className="cta-card" onClick={() => toggleSection('fitnessPlan')}>
+              <div className="cta-content">
+                <h2>Make Your Custom Fitness Plan</h2>
+                <p>Get a personalized workout plan tailored to your goals, schedule, and equipment</p>
+              </div>
+              {expandedSections.fitnessPlan ? <FaChevronUp /> : <FaChevronDown />}
+            </button>
+            {expandedSections.fitnessPlan && (
+              <div className="cta-expanded-content">
+                <FitnessPlanGenerator />
+              </div>
+            )}
+          </div>
 
-            <div className="fitness-card">
-              <h3>Lifting Exercises</h3>
-              <div className="exercise-group">
-                <div className="exercise-category">
-                  <h4>Legs</h4>
-                  <p>Squats, Lunges, Romanian Deadlifts, Leg Press, Calf Raises</p>
+          <div className="cta-section">
+            <button className="cta-card" onClick={() => toggleSection('nonNegotiables')}>
+              <div className="cta-content">
+                <h2>My Non-Negotiables</h2>
+                <p>Essential daily habits and principles for consistent progress</p>
+              </div>
+              {expandedSections.nonNegotiables ? <FaChevronUp /> : <FaChevronDown />}
+            </button>
+            {expandedSections.nonNegotiables && (
+              <div className="cta-expanded-content">
+                <div className="info-subsection">
+                  <h3>Daily Non-Negotiables</h3>
+                  <ul className="info-list">
+                    <li><strong>10,000 steps a day</strong> - Minimum daily movement goal for overall health and activity</li>
+                    <li><strong>7-9 hours of sleep</strong> - Essential for recovery, muscle growth, and performance</li>
+                    <li><strong>Protein with every meal</strong> - Aim for 30g+ of protein per meal for optimal muscle protein synthesis</li>
+                    <li><strong>Daily mobility work</strong> - 10-15 minutes of stretching, foam rolling, or mobility exercises</li>
+                    <li><strong>Stay hydrated</strong> - Drink at least half your body weight (lbs) in ounces of water daily</li>
+                  </ul>
                 </div>
-                <div className="exercise-category">
-                  <h4>Arms</h4>
-                  <p>Bicep Curls, Tricep Dips, Hammer Curls, Tricep Pushdowns</p>
+
+                <div className="info-subsection">
+                  <h3>Weekly Non-Negotiables</h3>
+                  <ul className="info-list">
+                    <li><strong>Progressive overload</strong> - Increase weight, reps, or sets each week when possible</li>
+                    <li><strong>Track your workouts</strong> - Log exercises, sets, reps, and weights to monitor progress</li>
+                    <li><strong>Active recovery day</strong> - Light activity like walking, yoga, or stretching on rest days</li>
+                    <li><strong>Form over ego</strong> - Prioritize proper technique and form over lifting heavier weights</li>
+                  </ul>
                 </div>
-                <div className="exercise-category">
-                  <h4>Back</h4>
-                  <p>Pull-Ups, Bent Over Rows, Lat Pulldowns, Deadlifts</p>
-                </div>
-                <div className="exercise-category">
-                  <h4>Chest</h4>
-                  <p>Bench Press, Push-Ups, Chest Flyes, Incline Dumbbell Press</p>
+
+                <div className="info-subsection">
+                  <h3>Training Principles</h3>
+                  <ul className="info-list">
+                    <li><strong>Consistency beats intensity</strong> - Showing up consistently is more important than occasional intense sessions</li>
+                    <li><strong>Recovery is part of training</strong> - Rest days and sleep are when your body actually gets stronger</li>
+                    <li><strong>Compound movements first</strong> - Prioritize multi-joint exercises (squats, deadlifts, presses) over isolation work</li>
+                    <li><strong>Listen to your body</strong> - Adjust intensity based on how you feel, but don't skip workouts entirely</li>
+                  </ul>
                 </div>
               </div>
-            </div>
-
-            <div className="fitness-card">
-              <h3>Cardio Options</h3>
-              <ul className="fitness-list">
-                <li>Stair Master</li>
-                <li>Elliptical</li>
-                <li>Treadmill</li>
-                <li>Jump Rope</li>
-                <li>Swimming</li>
-                <li>Running (intervals or steady-state)</li>
-                <li>Cycling</li>
-                <li>Rowing</li>
-                <li>HIIT Circuits</li>
-              </ul>
-            </div>
+            )}
           </div>
         </section>
       </div>
@@ -82,4 +96,3 @@ function Fitness() {
 }
 
 export default Fitness;
-

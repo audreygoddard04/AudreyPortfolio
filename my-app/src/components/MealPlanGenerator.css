@@ -1,0 +1,254 @@
+.meal-plan-generator {
+  padding: 24px 0;
+}
+
+.meal-plan-generator h3 {
+  font-family: 'Poppins', sans-serif;
+  color: #183820;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 12px 0;
+  letter-spacing: -0.01em;
+}
+
+.tdee-section {
+  margin-bottom: 32px;
+  padding: 24px;
+  background: linear-gradient(135deg, rgba(255, 254, 251, 0.6) 0%, rgba(247, 245, 242, 0.6) 100%);
+  border: 2px solid #e6d7b9;
+  border-radius: 12px;
+}
+
+.tdee-section h4 {
+  font-family: 'Poppins', sans-serif;
+  color: #183820;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 20px 0;
+}
+
+.tdee-success {
+  margin-top: 16px;
+  padding: 12px 16px;
+  background: rgba(46, 93, 52, 0.1);
+  border-left: 3px solid #2e5d34;
+  border-radius: 4px;
+}
+
+.tdee-success p {
+  font-family: 'Inter', sans-serif;
+  color: #2e5d34;
+  font-size: 0.95rem;
+  margin: 0;
+  font-weight: 500;
+}
+
+.generator-description {
+  font-family: 'Inter', sans-serif;
+  color: #2e5d34;
+  font-size: 1rem;
+  margin: 0 0 24px 0;
+  line-height: 1.6;
+}
+
+.generator-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-family: 'Inter', sans-serif;
+  color: #183820;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.form-group input,
+.form-group select {
+  padding: 12px 16px;
+  border: 2px solid #e6d7b9;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: #183820;
+  background: #fffefb;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #b6a16b;
+  box-shadow: 0 0 0 3px rgba(182, 161, 107, 0.1);
+}
+
+.form-hint {
+  font-family: 'Inter', sans-serif;
+  color: #2e5d34;
+  font-size: 0.85rem;
+  margin-top: 6px;
+  font-style: italic;
+}
+
+.checkbox-group {
+  margin-top: 8px;
+}
+
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  background: #fffefb;
+  border: 2px solid #e6d7b9;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  color: #183820;
+}
+
+.checkbox-label:hover {
+  border-color: #b6a16b;
+  background: rgba(182, 161, 107, 0.05);
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #b6a16b;
+}
+
+.checkbox-label input[type="checkbox"]:checked + span {
+  font-weight: 600;
+  color: #183820;
+}
+
+.generate-btn {
+  padding: 14px 32px;
+  background: linear-gradient(135deg, #183820 0%, #2e5d34 100%);
+  color: #fffefb;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 8px;
+}
+
+.generate-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(24, 56, 32, 0.3);
+}
+
+.meal-plan-results {
+  margin-top: 32px;
+}
+
+.meal-plan-results h4 {
+  font-family: 'Poppins', sans-serif;
+  color: #183820;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 24px 0;
+}
+
+.meal-plan-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.day-card {
+  background: linear-gradient(135deg, rgba(255, 254, 251, 0.9) 0%, rgba(247, 245, 242, 0.9) 100%);
+  border: 2px solid #e6d7b9;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.day-card h5 {
+  font-family: 'Poppins', sans-serif;
+  color: #183820;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 16px 0;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #b6a16b;
+}
+
+.meal-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 12px;
+  padding: 10px;
+  background: #fffefb;
+  border-radius: 6px;
+  border-left: 3px solid #b6a16b;
+}
+
+.meal-item.dessert {
+  border-left-color: #d4a574;
+  background: rgba(182, 161, 107, 0.05);
+}
+
+.meal-type {
+  font-family: 'Inter', sans-serif;
+  color: #b6a16b;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.meal-name {
+  font-family: 'Inter', sans-serif;
+  color: #183820;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.meal-calories {
+  font-family: 'Inter', sans-serif;
+  color: #2e5d34;
+  font-size: 0.9rem;
+}
+
+.day-total {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 2px solid #e6d7b9;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  color: #183820;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .checkbox-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .meal-plan-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
