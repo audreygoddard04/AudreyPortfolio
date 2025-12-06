@@ -1,6 +1,6 @@
-/* Contact form container - the entire white box */
-.projects-bg .project-detail-container .main-section.project-detail-section {
-  max-width: 600px;
+/* Contact form container - the entire white box - ONLY for contact page */
+.contact-form-section {
+  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
 }

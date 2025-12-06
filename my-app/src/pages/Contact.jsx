@@ -134,7 +134,7 @@ function Contact() {
           </div>
         </header>
 
-        <section className="main-section project-detail-section">
+        <section className="main-section project-detail-section contact-form-section">
           {submitted ? (
             <div className="contact-success">
               <h2>Thank you for your inquiry!</h2>
