@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './ProjectDetail.css';
 import '../pages/Health.css';
 // Track & Field images
