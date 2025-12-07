@@ -469,24 +469,25 @@ function MealPlanGenerator({ showBrowseOnly = false, onRecipeClick }) {
   const [expandedRecipes, setExpandedRecipes] = useState({});
   const browseSectionRef = useRef(null);
 
-  // Close expanded recipe when clicking outside
+  // Close expanded recipe when clicking anywhere (except on the card header which toggles)
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (browseSectionRef.current && !browseSectionRef.current.contains(event.target)) {
-        // Check if click is not on a recipe card
-        const isRecipeCard = event.target.closest('.recipe-browse-card');
-        if (!isRecipeCard) {
-          setExpandedRecipes({});
-        }
+    const handleClickAnywhere = (event) => {
+      // Check if click is on the recipe card header (to toggle)
+      const isCardHeader = event.target.closest('.recipe-card-header');
+      
+      // If click is not on the card header, close all expanded recipes
+      // This allows clicking anywhere on the page to close
+      if (!isCardHeader) {
+        setExpandedRecipes({});
       }
     };
 
     // Only add listener if there are expanded recipes
     const hasExpanded = Object.values(expandedRecipes).some(expanded => expanded);
     if (hasExpanded) {
-      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('mousedown', handleClickAnywhere);
       return () => {
-        document.removeEventListener('mousedown', handleClickOutside);
+        document.removeEventListener('mousedown', handleClickAnywhere);
       };
     }
   }, [expandedRecipes]);
@@ -683,7 +684,10 @@ function MealPlanGenerator({ showBrowseOnly = false, onRecipeClick }) {
                       <div key={index} className={`recipe-browse-card ${isExpanded ? 'expanded' : ''}`}>
                         <div 
                           className="recipe-card-header"
-                          onClick={() => openRecipe(recipe, category, index)}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            openRecipe(recipe, category, index);
+                          }}
                         >
                           <div>
                             <h6>{recipe.name}</h6>
