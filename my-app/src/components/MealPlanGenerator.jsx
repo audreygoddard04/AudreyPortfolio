@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import TDEECalculator from './TDEECalculator';
 import RecipeModal from './RecipeModal';
 import './MealPlanGenerator.css';
@@ -466,6 +467,7 @@ function MealPlanGenerator({ showBrowseOnly = false, onRecipeClick }) {
   const [selectedRecipe, setSelectedRecipe] = useState(null);
   const [recipeSectionPosition, setRecipeSectionPosition] = useState(null);
   const [showBrowseRecipes, setShowBrowseRecipes] = useState(showBrowseOnly);
+  const [expandedCategories, setExpandedCategories] = useState({});
 
   // Helper function to get recipes by meal type for meal plan generation
   const getRecipesByMealType = () => {
@@ -604,6 +606,13 @@ function MealPlanGenerator({ showBrowseOnly = false, onRecipeClick }) {
     setRecipeSectionPosition(null);
   };
 
+  const toggleCategory = (category) => {
+    setExpandedCategories(prev => ({
+      ...prev,
+      [category]: !prev[category]
+    }));
+  };
+
   const getAllRecipesByCategory = () => {
     const all = getAllRecipes();
     return {
@@ -652,10 +661,17 @@ function MealPlanGenerator({ showBrowseOnly = false, onRecipeClick }) {
             };
             return categoryRecipes.length > 0 && (
               <div key={category} className="recipe-category-group">
-                <h5 className="recipe-category-title" data-category={category}>
-                  {categoryTitles[category] || category.charAt(0).toUpperCase() + category.slice(1)}
-                </h5>
-                <div className="recipes-browse-grid">
+                <button 
+                  className="recipe-category-title" 
+                  data-category={category}
+                  onClick={() => toggleCategory(category)}
+                >
+                  <span>{categoryTitles[category] || category.charAt(0).toUpperCase() + category.slice(1)}</span>
+                  <span className="category-chevron">
+                    {expandedCategories[category] ? <FaChevronUp /> : <FaChevronDown />}
+                  </span>
+                </button>
+                <div className={`recipes-browse-grid ${expandedCategories[category] ? 'expanded' : 'collapsed'}`}>
                   {categoryRecipes.map((recipe, index) => (
                     <div 
                       key={index} 
