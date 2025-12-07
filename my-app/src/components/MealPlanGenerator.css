@@ -336,6 +336,63 @@
   padding: 16px;
   cursor: pointer;
   transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.recipe-card-header {
+  cursor: pointer;
+}
+
+.recipe-card-expanded {
+  display: none; /* Hidden on desktop by default */
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 2px solid #e6d7b9;
+}
+
+.recipe-expanded-section {
+  margin-bottom: 20px;
+}
+
+.recipe-expanded-section:last-child {
+  margin-bottom: 0;
+}
+
+.recipe-expanded-section h4 {
+  font-family: 'Poppins', sans-serif;
+  color: #183820;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 12px 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #b6a16b;
+}
+
+.recipe-expanded-section h5 {
+  font-family: 'Poppins', sans-serif;
+  color: #b6a16b;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  text-transform: capitalize;
+}
+
+.recipe-expanded-section ul,
+.recipe-expanded-section ol {
+  margin: 0;
+  padding-left: 24px;
+}
+
+.recipe-expanded-section li {
+  font-family: 'Inter', sans-serif;
+  color: #2e5d34;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.recipe-ingredient-section {
+  margin-bottom: 16px;
 }
 
 .recipe-browse-card:hover {
@@ -362,34 +419,6 @@
   padding-bottom: 8px;
   border-bottom: 2px solid #b6a16b;
   text-transform: capitalize;
-  background: none;
-  border: none;
-  border-bottom: 2px solid #b6a16b;
-  padding: 0 0 8px 0;
-  width: 100%;
-  text-align: left;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: all 0.3s ease;
-}
-
-.recipe-category-title:hover {
-  color: #2e5d34;
-  border-bottom-color: #b6a16b;
-}
-
-.category-chevron {
-  color: #b6a16b;
-  font-size: 1rem;
-  transition: transform 0.3s ease;
-}
-
-/* On desktop, always show recipes */
-.recipes-browse-grid.collapsed,
-.recipes-browse-grid.expanded {
-  display: grid;
 }
 
 .recipe-browse-card h5,
@@ -457,21 +486,25 @@
     grid-template-columns: 1fr;
   }
 
-  /* Make recipe categories collapsible dropdowns on mobile */
-  .recipes-browse-grid {
-    display: none;
+  /* Make individual recipe cards expandable on mobile */
+  .recipe-browse-card {
+    padding: 12px;
   }
 
-  .recipes-browse-grid.expanded {
-    display: grid;
-    grid-template-columns: 1fr;
-    margin-top: 16px;
+  .recipe-browse-card.expanded .recipe-card-expanded {
+    display: block;
   }
 
-  .recipe-category-title {
-    font-size: 1.2rem;
-    padding: 12px 0;
-    margin-bottom: 0;
+  .recipe-expanded-section h4 {
+    font-size: 1.1rem;
+  }
+
+  .recipe-expanded-section h5 {
+    font-size: 0.95rem;
+  }
+
+  .recipe-expanded-section li {
+    font-size: 0.9rem;
   }
 }
 

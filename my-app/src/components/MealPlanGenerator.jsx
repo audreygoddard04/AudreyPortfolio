@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import TDEECalculator from './TDEECalculator';
 import RecipeModal from './RecipeModal';
 import './MealPlanGenerator.css';
@@ -467,7 +466,7 @@ function MealPlanGenerator({ showBrowseOnly = false, onRecipeClick }) {
   const [selectedRecipe, setSelectedRecipe] = useState(null);
   const [recipeSectionPosition, setRecipeSectionPosition] = useState(null);
   const [showBrowseRecipes, setShowBrowseRecipes] = useState(showBrowseOnly);
-  const [expandedCategories, setExpandedCategories] = useState({});
+  const [expandedRecipes, setExpandedRecipes] = useState({});
 
   // Helper function to get recipes by meal type for meal plan generation
   const getRecipesByMealType = () => {
@@ -568,7 +567,15 @@ function MealPlanGenerator({ showBrowseOnly = false, onRecipeClick }) {
     setTdeeResults({ tdee: calculatedTdee });
   };
 
-  const openRecipe = (recipe, category) => {
+  const openRecipe = (recipe, category, recipeIndex) => {
+    // On mobile, expand inline instead of opening modal
+    if (isMobile() && category) {
+      const recipeKey = `${category}-${recipeIndex}`;
+      toggleRecipe(recipeIndex, category);
+      return;
+    }
+
+    // On desktop, open modal as before
     if (onRecipeClick) {
       onRecipeClick(recipe);
     } else {
@@ -606,11 +613,16 @@ function MealPlanGenerator({ showBrowseOnly = false, onRecipeClick }) {
     setRecipeSectionPosition(null);
   };
 
-  const toggleCategory = (category) => {
-    setExpandedCategories(prev => ({
+  const toggleRecipe = (recipeIndex, category) => {
+    const recipeKey = `${category}-${recipeIndex}`;
+    setExpandedRecipes(prev => ({
       ...prev,
-      [category]: !prev[category]
+      [recipeKey]: !prev[recipeKey]
     }));
+  };
+
+  const isMobile = () => {
+    return window.innerWidth <= 768;
   };
 
   const getAllRecipesByCategory = () => {
@@ -661,34 +673,66 @@ function MealPlanGenerator({ showBrowseOnly = false, onRecipeClick }) {
             };
             return categoryRecipes.length > 0 && (
               <div key={category} className="recipe-category-group">
-                <button 
-                  className="recipe-category-title" 
-                  data-category={category}
-                  onClick={() => toggleCategory(category)}
-                >
-                  <span>{categoryTitles[category] || category.charAt(0).toUpperCase() + category.slice(1)}</span>
-                  <span className="category-chevron">
-                    {expandedCategories[category] ? <FaChevronUp /> : <FaChevronDown />}
-                  </span>
-                </button>
-                <div className={`recipes-browse-grid ${expandedCategories[category] ? 'expanded' : 'collapsed'}`}>
-                  {categoryRecipes.map((recipe, index) => (
-                    <div 
-                      key={index} 
-                      className="recipe-browse-card"
-                      onClick={() => openRecipe(recipe, category)}
-                    >
-                      <h6>{recipe.name}</h6>
-                      <p className="recipe-calories">{recipe.calories} cal</p>
-                      {recipe.dietaryRestrictions && recipe.dietaryRestrictions.length > 0 && (
-                        <div className="recipe-tags">
-                          {recipe.dietaryRestrictions.map((tag, i) => (
-                            <span key={i} className="recipe-tag">{tag}</span>
-                          ))}
+                <h5 className="recipe-category-title" data-category={category}>
+                  {categoryTitles[category] || category.charAt(0).toUpperCase() + category.slice(1)}
+                </h5>
+                <div className="recipes-browse-grid">
+                  {categoryRecipes.map((recipe, index) => {
+                    const recipeKey = `${category}-${index}`;
+                    const isExpanded = expandedRecipes[recipeKey];
+                    
+                    return (
+                      <div key={index} className={`recipe-browse-card ${isExpanded ? 'expanded' : ''}`}>
+                        <div 
+                          className="recipe-card-header"
+                          onClick={() => openRecipe(recipe, category, index)}
+                        >
+                          <div>
+                            <h6>{recipe.name}</h6>
+                            <p className="recipe-calories">{recipe.calories} cal</p>
+                            {recipe.dietaryRestrictions && recipe.dietaryRestrictions.length > 0 && (
+                              <div className="recipe-tags">
+                                {recipe.dietaryRestrictions.map((tag, i) => (
+                                  <span key={i} className="recipe-tag">{tag}</span>
+                                ))}
+                              </div>
+                            )}
+                          </div>
                         </div>
-                      )}
-                    </div>
-                  ))}
+                        {isExpanded && (
+                          <div className="recipe-card-expanded">
+                            {recipe.ingredients && (
+                              <div className="recipe-expanded-section">
+                                <h4>Ingredients</h4>
+                                {Object.entries(recipe.ingredients).map(([section, items]) => (
+                                  <div key={section} className="recipe-ingredient-section">
+                                    <h5>{section.charAt(0).toUpperCase() + section.slice(1).replace(/([A-Z])/g, ' $1')}</h5>
+                                    <ul>
+                                      {Array.isArray(items) ? items.map((item, i) => (
+                                        <li key={i}>{item}</li>
+                                      )) : (
+                                        <li>{items}</li>
+                                      )}
+                                    </ul>
+                                  </div>
+                                ))}
+                              </div>
+                            )}
+                            {recipe.directions && (
+                              <div className="recipe-expanded-section">
+                                <h4>Directions</h4>
+                                <ol>
+                                  {recipe.directions.map((step, i) => (
+                                    <li key={i}>{step}</li>
+                                  ))}
+                                </ol>
+                              </div>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             );
