@@ -258,8 +258,7 @@
 
   .recipe-modal-content.positioned {
     position: fixed;
-    max-width: calc(100vw - 40px) !important;
-    width: calc(100vw - 40px) !important;
+    box-sizing: border-box;
   }
 
   .recipe-modal-header {
@@ -327,8 +326,7 @@
 
   .recipe-modal-content.positioned {
     position: fixed;
-    max-width: calc(100vw - 40px) !important;
-    width: calc(100vw - 40px) !important;
+    box-sizing: border-box;
   }
 
   .recipe-modal-header {
