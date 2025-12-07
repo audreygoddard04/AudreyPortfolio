@@ -1171,6 +1171,15 @@
   border-color: #b6a16b;
 }
 
+/* Disable hover effects on CTA cards when recipe modal is open */
+body:has(.recipe-modal-overlay) .cta-card:hover,
+body:has(.recipe-modal-overlay) .cta-section:hover,
+body:has(.recipe-modal-overlay) .cta-section.has-expanded:hover {
+  transform: none !important;
+  box-shadow: 0 4px 16px rgba(24, 56, 32, 0.08) !important;
+  border-color: #e6d7b9 !important;
+}
+
 .cta-section.has-expanded .cta-card.expanded {
   border: none;
   background: transparent;
