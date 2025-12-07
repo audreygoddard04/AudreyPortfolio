@@ -373,6 +373,7 @@
   max-height: 70vh;
   overflow-y: auto;
   box-sizing: border-box;
+  transition: all 0.3s ease;
 }
 
 .recipe-browse-card.expanded .recipe-card-expanded {
@@ -437,11 +438,13 @@
   box-shadow: 0 6px 20px rgba(182, 161, 107, 0.2);
   border-color: #b6a16b;
   background: #faf8f3;
+  transition: all 0.3s ease;
 }
 
 .recipe-browse-card:hover .recipe-card-expanded {
   border-color: #b6a16b;
   background: #faf8f3;
+  transition: all 0.3s ease;
 }
 
 
