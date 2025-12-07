@@ -344,6 +344,13 @@
   border-color: #b6a16b;
 }
 
+/* Disable hover effects on recipe cards when meal plan section is expanded */
+.cta-section.has-expanded .recipe-browse-card:hover {
+  transform: none !important;
+  box-shadow: none !important;
+  border-color: #e6d7b9 !important;
+}
+
 
 .recipe-category-group {
   margin-bottom: 32px;

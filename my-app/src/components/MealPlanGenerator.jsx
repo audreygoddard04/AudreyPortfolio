@@ -625,7 +625,7 @@ function MealPlanGenerator({ showBrowseOnly = false, onRecipeClick }) {
               className="browse-recipes-btn" 
               onClick={() => setShowBrowseRecipes(!showBrowseRecipes)}
             >
-              Browse All Recipes
+              {showBrowseRecipes ? 'Hide All Recipes' : 'Browse All Recipes'}
             </button>
           </div>
         </>
