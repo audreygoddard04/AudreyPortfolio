@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import TDEECalculator from './TDEECalculator';
 import RecipeModal from './RecipeModal';
 import './MealPlanGenerator.css';
@@ -467,6 +467,29 @@ function MealPlanGenerator({ showBrowseOnly = false, onRecipeClick }) {
   const [recipeSectionPosition, setRecipeSectionPosition] = useState(null);
   const [showBrowseRecipes, setShowBrowseRecipes] = useState(showBrowseOnly);
   const [expandedRecipes, setExpandedRecipes] = useState({});
+  const browseSectionRef = useRef(null);
+
+  // Close expanded recipe when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (browseSectionRef.current && !browseSectionRef.current.contains(event.target)) {
+        // Check if click is not on a recipe card
+        const isRecipeCard = event.target.closest('.recipe-browse-card');
+        if (!isRecipeCard) {
+          setExpandedRecipes({});
+        }
+      }
+    };
+
+    // Only add listener if there are expanded recipes
+    const hasExpanded = Object.values(expandedRecipes).some(expanded => expanded);
+    if (hasExpanded) {
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside);
+      };
+    }
+  }, [expandedRecipes]);
 
   // Helper function to get recipes by meal type for meal plan generation
   const getRecipesByMealType = () => {
@@ -637,7 +660,7 @@ function MealPlanGenerator({ showBrowseOnly = false, onRecipeClick }) {
       )}
 
       {(showBrowseRecipes || showBrowseOnly) && (
-        <div className="browse-recipes-section">
+        <div className="browse-recipes-section" ref={browseSectionRef}>
           <h4>All Recipes</h4>
           {Object.entries(getAllRecipesByCategory()).map(([category, categoryRecipes]) => {
             const categoryTitles = {
