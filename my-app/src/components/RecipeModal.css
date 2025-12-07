@@ -28,8 +28,6 @@
 
 .recipe-modal-content.positioned {
   position: fixed;
-  max-width: 700px;
-  width: calc(100vw - 40px);
   margin: 0;
 }
 
@@ -258,9 +256,9 @@
   }
 
   .recipe-modal-content.positioned {
-    position: absolute;
-    max-width: calc(100% - 20px);
-    width: calc(100% - 20px);
+    position: fixed;
+    max-width: calc(100vw - 40px) !important;
+    width: calc(100vw - 40px) !important;
   }
 
   .recipe-modal-header {
@@ -327,9 +325,9 @@
   }
 
   .recipe-modal-content.positioned {
-    position: absolute;
-    max-width: calc(100% - 20px);
-    width: calc(100% - 20px);
+    position: fixed;
+    max-width: calc(100vw - 40px) !important;
+    width: calc(100vw - 40px) !important;
   }
 
   .recipe-modal-header {

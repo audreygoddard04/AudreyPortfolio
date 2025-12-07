@@ -577,10 +577,16 @@ function MealPlanGenerator({ showBrowseOnly = false, onRecipeClick }) {
           const rect = sectionTitle.getBoundingClientRect();
           const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
           
+          // Find the parent cta-section to get its width
+          const ctaSection = sectionTitle.closest('.cta-section');
+          const ctaRect = ctaSection ? ctaSection.getBoundingClientRect() : null;
+          const cardWidth = ctaRect ? ctaRect.width : null;
+          
           // Position modal very high - well above the category title
           setRecipeSectionPosition({
             top: rect.top + scrollTop - 250, // Position very high above subtitle
-            left: 0 // Will be centered using transform: translateX(-50%)
+            left: 0, // Will be centered using transform: translateX(-50%)
+            cardWidth: cardWidth // Pass card width to constrain modal
           });
         } else {
           setRecipeSectionPosition(null); // Center if section not found
