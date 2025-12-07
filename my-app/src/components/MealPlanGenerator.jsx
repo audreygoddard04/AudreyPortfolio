@@ -467,27 +467,6 @@ function MealPlanGenerator({ showBrowseOnly = false, onRecipeClick }) {
   const [recipeSectionPosition, setRecipeSectionPosition] = useState(null);
   const [showBrowseRecipes, setShowBrowseRecipes] = useState(showBrowseOnly);
 
-  const proteins = [
-    'Chicken', 'Salmon', 'White fish', 'Shrimp', 'Lean ground turkey',
-    'Lean ground beef', 'Steak', 'Turkey/chicken bacon', 'Eggs', 'Cottage cheese'
-  ];
-
-  const vegetables = [
-    'Spinach', 'Kale', 'Broccoli', 'Cauliflower', 'Brussels sprouts',
-    'Zucchini', 'Bell peppers', 'Carrots', 'Cucumber', 'Tomatoes',
-    'Mushrooms', 'Asparagus', 'Green beans', 'Cabbage', 'Avocado'
-  ];
-
-  const dietaryRestrictionOptions = [
-    'Vegetarian',
-    'Vegan',
-    'Gluten-free',
-    'Dairy-free',
-    'Nut-free',
-    'Keto',
-    'Paleo'
-  ];
-
   // Helper function to get recipes by meal type for meal plan generation
   const getRecipesByMealType = () => {
     const all = getAllRecipes();
@@ -510,61 +489,6 @@ function MealPlanGenerator({ showBrowseOnly = false, onRecipeClick }) {
 
   const recipes = getRecipesByMealType();
 
-  const handleProteinChange = (protein) => {
-    setFormData(prev => ({
-      ...prev,
-      preferredProtein: prev.preferredProtein.includes(protein)
-        ? prev.preferredProtein.filter(p => p !== protein)
-        : [...prev.preferredProtein, protein]
-    }));
-  };
-
-  const handleVegetableChange = (vegetable) => {
-    setFormData(prev => ({
-      ...prev,
-      preferredVegetables: prev.preferredVegetables.includes(vegetable)
-        ? prev.preferredVegetables.filter(v => v !== vegetable)
-        : [...prev.preferredVegetables, vegetable]
-    }));
-  };
-
-  const handleDietaryRestrictionChange = (restriction) => {
-    setFormData(prev => ({
-      ...prev,
-      dietaryRestrictions: prev.dietaryRestrictions.includes(restriction)
-        ? prev.dietaryRestrictions.filter(r => r !== restriction)
-        : [...prev.dietaryRestrictions, restriction]
-    }));
-  };
-
-  const checkDietaryRestrictions = (recipe) => {
-    if (formData.dietaryRestrictions.length === 0) return true;
-    
-    const recipeRestrictions = recipe.dietaryRestrictions || [];
-    
-    // Check if recipe matches all selected restrictions
-    return formData.dietaryRestrictions.every(restriction => {
-      const restrictionLower = restriction.toLowerCase();
-      
-      // Special handling for vegetarian/vegan
-      if (restrictionLower === 'vegetarian' || restrictionLower === 'vegan') {
-        const hasMeat = ['chicken', 'salmon', 'white fish', 'shrimp', 'turkey', 'beef', 'steak', 'pork', 'tuna'].some(meat => 
-          recipe.protein && recipe.protein.toLowerCase().includes(meat)
-        );
-        if (hasMeat) return false;
-        if (restrictionLower === 'vegan') {
-          const hasDairy = ['cottage cheese', 'greek yogurt', 'milk', 'yogurt', 'butter', 'cheese'].some(dairy =>
-            JSON.stringify(recipe.ingredients).toLowerCase().includes(dairy)
-          );
-          return !hasDairy;
-        }
-      }
-      
-      // Check if recipe has the restriction tag
-      return recipeRestrictions.some(r => r.toLowerCase() === restrictionLower);
-    });
-  };
-
   const generateMealPlan = () => {
     if (!formData.tdee) {
       alert('Please calculate your TDEE first');
@@ -575,29 +499,9 @@ function MealPlanGenerator({ showBrowseOnly = false, onRecipeClick }) {
     const sweetTreatsCount = parseInt(formData.sweetTreatsPerWeek || '2');
     const dailyCalories = tdee;
 
-    // Filter recipes based on preferences and dietary restrictions
+    // Filter recipes - since form fields were removed, show all recipes
     const filterRecipes = (recipeList) => {
-      return recipeList.filter(recipe => {
-        // Check dietary restrictions first
-        if (formData.dietaryRestrictions.length > 0 && !checkDietaryRestrictions(recipe)) return false;
-        
-        // If no preferences selected, show all recipes
-        if (formData.preferredProtein.length === 0 && formData.preferredVegetables.length === 0) {
-          return true;
-        }
-        
-        const hasPreferredProtein = !recipe.protein || recipe.protein === '' ||
-          formData.preferredProtein.length === 0 ||
-          formData.preferredProtein.some(p => {
-            const recipeProtein = recipe.protein.toLowerCase();
-            const preferredProtein = p.toLowerCase();
-            return recipeProtein.includes(preferredProtein) || preferredProtein.includes(recipeProtein);
-          });
-        const hasPreferredVeggies = recipe.vegetables.length === 0 ||
-          formData.preferredVegetables.length === 0 ||
-          recipe.vegetables.some(v => formData.preferredVegetables.includes(v));
-        return hasPreferredProtein && hasPreferredVeggies;
-      });
+      return recipeList;
     };
 
     let breakfastOptions = filterRecipes(recipes.breakfast);
