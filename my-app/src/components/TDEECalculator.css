@@ -103,6 +103,10 @@
   cursor: pointer;
   transition: all 0.3s ease;
   margin-top: 8px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .calculate-btn:not(.disabled) {

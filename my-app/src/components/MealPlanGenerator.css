@@ -67,6 +67,8 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+  margin-top: 24px;
+  margin-bottom: 24px;
 }
 
 .form-group {
@@ -165,17 +167,21 @@
 
 .generate-btn {
   width: 100%;
-  padding: 16px 32px;
+  padding: 14px 32px;
   background: linear-gradient(135deg, #183820 0%, #2e5d34 100%);
   color: #fffefb;
   border: none;
   border-radius: 8px;
   font-family: 'Poppins', sans-serif;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
   margin-top: 24px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .generate-btn:hover {
@@ -278,7 +284,7 @@
 }
 
 .browse-recipes-btn {
-  padding: 10px 20px;
+  padding: 12px 24px;
   background: #e6d7b9;
   color: #183820;
   border: 2px solid #e6d7b9;
@@ -290,6 +296,10 @@
   transition: all 0.3s ease;
   white-space: nowrap;
   flex-shrink: 0;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .browse-recipes-btn:hover {
