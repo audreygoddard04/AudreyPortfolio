@@ -56,8 +56,8 @@ function Nutrition() {
             )}
           </div>
 
-          <div className="cta-section">
-            <button className="cta-card" onClick={() => toggleSection('groceries')}>
+          <div className={`cta-section ${expandedSections.groceries ? 'has-expanded' : ''}`}>
+            <button className={`cta-card ${expandedSections.groceries ? 'expanded' : ''}`} onClick={() => toggleSection('groceries')}>
               <div className="cta-content">
                 <h2>Check Out My Grocery Staples</h2>
                 <p>Essential items for a well-stocked kitchen</p>
@@ -148,8 +148,8 @@ function Nutrition() {
             )}
           </div>
 
-          <div className="cta-section">
-            <button className="cta-card" onClick={() => toggleSection('hacks')}>
+          <div className={`cta-section ${expandedSections.hacks ? 'has-expanded' : ''}`}>
+            <button className={`cta-card ${expandedSections.hacks ? 'expanded' : ''}`} onClick={() => toggleSection('hacks')}>
               <div className="cta-content">
                 <h2>Nutrition Hacks</h2>
                 <p>Quick tips, what to include, and what to avoid for optimal nutrition</p>
@@ -201,8 +201,8 @@ function Nutrition() {
             )}
           </div>
 
-          <div className="cta-section">
-            <button className="cta-card" onClick={() => toggleSection('fasting')}>
+          <div className={`cta-section ${expandedSections.fasting ? 'has-expanded' : ''}`}>
+            <button className={`cta-card ${expandedSections.fasting ? 'expanded' : ''}`} onClick={() => toggleSection('fasting')}>
               <div className="cta-content">
                 <h2>Fasting Protocols</h2>
                 <p>Different fasting methods and their benefits</p>
@@ -262,8 +262,8 @@ function Nutrition() {
             )}
           </div>
 
-          <div className="cta-section">
-            <button className="cta-card" onClick={() => toggleSection('vitamins')}>
+          <div className={`cta-section ${expandedSections.vitamins ? 'has-expanded' : ''}`}>
+            <button className={`cta-card ${expandedSections.vitamins ? 'expanded' : ''}`} onClick={() => toggleSection('vitamins')}>
               <div className="cta-content">
                 <h2>Vitamins & Antioxidants</h2>
                 <p>Essential vitamins, their functions, and dietary sources</p>
@@ -362,8 +362,8 @@ function Nutrition() {
             )}
           </div>
 
-          <div className="cta-section">
-            <button className="cta-card" onClick={() => toggleSection('browseRecipes')}>
+          <div className={`cta-section ${expandedSections.browseRecipes ? 'has-expanded' : ''}`}>
+            <button className={`cta-card ${expandedSections.browseRecipes ? 'expanded' : ''}`} onClick={() => toggleSection('browseRecipes')}>
               <div className="cta-content">
                 <h2>Browse All Recipes</h2>
                 <p>View all available recipes with full ingredients and directions</p>
