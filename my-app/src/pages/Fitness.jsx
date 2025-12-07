@@ -31,8 +31,8 @@ function Fitness() {
         </header>
 
         <section className="main-section project-detail-section">
-          <div className="cta-section">
-            <button className="cta-card" onClick={() => toggleSection('fitnessPlan')}>
+          <div className={`cta-section ${expandedSections.fitnessPlan ? 'has-expanded' : ''}`}>
+            <button className={`cta-card ${expandedSections.fitnessPlan ? 'expanded' : ''}`} onClick={() => toggleSection('fitnessPlan')}>
               <div className="cta-content">
                 <h2>Make Your Custom Fitness Plan</h2>
                 <p>Get a personalized workout plan tailored to your goals, schedule, and equipment</p>
@@ -46,8 +46,8 @@ function Fitness() {
             )}
           </div>
 
-          <div className="cta-section">
-            <button className="cta-card" onClick={() => toggleSection('nonNegotiables')}>
+          <div className={`cta-section ${expandedSections.nonNegotiables ? 'has-expanded' : ''}`}>
+            <button className={`cta-card ${expandedSections.nonNegotiables ? 'expanded' : ''}`} onClick={() => toggleSection('nonNegotiables')}>
               <div className="cta-content">
                 <h2>My Non-Negotiables</h2>
                 <p>Essential daily habits and principles for consistent progress</p>
