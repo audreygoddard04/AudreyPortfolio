@@ -396,23 +396,4 @@
   }
 }
 
-/* Disable ALL hover effects when recipe modal is open */
-body:has(.recipe-modal-overlay) *:hover {
-  transform: none !important;
-  box-shadow: none !important;
-  opacity: 1 !important;
-  background-color: inherit !important;
-  color: inherit !important;
-  border-color: inherit !important;
-}
-
-body:has(.recipe-modal-overlay) button:hover,
-body:has(.recipe-modal-overlay) .recipe-browse-card:hover,
-body:has(.recipe-modal-overlay) .browse-recipes-btn:hover {
-  transform: none !important;
-  box-shadow: none !important;
-  border-color: inherit !important;
-  background: inherit !important;
-  color: inherit !important;
-}
 

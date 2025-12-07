@@ -344,13 +344,6 @@
   border-color: #b6a16b;
 }
 
-/* Disable all hover effects when recipe modal is open */
-body:has(.recipe-modal-overlay) .recipe-browse-card:hover,
-body:has(.recipe-modal-overlay) .browse-recipes-btn:hover {
-  transform: none !important;
-  box-shadow: none !important;
-  border-color: #e6d7b9 !important;
-}
 
 .recipe-category-group {
   margin-bottom: 32px;
