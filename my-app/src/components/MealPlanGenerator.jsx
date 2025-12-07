@@ -568,42 +568,17 @@ function MealPlanGenerator({ showBrowseOnly = false, onRecipeClick }) {
   };
 
   const openRecipe = (recipe, category, recipeIndex) => {
-    // On mobile, expand inline instead of opening modal
-    if (isMobile() && category) {
-      const recipeKey = `${category}-${recipeIndex}`;
+    // Always expand inline for recipe cards (not meal plan recipes)
+    if (category !== undefined && recipeIndex !== undefined) {
       toggleRecipe(recipeIndex, category);
       return;
     }
 
-    // On desktop, open modal as before
+    // For meal plan recipes (no category), open modal
     if (onRecipeClick) {
       onRecipeClick(recipe);
     } else {
-      // If category is provided, position modal at the same height as the category title
-      if (category) {
-        const sectionTitle = document.querySelector(`[data-category="${category}"]`);
-        if (sectionTitle) {
-          const rect = sectionTitle.getBoundingClientRect();
-          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-          
-          // Find the parent cta-section to get its width
-          const ctaSection = sectionTitle.closest('.cta-section');
-          const ctaRect = ctaSection ? ctaSection.getBoundingClientRect() : null;
-          const cardWidth = ctaRect ? ctaRect.width : null;
-          
-          // Position modal very high - well above the category title
-          setRecipeSectionPosition({
-            top: rect.top + scrollTop - 250, // Position very high above subtitle
-            left: 0, // Will be centered using transform: translateX(-50%)
-            cardWidth: cardWidth // Pass card width to constrain modal
-          });
-        } else {
-          setRecipeSectionPosition(null); // Center if section not found
-        }
-      } else {
-        // No category (meal plan recipes) - open in center
-        setRecipeSectionPosition(null);
-      }
+      setRecipeSectionPosition(null);
       setSelectedRecipe(recipe);
     }
   };
@@ -619,10 +594,6 @@ function MealPlanGenerator({ showBrowseOnly = false, onRecipeClick }) {
       ...prev,
       [recipeKey]: !prev[recipeKey]
     }));
-  };
-
-  const isMobile = () => {
-    return window.innerWidth <= 768;
   };
 
   const getAllRecipesByCategory = () => {

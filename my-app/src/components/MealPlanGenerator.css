@@ -344,10 +344,14 @@
 }
 
 .recipe-card-expanded {
-  display: none; /* Hidden on desktop by default */
+  display: none; /* Hidden by default, shown when expanded */
   margin-top: 16px;
   padding-top: 16px;
   border-top: 2px solid #e6d7b9;
+}
+
+.recipe-browse-card.expanded .recipe-card-expanded {
+  display: block;
 }
 
 .recipe-expanded-section {
