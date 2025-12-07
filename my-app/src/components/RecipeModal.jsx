@@ -11,21 +11,14 @@ function RecipeModal({ recipe, onClose, position }) {
       const originalOverflow = document.body.style.overflow;
       document.body.style.overflow = 'hidden';
       
-      // If positioned, scroll to show the modal in the section
-      if (position && overlayRef.current && contentRef.current) {
-        setTimeout(() => {
-          const modalHeight = contentRef.current.offsetHeight;
-          const scrollPosition = position.top - (window.innerHeight / 2) + (modalHeight / 2);
-          overlayRef.current.scrollTop = Math.max(0, scrollPosition);
-        }, 10);
-      }
+      // Lock position - don't recalculate or scroll
       
       return () => {
         // Restore scroll when modal closes
         document.body.style.overflow = originalOverflow;
       };
     }
-  }, [recipe, position]);
+  }, [recipe]);
 
   if (!recipe) return null;
 

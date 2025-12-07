@@ -577,9 +577,9 @@ function MealPlanGenerator({ showBrowseOnly = false, onRecipeClick }) {
           const rect = sectionTitle.getBoundingClientRect();
           const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
           
-          // Position modal right at the category title
+          // Position modal even higher - above the category title
           setRecipeSectionPosition({
-            top: rect.top + scrollTop, // Position at the same height as subtitle
+            top: rect.top + scrollTop - 10, // Position even higher, slightly above subtitle
             left: 0 // Will be centered using transform: translateX(-50%)
           });
         } else {
