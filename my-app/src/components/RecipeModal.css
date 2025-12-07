@@ -29,6 +29,7 @@
 .recipe-modal-content.positioned {
   position: fixed;
   margin: 0;
+  box-sizing: border-box;
 }
 
 

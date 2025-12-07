@@ -47,8 +47,8 @@ function RecipeModal({ recipe, onClose, position }) {
     left: '50%',
     transform: 'translateX(-50%)',
     margin: 0,
-    width: position.cardWidth ? `${Math.min(position.cardWidth - 40, 700)}px` : 'calc(100vw - 40px)',
-    maxWidth: position.cardWidth ? `${position.cardWidth - 40}px` : '700px'
+    width: position.cardWidth ? `${Math.min(position.cardWidth - 48, 700)}px` : 'calc(100vw - 40px)',
+    maxWidth: position.cardWidth ? `${Math.min(position.cardWidth - 48, 700)}px` : '700px'
   } : {};
 
   return (
