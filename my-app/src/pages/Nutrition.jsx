@@ -122,7 +122,7 @@ function Nutrition() {
                     <li>Milk</li>
                     <li>Chocolate milk</li>
                   </ul>
-                </div>
+        </div>
 
                 <div className="info-subsection">
                   <h3>Pantry</h3>
@@ -158,87 +158,87 @@ function Nutrition() {
             </button>
             {expandedSections.hacks && (
               <div className="cta-expanded-content">
-                <div className="nutrition-hacks-container">
-                  <div className="hacks-grid">
-                    <div className="hack-card">
-                      <h4>Craving Control</h4>
-                      <ul>
-                        <li>Craving salty? You might be dehydrated. Drink water first.</li>
-                        <li>Craving sugar? Eat protein to stabilize blood sugar.</li>
-                        <li>Nighttime hunger? Test with a healthy snack. If you won't eat it, you're not truly hungry.</li>
-                        <li>Boiled egg test: "Would I eat a boiled egg right now?" If not, you're likely just bored or stressed.</li>
-                        <li>Avoid artificial sweeteners if they trigger cravings.</li>
-                        <li>Brush your teeth after dinner to signal the end of eating.</li>
-                      </ul>
-                    </div>
+          <div className="nutrition-hacks-container">
+            <div className="hacks-grid">
+              <div className="hack-card">
+                <h4>Craving Control</h4>
+                <ul>
+                  <li>Craving salty? You might be dehydrated. Drink water first.</li>
+                  <li>Craving sugar? Eat protein to stabilize blood sugar.</li>
+                  <li>Nighttime hunger? Test with a healthy snack. If you won't eat it, you're not truly hungry.</li>
+                  <li>Boiled egg test: "Would I eat a boiled egg right now?" If not, you're likely just bored or stressed.</li>
+                  <li>Avoid artificial sweeteners if they trigger cravings.</li>
+                  <li>Brush your teeth after dinner to signal the end of eating.</li>
+                </ul>
+              </div>
 
-                    <div className="hack-card">
-                      <h4>Smart Eating Habits</h4>
-                      <ul>
-                        <li>Eat slowly and mindfully—it takes ~20 minutes for satiety hormones to work.</li>
-                        <li>Use smaller plates to naturally control portion size.</li>
-                        <li>Don't drink your calories—liquid calories don't trigger fullness the same way.</li>
-                        <li>Say no at the store—avoiding junk at purchase is easier than resisting daily.</li>
-                        <li>Keep tempting foods out of sight—out of sight = out of mind.</li>
-                        <li>Always plate your snacks—eating from the bag encourages overeating.</li>
-                      </ul>
-                    </div>
+              <div className="hack-card">
+                <h4>Smart Eating Habits</h4>
+                <ul>
+                  <li>Eat slowly and mindfully—it takes ~20 minutes for satiety hormones to work.</li>
+                  <li>Use smaller plates to naturally control portion size.</li>
+                  <li>Don't drink your calories—liquid calories don't trigger fullness the same way.</li>
+                  <li>Say no at the store—avoiding junk at purchase is easier than resisting daily.</li>
+                  <li>Keep tempting foods out of sight—out of sight = out of mind.</li>
+                  <li>Always plate your snacks—eating from the bag encourages overeating.</li>
+                </ul>
+              </div>
 
-                    <div className="hack-card">
-                      <h4>Macronutrient Strategies</h4>
-                      <ul>
-                        <li>Eat 1g of protein per lb of body weight per day (especially if training).</li>
-                        <li>Front-load protein early in the day to reduce cravings later.</li>
-                        <li>Pair carbs with protein or fat to blunt blood sugar spikes.</li>
-                        <li>Limit refined sugars to stabilize mood and energy.</li>
-                        <li>Limit simple carbs—especially ultra-processed, low-fiber versions.</li>
-                        <li>Aim for fiber with every meal for gut health and satiety.</li>
-                        <li>Prioritize whole foods over macros—quality matters more.</li>
-                      </ul>
-                    </div>
+              <div className="hack-card">
+                <h4>Macronutrient Strategies</h4>
+                <ul>
+                  <li>Eat 1g of protein per lb of body weight per day (especially if training).</li>
+                  <li>Front-load protein early in the day to reduce cravings later.</li>
+                  <li>Pair carbs with protein or fat to blunt blood sugar spikes.</li>
+                  <li>Limit refined sugars to stabilize mood and energy.</li>
+                  <li>Limit simple carbs—especially ultra-processed, low-fiber versions.</li>
+                  <li>Aim for fiber with every meal for gut health and satiety.</li>
+                  <li>Prioritize whole foods over macros—quality matters more.</li>
+                </ul>
+              </div>
 
-                    <div className="hack-card">
-                      <h4>Meal Planning & Timing</h4>
-                      <ul>
-                        <li>Meal prep weekly to avoid decision fatigue.</li>
-                        <li>Don't skip meals—leads to blood sugar crashes and binge eating.</li>
-                        <li>Eat within 60–90 minutes of waking up to jump-start metabolism.</li>
-                        <li>Try time-restricted eating (e.g. 8–12 hr eating window) if it fits your schedule.</li>
-                        <li>Prep high-protein snacks ahead of time (hard-boiled eggs, Greek yogurt, cottage cheese, trail mix).</li>
-                      </ul>
-                    </div>
+              <div className="hack-card">
+                <h4>Meal Planning & Timing</h4>
+                <ul>
+                  <li>Meal prep weekly to avoid decision fatigue.</li>
+                  <li>Don't skip meals—leads to blood sugar crashes and binge eating.</li>
+                  <li>Eat within 60–90 minutes of waking up to jump-start metabolism.</li>
+                  <li>Try time-restricted eating (e.g. 8–12 hr eating window) if it fits your schedule.</li>
+                  <li>Prep high-protein snacks ahead of time (hard-boiled eggs, Greek yogurt, cottage cheese, trail mix).</li>
+                </ul>
+              </div>
 
-                    <div className="hack-card">
-                      <h4>Psychology & Behavior</h4>
-                      <ul>
-                        <li>Don't moralize food—one indulgence doesn't "ruin" your day.</li>
-                        <li>Use "if/then" planning: If I crave sweets, then I'll go for a walk or drink water.</li>
-                        <li>Associate healthy food with a reward (nice music, presentation, enjoyable environment).</li>
-                        <li>Avoid all-or-nothing thinking—aim for consistency, not perfection.</li>
-                        <li>Change your identity first: Think "I'm a healthy person" rather than "I'm trying to be healthy."</li>
-                      </ul>
-                    </div>
+              <div className="hack-card">
+                <h4>Psychology & Behavior</h4>
+                <ul>
+                  <li>Don't moralize food—one indulgence doesn't "ruin" your day.</li>
+                  <li>Use "if/then" planning: If I crave sweets, then I'll go for a walk or drink water.</li>
+                  <li>Associate healthy food with a reward (nice music, presentation, enjoyable environment).</li>
+                  <li>Avoid all-or-nothing thinking—aim for consistency, not perfection.</li>
+                  <li>Change your identity first: Think "I'm a healthy person" rather than "I'm trying to be healthy."</li>
+                </ul>
+              </div>
 
-                    <div className="hack-card">
-                      <h4>Gut & Digestion</h4>
-                      <ul>
-                        <li>Chew your food thoroughly to aid digestion and prevent bloating.</li>
-                        <li>Eat fermented foods (yogurt, kimchi, sauerkraut) to support gut bacteria.</li>
-                        <li>Stay hydrated throughout the day—water supports digestion and hunger regulation.</li>
-                        <li>Avoid lying down after eating to prevent acid reflux.</li>
-                        <li>Start meals with greens or vinegar-based foods to help with glycemic control.</li>
-                      </ul>
-                    </div>
+              <div className="hack-card">
+                <h4>Gut & Digestion</h4>
+                <ul>
+                  <li>Chew your food thoroughly to aid digestion and prevent bloating.</li>
+                  <li>Eat fermented foods (yogurt, kimchi, sauerkraut) to support gut bacteria.</li>
+                  <li>Stay hydrated throughout the day—water supports digestion and hunger regulation.</li>
+                  <li>Avoid lying down after eating to prevent acid reflux.</li>
+                  <li>Start meals with greens or vinegar-based foods to help with glycemic control.</li>
+                </ul>
+              </div>
 
-                    <div className="hack-card">
-                      <h4>Sleep, Stress & Hormones</h4>
-                      <ul>
-                        <li>Sleep at least 7–8 hours—poor sleep increases ghrelin (hunger hormone) and cravings.</li>
-                        <li>Manage stress proactively—chronic stress elevates cortisol, which increases fat storage.</li>
-                        <li>Caffeine curfew—cut off caffeine ~6–8 hours before bed to protect sleep quality.</li>
-                      </ul>
-                    </div>
-                  </div>
+              <div className="hack-card">
+                <h4>Sleep, Stress & Hormones</h4>
+                <ul>
+                  <li>Sleep at least 7–8 hours—poor sleep increases ghrelin (hunger hormone) and cravings.</li>
+                  <li>Manage stress proactively—chronic stress elevates cortisol, which increases fat storage.</li>
+                  <li>Caffeine curfew—cut off caffeine ~6–8 hours before bed to protect sleep quality.</li>
+                </ul>
+              </div>
+            </div>
                 </div>
               </div>
             )}
@@ -255,56 +255,56 @@ function Nutrition() {
             {expandedSections.fasting && (
               <div className="cta-expanded-content">
                 <div className="fasting-container">
-                  <div className="fasting-grid">
-                    <div className="fasting-card">
-                      <h4 className="fasting-title">Intermittent Fasting</h4>
-                      <div className="fasting-content">
-                        <p><strong>Duration:</strong> 12-16 hours</p>
-                        <p><strong>Benefits:</strong> Helps you lose weight, decreases brain fog, increases energy</p>
-                      </div>
-                    </div>
-                    
-                    <div className="fasting-card">
-                      <h4 className="fasting-title">Autophagy Fasting</h4>
-                      <div className="fasting-content">
-                        <p><strong>Duration:</strong> 17-72 hours</p>
-                        <p><strong>Benefits:</strong> Helps detox, improve brain function and cognition, prevents colds, and balances sex hormones</p>
-                      </div>
-                    </div>
-                    
-                    <div className="fasting-card">
-                      <h4 className="fasting-title">Gut-Reset Fasting</h4>
-                      <div className="fasting-content">
-                        <p><strong>Duration:</strong> 24+ hours</p>
-                        <p><strong>Benefits:</strong> Helps counteract antibiotic use, offsets birth control use, helps tackle SIBO</p>
-                      </div>
-                    </div>
-                    
-                    <div className="fasting-card">
-                      <h4 className="fasting-title">Fat-Burner Fasting</h4>
-                      <div className="fasting-content">
-                        <p><strong>Duration:</strong> 36+ hours</p>
-                        <p><strong>Benefits:</strong> Helps minimize weight-loss resistance, releases stored sugar, reduces cholesterol</p>
-                      </div>
-                    </div>
-                    
-                    <div className="fasting-card">
-                      <h4 className="fasting-title">Dopamine-Reset Fasting</h4>
-                      <div className="fasting-content">
-                        <p><strong>Duration:</strong> 48+ hours</p>
-                        <p><strong>Benefits:</strong> Helps reboot dopamine levels, and lower anxiety levels</p>
-                      </div>
-                    </div>
-                    
-                    <div className="fasting-card">
-                      <h4 className="fasting-title">Immune-Reset Fasting</h4>
-                      <div className="fasting-content">
-                        <p><strong>Duration:</strong> 72+ hours</p>
-                        <p><strong>Benefits:</strong> Helps ease chronic conditions, prevent chronic disease, alleviate pain and stiffness, and slow down the effects of aging</p>
-                      </div>
-                    </div>
-                  </div>
+            <div className="fasting-grid">
+              <div className="fasting-card">
+                <h4 className="fasting-title">Intermittent Fasting</h4>
+                <div className="fasting-content">
+                  <p><strong>Duration:</strong> 12-16 hours</p>
+                  <p><strong>Benefits:</strong> Helps you lose weight, decreases brain fog, increases energy</p>
                 </div>
+              </div>
+              
+              <div className="fasting-card">
+                <h4 className="fasting-title">Autophagy Fasting</h4>
+                <div className="fasting-content">
+                  <p><strong>Duration:</strong> 17-72 hours</p>
+                  <p><strong>Benefits:</strong> Helps detox, improve brain function and cognition, prevents colds, and balances sex hormones</p>
+                </div>
+              </div>
+              
+              <div className="fasting-card">
+                <h4 className="fasting-title">Gut-Reset Fasting</h4>
+                <div className="fasting-content">
+                  <p><strong>Duration:</strong> 24+ hours</p>
+                  <p><strong>Benefits:</strong> Helps counteract antibiotic use, offsets birth control use, helps tackle SIBO</p>
+                </div>
+              </div>
+              
+              <div className="fasting-card">
+                <h4 className="fasting-title">Fat-Burner Fasting</h4>
+                <div className="fasting-content">
+                  <p><strong>Duration:</strong> 36+ hours</p>
+                  <p><strong>Benefits:</strong> Helps minimize weight-loss resistance, releases stored sugar, reduces cholesterol</p>
+                </div>
+              </div>
+              
+              <div className="fasting-card">
+                <h4 className="fasting-title">Dopamine-Reset Fasting</h4>
+                <div className="fasting-content">
+                  <p><strong>Duration:</strong> 48+ hours</p>
+                  <p><strong>Benefits:</strong> Helps reboot dopamine levels, and lower anxiety levels</p>
+                </div>
+              </div>
+              
+              <div className="fasting-card">
+                <h4 className="fasting-title">Immune-Reset Fasting</h4>
+                <div className="fasting-content">
+                  <p><strong>Duration:</strong> 72+ hours</p>
+                  <p><strong>Benefits:</strong> Helps ease chronic conditions, prevent chronic disease, alleviate pain and stiffness, and slow down the effects of aging</p>
+                </div>
+              </div>
+            </div>
+          </div>
               </div>
             )}
           </div>
@@ -404,8 +404,8 @@ function Nutrition() {
                       </tr>
                     </tbody>
                   </table>
-                </div>
               </div>
+            </div>
             )}
           </div>
 
