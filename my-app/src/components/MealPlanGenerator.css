@@ -335,7 +335,7 @@
   border-radius: 12px;
   padding: 16px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
   position: relative;
   z-index: 1;
   overflow: visible;
@@ -373,7 +373,7 @@
   max-height: 70vh;
   overflow-y: auto;
   box-sizing: border-box;
-  transition: all 0.3s ease;
+  transition: border-color 0.3s ease, background 0.3s ease;
 }
 
 .recipe-browse-card.expanded .recipe-card-expanded {
