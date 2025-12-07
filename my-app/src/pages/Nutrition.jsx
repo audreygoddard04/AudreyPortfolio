@@ -41,7 +41,7 @@ function Nutrition() {
         </header>
 
         <section className="main-section project-detail-section">
-          <div className="cta-section">
+          <div className={`cta-section ${expandedSections.mealPlan ? 'has-expanded' : ''}`}>
             <button className={`cta-card ${expandedSections.mealPlan ? 'expanded' : ''}`} onClick={() => toggleSection('mealPlan')}>
               <div className="cta-content">
                 <h2>Create Your Custom Meal Plan</h2>
