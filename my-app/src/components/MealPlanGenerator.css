@@ -438,6 +438,11 @@
   border-color: #b6a16b;
 }
 
+.recipe-browse-card:hover .recipe-card-expanded {
+  border-color: #b6a16b;
+  background: #fffefb;
+}
+
 
 .recipe-category-group {
   margin-bottom: 32px;
