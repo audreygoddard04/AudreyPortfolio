@@ -48,11 +48,20 @@ function RecipeModal({ recipe, onClose, position }) {
     ));
   };
 
+  const modalStyle = position ? {
+    position: 'absolute',
+    top: `${position.top}px`,
+    left: '50%',
+    transform: 'translateX(-50%)',
+    margin: 0
+  } : {};
+
   return (
     <div className="recipe-modal-overlay" onClick={onClose} ref={overlayRef}>
       <div 
-        className="recipe-modal-content"
+        className={`recipe-modal-content ${position ? 'positioned' : ''}`}
         onClick={(e) => e.stopPropagation()}
+        style={position ? modalStyle : {}}
         ref={contentRef}
       >
         <button className="recipe-modal-close" onClick={onClose}>

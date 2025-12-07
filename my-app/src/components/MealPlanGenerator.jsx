@@ -570,21 +570,17 @@ function MealPlanGenerator({ showBrowseOnly = false, onRecipeClick }) {
     if (onRecipeClick) {
       onRecipeClick(recipe);
     } else {
-      // If category is provided, position modal within that section
+      // If category is provided, position modal at the same height as the category title
       if (category) {
         const sectionTitle = document.querySelector(`[data-category="${category}"]`);
         if (sectionTitle) {
           const rect = sectionTitle.getBoundingClientRect();
           const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-          const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
           
-          // Position modal below the section title, centered horizontally
-          const sectionRect = sectionTitle.closest('.recipe-category-group')?.getBoundingClientRect();
-          const sectionCenterX = sectionRect ? sectionRect.left + (sectionRect.width / 2) : rect.left + (rect.width / 2);
-          
+          // Position modal at the same vertical position as the category title
           setRecipeSectionPosition({
-            top: rect.top + scrollTop - 250, // Position very high above the section title
-            left: sectionCenterX + scrollLeft // Center of the section
+            top: rect.top + scrollTop + 20, // Position just below the category title
+            left: 0 // Will be centered using transform: translateX(-50%)
           });
         } else {
           setRecipeSectionPosition(null); // Center if section not found
