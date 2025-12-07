@@ -335,7 +335,6 @@
   border-radius: 12px;
   padding: 16px;
   cursor: pointer;
-  transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
   position: relative;
   z-index: 1;
   overflow: visible;
@@ -349,7 +348,6 @@
   box-shadow: 0 8px 24px rgba(24, 56, 32, 0.15);
   margin-bottom: 0;
   padding-bottom: 0;
-  transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
 }
 
 .recipe-card-header {
@@ -374,7 +372,6 @@
   max-height: 70vh;
   overflow-y: auto;
   box-sizing: border-box;
-  transition: border-color 0.3s ease, background 0.3s ease;
 }
 
 .recipe-browse-card.expanded .recipe-card-expanded {
