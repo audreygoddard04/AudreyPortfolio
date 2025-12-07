@@ -1120,10 +1120,11 @@
 .cta-section {
   max-width: 1100px;
   margin: 24px auto;
+  transition: all 0.3s ease;
 }
 
 .cta-section .cta-card + .cta-expanded-content {
-  margin-top: -6px;
+  margin-top: 0;
 }
 
 .cta-card {
@@ -1153,21 +1154,33 @@
   border-bottom: none;
   margin-bottom: 0;
   cursor: pointer;
+  box-shadow: none;
 }
 
 .cta-section.has-expanded {
-  transition: transform 0.3s ease;
+  background: linear-gradient(135deg, #fffefb 0%, #ffffff 100%);
+  border: 2px solid #e6d7b9;
   border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(24, 56, 32, 0.08);
+  overflow: hidden;
 }
 
 .cta-section.has-expanded:hover {
   transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(24, 56, 32, 0.12);
+  border-color: #b6a16b;
 }
 
-.cta-section.has-expanded:hover .cta-card.expanded,
-.cta-section.has-expanded:hover .cta-expanded-content {
-  border-color: #b6a16b;
-  box-shadow: 0 8px 24px rgba(24, 56, 32, 0.12);
+.cta-section.has-expanded .cta-card.expanded {
+  border: none;
+  background: transparent;
+}
+
+.cta-section.has-expanded .cta-expanded-content {
+  border: none;
+  border-top: none;
+  box-shadow: none;
+  background: transparent;
 }
 
 .cta-content {
@@ -1199,14 +1212,14 @@
 }
 
 .cta-expanded-content {
-  background: linear-gradient(135deg, #fffefb 0%, #ffffff 100%);
-  border: 2px solid #e6d7b9;
+  background: transparent;
+  border: none;
   border-top: none;
-  border-radius: 0 0 16px 16px;
-  padding: 32px;
+  border-radius: 0;
+  padding: 0 32px 32px 32px;
   margin-top: 0;
   animation: slideDown 0.3s ease-out;
-  box-shadow: 0 4px 16px rgba(24, 56, 32, 0.08);
+  box-shadow: none;
   position: relative;
   z-index: 1;
 }
