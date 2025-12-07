@@ -24,6 +24,7 @@
   box-shadow: 0 20px 60px rgba(24, 56, 32, 0.3);
   border: 2px solid #e6d7b9;
   margin: auto;
+  box-sizing: border-box;
 }
 
 .recipe-modal-content.positioned {

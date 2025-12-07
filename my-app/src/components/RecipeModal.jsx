@@ -4,6 +4,7 @@ import './RecipeModal.css';
 function RecipeModal({ recipe, onClose, position }) {
   const contentRef = useRef(null);
   const overlayRef = useRef(null);
+  const [modalWidth, setModalWidth] = React.useState(null);
 
   useEffect(() => {
     if (recipe) {
@@ -11,14 +12,59 @@ function RecipeModal({ recipe, onClose, position }) {
       const originalOverflow = document.body.style.overflow;
       document.body.style.overflow = 'hidden';
       
-      // Lock position - don't recalculate or scroll
-      
-      return () => {
-        // Restore scroll when modal closes
-        document.body.style.overflow = originalOverflow;
-      };
+      if (position && position.cardWidth) {
+        const updateWidth = () => {
+          // Recalculate card width on resize by finding the cta-section
+          const categoryElements = document.querySelectorAll('[data-category]');
+          let foundWidth = null;
+          
+          for (const category of categoryElements) {
+            const ctaSection = category.closest('.cta-section');
+            if (ctaSection) {
+              const ctaRect = ctaSection.getBoundingClientRect();
+              const viewportWidth = window.innerWidth;
+              // Ensure modal is always narrower than card and fits viewport
+              const calculatedWidth = Math.min(ctaRect.width - 48, 700, viewportWidth - 40);
+              if (calculatedWidth > 0) {
+                foundWidth = calculatedWidth;
+                break;
+              }
+            }
+          }
+          
+          if (foundWidth) {
+            setModalWidth(foundWidth);
+          } else if (position.cardWidth) {
+            // Fallback to original card width
+            const viewportWidth = window.innerWidth;
+            setModalWidth(Math.min(position.cardWidth - 48, 700, viewportWidth - 40));
+          }
+        };
+
+        // Set initial width
+        updateWidth();
+
+        // Update on resize with debounce
+        let resizeTimeout;
+        const handleResize = () => {
+          clearTimeout(resizeTimeout);
+          resizeTimeout = setTimeout(updateWidth, 100);
+        };
+        
+        window.addEventListener('resize', handleResize);
+        
+        return () => {
+          document.body.style.overflow = originalOverflow;
+          window.removeEventListener('resize', handleResize);
+          clearTimeout(resizeTimeout);
+        };
+      } else {
+        return () => {
+          document.body.style.overflow = originalOverflow;
+        };
+      }
     }
-  }, [recipe]);
+  }, [recipe, position]);
 
   if (!recipe) return null;
 
@@ -47,8 +93,8 @@ function RecipeModal({ recipe, onClose, position }) {
     left: '50%',
     transform: 'translateX(-50%)',
     margin: 0,
-    width: position.cardWidth ? `${Math.min(position.cardWidth - 48, 700)}px` : 'calc(100vw - 40px)',
-    maxWidth: position.cardWidth ? `${Math.min(position.cardWidth - 48, 700)}px` : '700px'
+    width: modalWidth ? `${modalWidth}px` : (position.cardWidth ? `${Math.min(position.cardWidth - 48, 700)}px` : 'calc(100vw - 40px)'),
+    maxWidth: modalWidth ? `${modalWidth}px` : (position.cardWidth ? `${Math.min(position.cardWidth - 48, 700)}px` : '700px')
   } : {};
 
   return (
