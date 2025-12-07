@@ -1122,6 +1122,10 @@
   margin: 24px auto;
 }
 
+.cta-section .cta-card + .cta-expanded-content {
+  margin-top: -2px;
+}
+
 .cta-card {
   width: 100%;
   background: linear-gradient(135deg, #fffefb 0%, #ffffff 100%);
@@ -1135,6 +1139,7 @@
   transition: all 0.3s ease;
   text-align: left;
   box-shadow: 0 4px 16px rgba(24, 56, 32, 0.08);
+  margin-bottom: 0;
 }
 
 .cta-card:hover {
@@ -1143,7 +1148,7 @@
   border-color: #b6a16b;
 }
 
-.cta-card:has(+ .cta-expanded-content) {
+.cta-section:has(.cta-expanded-content) .cta-card {
   border-radius: 16px 16px 0 0;
   border-bottom: none;
 }
@@ -1185,6 +1190,12 @@
   margin-top: 0;
   animation: slideDown 0.3s ease-out;
   box-shadow: 0 4px 16px rgba(24, 56, 32, 0.08);
+  position: relative;
+  z-index: 1;
+}
+
+.cta-expanded-content .meal-plan-generator {
+  padding-top: 0;
 }
 
 @keyframes slideDown {
