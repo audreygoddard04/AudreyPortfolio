@@ -566,30 +566,36 @@ function MealPlanGenerator({ showBrowseOnly = false, onRecipeClick }) {
   };
 
   const generateMealPlan = () => {
-    if (!formData.tdee || formData.preferredProtein.length === 0) {
-      alert('Please fill in TDEE and select at least one preferred protein');
+    if (!formData.tdee) {
+      alert('Please calculate your TDEE first');
       return;
     }
 
     const tdee = parseFloat(formData.tdee);
-    const sweetTreatsCount = parseInt(formData.sweetTreatsPerWeek);
+    const sweetTreatsCount = parseInt(formData.sweetTreatsPerWeek || '2');
     const dailyCalories = tdee;
 
     // Filter recipes based on preferences and dietary restrictions
     const filterRecipes = (recipeList) => {
       return recipeList.filter(recipe => {
         // Check dietary restrictions first
-        if (!checkDietaryRestrictions(recipe)) return false;
+        if (formData.dietaryRestrictions.length > 0 && !checkDietaryRestrictions(recipe)) return false;
+        
+        // If no preferences selected, show all recipes
+        if (formData.preferredProtein.length === 0 && formData.preferredVegetables.length === 0) {
+          return true;
+        }
         
         const hasPreferredProtein = !recipe.protein || recipe.protein === '' ||
+          formData.preferredProtein.length === 0 ||
           formData.preferredProtein.some(p => {
             const recipeProtein = recipe.protein.toLowerCase();
             const preferredProtein = p.toLowerCase();
             return recipeProtein.includes(preferredProtein) || preferredProtein.includes(recipeProtein);
           });
         const hasPreferredVeggies = recipe.vegetables.length === 0 ||
-          recipe.vegetables.some(v => formData.preferredVegetables.includes(v)) ||
-          formData.preferredVegetables.length === 0;
+          formData.preferredVegetables.length === 0 ||
+          recipe.vegetables.some(v => formData.preferredVegetables.includes(v));
         return hasPreferredProtein && hasPreferredVeggies;
       });
     };
@@ -778,76 +784,6 @@ function MealPlanGenerator({ showBrowseOnly = false, onRecipeClick }) {
             <p>✓ TDEE calculated! Your value has been automatically filled in below.</p>
           </div>
         )}
-      </div>
-
-      <div className="generator-form">
-
-        <div className="form-group checkbox-group">
-          <label>Dietary Restrictions (select all that apply)</label>
-          <div className="checkbox-grid">
-            {dietaryRestrictionOptions.map(restriction => (
-              <label key={restriction} className="checkbox-label">
-                <input
-                  type="checkbox"
-                  checked={formData.dietaryRestrictions.includes(restriction)}
-                  onChange={() => handleDietaryRestrictionChange(restriction)}
-                />
-                <span>{restriction}</span>
-              </label>
-            ))}
-          </div>
-        </div>
-
-        <div className="form-group checkbox-group">
-          <label>Preferred Proteins (select all that apply)</label>
-          <div className="checkbox-grid">
-            {proteins.map(protein => (
-              <label key={protein} className="checkbox-label">
-                <input
-                  type="checkbox"
-                  checked={formData.preferredProtein.includes(protein)}
-                  onChange={() => handleProteinChange(protein)}
-                />
-                <span>{protein}</span>
-              </label>
-            ))}
-          </div>
-        </div>
-
-        <div className="form-group checkbox-group">
-          <label>Preferred Vegetables (select all that apply)</label>
-          <div className="checkbox-grid">
-            {vegetables.map(vegetable => (
-              <label key={vegetable} className="checkbox-label">
-                <input
-                  type="checkbox"
-                  checked={formData.preferredVegetables.includes(vegetable)}
-                  onChange={() => handleVegetableChange(vegetable)}
-                />
-                <span>{vegetable}</span>
-              </label>
-            ))}
-          </div>
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="sweetTreats">Sweet Treats Per Week</label>
-          <select
-            id="sweetTreats"
-            value={formData.sweetTreatsPerWeek}
-            onChange={(e) => setFormData({ ...formData, sweetTreatsPerWeek: e.target.value })}
-          >
-            <option value="0">None</option>
-            <option value="1">1 per week</option>
-            <option value="2">2 per week</option>
-            <option value="3">3 per week</option>
-            <option value="4">4 per week</option>
-            <option value="5">5 per week</option>
-            <option value="6">6 per week</option>
-            <option value="7">Daily</option>
-          </select>
-        </div>
-
       </div>
 
       <button className="generate-btn" onClick={generateMealPlan}>

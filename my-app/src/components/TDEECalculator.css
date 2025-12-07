@@ -22,10 +22,12 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
+  margin-bottom: 0;
 }
 
 .form-row:last-of-type {
   grid-template-columns: repeat(2, 1fr);
+  margin-bottom: 0;
 }
 
 @media (max-width: 768px) {
@@ -62,6 +64,8 @@
   background: #fffefb;
   transition: all 0.3s ease;
   width: 100%;
+  min-height: 44px;
+  box-sizing: border-box;
 }
 
 .input-with-unit {
@@ -92,7 +96,7 @@
 
 .calculate-btn {
   width: 100%;
-  padding: 14px 32px;
+  padding: 12px 24px;
   background: #e6d7b9;
   color: #183820;
   border: 2px solid #e6d7b9;
@@ -102,11 +106,12 @@
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
-  margin-top: 8px;
-  min-height: 48px;
+  margin-top: 20px;
+  min-height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
 }
 
 .calculate-btn:not(.disabled) {
