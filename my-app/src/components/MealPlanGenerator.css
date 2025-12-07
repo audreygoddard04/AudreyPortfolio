@@ -436,11 +436,12 @@
   transform: translateY(-4px);
   box-shadow: 0 6px 20px rgba(182, 161, 107, 0.2);
   border-color: #b6a16b;
+  background: #faf8f3;
 }
 
 .recipe-browse-card:hover .recipe-card-expanded {
   border-color: #b6a16b;
-  background: #fffefb;
+  background: #faf8f3;
 }
 
 
