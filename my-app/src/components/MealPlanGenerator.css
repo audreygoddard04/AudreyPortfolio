@@ -344,11 +344,9 @@
 
 .recipe-browse-card.expanded {
   z-index: 10;
-  border-radius: 12px 12px 0 0;
-  border-bottom: none;
+  border-radius: 12px;
   box-shadow: 0 8px 24px rgba(24, 56, 32, 0.15);
   margin-bottom: 0;
-  padding-bottom: 0;
 }
 
 .recipe-card-header {
@@ -359,16 +357,17 @@
   display: none; /* Hidden by default, shown when expanded */
   position: absolute;
   top: 100%;
-  left: 0;
-  right: 0;
-  width: 100%;
+  left: -2px;
+  right: -2px;
+  width: calc(100% + 4px);
   background: #fffefb;
   border: 2px solid #e6d7b9;
   border-top: none;
   border-radius: 0 0 12px 12px;
   margin-top: 0;
   padding: 16px;
-  box-shadow: 0 8px 24px rgba(24, 56, 32, 0.15);
+  padding-top: 0;
+  box-shadow: none;
   max-height: 70vh;
   overflow-y: auto;
   box-sizing: border-box;
@@ -381,12 +380,12 @@
 .recipe-expanded-section {
   margin-bottom: 20px;
   margin-top: 0;
-  padding-top: 16px;
+  padding-top: 0;
 }
 
 .recipe-expanded-section:first-child {
   margin-top: 0;
-  padding-top: 16px;
+  padding-top: 0;
 }
 
 .recipe-expanded-section:last-child {
