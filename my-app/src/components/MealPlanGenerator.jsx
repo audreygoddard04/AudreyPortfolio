@@ -590,10 +590,14 @@ function MealPlanGenerator({ showBrowseOnly = false, onRecipeClick }) {
 
   const toggleRecipe = (recipeIndex, category) => {
     const recipeKey = `${category}-${recipeIndex}`;
-    setExpandedRecipes(prev => ({
-      ...prev,
-      [recipeKey]: !prev[recipeKey]
-    }));
+    setExpandedRecipes(prev => {
+      // If this recipe is already expanded, close it
+      if (prev[recipeKey]) {
+        return { [recipeKey]: false };
+      }
+      // Otherwise, close all others and open this one
+      return { [recipeKey]: true };
+    });
   };
 
   const getAllRecipesByCategory = () => {
