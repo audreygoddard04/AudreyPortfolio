@@ -117,6 +117,7 @@
   background: linear-gradient(135deg, #b6a16b 0%, #d4a574 100%);
   color: #fffefb;
   cursor: pointer;
+  border-color: transparent;
 }
 
 .calculate-btn.disabled {
@@ -127,19 +128,23 @@
 .calculate-btn:hover,
 .calculate-btn:active,
 .calculate-btn:focus {
-  transform: none;
-  box-shadow: none;
-  background: #e6d7b9;
-  color: #183820;
+  transform: none !important;
+  box-shadow: none !important;
+  background: #e6d7b9 !important;
+  color: #183820 !important;
+  border-color: #e6d7b9 !important;
+  outline: none !important;
 }
 
 .calculate-btn:not(.disabled):hover,
 .calculate-btn:not(.disabled):active,
 .calculate-btn:not(.disabled):focus {
-  transform: none;
-  box-shadow: none;
-  background: linear-gradient(135deg, #b6a16b 0%, #d4a574 100%);
-  color: #fffefb;
+  transform: none !important;
+  box-shadow: none !important;
+  background: linear-gradient(135deg, #b6a16b 0%, #d4a574 100%) !important;
+  color: #fffefb !important;
+  border-color: transparent !important;
+  outline: none !important;
 }
 
 .calculator-results {
