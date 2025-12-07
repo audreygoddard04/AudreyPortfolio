@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import { FaTimes } from 'react-icons/fa';
 import './RecipeModal.css';
 
 function RecipeModal({ recipe, onClose, position }) {
@@ -66,7 +65,7 @@ function RecipeModal({ recipe, onClose, position }) {
         ref={contentRef}
       >
         <button className="recipe-modal-close" onClick={onClose}>
-          <FaTimes />
+          ×
         </button>
         
         <div className="recipe-modal-header">
