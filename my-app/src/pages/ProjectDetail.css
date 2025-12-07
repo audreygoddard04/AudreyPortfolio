@@ -1123,7 +1123,7 @@
 }
 
 .cta-section .cta-card + .cta-expanded-content {
-  margin-top: -4px;
+  margin-top: -6px;
 }
 
 .cta-card {
@@ -1148,7 +1148,7 @@
   border-color: #b6a16b;
 }
 
-.cta-section:has(.cta-expanded-content) .cta-card {
+.cta-card.expanded {
   border-radius: 16px 16px 0 0;
   border-bottom: none;
   margin-bottom: 0;
