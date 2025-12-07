@@ -1143,6 +1143,11 @@
   border-color: #b6a16b;
 }
 
+.cta-card:has(+ .cta-expanded-content) {
+  border-radius: 16px 16px 0 0;
+  border-bottom: none;
+}
+
 .cta-content {
   flex: 1;
 }
@@ -1177,7 +1182,7 @@
   border-top: none;
   border-radius: 0 0 16px 16px;
   padding: 32px;
-  margin-top: -16px;
+  margin-top: 0;
   animation: slideDown 0.3s ease-out;
   box-shadow: 0 4px 16px rgba(24, 56, 32, 0.08);
 }
