@@ -359,9 +359,9 @@
   display: none; /* Hidden by default, shown when expanded */
   position: absolute;
   top: 100%;
-  left: -2px;
-  right: -2px;
-  width: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  width: 100%;
   background: #fffefb;
   border: 2px solid #e6d7b9;
   border-top: none;
@@ -380,13 +380,13 @@
 
 .recipe-expanded-section {
   margin-bottom: 20px;
-  margin-top: 16px;
-  padding-top: 0;
+  margin-top: 0;
+  padding-top: 16px;
 }
 
 .recipe-expanded-section:first-child {
   margin-top: 0;
-  padding-top: 0;
+  padding-top: 16px;
 }
 
 .recipe-expanded-section:last-child {
