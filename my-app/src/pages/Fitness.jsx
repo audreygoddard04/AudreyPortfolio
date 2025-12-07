@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
-import FitnessPlanGenerator from '../components/FitnessPlanGenerator';
 import './ProjectDetail.css';
 import '../pages/Health.css';
 
@@ -31,21 +30,6 @@ function Fitness() {
         </header>
 
         <section className="main-section project-detail-section">
-          <div className={`cta-section ${expandedSections.fitnessPlan ? 'has-expanded' : ''}`}>
-            <button className={`cta-card ${expandedSections.fitnessPlan ? 'expanded' : ''}`} onClick={() => toggleSection('fitnessPlan')}>
-              <div className="cta-content">
-                <h2>Make Your Custom Fitness Plan</h2>
-                <p>Get a personalized workout plan tailored to your goals, schedule, and equipment</p>
-              </div>
-              {expandedSections.fitnessPlan ? <FaChevronUp /> : <FaChevronDown />}
-            </button>
-            {expandedSections.fitnessPlan && (
-              <div className="cta-expanded-content">
-                <FitnessPlanGenerator />
-              </div>
-            )}
-          </div>
-
           <div className={`cta-section ${expandedSections.nonNegotiables ? 'has-expanded' : ''}`}>
             <button className={`cta-card ${expandedSections.nonNegotiables ? 'expanded' : ''}`} onClick={() => toggleSection('nonNegotiables')}>
               <div className="cta-content">
