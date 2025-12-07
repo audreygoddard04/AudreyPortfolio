@@ -706,16 +706,18 @@ function MealPlanGenerator({ showBrowseOnly = false, onRecipeClick }) {
     <div className="meal-plan-generator">
       {!showBrowseOnly && (
         <>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
-            <h3>Create Your Custom Meal Plan</h3>
+          <div className="meal-plan-header">
+            <div className="meal-plan-title-section">
+              <h3>Create Your Custom Meal Plan</h3>
+              <p className="generator-description">First, calculate your TDEE, then fill out your preferences to generate a personalized meal plan.</p>
+            </div>
             <button 
               className="browse-recipes-btn" 
               onClick={() => setShowBrowseRecipes(!showBrowseRecipes)}
             >
-              {showBrowseRecipes ? 'Hide' : 'Browse'} All Recipes
+              Browse All Recipes
             </button>
           </div>
-          <p className="generator-description">First, calculate your TDEE, then fill out your preferences to generate a personalized meal plan.</p>
         </>
       )}
       
@@ -779,17 +781,6 @@ function MealPlanGenerator({ showBrowseOnly = false, onRecipeClick }) {
       </div>
 
       <div className="generator-form">
-        <div className="form-group">
-          <label htmlFor="tdee">Your TDEE (Total Daily Energy Expenditure)</label>
-          <input
-            type="number"
-            id="tdee"
-            value={formData.tdee}
-            onChange={(e) => setFormData({ ...formData, tdee: e.target.value })}
-            placeholder="1885"
-          />
-          <p className="form-hint">Use the calculator above or enter manually</p>
-        </div>
 
         <div className="form-group checkbox-group">
           <label>Dietary Restrictions (select all that apply)</label>
@@ -857,10 +848,11 @@ function MealPlanGenerator({ showBrowseOnly = false, onRecipeClick }) {
           </select>
         </div>
 
-        <button className="generate-btn" onClick={generateMealPlan}>
-          Generate Meal Plan
-        </button>
       </div>
+
+      <button className="generate-btn" onClick={generateMealPlan}>
+        Generate Meal Plan
+      </button>
         </>
       )}
 

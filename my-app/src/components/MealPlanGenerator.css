@@ -2,6 +2,18 @@
   padding: 24px 0;
 }
 
+.meal-plan-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  gap: 20px;
+}
+
+.meal-plan-title-section {
+  flex: 1;
+}
+
 .meal-plan-generator h3 {
   font-family: 'Poppins', sans-serif;
   color: #183820;
@@ -152,17 +164,18 @@
 }
 
 .generate-btn {
-  padding: 14px 32px;
+  width: 100%;
+  padding: 16px 32px;
   background: linear-gradient(135deg, #183820 0%, #2e5d34 100%);
   color: #fffefb;
   border: none;
   border-radius: 8px;
   font-family: 'Poppins', sans-serif;
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  margin-top: 8px;
+  margin-top: 24px;
 }
 
 .generate-btn:hover {
@@ -266,15 +279,17 @@
 
 .browse-recipes-btn {
   padding: 10px 20px;
-  background: linear-gradient(135deg, #b6a16b 0%, #d4a574 100%);
-  color: #fffefb;
-  border: none;
+  background: #e6d7b9;
+  color: #183820;
+  border: 2px solid #e6d7b9;
   border-radius: 8px;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.95rem;
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .browse-recipes-btn:hover {
@@ -381,6 +396,16 @@
 }
 
 @media (max-width: 768px) {
+  .meal-plan-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .browse-recipes-btn {
+    width: 100%;
+    margin-top: 12px;
+  }
+
   .checkbox-grid {
     grid-template-columns: 1fr;
   }
@@ -391,11 +416,6 @@
 
   .recipes-browse-grid {
     grid-template-columns: 1fr;
-  }
-
-  .browse-recipes-btn {
-    font-size: 0.85rem;
-    padding: 8px 16px;
   }
 }
 
