@@ -26,11 +26,6 @@
   margin: auto;
 }
 
-.recipe-modal-content.positioned {
-  position: relative;
-  max-width: 700px;
-  width: 100%;
-}
 
 .recipe-modal-close {
   position: absolute;
@@ -254,13 +249,6 @@
     border-radius: 12px;
   }
 
-  .recipe-modal-content.positioned {
-    position: relative;
-    max-width: calc(100% - 20px);
-    width: calc(100% - 20px);
-    margin: 0 auto;
-  }
-
   .recipe-modal-header {
     padding: 20px 20px 16px;
   }
@@ -321,13 +309,6 @@
     margin: 0 auto;
     border-radius: 12px;
     max-height: 95vh;
-  }
-
-  .recipe-modal-content.positioned {
-    position: relative;
-    max-width: calc(100% - 20px);
-    width: calc(100% - 20px);
-    margin: 0 auto;
   }
 
   .recipe-modal-header {
@@ -413,5 +394,25 @@
     height: 28px;
     font-size: 24px;
   }
+}
+
+/* Disable ALL hover effects when recipe modal is open */
+body:has(.recipe-modal-overlay) *:hover {
+  transform: none !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+  background-color: inherit !important;
+  color: inherit !important;
+  border-color: inherit !important;
+}
+
+body:has(.recipe-modal-overlay) button:hover,
+body:has(.recipe-modal-overlay) .recipe-browse-card:hover,
+body:has(.recipe-modal-overlay) .browse-recipes-btn:hover {
+  transform: none !important;
+  box-shadow: none !important;
+  border-color: inherit !important;
+  background: inherit !important;
+  color: inherit !important;
 }
 
