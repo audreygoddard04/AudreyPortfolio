@@ -10,11 +10,10 @@ import Health from './pages/Health.jsx';
 import Books from './pages/Books.jsx';
 import Projects from './pages/Projects.jsx';
 import ProjectDetail from './pages/ProjectDetail.jsx';
-import Athletics from './pages/Athletics.jsx';
 import Nutrition from './pages/Nutrition.jsx';
 import Fitness from './pages/Fitness.jsx';
 import Contact from './pages/Contact.jsx';
-import Services from './pages/Services.jsx';
+import WebsiteDesign from './pages/WebsiteDesign.jsx';
 
 function App() {
   return (
@@ -28,11 +27,9 @@ function App() {
             <Route path="/books" element={<Books />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/projects/:projectId" element={<ProjectDetail />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/services/nutrition" element={<Nutrition />} />
-            <Route path="/services/fitness" element={<Fitness />} />
-            <Route path="/athletics" element={<Athletics />} />
-            <Route path="/athletics/nutrition" element={<Nutrition />} />
+            <Route path="/website-design" element={<WebsiteDesign />} />
+            <Route path="/nutrition" element={<Nutrition />} />
+            <Route path="/fitness" element={<Fitness />} />
             <Route path="/health" element={<Health />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>

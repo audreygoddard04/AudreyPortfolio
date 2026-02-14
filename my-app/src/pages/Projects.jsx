@@ -7,13 +7,20 @@ import notionDashboardImage from '../images/notion-dashboard.png';
 function Projects() {
   const projects = [
     {
-      id: 'pathology-website',
-      title: 'Pathology Website',
-      subtitle: 'Interactive Pathology Learning Platform',
-      description: 'An educational website for pathology learning, featuring interactive content and comprehensive pathology resources.',
+      id: 'rhamm-breast-cancer',
+      title: 'Honors Thesis in Genetics',
+      subtitle: 'Western University | Breast Cancer & Tumor Heterogeneity | PacBio HiFi Long-read sequencing | Genomic, Epigenetic, & Mitochondrial Diversity',
+      description: `Characterizing nuclear, epigenetic, and mitochondrial heterogeneity in RHAMM-deficient breast cancer lung metastases using PacBio HiFi sequencing. A multi-omic project bridging cancer genetics, long-read analysis, and therapeutic insight.`,
       year: '2025',
-      externalLink: 'https://symphonious-tanuki-1fe5d1.netlify.app/',
-      useIframe: true
+      comingSoon: true
+    },
+    {
+      id: 'publications',
+      title: 'Publications',
+      subtitle: 'Research papers and academic contributions',
+      description: 'A collection of published research and academic work.',
+      year: '2025',
+      comingSoon: true
     },
     {
       id: 'home-dashboard',
@@ -25,12 +32,13 @@ function Projects() {
       thumbnail: notionDashboardImage
     },
     {
-      id: 'rhamm-breast-cancer',
-      title: 'Thesis Proposal',
-      subtitle: 'Breast Cancer & Tumor Heterogeneity | PacBio HIFI Long-read sequencing | Genomic, Epigenetic, & Mitochondrial Diversity',
-      description: `Characterizing nuclear, epigenetic, and mitochondrial heterogeneity in RHAMM-deficient breast cancer lung metastases using PacBio HiFi sequencing. A multi-omic project bridging cancer genetics, long-read analysis, and therapeutic insight.`,
+      id: 'pathology-website',
+      title: 'Pathology Website',
+      subtitle: 'Interactive Pathology Learning Platform',
+      description: 'An educational website for pathology learning, featuring interactive content and comprehensive pathology resources.',
       year: '2025',
-      comingSoon: true
+      externalLink: 'https://symphonious-tanuki-1fe5d1.netlify.app/',
+      useIframe: true
     }
   ];
 
@@ -41,9 +49,6 @@ function Projects() {
           <div className="project-detail-title-section">
             <h1>Projects</h1>
             <p className="project-detail-subtitle">The things that occupy my time :D</p>
-            <div className="project-detail-meta">
-              <span className="project-year-badge">2025</span>
-            </div>
           </div>
         </header>
 
@@ -56,7 +61,6 @@ function Projects() {
                 <div className="project-content">
                   <div className="project-card-header">
                     <h3>{project.title}</h3>
-                    <span className="project-year">{project.year}</span>
                   </div>
                   <p className="project-subtitle">{project.subtitle}</p>
                   <p className="project-description">{project.description}</p>

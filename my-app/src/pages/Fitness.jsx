@@ -1,11 +1,25 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import './ProjectDetail.css';
 import '../pages/Health.css';
+import trackImg2 from '../images/IMG_3562.jpg';
+import trackImg3 from '../images/IMG_9299.JPG';
+import trackImg4 from '../images/Screenshot-2025-11-06-at-4.42.19-PM.png';
+import volleyballImg1 from '../images/081522_AshleyBustonWhite034.JPG';
+import volleyballImg2 from '../images/081822_BradDemers031.JPG';
+import volleyballImg3 from '../images/081522_AshleyBustonWhite020.JPG';
 
 function Fitness() {
   const [expandedSections, setExpandedSections] = useState({});
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash === '#athletics') {
+      const el = document.getElementById('athletics');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [location]);
 
   const toggleSection = (sectionId) => {
     setExpandedSections(prev => ({
@@ -17,15 +31,10 @@ function Fitness() {
   return (
     <div className="project-detail-bg health-bg">
       <div className="project-detail-container">
-        <Link to="/services" className="back-link">Back to Services</Link>
-        
         <header className="project-detail-header">
           <div className="project-detail-title-section">
-            <h1>Fitness</h1>
-            <p className="project-detail-subtitle">Strength and conditioning plans that fit your week. Build muscle, improve conditioning, and see visible changes without living in the gym.</p>
-            <div className="project-detail-meta">
-              <span className="project-year-badge">2025</span>
-            </div>
+            <h1>Fitness & Athletics</h1>
+            <p className="project-detail-subtitle">Strength, conditioning, and competitive athletics. Build muscle, improve conditioning, and see visible changes without living in the gym.</p>
           </div>
         </header>
 
@@ -72,6 +81,39 @@ function Fitness() {
                 </div>
               </div>
             )}
+          </div>
+
+          <div id="athletics" className="project-detail-section" style={{ marginTop: '48px', marginBottom: '24px', padding: '24px' }}>
+            <h2>Athletics</h2>
+            
+            <div style={{ marginBottom: '32px' }}>
+              <h3>Varsity Track & Field Athlete – Western University</h3>
+              <p style={{ color: '#2e5d34', fontSize: '1rem', marginBottom: '20px', fontStyle: 'italic' }}>2022–Present</p>
+              <ul className="research-areas-list">
+                <li>Compete in pentathlon; top OUA results</li>
+                <li>20+ hrs/week of training and competition</li>
+                <li>Mentor for younger athletes; organize off-season training</li>
+              </ul>
+              <div className="athletics-images-container" style={{ marginTop: '24px' }}>
+                <img src={trackImg2} alt="Track & Field" />
+                <img src={trackImg3} alt="Track & Field" />
+                <img src={trackImg4} alt="Track & Field" />
+              </div>
+            </div>
+
+            <div>
+              <h3>Team Ontario Volleyball – Canada Summer Games</h3>
+              <p style={{ color: '#2e5d34', fontSize: '1rem', marginBottom: '20px', fontStyle: 'italic' }}>2022</p>
+              <ul className="research-areas-list">
+                <li>Represented Ontario at national multi-sport games</li>
+                <li>Developed high-level teamwork and resilience under pressure</li>
+              </ul>
+              <div className="athletics-images-container" style={{ marginTop: '24px' }}>
+                <img src={volleyballImg1} alt="Volleyball" />
+                <img src={volleyballImg2} alt="Volleyball" />
+                <img src={volleyballImg3} alt="Volleyball" />
+              </div>
+            </div>
           </div>
         </section>
       </div>

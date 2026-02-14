@@ -21,13 +21,6 @@ function Header() {
     if (path === '/') {
       return location.pathname === '/';
     }
-    // Special handling for Services - should be active for /services, /services/nutrition, /services/fitness, and /contact
-    if (path === '/services') {
-      return location.pathname === '/services' || 
-             location.pathname === '/services/nutrition' || 
-             location.pathname === '/services/fitness' || 
-             location.pathname === '/contact';
-    }
     return location.pathname.startsWith(path);
   };
 
@@ -67,8 +60,9 @@ function Header() {
             <li><Link to="/" onClick={closeMenu} className={isActive('/') ? 'active' : ''}>Home</Link></li>
             <li><Link to="/books" onClick={closeMenu} className={isActive('/books') ? 'active' : ''}>Bookshelf</Link></li>
             <li><Link to="/projects" onClick={closeMenu} className={isActive('/projects') ? 'active' : ''}>Projects</Link></li>
-            <li><Link to="/athletics" onClick={closeMenu} className={isActive('/athletics') ? 'active' : ''}>Athletics</Link></li>
-            <li><Link to="/services" onClick={closeMenu} className={isActive('/services') ? 'active' : ''}>Services</Link></li>
+            <li><Link to="/nutrition" onClick={closeMenu} className={isActive('/nutrition') ? 'active' : ''}>Nutrition</Link></li>
+            <li><Link to="/fitness" onClick={closeMenu} className={isActive('/fitness') ? 'active' : ''}>Fitness</Link></li>
+            <li><Link to="/website-design" onClick={closeMenu} className={isActive('/website-design') ? 'active' : ''}>Website Design</Link></li>
           </ul>
         </nav>
         <nav className="nav-right">

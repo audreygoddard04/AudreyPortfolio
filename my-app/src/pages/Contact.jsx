@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import './Projects.css';
 import './ProjectDetail.css';
 import './Contact.css';
@@ -55,7 +54,6 @@ function Contact() {
     }
 
     try {
-      // Use the API endpoint (works in both dev and production on Vercel)
       const apiUrl = '/api/send-email';
 
       const response = await fetch(apiUrl, {
@@ -66,7 +64,6 @@ function Contact() {
         body: JSON.stringify(formData),
       });
 
-      // Check if response is JSON before parsing
       const contentType = response.headers.get('content-type') || '';
       let data;
       
@@ -74,19 +71,16 @@ function Contact() {
         try {
           data = await response.json();
         } catch (jsonError) {
-          // If JSON parsing fails, get the text response
           const text = await response.text();
           console.error('JSON parse error. Response text:', text.substring(0, 200));
           throw new Error('Server returned an invalid response. The API endpoint may not be configured correctly.');
         }
       } else {
-        // If not JSON, get text response (likely an error page)
         const text = await response.text();
         console.error('Non-JSON response:', text.substring(0, 500));
         console.error('Response status:', response.status);
         console.error('Response headers:', Object.fromEntries(response.headers.entries()));
         
-        // Provide more specific error message
         if (response.status === 404) {
           throw new Error('API endpoint not found. Please ensure Root Directory is set to "my-app" in Vercel settings.');
         } else if (text.includes('server error') || text.includes('Server Error')) {
@@ -100,10 +94,8 @@ function Contact() {
         throw new Error(data.error || data.message || 'Failed to send email');
       }
 
-      // Success
       setSubmitted(true);
       
-      // Reset form after 5 seconds
       setTimeout(() => {
         setSubmitted(false);
         setFormData({
@@ -126,7 +118,6 @@ function Contact() {
   return (
     <div className="projects-bg">
       <div className="project-detail-container">
-        <Link to="/services" className="back-link">Back to Services</Link>
         <header className="project-detail-header">
           <div className="project-detail-title-section">
             <h1>Website Design & Development</h1>
@@ -251,4 +242,3 @@ function Contact() {
 }
 
 export default Contact;
-

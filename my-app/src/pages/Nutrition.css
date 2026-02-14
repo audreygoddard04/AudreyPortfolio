@@ -1,0 +1,429 @@
+/* Nutrition page — Hero, Category Grid, Tier badges */
+
+.nutrition-page {
+  padding-bottom: 48px;
+}
+
+/* Section 1 — Header + Hero subheader */
+.nutrition-hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: flex-start;
+  margin-top: 28px;
+}
+
+.nutrition-cta-primary,
+.nutrition-cta-secondary {
+  padding: 14px 28px;
+  font-size: 1.1rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.nutrition-cta-primary {
+  background: #183820;
+  color: #fffefb;
+  border: 2px solid #183820;
+}
+
+.nutrition-cta-primary:hover {
+  background: #2e5d34;
+  border-color: #2e5d34;
+  transform: translateY(-1px);
+}
+
+.nutrition-cta-secondary {
+  background: #fffefb;
+  color: #183820;
+  border: 2px solid #b6a16b;
+}
+
+.nutrition-cta-secondary:hover {
+  background: rgba(182, 161, 107, 0.15);
+  border-color: #183820;
+  color: #183820;
+  transform: translateY(-1px);
+}
+
+/* Section 2 — Meal Plan Tool */
+.nutrition-meal-plan-section {
+  margin-top: 24px;
+}
+
+.nutrition-section-summary {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  color: #183820;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.nutrition-tier-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.tier-badge {
+  font-size: 0.9rem;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  background: #f7f5f2;
+  color: #183820;
+  border: 1px solid #e6d7b9;
+}
+
+/* Section 3 — Category Grid */
+.nutrition-categories-section h2 {
+  margin-bottom: 28px;
+}
+
+.nutrition-categories-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 1024px) {
+  .nutrition-categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .nutrition-categories-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.nutrition-category-card {
+  background: #f7f5f2;
+  border: 2px solid #e6d7b9;
+  border-radius: 16px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.nutrition-category-card:not(.selected):hover {
+  border-color: #b6a16b;
+  box-shadow: 0 4px 16px rgba(24, 56, 32, 0.08);
+}
+
+.nutrition-category-card.selected {
+  border-color: #183820;
+  background: rgba(46, 93, 52, 0.08);
+  box-shadow: 0 4px 20px rgba(24, 56, 32, 0.12);
+}
+
+.nutrition-category-card h3 {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  color: #183820;
+  font-size: 1.35rem;
+  margin: 0;
+}
+
+.nutrition-category-card p {
+  font-size: 1rem;
+  color: #183820;
+  line-height: 1.6;
+  margin: 0;
+  flex: 1;
+}
+
+.nutrition-explore-btn {
+  align-self: flex-start;
+  color: #2e5d34;
+  font-size: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  padding: 4px 0;
+}
+
+/* Category Content Panels */
+.nutrition-category-content {
+  margin-top: 32px;
+}
+
+.nutrition-category-content .info-subsection h3 {
+  margin-top: 24px;
+  margin-bottom: 10px;
+}
+
+.nutrition-category-content .info-list {
+  margin: 0;
+  padding-left: 24px;
+  color: #183820;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.nutrition-category-content .info-list li {
+  margin-bottom: 6px;
+}
+
+.nutrition-practical {
+  margin: 24px 0;
+}
+
+.nutrition-evidence {
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 1px solid #e6d7b9;
+}
+
+.nutrition-evidence h4 {
+  font-family: 'Montserrat', sans-serif;
+  color: #2e5d34;
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.nutrition-evidence p {
+  font-size: 0.95rem;
+  color: #183820;
+}
+
+.nutrition-evidence a {
+  color: #2e5d34;
+  text-decoration: underline;
+}
+
+/* Sourdough section nav - individual buttons (footer-style) */
+.sourdough-nav {
+  margin: 24px 0 32px 0;
+}
+
+.sourdough-nav-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.sourdough-nav-btn {
+  display: inline-block;
+  padding: 12px 20px;
+  background: #f7f5f2;
+  color: #183820;
+  border: 2px solid #e6d7b9;
+  border-radius: 12px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sourdough-nav-btn:hover {
+  background: rgba(46, 93, 52, 0.12);
+  border-color: #b6a16b;
+}
+
+/* Sourdough boxes (Explore-style) */
+.sourdough-boxes {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.sourdough-box {
+  background: #f7f5f2;
+  border: 2px solid #e6d7b9;
+  border-radius: 16px;
+  padding: 28px 24px;
+  scroll-margin-top: 100px;
+}
+
+.sourdough-box h3 {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  color: #183820;
+  font-size: 1.35rem;
+  margin: 0 0 12px 0;
+}
+
+.sourdough-box h4 {
+  font-family: 'Montserrat', sans-serif;
+  color: #2e5d34;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 16px 0 8px 0;
+}
+
+.sourdough-box p,
+.sourdough-box .info-list {
+  color: #183820;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin: 0 0 12px 0;
+}
+
+.sourdough-box .info-list {
+  padding-left: 24px;
+}
+
+.sourdough-box .sourdough-method {
+  list-style: decimal;
+}
+
+/* Inclusion Loaves section */
+.sourdough-inclusions-section {
+  scroll-margin-top: 100px;
+}
+
+.sourdough-inclusions-title {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  color: #183820;
+  font-size: 1.35rem;
+  margin: 0 0 16px 0 !important;
+}
+
+.sourdough-inclusions-box {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sourdough-recipe-item {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e6d7b9;
+}
+
+.sourdough-recipe-item:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.sourdough-recipe-item h4 {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  color: #183820;
+  font-size: 1.15rem;
+  margin: 0 0 8px 0;
+}
+
+.sourdough-recipe-item p {
+  margin: 8px 0 0 0;
+  font-size: 1rem;
+}
+
+/* Sourdough content */
+.sourdough-method,
+.sourdough-health {
+  list-style: decimal;
+}
+
+/* Hacks grid */
+.hacks-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .hacks-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.hack-card {
+  background: #f7f5f2;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #e6d7b9;
+}
+
+.hack-card h4 {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  color: #183820;
+  font-size: 1.15rem;
+  margin: 0 0 12px 0;
+}
+
+.hack-card ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.hack-card li {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 6px;
+}
+
+/* Fasting grid */
+.fasting-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 900px) {
+  .fasting-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .fasting-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.fasting-card {
+  background: #f7f5f2;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #e6d7b9;
+}
+
+.fasting-card h4 {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  color: #183820;
+  font-size: 1.15rem;
+  margin: 0 0 12px 0;
+}
+
+.fasting-card p {
+  margin: 0 0 8px 0;
+  font-size: 1rem;
+}
+
+/* Vitamins table */
+.table-container {
+  overflow-x: auto;
+}
+
+.vitamins-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+}
+
+.vitamins-table th,
+.vitamins-table td {
+  padding: 12px 16px;
+  text-align: left;
+  border: 1px solid #e6d7b9;
+}
+
+.vitamins-table th {
+  background: #f7f5f2;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  color: #183820;
+}
+
+.vitamins-table td {
+  color: #183820;
+}

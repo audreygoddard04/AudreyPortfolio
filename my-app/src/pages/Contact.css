@@ -1,8 +1,10 @@
-/* Contact form container - the entire white box - ONLY for contact page */
+/* Contact form container - same width as white background on other pages */
 .project-detail-container .contact-form-section {
-  max-width: 800px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
+  width: 100%;
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  box-sizing: border-box;
 }
 
 .contact-form {

@@ -4,38 +4,57 @@ import './ProjectDetail.css';
 
 const books = [
     // Business
-    { title: '$100M Offers: How To Make Offers So Good People Feel Stupid Saying No', author: 'Alex Hormozi', category: 'Business', rating: 4.56, note: '' },
-    { title: '$100M Leads: How to Get Strangers To Want To Buy Your Stuff (Acquisition.com $100M Series)', author: 'Alex Hormozi', category: 'Business', rating: 4.57, note: '' },
+    { title: 'The $100 Startup: Reinvent the Way You Make a Living, Do What You Love, and Create a New Future', author: 'Chris Guillebeau', category: 'Business', rating: 3, note: '' },
+    { title: 'Skin in the Game: The Hidden Asymmetries in Daily Life', author: 'Nassim Nicholas Taleb', category: 'Business', rating: 4, note: '' },
+    { title: 'Influence: The Psychology of Persuasion', author: 'Robert B. Cialdini', category: 'Business', rating: 3, note: '' },
+    { title: 'A Random Walk Down Wall Street: The Time-Tested Strategy for Successful Investing', author: 'Burton G. Malkiel', category: 'Business', rating: 4, note: '' },
+    { title: 'Accounting Made Simple: Accounting Explained in 100 Pages or Less (Financial Topics in 100 Pages or Less)', author: 'Mike Piper', category: 'Business', rating: 4, note: '' },
+    { title: 'Never Split the Difference: Negotiating as if Your Life Depended on It', author: 'Chris Voss', category: 'Business', rating: 5, note: '' },
+    { title: 'Zero to One: Notes on Startups, or How to Build the Future', author: 'Peter Thiel', category: 'Business', rating: 3, note: '' },
+    // $100M Series
+    { title: '$100M Lost Chapters', author: 'Alex Hormozi', category: '$100M Series', rating: 5, note: '' },
+    { title: '$100M Offers: How To Make Offers So Good People Feel Stupid Saying No', author: 'Alex Hormozi', category: '$100M Series', rating: 5, note: '' },
+    { title: '$100M Leads: How to Get Strangers To Want To Buy Your Stuff (Acquisition.com $100M Series)', author: 'Alex Hormozi', category: '$100M Series', rating: 5, note: '' },
+    { title: '$100M Money Models: How To Make Money', author: 'Alex Hormozi', category: '$100M Series', rating: 5, note: '' },
+    { title: 'The Birth of a Building: From Conception to Delivery', author: 'Ben Stevens', category: 'Business', rating: 5, note: '' },
+    { title: 'Rich Dad, Poor Dad', author: 'Robert T. Kiyosaki', category: 'Business', rating: 4, note: '' },
     // Philosophy / Classic
+    { title: 'The Use of Knowledge in Society', author: 'Friedrich Hayek', category: 'Philosophy / Classic', rating: 3, note: '' },
     { title: 'Atlas Shrugged', author: 'Ayn Rand', category: 'Philosophy / Classic', rating: 5, note: '' },
-    { title: 'Letters from a Stoic', author: 'Seneca', category: 'Philosophy / Classic', rating: 5, note: '' },
-    { title: 'Pocket Guide to Ayn Rand', author: 'Robert Tracinski', category: 'Philosophy / Classic', rating: 4.50, note: '' },
-    { title: 'Pocket Guide to Capitalism', author: 'Richard Salsman', category: 'Philosophy / Classic', rating: 3.67, note: '' },
-    { title: 'Pocket Guide to Objectivism', author: 'David Kelley', category: 'Philosophy / Classic', rating: 4.20, note: '' },
-    { title: 'Politics and the English Language', author: 'George Orwell', category: 'Philosophy / Classic', rating: 4.29, note: '' },
-    { title: 'The Beggar Boy at Christ\'s Christmas Tree', author: 'Fyodor Dostoevsky', category: 'Philosophy / Classic', rating: 3.91, note: '' },
-    { title: 'The Dream of a Ridiculous Man', author: 'Fyodor Dostoevsky', category: 'Philosophy / Classic', rating: 4.03, note: '' },
-    { title: 'White Nights', author: 'Fyodor Dostoevsky', category: 'Philosophy / Classic', rating: 4.08, note: '' },
+    { title: 'Pocket Guide to Capitalism', author: 'Richard Salsman', category: 'Philosophy / Classic', rating: 4, note: '' },
+    { title: 'Pocket Guide to Ayn Rand', author: 'Robert Tracinski', category: 'Philosophy / Classic', rating: 5, note: '' },
+    { title: 'Pocket Guide to Free Speech', author: 'Robert Tracinski', category: 'Philosophy / Classic', rating: 3, note: '' },
+    { title: 'Pocket Guide to Objectivism', author: 'David Kelley', category: 'Philosophy / Classic', rating: 4, note: '' },
+    { title: 'Politics and the English Language', author: 'George Orwell', category: 'Philosophy / Classic', rating: 4, note: '' },
+    { title: 'The Beggar Boy at Christ\'s Christmas Tree', author: 'Fyodor Dostoevsky', category: 'Philosophy / Classic', rating: 5, note: '' },
+    { title: 'The Dream of a Ridiculous Man', author: 'Fyodor Dostoevsky', category: 'Philosophy / Classic', rating: 4, note: '' },
+    { title: 'White Nights', author: 'Fyodor Dostoyevsky', category: 'Philosophy / Classic', rating: 4, note: '' },
+    { title: 'Letters from a Stoic', author: 'Seneca', category: 'Philosophy / Classic', rating: 4, note: '' },
+    { title: 'The Fable of the Dragon-Tyrant', author: 'Nick Bostrom', category: 'Philosophy / Classic', rating: 4, note: '' },
     // Science
-    { title: 'A Crack in Creation: Gene Editing and the Unthinkable Power to Control Evolution', author: 'Jennifer A. Doudna', category: 'Science', rating: 4.13, note: '' },
-    { title: 'The Gene: An Intimate History', author: 'Siddhartha Mukherjee', category: 'Science', rating: 5, note: '' },
-    { title: 'Good Energy: The Surprising Connection Between Metabolism and Limitless Health', author: 'Casey Means', category: 'Science', rating: 5, note: '' },
+    { title: 'Lifespan: Why We Age―and Why We Don\'t Have To', author: 'David Sinclair', category: 'Science', rating: 2, note: '' },
+    { title: 'A Crack in Creation: Gene Editing and the Unthinkable Power to Control Evolution', author: 'Jennifer A. Doudna', category: 'Science', rating: 2, note: '' },
+    { title: 'The Gene: An Intimate History', author: 'Siddhartha Mukherjee', category: 'Science', rating: 4, note: '' },
     // Memoir / Biography
-    { title: 'Far Beyond Gold: Running from Fear to Faith', author: 'Sydney McLaughlin', category: 'Memoir / Biography', rating: 4.37, note: '' },
-    { title: 'The Face Laughs While the Brain Cries: The Education of a Doctor', author: 'Stephen L. Hauser', category: 'Memoir / Biography', rating: 4.32, note: '' },
+    { title: 'Far Beyond Gold: Running from Fear to Faith', author: 'Sydney McLaughlin', category: 'Memoir / Biography', rating: 5, note: '' },
+    { title: 'The Face Laughs While the Brain Cries: The Education of a Doctor', author: 'Stephen L. Hauser', category: 'Memoir / Biography', rating: 5, note: '' },
     { title: 'The Choice: Embrace the Possible', author: 'Edith Eger', category: 'Memoir / Biography', rating: 5, note: '' },
+    { title: 'Man\'s Search for Meaning', author: 'Viktor E. Frankl', category: 'Memoir / Biography', rating: 3, note: '' },
     // Self-Help / Personal Development
-    { title: 'Fast Like a Girl: A Woman\'s Guide to Using the Healing Power of Fasting to Burn Fat, Boost Energy, and Balance Hormones', author: 'Mindy Pelz', category: 'Self-Help / Personal Development', rating: 4.22, note: '' },
-    { title: 'Relentless: From Good to Great to Unstoppable', author: 'Tim S. Grover', category: 'Self-Help / Personal Development', rating: 5, note: '' },
-    { title: 'The Creative Act: A Way of Being', author: 'Rick Rubin', category: 'Self-Help / Personal Development', rating: 5, note: '' },
-    { title: 'The Psychology of Money', author: 'Morgan Housel', category: 'Self-Help / Personal Development', rating: 4.29, note: '' },
+    { title: 'Fast Like a Girl: A Woman\'s Guide to Using the Healing Power of Fasting to Burn Fat, Boost Energy, and Balance Hormones', author: 'Mindy Pelz', category: 'Self-Help / Personal Development', rating: 5, note: '' },
+    { title: 'Relentless: From Good to Great to Unstoppable (Tim Grover Winning Series)', author: 'Tim S. Grover', category: 'Self-Help / Personal Development', rating: 3, note: '' },
+    { title: 'The Creative Act: A Way of Being', author: 'Rick Rubin', category: 'Self-Help / Personal Development', rating: 4, note: '' },
+    { title: 'The Psychology of Money: Timeless Lessons on Wealth, Greed, and Happiness', author: 'Morgan Housel', category: 'Self-Help / Personal Development', rating: 5, note: '' },
+    { title: 'Good Energy: The Surprising Connection Between Metabolism and Limitless Health', author: 'Casey Means', category: 'Self-Help / Personal Development', rating: 5, note: '' },
+    { title: 'The Pivot Year', author: 'Brianna Wiest', category: 'Self-Help / Personal Development', rating: 3, note: '' },
     // Fiction / Short Stories
-    { title: 'Hamlet', author: 'William Shakespeare', category: 'Fiction / Short Stories', rating: 4.03, note: '' },
-    { title: 'The Fault in Our Stars', author: 'John Green', category: 'Fiction / Short Stories', rating: 4.12, note: '' },
-    { title: 'The Hobbit, or There and Back Again', author: 'J.R.R. Tolkien', category: 'Fiction / Short Stories', rating: 4.30, note: '' },
-    { title: 'Other People', author: 'Neil Gaiman', category: 'Fiction / Short Stories', rating: 4.01, note: '' },
-    { title: 'The Fable of the Dragon-Tyrant', author: 'Nick Bostrom', category: 'Fiction / Short Stories', rating: 4.23, note: '' },
-    { title: 'The Boy in the Striped Pyjamas', author: 'John Boyne', category: 'Fiction / Short Stories', rating: 4.16, note: '' },
+    { title: 'Anthem', author: 'Ayn Rand', category: 'Fiction / Short Stories', rating: 5, note: '' },
+    { title: 'Hamlet', author: 'William Shakespeare', category: 'Fiction / Short Stories', rating: 3, note: '' },
+    { title: 'The Fault in Our Stars', author: 'John Green', category: 'Fiction / Short Stories', rating: 4, note: '' },
+    { title: 'The Hobbit, or There and Back Again', author: 'J.R.R. Tolkien', category: 'Fiction / Short Stories', rating: 5, note: '' },
+    { title: 'Pride and Prejudice', author: 'Jane Austen', category: 'Fiction / Short Stories', rating: 3, note: '' },
+    { title: 'The Boy in the Striped Pajamas', author: 'John Boyne', category: 'Fiction / Short Stories', rating: 5, note: '' },
+    { title: 'Other People', author: 'Neil Gaiman', category: 'Fiction / Short Stories', rating: 3, note: '' },
 ];
 
 function Books() {
@@ -106,9 +125,6 @@ function Books() {
           <div className="project-detail-title-section">
             <h1>Bookshelf</h1>
             <p className="project-detail-subtitle">My growoing library :D</p>
-            <div className="project-detail-meta">
-              <span className="project-year-badge">2025</span>
-            </div>
           </div>
         </header>
         

@@ -11,7 +11,7 @@ function Home() {
     <div className="home-bg">
       <div className="hero-section-redesign">
         <div className="hero-left-content">
-          <h1 className="home-headline">My name is Audrey Goddard.</h1>
+          <h1 className="home-headline">Audrey Goddard's Personal Portfolio</h1>
           <p className="home-desc">I am a currently an undergraduate student pursuing an Honors Specialization in Genetics at Western University (2022-2026), and a varsity track & field athlete. My passions involve health, science, longevity, and helping others grow through curiosity and wellness.</p>
           <p className="home-desc">To learn more about me, enjoy my website and click on my socials for more information. </p>
           

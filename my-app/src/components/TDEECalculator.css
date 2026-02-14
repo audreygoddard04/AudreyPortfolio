@@ -3,12 +3,11 @@
 }
 
 .tdee-calculator h3 {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   color: #183820;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 600;
   margin: 0 0 24px 0;
-  letter-spacing: -0.01em;
 }
 
 .calculator-form {
@@ -46,23 +45,23 @@
 }
 
 .form-group label {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   color: #183820;
   font-size: 0.95rem;
-  font-weight: 600;
+  font-weight: 500;
   margin-bottom: 8px;
 }
 
 .form-group input,
 .form-group select {
   padding: 12px 16px;
-  border: 2px solid #e6d7b9;
+  border: 1px solid #e6d7b9;
   border-radius: 8px;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 1rem;
   color: #183820;
   background: #fffefb;
-  transition: all 0.3s ease;
+  transition: border-color 0.2s;
   width: 100%;
   min-height: 44px;
   box-sizing: border-box;
@@ -78,30 +77,41 @@
   padding-right: 50px;
 }
 
+/* Hide spinner arrows to prevent overlap with unit text */
+.input-with-unit input[type="number"]::-webkit-inner-spin-button,
+.input-with-unit input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.input-with-unit input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
 .input-unit {
   position: absolute;
   right: 16px;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 0.95rem;
-  color: #2e5d34;
+  color: #183820;
+  opacity: 0.85;
   pointer-events: none;
 }
 
 .form-group input:focus,
 .form-group select:focus {
   outline: none;
-  border-color: #b6a16b;
-  box-shadow: 0 0 0 3px rgba(182, 161, 107, 0.1);
+  border-color: #183820;
 }
 
 .calculate-btn {
   width: 100%;
   padding: 12px 24px;
-  background: #e6d7b9;
+  background: #f7f5f2;
   color: #183820;
-  border: 2px solid #e6d7b9;
+  border: 1px solid #e6d7b9;
   border-radius: 8px;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
@@ -114,37 +124,19 @@
 }
 
 .calculate-btn:not(.disabled) {
-  background: linear-gradient(135deg, #b6a16b 0%, #d4a574 100%);
+  background: #183820;
   color: #fffefb;
   cursor: pointer;
-  border-color: transparent;
+  border-color: #183820;
 }
 
 .calculate-btn.disabled {
   cursor: not-allowed;
-  opacity: 0.7;
+  opacity: 0.6;
 }
 
-.calculate-btn:hover,
-.calculate-btn:active,
-.calculate-btn:focus {
-  transform: none !important;
-  box-shadow: none !important;
-  background: #e6d7b9 !important;
-  color: #183820 !important;
-  border-color: #e6d7b9 !important;
-  outline: none !important;
-}
-
-.calculate-btn:not(.disabled):hover,
-.calculate-btn:not(.disabled):active,
-.calculate-btn:not(.disabled):focus {
-  transform: none !important;
-  box-shadow: none !important;
-  background: linear-gradient(135deg, #b6a16b 0%, #d4a574 100%) !important;
-  color: #fffefb !important;
-  border-color: transparent !important;
-  outline: none !important;
+.calculate-btn:not(.disabled):hover {
+  opacity: 0.9;
 }
 
 .calculator-results {
@@ -154,20 +146,19 @@
 }
 
 .result-card {
-  background: linear-gradient(135deg, rgba(255, 254, 251, 0.8) 0%, rgba(247, 245, 242, 0.8) 100%);
-  border: 2px solid #e6d7b9;
+  background: #f7f5f2;
+  border: 1px solid #e6d7b9;
   border-radius: 12px;
   padding: 20px;
   text-align: center;
 }
 
 .result-card.highlight {
-  border-color: #b6a16b;
-  background: linear-gradient(135deg, rgba(182, 161, 107, 0.1) 0%, rgba(255, 254, 251, 0.9) 100%);
+  border-color: #183820;
 }
 
 .result-card h4 {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   color: #183820;
   font-size: 1rem;
   font-weight: 600;
@@ -175,32 +166,32 @@
 }
 
 .result-value {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   color: #183820;
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-weight: 700;
   margin: 0;
 }
 
 .result-note {
-  font-family: 'Inter', sans-serif;
-  color: #2e5d34;
+  font-family: 'Montserrat', sans-serif;
+  color: #183820;
   font-size: 0.9rem;
   margin-top: 8px;
-  font-style: italic;
+  opacity: 0.85;
 }
 
 .macro-breakdown {
-  background: linear-gradient(135deg, rgba(255, 254, 251, 0.8) 0%, rgba(247, 245, 242, 0.8) 100%);
-  border: 2px solid #e6d7b9;
+  background: #f7f5f2;
+  border: 1px solid #e6d7b9;
   border-radius: 12px;
   padding: 24px;
 }
 
 .macro-breakdown h4 {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   color: #183820;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 600;
   margin: 0 0 20px 0;
   text-align: center;
@@ -219,32 +210,33 @@
   padding: 16px;
   background: #fffefb;
   border-radius: 8px;
-  border: 1.5px solid #e6d7b9;
+  border: 1px solid #e6d7b9;
 }
 
 .macro-label {
-  font-family: 'Inter', sans-serif;
-  color: #2e5d34;
+  font-family: 'Montserrat', sans-serif;
+  color: #183820;
   font-size: 0.9rem;
   font-weight: 600;
   margin-bottom: 8px;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.03em;
 }
 
 .macro-value {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   color: #183820;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 4px;
 }
 
 .macro-percent {
-  font-family: 'Inter', sans-serif;
-  color: #b6a16b;
+  font-family: 'Montserrat', sans-serif;
+  color: #183820;
   font-size: 0.85rem;
   font-weight: 600;
+  opacity: 0.85;
 }
 
 @media (max-width: 768px) {

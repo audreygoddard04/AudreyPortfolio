@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, Navigate } from 'react-router-dom';
 import './ProjectDetail.css';
 import '../pages/Health.css';
 import fitnessImg1 from '../images/Screenshot-2025-11-06-at-4.42.19-PM.png';
@@ -86,45 +86,12 @@ function ProjectDetail() {
     }
   };
 
-  // Check for specific project IDs that don't need the projects object first
+  // Redirect /projects/athletics to /fitness (athletics merged into fitness)
   if (projectId === 'athletics') {
-    return (
-      <div className="project-detail-bg">
-        <div className="project-detail-container">
-          <Link to="/projects" className="back-link">Back to Projects</Link>
-          <header className="project-detail-header">
-            <div className="project-detail-title-section">
-              <h1>Athletics</h1>
-              <p className="project-detail-subtitle">Track & Field and Volleyball</p>
-              <div className="project-detail-meta">
-                <span className="project-year-badge">2025</span>
-              </div>
-            </div>
-          </header>
-
-          <section className="project-detail-section">
-            <h2>Varsity Track & Field Athlete – Western University</h2>
-            <p style={{ color: '#2e5d34', fontSize: '1rem', marginBottom: '20px', fontStyle: 'italic' }}>2022–Present</p>
-            <ul className="research-areas-list">
-              <li>Compete in pentathlon; top OUA results</li>
-              <li>20+ hrs/week of training and competition</li>
-              <li>Mentor for younger athletes; organize off-season training</li>
-            </ul>
-          </section>
-
-          <section className="project-detail-section">
-            <h2>Team Ontario Volleyball – Canada Summer Games</h2>
-            <p style={{ color: '#2e5d34', fontSize: '1rem', marginBottom: '20px', fontStyle: 'italic' }}>2022</p>
-            <ul className="research-areas-list">
-              <li>Represented Ontario at national multi-sport games</li>
-              <li>Developed high-level teamwork and resilience under pressure</li>
-            </ul>
-          </section>
-        </div>
-      </div>
-    );
+    return <Navigate to="/fitness" replace />;
   }
 
+  // Check for specific project IDs that don't need the projects object first
   if (projectId === 'rhamm-breast-cancer') {
     return (
       <div className="project-detail-bg">
@@ -136,6 +103,25 @@ function ProjectDetail() {
             </h1>
             <p style={{ color: '#183820', fontSize: '1.2rem', marginBottom: '32px' }}>
               This thesis proposal is not yet publicly available. Please check back later for updates.
+            </p>
+            <Link to="/projects" className="back-link">Back to Projects</Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (projectId === 'publications') {
+    return (
+      <div className="project-detail-bg">
+        <div className="project-detail-container">
+          <Link to="/projects" className="back-link">Back to Projects</Link>
+          <div className="project-not-found" style={{ padding: '80px 20px', textAlign: 'center' }}>
+            <h1 style={{ fontFamily: "'Playfair Display', 'Georgia', serif", color: '#183820', fontSize: '2.5rem', marginBottom: '16px' }}>
+              Coming Soon
+            </h1>
+            <p style={{ color: '#183820', fontSize: '1.2rem', marginBottom: '32px' }}>
+              Publications will be available here soon. Please check back later for updates.
             </p>
             <Link to="/projects" className="back-link">Back to Projects</Link>
           </div>
@@ -176,9 +162,6 @@ function ProjectDetail() {
             <div className="project-detail-title-section">
               <h1>{project.title}</h1>
               <p className="project-detail-subtitle">{project.subtitle}</p>
-              <div className="project-detail-meta">
-                <span className="project-year-badge">{project.year}</span>
-              </div>
             </div>
           </header>
 
@@ -194,7 +177,7 @@ function ProjectDetail() {
           </div>
 
           {/* Athletics Box */}
-          <Link to="/athletics" className="athletics-featured-box">
+          <Link to="/fitness#athletics" className="athletics-featured-box">
             <div className="athletics-featured-content">
               <div className="athletics-featured-left">
                 <h3 className="athletics-featured-title">Athletics</h3>
@@ -325,9 +308,6 @@ function ProjectDetail() {
             <div className="project-detail-title-section">
               <h1>{project.title}</h1>
               <p className="project-detail-subtitle">{project.subtitle}</p>
-              <div className="project-detail-meta">
-                <span className="project-year-badge">{project.year}</span>
-              </div>
             </div>
           </header>
 

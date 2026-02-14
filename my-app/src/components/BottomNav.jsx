@@ -9,8 +9,9 @@ function BottomNav() {
         <Link to="/" className="bottom-nav-link">Home</Link>
         <Link to="/books" className="bottom-nav-link">Bookshelf</Link>
         <Link to="/projects" className="bottom-nav-link">Projects</Link>
-        <Link to="/athletics" className="bottom-nav-link">Athletics</Link>
-        <Link to="/services" className="bottom-nav-link">Services</Link>
+        <Link to="/nutrition" className="bottom-nav-link">Nutrition</Link>
+        <Link to="/fitness" className="bottom-nav-link">Fitness</Link>
+        <Link to="/website-design" className="bottom-nav-link">Website Design</Link>
       </div>
     </nav>
   );

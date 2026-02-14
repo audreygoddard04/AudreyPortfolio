@@ -365,7 +365,7 @@
   background: #fff;
   border-radius: 16px;
   box-shadow: 0 4px 32px rgba(24,56,32,0.06);
-  padding: 40px;
+  padding: 40px 24px;
   margin-bottom: 32px;
   border: 3px solid #e6d7b9;
   width: 100%;
@@ -1118,8 +1118,9 @@
 
 /* Expandable CTA Sections for Nutrition and Fitness */
 .cta-section {
-  max-width: 1100px;
-  margin: 24px auto;
+  width: 100%;
+  max-width: 100%;
+  margin: 24px 0;
   transition: all 0.3s ease;
 }
 
