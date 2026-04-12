@@ -3,24 +3,18 @@ import { Link } from 'react-router-dom';
 import './Projects.css';
 import './ProjectDetail.css';
 import notionDashboardImage from '../images/notion-dashboard.png';
+import thesisThumbnail from '../images/ThesisThumbnail.png';
 
 function Projects() {
   const projects = [
     {
       id: 'rhamm-breast-cancer',
       title: 'Honors Thesis in Genetics',
-      subtitle: 'Western University | Breast Cancer & Tumor Heterogeneity | PacBio HiFi Long-read sequencing | Genomic, Epigenetic, & Mitochondrial Diversity',
-      description: `Characterizing nuclear, epigenetic, and mitochondrial heterogeneity in RHAMM-deficient breast cancer lung metastases using PacBio HiFi sequencing. A multi-omic project bridging cancer genetics, long-read analysis, and therapeutic insight.`,
-      year: '2025',
-      comingSoon: true
-    },
-    {
-      id: 'publications',
-      title: 'Publications',
-      subtitle: 'Research papers and academic contributions',
-      description: 'A collection of published research and academic work.',
-      year: '2025',
-      comingSoon: true
+      subtitle: 'Western University | Breast Cancer & Tumor Heterogeneity | PacBio HiFi Long-read sequencing | Genomic Diversity',
+      description: `Used PacBio HiFi long-read sequencing to show that RHAMM loss drives clonal dominance in breast cancer lung metastases. A multi-stage bioinformatics pipeline revealed 15x more cohort-shared variants in RHAMM-deficient mice, suggesting a potential therapeutic vulnerability.`,
+      year: '2026',
+      thumbnail: thesisThumbnail,
+      containThumbnail: true
     },
     {
       id: 'home-dashboard',
@@ -39,6 +33,14 @@ function Projects() {
       year: '2025',
       externalLink: 'https://symphonious-tanuki-1fe5d1.netlify.app/',
       useIframe: true
+    },
+    {
+      id: 'publications',
+      title: 'Publications',
+      subtitle: 'Research papers and academic contributions',
+      description: 'A collection of published research and academic work.',
+      year: '2025',
+      comingSoon: true
     }
   ];
 
@@ -81,7 +83,7 @@ function Projects() {
                     <img
                       src={project.thumbnail}
                       alt={project.title}
-                      className="project-screenshot"
+                      className={project.containThumbnail ? 'project-screenshot-contain' : 'project-screenshot'}
                     />
                   ) : project.externalLink ? (
                     <div className="project-thumbnail-wrapper">

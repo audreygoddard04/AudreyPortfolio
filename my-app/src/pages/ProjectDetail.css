@@ -20,24 +20,24 @@
 
 .back-link {
   display: inline-flex;
+  align-self: flex-start;
   align-items: center;
   color: #fff;
-  background: #183820;
+  background: #122b18;
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
   padding: 12px 24px;
-  border-radius: 8px;
+  border-radius: 10px;
   margin-bottom: 32px;
-  transition: all 0.3s ease;
+  transition: background 0.2s ease;
   font-family: 'Montserrat', sans-serif;
-  box-shadow: 0 2px 8px rgba(24, 56, 32, 0.2);
+  box-shadow: 0 2px 8px rgba(18, 43, 24, 0.25);
+  width: fit-content;
 }
 
 .back-link:hover {
-  background: #2e5d34;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(24, 56, 32, 0.3);
+  background: #0e1f11;
   text-decoration: none;
 }
 

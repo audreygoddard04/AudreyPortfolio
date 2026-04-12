@@ -1,0 +1,467 @@
+.thesis-bg {
+  background: #f7f5f2;
+  min-height: 100vh;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.thesis-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 24px 80px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* ── Hero ── */
+.thesis-hero {
+  background: #fffefb;
+  border: 3px solid #e6d7b9;
+  border-radius: 18px;
+  padding: 56px 48px 48px 48px;
+  box-shadow: 0 6px 32px rgba(24,56,32,0.08);
+  animation: thesisFadeUp 0.9s cubic-bezier(.23,1.01,.32,1) both;
+}
+
+.thesis-eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #b6a16b;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 0 16px 0;
+}
+
+.thesis-hero h1 {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  color: #183820;
+  font-size: 2.1rem;
+  line-height: 1.3;
+  margin: 0 0 20px 0;
+}
+
+.thesis-tagline {
+  font-family: 'Montserrat', sans-serif;
+  color: #2e5d34;
+  font-size: 1.1rem;
+  line-height: 1.65;
+  margin: 0 0 32px 0;
+  max-width: 780px;
+}
+
+.thesis-hero-links {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+
+.thesis-btn {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: opacity 0.2s;
+  display: inline-block;
+}
+
+.thesis-btn-primary {
+  background: #122b18;
+  color: #fffefb;
+  border: 2px solid #122b18;
+}
+
+.thesis-btn-outline {
+  background: transparent;
+  color: #122b18;
+  border: 2px solid #122b18;
+}
+
+.thesis-btn:hover {
+  opacity: 0.8;
+}
+
+.thesis-supervisor {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.88rem;
+  color: #183820;
+  opacity: 0.7;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ── Sections ── */
+.thesis-section {
+  background: #fffefb;
+  border: 3px solid #e6d7b9;
+  border-radius: 18px;
+  padding: 48px 48px 40px 48px;
+  box-shadow: 0 4px 20px rgba(24,56,32,0.06);
+  animation: thesisFadeUp 1s cubic-bezier(.23,1.01,.32,1) both;
+}
+
+.thesis-section h2 {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  color: #183820;
+  font-size: 1.75rem;
+  margin: 0 0 20px 0;
+}
+
+.thesis-section h3 {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  color: #2e5d34;
+  font-size: 1.2rem;
+  margin: 0 0 12px 0;
+}
+
+.thesis-section p {
+  font-family: 'Montserrat', sans-serif;
+  color: #183820;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  margin: 0 0 16px 0;
+}
+
+.thesis-section p:last-child {
+  margin-bottom: 0;
+}
+
+/* ── Stats Grid ── */
+.thesis-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 8px;
+}
+
+.thesis-stat-card {
+  background: #f7f5f2;
+  border: 1px solid #e6d7b9;
+  border-radius: 12px;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.thesis-stat-number {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #183820;
+  line-height: 1;
+}
+
+.thesis-stat-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #2e5d34;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.thesis-stat-detail {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.88rem;
+  color: #183820;
+  line-height: 1.55;
+  opacity: 0.8;
+  margin: 4px 0 0 0 !important;
+}
+
+/* ── Two Column ── */
+.thesis-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 8px;
+}
+
+.thesis-col-card {
+  border-radius: 12px;
+  padding: 28px 24px;
+  border: 2px solid #e6d7b9;
+}
+
+.thesis-col-wt {
+  background: #f7f5f2;
+}
+
+.thesis-col-ko {
+  background: rgba(24,56,32,0.04);
+  border-color: #183820;
+}
+
+.thesis-col-card h3 {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  font-size: 1.05rem;
+  color: #183820;
+  margin: 0 0 14px 0;
+}
+
+.thesis-col-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.thesis-col-card li {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  color: #183820;
+  line-height: 1.6;
+  padding-left: 18px;
+  position: relative;
+  margin-bottom: 8px;
+}
+
+.thesis-col-card li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #b6a16b;
+  font-weight: bold;
+}
+
+.thesis-note {
+  margin-top: 20px !important;
+  font-style: italic;
+  background: #f7f5f2;
+  border-left: 3px solid #b6a16b;
+  padding: 14px 18px;
+  border-radius: 0 8px 8px 0;
+  font-size: 0.98rem !important;
+}
+
+/* ── Methods Grid ── */
+.thesis-methods-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 8px;
+}
+
+.thesis-method-card {
+  background: #f7f5f2;
+  border: 1px solid #e6d7b9;
+  border-radius: 12px;
+  padding: 24px 20px;
+}
+
+.thesis-method-card h4 {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  color: #183820;
+  font-size: 1rem;
+  margin: 0 0 10px 0;
+}
+
+.thesis-method-card p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  color: #183820;
+  line-height: 1.65;
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* ── Pipeline Accordion ── */
+.thesis-pipeline-toggle {
+  margin-top: 28px;
+}
+
+.thesis-pipeline-btn {
+  background: #f7f5f2;
+  border: 1px solid #e6d7b9;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #183820;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.thesis-pipeline-btn:hover {
+  background: #eee9e0;
+}
+
+.thesis-pipeline-arrow {
+  font-size: 0.8rem;
+}
+
+.thesis-pipeline {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.thesis-pipeline-step {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  background: #f7f5f2;
+  border: 1px solid #e6d7b9;
+  border-radius: 10px;
+  padding: 16px 20px;
+}
+
+.thesis-pipeline-num {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #fffefb;
+  background: #183820;
+  border-radius: 6px;
+  padding: 4px 10px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  align-self: flex-start;
+  margin-top: 2px;
+}
+
+.thesis-pipeline-step strong {
+  font-family: 'Montserrat', sans-serif;
+  color: #183820;
+  font-size: 0.95rem;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.thesis-pipeline-step p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.88rem;
+  color: #183820;
+  margin: 0;
+  opacity: 0.85;
+  line-height: 1.5;
+}
+
+/* ── Tools ── */
+.thesis-tools-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.thesis-tool-tag {
+  background: #f7f5f2;
+  border: 1px solid #e6d7b9;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #183820;
+}
+
+/* ── Bullet List ── */
+.thesis-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.thesis-list li {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.98rem;
+  color: #183820;
+  line-height: 1.7;
+  padding-left: 22px;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.thesis-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #b6a16b;
+  font-weight: bold;
+}
+
+.thesis-section .thesis-two-col h3 {
+  color: #183820;
+  font-size: 1.1rem;
+  margin-bottom: 14px;
+}
+
+/* ── Acknowledgements ── */
+.thesis-acknowledgements p {
+  font-style: italic;
+  opacity: 0.85;
+}
+
+/* ── Slides Embed ── */
+.thesis-slides-wrapper {
+  width: 90%;
+  height: 520px;
+  margin: 8px auto 0 auto;
+  border-radius: 10px;
+  overflow: hidden;
+  border: none;
+  contain: strict;
+}
+
+.thesis-slides-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 10px;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .thesis-slides-wrapper {
+    width: 100%;
+    height: 300px;
+  }
+}
+
+/* ── Animation ── */
+@keyframes thesisFadeUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: none; }
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .thesis-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .thesis-methods-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 680px) {
+  .thesis-hero,
+  .thesis-section {
+    padding: 32px 20px;
+  }
+  .thesis-hero h1 {
+    font-size: 1.5rem;
+  }
+  .thesis-stats-grid,
+  .thesis-two-col,
+  .thesis-methods-grid {
+    grid-template-columns: 1fr;
+  }
+  .thesis-hero-links {
+    flex-direction: column;
+  }
+  .thesis-btn {
+    text-align: center;
+  }
+}

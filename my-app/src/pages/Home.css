@@ -69,22 +69,56 @@
   transform: scale(1.05);
 }
 
+.home-btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.view-projects-btn,
+.view-thesis-btn,
+.view-resume-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 52px;
+  padding: 0 28px;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
 .view-projects-btn {
   background: #183820;
   color: #fff;
   border: none;
-  padding: 16px 32px;
-  font-size: 1rem;
-  font-weight: 500;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  width: fit-content;
-  margin-top: 8px;
 }
 
 .view-projects-btn:hover {
-  background: #2e5d34;
+  background: #122b18;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(24, 56, 32, 0.2);
+}
+
+.view-thesis-btn,
+.view-resume-btn {
+  background: transparent;
+  color: #183820;
+  border: 2px solid #183820;
+}
+
+.view-thesis-btn:hover,
+.view-resume-btn:hover {
+  background: #183820;
+  color: #fff;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(24, 56, 32, 0.2);
 }

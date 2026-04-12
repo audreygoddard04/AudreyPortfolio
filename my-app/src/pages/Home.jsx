@@ -12,19 +12,13 @@ function Home() {
       <div className="hero-section-redesign">
         <div className="hero-left-content">
           <h1 className="home-headline">Audrey Goddard's Personal Portfolio</h1>
-          <p className="home-desc">I am a currently an undergraduate student pursuing an Honors Specialization in Genetics at Western University (2022-2026), and a varsity track & field athlete. My passions involve health, science, longevity, and helping others grow through curiosity and wellness.</p>
-          <p className="home-desc">To learn more about me, enjoy my website and click on my socials for more information. </p>
+          <p className="home-desc">I have just completed my undergraduate degree pursuing an Honors Specialization in Genetics at Western University (2022-2026), where I was a varsity track & field athlete. My passions involve health, science, longevity, and helping others grow through curiosity and wellness.</p>
+          <p className="home-desc">Enjoy my website and click on my socials for more information and a way to contact me. </p>
           
-          <div className="home-social-row">
-            <a href="https://www.instagram.com/audrey_goddard/" className="home-social-icon" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-              <FaInstagram />
-            </a>
-            <a href="https://x.com/audreygoddard_" className="home-social-icon" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
-              <span style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>X</span>
-            </a>
+          <div className="home-btn-row">
+            <a href="/projects/rhamm-breast-cancer" className="view-projects-btn">View my Honours Genetics Thesis (BSc)</a>
+            <a href="/AudreyGoddardResume.pdf" target="_blank" rel="noopener noreferrer" className="view-resume-btn">View my Official Resume</a>
           </div>
-          
-          <button className="view-projects-btn" onClick={()=>window.location='/projects'}>View projects</button>
         </div>
 
         <div className="hero-image-grid">
