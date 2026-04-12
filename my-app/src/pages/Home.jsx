@@ -1,5 +1,4 @@
 import React from 'react';
-import { FaInstagram } from 'react-icons/fa';
 import './Home.css';
 import img1 from '../images/5D53BECC-FAF0-446A-A6C4-BD43F2593935_1_105_c.jpeg';
 import img2 from '../images/IMG_8914.jpg';
