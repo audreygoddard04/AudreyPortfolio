@@ -13,7 +13,7 @@ import ProjectDetail from './pages/ProjectDetail.jsx';
 import Nutrition from './pages/Nutrition.jsx';
 import Fitness from './pages/Fitness.jsx';
 import Contact from './pages/Contact.jsx';
-import WebsiteDesign from './pages/WebsiteDesign.jsx';
+// import WebsiteDesign from './pages/WebsiteDesign.jsx';
 
 function App() {
   return (
@@ -27,7 +27,7 @@ function App() {
             <Route path="/books" element={<Books />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/projects/:projectId" element={<ProjectDetail />} />
-            <Route path="/website-design" element={<WebsiteDesign />} />
+            {/* <Route path="/website-design" element={<WebsiteDesign />} /> */}
             <Route path="/nutrition" element={<Nutrition />} />
             <Route path="/fitness" element={<Fitness />} />
             <Route path="/health" element={<Health />} />

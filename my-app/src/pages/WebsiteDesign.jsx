@@ -1,3 +1,6 @@
+/* Website Design page disabled — Resend is used for another site.
+   Uncomment below and restore App.js / Header / Footer / BottomNav to re-enable.
+
 import React, { useState } from 'react';
 import './ProjectDetail.css';
 import './Projects.css';
@@ -154,3 +157,9 @@ function WebsiteDesign() {
 }
 
 export default WebsiteDesign;
+
+*/
+
+export default function WebsiteDesign() {
+  return null;
+}

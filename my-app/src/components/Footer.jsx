@@ -15,7 +15,7 @@ function Footer() {
             <Link to="/projects">Projects</Link>
             <Link to="/nutrition">Nutrition</Link>
             <Link to="/fitness">Fitness</Link>
-            <Link to="/website-design">Website Design</Link>
+            {/* <Link to="/website-design">Website Design</Link> */}
           </nav>
         </div>
         

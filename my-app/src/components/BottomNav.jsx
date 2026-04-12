@@ -11,7 +11,7 @@ function BottomNav() {
         <Link to="/projects" className="bottom-nav-link">Projects</Link>
         <Link to="/nutrition" className="bottom-nav-link">Nutrition</Link>
         <Link to="/fitness" className="bottom-nav-link">Fitness</Link>
-        <Link to="/website-design" className="bottom-nav-link">Website Design</Link>
+        {/* <Link to="/website-design" className="bottom-nav-link">Website Design</Link> */}
       </div>
     </nav>
   );
