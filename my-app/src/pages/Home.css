@@ -44,6 +44,43 @@
   max-width: 600px;
 }
 
+.home-subtitle {
+  font-family: 'Montserrat', sans-serif;
+  color: #2e5d34;
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: -12px 0 0 0;
+}
+
+.home-bio-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.home-bio-list li {
+  color: #183820;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  padding-left: 24px;
+  position: relative;
+}
+
+.home-bio-list li::before {
+  content: "•";
+  color: #2e5d34;
+  position: absolute;
+  left: 0;
+  font-size: 1.3rem;
+  line-height: 1.3;
+}
+
 .home-social-row {
   display: flex;
   gap: 16px;

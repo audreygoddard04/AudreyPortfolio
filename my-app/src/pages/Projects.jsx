@@ -4,6 +4,7 @@ import './Projects.css';
 import './ProjectDetail.css';
 import notionDashboardImage from '../images/notion-dashboard.png';
 import thesisThumbnail from '../images/ThesisThumbnail.png';
+import keycraftLogo from '../images/keycraft-logo.png';
 
 function Projects() {
   const projects = [
@@ -17,13 +18,22 @@ function Projects() {
       containThumbnail: true
     },
     {
-      id: 'home-dashboard',
-      title: 'Notion Home Dashboard',
-      subtitle: 'Personal Dashboard & Organization Hub',
-      description: 'A comprehensive dashboard for organizing personal projects, tasks, and information using Notion.',
+      id: 'keycraft',
+      title: 'KeyCraft',
+      subtitle: 'Desktop Music Composition App | Tauri, React, Tone.js',
+      description: 'A full-featured music composition desktop app with a piano roll editor, virtual keyboard, sheet music view, MIDI import/export, and AI audio-to-MIDI transcription.',
+      year: '2026',
+      thumbnail: keycraftLogo,
+      containThumbnail: true,
+      externalLink: 'https://github.com/audreygoddard04/KeyCraft-Windows-Desktop-App'
+    },
+    {
+      id: 'gymify',
+      title: 'Gymify',
+      subtitle: 'AI-Powered Fitness & Nutrition Assistant',
+      description: 'An AI fitness coach that automates goal tracking, meal planning, and workout optimization, with biometric-aware nutrition, adaptive training blocks, and physique analysis.',
       year: '2025',
-      externalLink: 'https://homedashboard-ag.notion.site/HOME-DASHBOARD-2bdc98089aed8172aa34d4c59a8adfaa',
-      thumbnail: notionDashboardImage
+      externalLink: 'https://github.com/audreygoddard04/Gymify'
     },
     {
       id: 'pathology-website',
@@ -35,12 +45,21 @@ function Projects() {
       useIframe: true
     },
     {
-      id: 'publications',
-      title: 'Publications',
-      subtitle: 'Research papers and academic contributions',
-      description: 'A collection of published research and academic work.',
+      id: 'substack',
+      title: 'Substack',
+      subtitle: 'Writing & Newsletter',
+      description: 'My Substack, where I write about health, science, and the things I care about.',
+      year: '2026',
+      externalLink: 'https://substack.com/@audreyannagoddard'
+    },
+    {
+      id: 'home-dashboard',
+      title: 'Notion Home Dashboard',
+      subtitle: 'Personal Dashboard & Organization Hub',
+      description: 'A comprehensive dashboard for organizing personal projects, tasks, and information using Notion.',
       year: '2025',
-      comingSoon: true
+      externalLink: 'https://homedashboard-ag.notion.site/HOME-DASHBOARD-2bdc98089aed8172aa34d4c59a8adfaa',
+      thumbnail: notionDashboardImage
     }
   ];
 
@@ -73,28 +92,35 @@ function Projects() {
                   </div>
                 </div>
                 <div className="project-thumbnail">
-                  {project.comingSoon ? (
-                    <div className="coming-soon-thumbnail">
-                      <div className="coming-soon-text">
-                        <h4>Coming Soon</h4>
-                      </div>
-                    </div>
-                  ) : project.thumbnail ? (
+                  {project.thumbnail ? (
                     <img
                       src={project.thumbnail}
                       alt={project.title}
                       className={project.containThumbnail ? 'project-screenshot-contain' : 'project-screenshot'}
                     />
                   ) : project.externalLink ? (
-                    <div className="project-thumbnail-wrapper">
-                      <iframe
-                        src={project.externalLink}
-                        title={project.title}
-                        className="project-preview-iframe"
-                        frameBorder="0"
-                        scrolling="no"
-                      />
-                    </div>
+                    !project.externalLink.includes('netlify.app') ? (
+                      <div className="notion-placeholder">
+                        <div className="notion-text">
+                          <h4>{project.title}</h4>
+                          <p>
+                            {project.externalLink.includes('github.com') ? 'View on GitHub →'
+                              : project.externalLink.includes('substack.com') ? 'Read on Substack →'
+                              : 'Visit site →'}
+                          </p>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="project-thumbnail-wrapper">
+                        <iframe
+                          src={project.externalLink}
+                          title={project.title}
+                          className="project-preview-iframe"
+                          frameBorder="0"
+                          scrolling="no"
+                        />
+                      </div>
+                    )
                   ) : null}
                 </div>
               </>
@@ -134,43 +160,6 @@ function Projects() {
               </Link>
             );
           })}
-        </div>
-      </section>
-
-      {/* Coming Soon Section */}
-      <section className="main-section project-detail-section coming-soon-section">
-        <h2>Coming Soon...</h2>
-        <div className="coming-soon-grid">
-          <div className="coming-soon-card">
-            <h3>Gymify</h3>
-            <p className="coming-soon-subtitle">AI-powered fitness and nutrition assistant</p>
-            <p className="coming-soon-description">An intelligent fitness coach that automates goal tracking, meal planning, and workout optimization. Eliminates manual tracking with personalized AI coaching for training, nutrition, and recovery.</p>
-          </div>
-          <div className="coming-soon-card">
-            <h3>ROSY</h3>
-            <p className="coming-soon-subtitle">The genetics creative supertool</p>
-            <p className="coming-soon-description">A genetics tool that makes genomic work accessible and easy, empowering users to work with genetic data without requiring extensive technical expertise.</p>
-          </div>
-          <div className="coming-soon-card">
-            <h3>TLC</h3>
-            <p className="coming-soon-subtitle">Your accountability on having hobbies</p>
-            <p className="coming-soon-description">An app for hobbies to be browsed and instructed for users, helping people discover new interests and learn new skills with guided instruction and accountability.</p>
-          </div>
-          <div className="coming-soon-card">
-            <h3>NutraNova</h3>
-            <p className="coming-soon-subtitle">Nutrition & Genetics and all the health benefits imaginable</p>
-            <p className="coming-soon-description">A company idea with genetically enhanced foods that provide all the nutritional value needed at great prices, making optimal nutrition accessible to everyone.</p>
-          </div>
-          <div className="coming-soon-card">
-            <h3>Tutoring Company</h3>
-            <p className="coming-soon-subtitle">Educational Services</p>
-            <p className="coming-soon-description">Coming soon - personalized tutoring services to help students excel in their studies.</p>
-          </div>
-          <div className="coming-soon-card">
-            <h3>AI Agent</h3>
-            <p className="coming-soon-subtitle">Intelligent Automation</p>
-            <p className="coming-soon-description">Coming soon - an advanced AI agent designed to automate tasks and provide intelligent assistance.</p>
-          </div>
         </div>
       </section>
       </div>

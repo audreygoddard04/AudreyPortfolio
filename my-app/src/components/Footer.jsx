@@ -13,8 +13,8 @@ function Footer() {
             <Link to="/">Home</Link>
             <Link to="/books">Bookshelf</Link>
             <Link to="/projects">Projects</Link>
-            <Link to="/nutrition">Nutrition</Link>
-            <Link to="/fitness">Fitness</Link>
+            <Link to="/articles">Articles</Link>
+            <Link to="/about">About Me</Link>
             {/* <Link to="/website-design">Website Design</Link> */}
           </nav>
         </div>

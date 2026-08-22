@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Home.css';
 import img1 from '../images/5D53BECC-FAF0-446A-A6C4-BD43F2593935_1_105_c.jpeg';
 import img2 from '../images/IMG_8914.jpg';
@@ -10,13 +11,18 @@ function Home() {
     <div className="home-bg">
       <div className="hero-section-redesign">
         <div className="hero-left-content">
-          <h1 className="home-headline">Audrey Goddard's Personal Portfolio</h1>
-          <p className="home-desc">I have just completed my undergraduate degree pursuing an Honors Specialization in Genetics at Western University (2022-2026), where I was a varsity track & field athlete. My passions involve health, science, longevity, and helping others grow through curiosity and wellness.</p>
-          <p className="home-desc">Enjoy my website and click on my socials for more information and a way to contact me. </p>
-          
+          <h1 className="home-headline">Audrey Anna Goddard.</h1>
+          <p className="home-subtitle">Personal Portfolio</p>
+          <ul className="home-bio-list">
+            <li>BSc Honors Specialization in Genetics at Western University (2022-2026) graduate.</li>
+            <li>Varsity track & field provincial Rookie of the Year</li>
+            <li>Placed 2nd, 4th, and 7th at National Championships</li>
+            <li>Favorite hobbies: reading, baking & cooking, running, biking, yoga/pilates, learning languages, hiking, piano & guitar, drawing & design</li>
+          </ul>
+
           <div className="home-btn-row">
-            <a href="/projects/rhamm-breast-cancer" className="view-projects-btn">View my Honours Genetics Thesis (BSc)</a>
-            <a href="/AudreyGoddardResume.pdf" target="_blank" rel="noopener noreferrer" className="view-resume-btn">View my Official Resume</a>
+            <Link to="/projects" className="view-projects-btn">Projects</Link>
+            <Link to="/about" className="view-resume-btn">About Me</Link>
           </div>
         </div>
 

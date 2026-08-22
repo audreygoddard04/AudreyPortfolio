@@ -81,12 +81,23 @@
   color: #183820;
 }
 
+.book-row {
+  cursor: pointer;
+}
+
 .bookshelf-table tr:hover td {
   background: #faf8f3;
 }
 
 .bookshelf-table tr:last-child td {
   border-bottom: none;
+}
+
+.bookshelf-hint {
+  color: #2e5d34;
+  font-style: italic;
+  font-size: 0.95rem;
+  margin: 0 0 8px 0;
 }
 
 .book-title-cell {
@@ -98,6 +109,19 @@
 .book-author-cell {
   font-family: 'Montserrat', sans-serif;
   color: #183820;
+}
+
+.book-category-cell {
+  font-family: 'Montserrat', sans-serif;
+  color: #2e5d34;
+  font-size: 0.9rem;
+}
+
+.not-rated {
+  font-size: 0.9rem;
+  color: #999;
+  font-style: italic;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .book-rating-cell {
@@ -148,22 +172,6 @@
   overflow: hidden;
   display: block;
   white-space: nowrap;
-}
-
-.book-note-cell {
-  font-family: 'Montserrat', sans-serif;
-  color: #183820;
-}
-
-.read-more {
-  color: #2e5d34;
-  text-decoration: underline;
-  cursor: pointer;
-  font-weight: 500;
-}
-
-.read-more:hover {
-  color: #183820;
 }
 
 @media (max-width: 1200px) {
@@ -221,7 +229,7 @@
 
   .book-title-cell,
   .book-author-cell,
-  .book-note-cell {
+  .book-category-cell {
     word-break: break-word;
   }
 }
@@ -243,7 +251,7 @@
 
   .book-title-cell,
   .book-author-cell,
-  .book-note-cell {
+  .book-category-cell {
     word-break: break-word;
   }
 }

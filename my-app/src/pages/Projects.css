@@ -143,39 +143,6 @@
   border-radius: 8px;
 }
 
-.coming-soon-thumbnail {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #e6d7b9 0%, #f7f5f2 100%);
-  border: 2px dashed #2e5d34;
-  border-radius: 8px;
-  box-sizing: border-box;
-}
-
-.coming-soon-text {
-  text-align: center;
-  padding: 20px;
-}
-
-.coming-soon-text h4 {
-  font-family: 'Playfair Display', 'Georgia', serif;
-  color: #2e5d34;
-  font-size: 1.5rem;
-  margin: 0;
-  font-style: italic;
-}
-
-.coming-soon-text p {
-  font-family: 'Playfair Display', 'Georgia', serif;
-  color: #2e5d34;
-  font-size: 1rem;
-  margin: 8px 0 0 0;
-  opacity: 0.8;
-}
-
 .project-screenshot {
   width: 100%;
   height: 100%;
@@ -287,63 +254,6 @@
   color: #183820;
 }
 
-/* Coming Soon Section */
-.coming-soon-section {
-  margin-top: 64px;
-}
-
-.coming-soon-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 32px;
-  margin-top: 24px;
-}
-
-.coming-soon-card {
-  background: #fff;
-  border: 3px solid #e6d7b9;
-  border-radius: 12px;
-  padding: 32px;
-  text-align: left;
-  transition: all 0.3s ease;
-  opacity: 0.8;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  min-height: 200px;
-}
-
-.coming-soon-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(24, 56, 32, 0.12);
-  border-color: #2e5d34;
-  opacity: 1;
-}
-
-.coming-soon-card h3 {
-  font-family: 'Playfair Display', 'Georgia', serif;
-  color: #183820;
-  font-size: 1.8rem;
-  margin: 0 0 12px 0;
-  text-align: left;
-}
-
-.coming-soon-subtitle {
-  color: #2e5d34;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin: 0 0 12px 0;
-  font-style: italic;
-}
-
-.coming-soon-description {
-  color: #183820;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  margin: 0;
-  text-align: left;
-}
-
 @media (max-width: 1200px) {
   .main-section {
     max-width: 95%;
@@ -403,29 +313,20 @@
     transform: scale(0.5);
   }
 
-  .coming-soon-thumbnail {
-    height: 100%;
-  }
-
   .project-screenshot {
     height: 100%;
   }
-  
+
   .project-card h3 {
     font-size: 1.2rem;
   }
-  
+
   .project-subtitle {
     font-size: 0.95rem;
   }
-  
+
   .project-description {
     font-size: 0.9rem;
-  }
-
-  .coming-soon-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
   }
 
   .workout-types {
@@ -463,10 +364,6 @@
     width: 100%;
   }
 
-  .coming-soon-thumbnail {
-    height: 100%;
-  }
-
   .project-screenshot {
     height: 100%;
   }
@@ -498,10 +395,6 @@
     height: 100%;
     overflow: hidden;
     position: relative;
-  }
-
-  .coming-soon-thumbnail {
-    height: 100%;
   }
 
   .project-screenshot {
@@ -553,10 +446,6 @@
     height: 100%;
     overflow: hidden;
     position: relative;
-  }
-
-  .coming-soon-thumbnail {
-    height: 100%;
   }
 
   .project-screenshot {

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import MealPlanGenerator from '../components/MealPlanGenerator';
 import RecipeModal from '../components/RecipeModal';
 import './ProjectDetail.css';
@@ -41,6 +42,8 @@ function Nutrition() {
   return (
     <div className="project-detail-bg health-bg nutrition-page">
       <div className="project-detail-container">
+        <Link to="/about" className="back-link">Back to About Me</Link>
+
         {/* Section 1 — Header + Hero Subheader */}
         <header className="project-detail-header nutrition-header">
           <div className="project-detail-title-section">

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import './ProjectDetail.css';
 import '../pages/Health.css';
@@ -31,6 +31,8 @@ function Fitness() {
   return (
     <div className="project-detail-bg health-bg">
       <div className="project-detail-container">
+        <Link to="/about" className="back-link">Back to About Me</Link>
+
         <header className="project-detail-header">
           <div className="project-detail-title-section">
             <h1>Fitness & Athletics</h1>

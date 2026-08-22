@@ -1,0 +1,117 @@
+.articles-bg {
+  background: #f7f5f2;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.articles-about-section p {
+  margin: 0 0 16px 0;
+}
+
+.articles-about-section p:last-child {
+  margin-bottom: 24px;
+}
+
+.pillars-heading {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  color: #183820;
+  font-size: 1.4rem;
+  margin: 0 0 16px 0;
+}
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.pillar-card {
+  background: #f7f5f2;
+  border: 2px solid #e6d7b9;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+}
+
+.pillar-card h4 {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  color: #2e5d34;
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.pillar-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.pillar-links a {
+  color: #2e5d34;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.pillar-links a:hover {
+  color: #183820;
+  text-decoration: underline;
+}
+
+.articles-category-section .section-intro {
+  color: #2e5d34;
+  font-style: italic;
+  margin-bottom: 24px;
+}
+
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.article-card {
+  background: #fff;
+  border: 3px solid #e6d7b9;
+  border-radius: 12px;
+  padding: 24px;
+  transition: all 0.3s ease;
+}
+
+.article-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(24, 56, 32, 0.12);
+  border-color: #2e5d34;
+}
+
+.article-card h3 {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  color: #183820;
+  font-size: 1.3rem;
+  margin: 0 0 8px 0;
+}
+
+.article-date {
+  color: #2e5d34;
+  font-size: 0.9rem;
+  font-style: italic;
+  margin: 0 0 12px 0;
+}
+
+.article-excerpt {
+  color: #183820;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.articles-empty {
+  color: #2e5d34;
+  font-style: italic;
+  opacity: 0.8;
+}
