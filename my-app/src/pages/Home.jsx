@@ -15,9 +15,9 @@ function Home() {
           <p className="home-subtitle">Personal Portfolio</p>
           <ul className="home-bio-list">
             <li>BSc Honors Specialization in Genetics at Western University (2022-2026) graduate.</li>
-            <li>Varsity track & field provincial Rookie of the Year</li>
-            <li>Placed 2nd, 4th, and 7th at National Championships</li>
-            <li>Favorite hobbies: reading, baking & cooking, running, biking, yoga/pilates, learning languages, hiking, piano & guitar, drawing & design</li>
+            <li>Varsity track & field provincial Rookie of the Year.</li>
+            <li>Placed 2nd, 4th, and 7th at National Championships.</li>
+            <li>Favorite hobbies: reading, baking & cooking, running, biking, yoga/pilates, learning languages, hiking, piano & guitar, drawing & design.</li>
           </ul>
 
           <div className="home-btn-row">

@@ -59,9 +59,9 @@ function Header() {
           <ul>
             <li><Link to="/" onClick={closeMenu} className={isActive('/') ? 'active' : ''}>Home</Link></li>
             <li><Link to="/about" onClick={closeMenu} className={isActive('/about') ? 'active' : ''}>About Me</Link></li>
-            <li><Link to="/books" onClick={closeMenu} className={isActive('/books') ? 'active' : ''}>Bookshelf</Link></li>
-            <li><Link to="/projects" onClick={closeMenu} className={isActive('/projects') ? 'active' : ''}>Projects</Link></li>
             <li><Link to="/articles" onClick={closeMenu} className={isActive('/articles') ? 'active' : ''}>Articles</Link></li>
+            <li><Link to="/projects" onClick={closeMenu} className={isActive('/projects') ? 'active' : ''}>Projects</Link></li>
+            <li><Link to="/books" onClick={closeMenu} className={isActive('/books') ? 'active' : ''}>Bookshelf</Link></li>
             {/* <li><Link to="/website-design" onClick={closeMenu} className={isActive('/website-design') ? 'active' : ''}>Website Design</Link></li> */}
           </ul>
         </nav>
