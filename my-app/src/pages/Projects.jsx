@@ -25,7 +25,6 @@ function Projects() {
       description: 'A full-featured music composition desktop app with a piano roll editor, virtual keyboard, sheet music view, MIDI import/export, and AI audio-to-MIDI transcription.',
       year: '2026',
       thumbnail: keycraftLogo,
-      containThumbnail: true,
       externalLink: 'https://www.keycraft.org/'
     },
     {
@@ -52,7 +51,6 @@ function Projects() {
       description: 'My Substack, where I write about health, science, and the things I care about.',
       year: '2026',
       thumbnail: substackBanner,
-      containThumbnail: true,
       externalLink: 'https://substack.com/@audreyannagoddard'
     },
     {
