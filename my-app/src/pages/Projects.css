@@ -165,7 +165,9 @@
 .notion-placeholder {
   width: 100%;
   height: 100%;
-  min-height: 280px;
+  min-height: 0;
+  overflow: hidden;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -417,6 +419,19 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
+  }
+
+  .notion-placeholder {
+    padding: 8px;
+  }
+
+  .notion-text h4 {
+    font-size: 0.95rem;
+    margin: 0 0 2px 0;
+  }
+
+  .notion-text p {
+    font-size: 0.75rem;
   }
 }
 

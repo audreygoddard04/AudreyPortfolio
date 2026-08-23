@@ -5,6 +5,7 @@ import './ProjectDetail.css';
 import notionDashboardImage from '../images/notion-dashboard.png';
 import thesisThumbnail from '../images/ThesisThumbnail.png';
 import keycraftLogo from '../images/keycraft-logo.png';
+import substackBanner from '../images/substack-banner.png';
 
 function Projects() {
   const projects = [
@@ -25,7 +26,7 @@ function Projects() {
       year: '2026',
       thumbnail: keycraftLogo,
       containThumbnail: true,
-      externalLink: 'https://github.com/audreygoddard04/KeyCraft-Windows-Desktop-App'
+      externalLink: 'https://www.keycraft.org/'
     },
     {
       id: 'gymify',
@@ -50,6 +51,8 @@ function Projects() {
       subtitle: 'Writing & Newsletter',
       description: 'My Substack, where I write about health, science, and the things I care about.',
       year: '2026',
+      thumbnail: substackBanner,
+      containThumbnail: true,
       externalLink: 'https://substack.com/@audreyannagoddard'
     },
     {

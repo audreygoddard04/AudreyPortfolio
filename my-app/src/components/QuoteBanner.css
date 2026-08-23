@@ -18,15 +18,14 @@
   align-items: center;
   color: #f7f5f2;
   font-family: 'Playfair Display', 'Georgia', serif;
-  font-style: italic;
+  font-weight: 500;
   font-size: 1.05rem;
   white-space: nowrap;
-  padding: 0 32px;
 }
 
 .quote-banner-divider {
   color: #b6a16b;
-  margin-left: 32px;
+  margin: 0 32px;
 }
 
 @keyframes quote-scroll {
@@ -41,10 +40,9 @@
 @media (max-width: 768px) {
   .quote-banner-item {
     font-size: 0.95rem;
-    padding: 0 20px;
   }
 
   .quote-banner-divider {
-    margin-left: 20px;
+    margin: 0 20px;
   }
 }
