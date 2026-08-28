@@ -3,10 +3,9 @@ import './ProjectDetail.css';
 import './Articles.css';
 
 const CATEGORIES = [
-  { id: 'health-longevity', title: 'Health & Longevity', description: 'Nutrition, fitness, fasting, and everything I learn about living well.' },
-  { id: 'genetics-science', title: 'Genetics & Science', description: 'Research, genomics, and ideas from the lab and beyond.' },
-  { id: 'business-money', title: 'Business & Money', description: 'Notes on entrepreneurship, investing, and building things.' },
-  { id: 'books-ideas', title: 'Books & Ideas', description: 'Reflections on what I\'m reading and thinking about.' },
+  { id: 'business-entrepreneurship', title: 'Business & Entrepreneurship', description: 'Notes on building things.' },
+  { id: 'books-ideas', title: 'Books & Ideas', description: 'Reflections on what I\'m reading & thinking about.' },
+  { id: 'health-science', title: 'Health & Science', description: 'Nutrition, fitness, genetics, and everything I\'m learning about living well.' },
 ];
 
 // Add new articles here as they're written, e.g.:

@@ -10,19 +10,33 @@ function About() {
         <header className="project-detail-header">
           <div className="project-detail-title-section">
             <h1>About Me</h1>
-            <p className="project-detail-subtitle">A bit more about who I am.</p>
           </div>
         </header>
 
+        <section className="main-section project-detail-section life-stages-section">
+          <h3 className="pillars-heading">Who am I?</h3>
+          <div className="life-stages-grid">
+            <div className="life-stage-card">
+              <span className="life-stage-label">Past</span>
+              <p>Growing up in competitive sports taught me discipline and grit — track & field became the training ground for a work ethic. Alongside that was a pull toward problem-solving that led me to genetics.</p>
+            </div>
+            <div className="life-stage-card">
+              <span className="life-stage-label">Present / Recent</span>
+              <p>Completed my undergraduate BSc degree pursuing an Honors Specialization in Genetics at Western University (2022-2026), where I was a varsity track & field athlete.</p>
+            </div>
+            <div className="life-stage-card">
+              <span className="life-stage-label">Future</span>
+              <p>I want to build something that outlasts me (and would make my dad and the people I look up to proud). I aim to keep accumulating knowledge and stand on the shoulders of the giants to advance civilization.</p>
+            </div>
+          </div>
+        </section>
+
         <section className="main-section project-detail-section articles-about-section">
-          <p>
-            I have just completed my undergraduate degree pursuing an Honors Specialization in Genetics at Western University (2022-2026), where I was a varsity track & field athlete. My passions involve health, science, longevity, and helping others grow through curiosity and wellness.
-          </p>
-          <p>
-            This is where I write about the things I'm learning and thinking about, from genetics and longevity to business and books. Reach out through my socials with any questions, comments, and feedback.
+          <h3 className="pillars-heading">My Pillars</h3>
+          <p className="pillars-intro">
+            Here I write about the things I'm learning and thinking about, from science to business to biographies.
           </p>
 
-          <h3 className="pillars-heading">My Pillars</h3>
           <div className="pillars-grid">
             <div className="pillar-card">
               <h4>Research & Curiosity</h4>
