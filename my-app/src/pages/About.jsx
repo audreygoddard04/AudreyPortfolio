@@ -18,7 +18,7 @@ function About() {
           <div className="life-stages-grid">
             <div className="life-stage-card">
               <span className="life-stage-label">Past</span>
-              <p>Growing up in competitive sports taught me discipline and grit — track & field became the training ground for a work ethic. Alongside that was a pull toward problem-solving that led me to genetics.</p>
+              <p>Growing up in competitive sports taught me discipline and grit. Alongside that was a pull toward problem-solving that led me to genetics.</p>
             </div>
             <div className="life-stage-card">
               <span className="life-stage-label">Present / Recent</span>
