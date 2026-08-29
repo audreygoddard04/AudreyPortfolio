@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaLinkedin, FaInstagram } from 'react-icons/fa';
+import { SiSubstack } from 'react-icons/si';
 import './Footer.css';
 
 function Footer() {
@@ -37,6 +38,9 @@ function Footer() {
             </a>
             <a href="https://x.com/audreygoddard_" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
               <span style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>X</span>
+            </a>
+            <a href="https://audreyannagoddard.substack.com/" target="_blank" rel="noopener noreferrer" aria-label="Substack">
+              <SiSubstack />
             </a>
           </div>
         </div>

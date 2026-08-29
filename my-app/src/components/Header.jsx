@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FaLinkedin, FaInstagram, FaBars, FaTimes } from 'react-icons/fa';
+import { SiSubstack } from 'react-icons/si';
 import './Header.css';
 
 function Header() {
@@ -80,6 +81,11 @@ function Header() {
             <li>
               <a href="https://x.com/audreygoddard_" className="social-icon-link" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
                 <span style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>X</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://audreyannagoddard.substack.com/" className="social-icon-link" target="_blank" rel="noopener noreferrer" aria-label="Substack">
+                <SiSubstack />
               </a>
             </li>
           </ul>
