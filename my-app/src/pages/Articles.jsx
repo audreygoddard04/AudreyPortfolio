@@ -82,8 +82,8 @@ function Articles() {
               src={`${SUBSTACK_URL}embed`}
               title="Audrey Anna Goddard on Substack"
               width="100%"
-              height="320"
-              style={{ border: '1px solid #e6d7b9', background: 'white' }}
+              height="200"
+              style={{ border: 'none', background: '#f7f5f3' }}
               frameBorder="0"
               scrolling="no"
             />
