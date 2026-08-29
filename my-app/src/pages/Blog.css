@@ -13,7 +13,7 @@
 }
 
 .blog-header h1 {
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #183820;
   font-size: 2.5rem;
   margin-bottom: 16px;
@@ -22,7 +22,7 @@
 .blog-subtitle {
   color: #2e5d34;
   font-size: 1.2rem;
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Times New Roman', Times, serif;
   margin-bottom: 32px;
 }
 
@@ -38,7 +38,7 @@
 }
 
 .main-section h2 {
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #183820;
   font-size: 2rem;
   margin-bottom: 24px;
@@ -72,7 +72,7 @@
   border: 2px solid #e6d7b9;
   border-radius: 8px;
   font-size: 1rem;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #183820;
   background: #fff;
   transition: border-color 0.3s ease;
@@ -115,7 +115,7 @@
   color: #d32f2f;
   font-size: 0.9rem;
   margin-top: 12px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .subscribe-success {
@@ -130,7 +130,7 @@
 .subscribe-success p {
   margin: 0;
   color: #183820;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   font-size: 1rem;
 }
 

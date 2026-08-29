@@ -58,7 +58,7 @@
 }
 
 .book-modal-header h2 {
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #183820;
   font-size: 1.8rem;
   margin: 0 0 8px 0;
@@ -66,7 +66,7 @@
 }
 
 .book-modal-author {
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #2e5d34;
   font-style: italic;
   font-size: 1.05rem;
@@ -87,7 +87,7 @@
   border-radius: 20px;
   font-size: 0.85rem;
   font-weight: 600;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .book-modal-rating-container {
@@ -104,14 +104,14 @@
 .book-modal-rating-number {
   font-size: 0.9rem;
   color: #666;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .book-modal-not-rated {
   font-size: 0.9rem;
   color: #999;
   font-style: italic;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .book-modal-body {
@@ -127,7 +127,7 @@
 }
 
 .book-modal-section h3 {
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #183820;
   font-size: 1.2rem;
   margin: 0 0 10px 0;

@@ -71,7 +71,7 @@
 }
 
 .recipe-modal-header h2 {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #183820;
   font-size: 2rem;
   font-weight: 600;
@@ -95,7 +95,7 @@
   font-size: 0.85rem;
   font-weight: 600;
   text-transform: capitalize;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .recipe-calories-badge {
@@ -105,7 +105,7 @@
   border-radius: 20px;
   font-size: 0.85rem;
   font-weight: 600;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .recipe-macros {
@@ -121,7 +121,7 @@
   border-radius: 12px;
   font-size: 0.85rem;
   font-weight: 500;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .recipe-tags {
@@ -138,7 +138,7 @@
   border-radius: 12px;
   font-size: 0.75rem;
   font-weight: 500;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .recipe-modal-body {
@@ -154,7 +154,7 @@
 }
 
 .recipe-section h3 {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #183820;
   font-size: 1.4rem;
   font-weight: 600;
@@ -172,7 +172,7 @@
 }
 
 .ingredient-section-title {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #b6a16b;
   font-size: 1.1rem;
   font-weight: 600;
@@ -187,7 +187,7 @@
 }
 
 .ingredient-list li {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #2e5d34;
   font-size: 1rem;
   line-height: 1.8;
@@ -213,7 +213,7 @@
 }
 
 .directions-list li {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #2e5d34;
   font-size: 1rem;
   line-height: 1.8;
@@ -238,7 +238,7 @@
   justify-content: center;
   font-weight: 600;
   font-size: 0.9rem;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 @media (max-width: 768px) {

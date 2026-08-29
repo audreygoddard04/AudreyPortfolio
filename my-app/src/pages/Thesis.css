@@ -25,7 +25,7 @@
 }
 
 .thesis-eyebrow {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   font-size: 0.85rem;
   font-weight: 600;
   color: #b6a16b;
@@ -35,7 +35,7 @@
 }
 
 .thesis-hero h1 {
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #183820;
   font-size: 2.1rem;
   line-height: 1.3;
@@ -43,7 +43,7 @@
 }
 
 .thesis-tagline {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #2e5d34;
   font-size: 1.1rem;
   line-height: 1.65;
@@ -86,7 +86,7 @@
 }
 
 .thesis-supervisor {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   font-size: 0.88rem;
   color: #183820;
   opacity: 0.7;
@@ -105,21 +105,21 @@
 }
 
 .thesis-section h2 {
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #183820;
   font-size: 1.75rem;
   margin: 0 0 20px 0;
 }
 
 .thesis-section h3 {
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #2e5d34;
   font-size: 1.2rem;
   margin: 0 0 12px 0;
 }
 
 .thesis-section p {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #183820;
   font-size: 1.05rem;
   line-height: 1.75;
@@ -149,7 +149,7 @@
 }
 
 .thesis-stat-number {
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Times New Roman', Times, serif;
   font-size: 2.4rem;
   font-weight: 700;
   color: #183820;
@@ -157,7 +157,7 @@
 }
 
 .thesis-stat-label {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   font-size: 0.85rem;
   font-weight: 700;
   color: #2e5d34;
@@ -166,7 +166,7 @@
 }
 
 .thesis-stat-detail {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   font-size: 0.88rem;
   color: #183820;
   line-height: 1.55;
@@ -198,7 +198,7 @@
 }
 
 .thesis-col-card h3 {
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Times New Roman', Times, serif;
   font-size: 1.05rem;
   color: #183820;
   margin: 0 0 14px 0;
@@ -211,7 +211,7 @@
 }
 
 .thesis-col-card li {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   font-size: 0.95rem;
   color: #183820;
   line-height: 1.6;
@@ -254,14 +254,14 @@
 }
 
 .thesis-method-card h4 {
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #183820;
   font-size: 1rem;
   margin: 0 0 10px 0;
 }
 
 .thesis-method-card p {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   font-size: 0.9rem;
   color: #183820;
   line-height: 1.65;
@@ -317,7 +317,7 @@
 }
 
 .thesis-pipeline-num {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   font-size: 0.8rem;
   font-weight: 700;
   color: #fffefb;
@@ -331,7 +331,7 @@
 }
 
 .thesis-pipeline-step strong {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #183820;
   font-size: 0.95rem;
   display: block;
@@ -339,7 +339,7 @@
 }
 
 .thesis-pipeline-step p {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   font-size: 0.88rem;
   color: #183820;
   margin: 0;
@@ -360,7 +360,7 @@
   border: 1px solid #e6d7b9;
   border-radius: 8px;
   padding: 8px 16px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   font-size: 0.9rem;
   font-weight: 500;
   color: #183820;
@@ -374,7 +374,7 @@
 }
 
 .thesis-list li {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   font-size: 0.98rem;
   color: #183820;
   line-height: 1.7;

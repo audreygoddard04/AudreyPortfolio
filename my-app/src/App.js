@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header.jsx';
-import QuoteBanner from './components/QuoteBanner.jsx';
 import Footer from './components/Footer.jsx';
 import ScrollToTop from './components/ScrollToTop.jsx';
 import Home from './pages/Home.jsx';
@@ -23,7 +22,6 @@ function App() {
       <ScrollToTop />
       <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', margin: 0, padding: 0 }}>
         <Header />
-        <QuoteBanner />
         <main style={{ flex: '1', margin: 0, padding: 0 }}>
           <Routes>
             <Route path="/" element={<Home />} />

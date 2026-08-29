@@ -61,7 +61,7 @@
   border: 3px solid #e6d7b9;
   border-radius: 12px;
   font-size: 1rem;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #183820;
   background: #fff;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
@@ -109,7 +109,7 @@
 }
 
 .athletics-featured-title {
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #183820;
   font-size: 2rem;
   margin: 0 0 8px 0;
@@ -118,7 +118,7 @@
 .athletics-featured-subtitle {
   color: #2e5d34;
   font-size: 1.1rem;
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Times New Roman', Times, serif;
   font-style: italic;
   margin: 0;
 }
@@ -141,7 +141,7 @@
   margin-bottom: 8px;
   padding-left: 24px;
   position: relative;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .athletics-featured-list li::before {
@@ -158,7 +158,7 @@
   font-weight: 500;
   font-size: 1rem;
   margin-top: 8px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 @media (max-width: 900px) {
@@ -322,7 +322,7 @@
 }
 
 .project-detail-title-section h1 {
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #183820;
   font-size: 2.8rem;
   margin: 0 0 12px 0;
@@ -332,7 +332,7 @@
 .project-detail-subtitle {
   color: #2e5d34;
   font-size: 1.3rem;
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Times New Roman', Times, serif;
   font-style: italic;
   margin: 0 0 20px 0;
 }
@@ -374,7 +374,7 @@
 }
 
 .project-detail-section h2 {
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #183820;
   font-size: 2rem;
   margin: 0 0 24px 0;
@@ -423,7 +423,7 @@
 }
 
 .project-not-found h1 {
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #183820;
   font-size: 2.5rem;
   margin-bottom: 16px;
@@ -479,7 +479,7 @@
 }
 
 .fitness-card h3 {
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #183820;
   font-size: 1.6rem;
   margin: 0 0 24px 0;
@@ -501,7 +501,7 @@
   margin-bottom: 14px;
   padding-left: 28px;
   position: relative;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .fitness-list li::before {
@@ -528,7 +528,7 @@
 }
 
 .exercise-category h4 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #183820;
   font-size: 1.15rem;
   font-weight: 600;
@@ -542,7 +542,7 @@
   font-size: 1rem;
   line-height: 1.7;
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 /* Nutrition Hacks Redesign */
@@ -551,7 +551,7 @@
 }
 
 .nutrition-hacks-container h3 {
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #183820;
   font-size: 1.8rem;
   margin-bottom: 24px;
@@ -578,7 +578,7 @@
 }
 
 .hack-card h4 {
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #183820;
   font-size: 1.3rem;
   margin: 0 0 16px 0;
@@ -599,7 +599,7 @@
   margin-bottom: 10px;
   padding-left: 20px;
   position: relative;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .hack-card li::before {
@@ -617,7 +617,7 @@
 }
 
 .fasting-container h3 {
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #183820;
   font-size: 1.8rem;
   margin-bottom: 24px;
@@ -647,7 +647,7 @@
 }
 
 .fasting-title {
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #183820;
   font-size: 1.3rem;
   font-weight: 600;
@@ -663,7 +663,7 @@
 
 .fasting-content p {
   margin: 8px 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   font-size: 0.95rem;
   line-height: 1.6;
   color: #183820;
@@ -679,7 +679,7 @@
 }
 
 .dietary-guidelines-container h3 {
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #183820;
   font-size: 1.8rem;
   margin-bottom: 24px;
@@ -700,7 +700,7 @@
 }
 
 .guidelines-column h4 {
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #183820;
   font-size: 1.5rem;
   margin: 0 0 20px 0;
@@ -722,7 +722,7 @@
   margin-bottom: 14px;
   padding-left: 24px;
   position: relative;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .guidelines-list li:last-child {
@@ -771,7 +771,7 @@
 }
 
 .faq-card h3.faq-question {
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #183820;
   font-size: 1.3rem;
   font-weight: 600;
@@ -782,7 +782,7 @@
 }
 
 .faq-card .faq-answer {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #2e5d34;
   font-size: 1rem;
   font-style: italic;
@@ -791,7 +791,7 @@
 }
 
 .faq-card .faq-detail {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #183820;
   font-size: 0.95rem;
   line-height: 1.7;
@@ -1204,7 +1204,7 @@ body:has(.recipe-modal-overlay) .cta-section.has-expanded:hover {
 }
 
 .cta-card h2 {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #183820;
   font-size: 1.8rem;
   font-weight: 600;
@@ -1213,7 +1213,7 @@ body:has(.recipe-modal-overlay) .cta-section.has-expanded:hover {
 }
 
 .cta-card p {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #2e5d34;
   font-size: 1rem;
   margin: 0;
@@ -1264,7 +1264,7 @@ body:has(.recipe-modal-overlay) .cta-section.has-expanded:hover {
 }
 
 .info-subsection h3 {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #183820;
   font-size: 1.5rem;
   font-weight: 600;
@@ -1273,7 +1273,7 @@ body:has(.recipe-modal-overlay) .cta-section.has-expanded:hover {
 }
 
 .aside-header {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #b6a16b;
   font-size: 1.3rem;
   font-weight: 600;
@@ -1289,7 +1289,7 @@ body:has(.recipe-modal-overlay) .cta-section.has-expanded:hover {
 
 .info-list li {
   color: #2e5d34;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   font-size: 1.05rem;
   line-height: 1.8;
   margin-bottom: 8px;
@@ -1315,7 +1315,7 @@ body:has(.recipe-modal-overlay) .cta-section.has-expanded:hover {
 
 .numbered-list li {
   color: #2e5d34;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   font-size: 1.05rem;
   line-height: 1.8;
   margin-bottom: 12px;
@@ -1368,7 +1368,7 @@ body:has(.recipe-modal-overlay) .cta-section.has-expanded:hover {
 .vitamins-table {
   width: 100%;
   border-collapse: collapse;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   font-size: 0.95rem;
   background: #fffefb;
   border-radius: 8px;

@@ -21,8 +21,8 @@ function Home() {
           </ul>
 
           <div className="home-btn-row">
+            <Link to="/articles" className="view-resume-btn">Articles</Link>
             <Link to="/projects" className="view-projects-btn">Projects</Link>
-            <Link to="/about" className="view-resume-btn">About Me</Link>
           </div>
         </div>
 

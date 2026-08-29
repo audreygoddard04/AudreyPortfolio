@@ -17,7 +17,7 @@
 .nutrition-cta-secondary {
   padding: 14px 28px;
   font-size: 1.1rem;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   font-weight: 600;
   border-radius: 12px;
   cursor: pointer;
@@ -55,29 +55,11 @@
 }
 
 .nutrition-section-summary {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   font-size: 1.1rem;
   color: #183820;
   line-height: 1.7;
   margin-bottom: 20px;
-}
-
-.nutrition-tier-info {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 28px;
-}
-
-.tier-badge {
-  font-size: 0.9rem;
-  padding: 6px 12px;
-  border-radius: 6px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 500;
-  background: #f7f5f2;
-  color: #183820;
-  border: 1px solid #e6d7b9;
 }
 
 /* Section 3 — Category Grid */
@@ -127,7 +109,7 @@
 }
 
 .nutrition-category-card h3 {
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #183820;
   font-size: 1.35rem;
   margin: 0;
@@ -183,7 +165,7 @@
 }
 
 .nutrition-evidence h4 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #2e5d34;
   font-size: 1rem;
   margin-bottom: 8px;
@@ -247,14 +229,14 @@
 }
 
 .sourdough-box h3 {
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #183820;
   font-size: 1.35rem;
   margin: 0 0 12px 0;
 }
 
 .sourdough-box h4 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #2e5d34;
   font-size: 1rem;
   font-weight: 600;
@@ -283,7 +265,7 @@
 }
 
 .sourdough-inclusions-title {
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #183820;
   font-size: 1.35rem;
   margin: 0 0 16px 0 !important;
@@ -306,7 +288,7 @@
 }
 
 .sourdough-recipe-item h4 {
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #183820;
   font-size: 1.15rem;
   margin: 0 0 8px 0;
@@ -344,7 +326,7 @@
 }
 
 .hack-card h4 {
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #183820;
   font-size: 1.15rem;
   margin: 0 0 12px 0;
@@ -388,7 +370,7 @@
 }
 
 .fasting-card h4 {
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #183820;
   font-size: 1.15rem;
   margin: 0 0 12px 0;
@@ -419,7 +401,7 @@
 
 .vitamins-table th {
   background: #f7f5f2;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   font-weight: 600;
   color: #183820;
 }

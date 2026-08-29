@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { FaLinkedin, FaInstagram } from 'react-icons/fa';
 import { SiSubstack } from 'react-icons/si';
 import './Footer.css';
@@ -9,25 +8,13 @@ function Footer() {
     <footer className="footer">
       <div className="footer-content">
         <div className="footer-section">
-          <h3>Navigation</h3>
-          <nav className="footer-nav">
-            <Link to="/">Home</Link>
-            <Link to="/books">Bookshelf</Link>
-            <Link to="/projects">Projects</Link>
-            <Link to="/articles">Articles</Link>
-            <Link to="/about">About Me</Link>
-            {/* <Link to="/website-design">Website Design</Link> */}
-          </nav>
-        </div>
-        
-        <div className="footer-section">
           <h3>Contact</h3>
           <p>
             <a href="mailto:audreyannagoddard@gmail.com">audreyannagoddard@gmail.com</a>
           </p>
         </div>
         
-        <div className="footer-section">
+        <div className="footer-section footer-connect">
           <h3>Connect</h3>
           <div className="footer-social">
             <a href="https://linkedin.com/in/audrey-goddard" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">

@@ -44,7 +44,7 @@
 
 .life-stage-label {
   display: block;
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #2e5d34;
   font-size: 1.2rem;
   font-weight: 700;
@@ -62,7 +62,7 @@
 }
 
 .pillars-heading {
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #183820;
   font-size: 1.4rem;
   margin: 0 0 16px 0;
@@ -89,7 +89,7 @@
 }
 
 .pillar-card h4 {
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #2e5d34;
   font-size: 1.05rem;
   letter-spacing: 0.04em;
@@ -106,7 +106,7 @@
 
 .pillar-links a {
   color: #2e5d34;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   font-size: 0.95rem;
   font-weight: 500;
   text-decoration: none;
@@ -153,7 +153,7 @@
 }
 
 .article-card h3 {
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #183820;
   font-size: 1.3rem;
   margin: 0 0 8px 0;

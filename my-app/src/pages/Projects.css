@@ -12,7 +12,7 @@
 }
 
 .projects-header h1 {
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #183820;
   font-size: 2.5rem;
   margin-bottom: 16px;
@@ -21,7 +21,7 @@
 .projects-subtitle {
   color: #2e5d34;
   font-size: 1.2rem;
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Times New Roman', Times, serif;
   margin-bottom: 32px;
 }
 
@@ -37,7 +37,7 @@
 }
 
 .main-section h2 {
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #183820;
   font-size: 2rem;
   margin-bottom: 32px;
@@ -187,14 +187,14 @@
 }
 
 .notion-text h4 {
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #2e5d34;
   font-size: 1.2rem;
   margin: 0 0 8px 0;
 }
 
 .notion-text p {
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #2e5d34;
   font-size: 0.9rem;
   margin: 0;
@@ -209,7 +209,7 @@
 }
 
 .project-card h3 {
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #183820;
   font-size: 1.3rem;
   margin: 0;
@@ -228,7 +228,7 @@
 .project-subtitle {
   color: #2e5d34;
   font-size: 1rem;
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Times New Roman', Times, serif;
   margin: 0 0 12px 0;
   font-style: italic;
 }

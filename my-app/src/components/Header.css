@@ -221,7 +221,7 @@
 }
 
 /* Hamburger menu for smaller screens */
-@media (max-width: 850px) {
+@media (max-width: 1000px) {
   .top-nav.split-nav {
     grid-template-columns: 1fr auto;
     justify-content: space-between;

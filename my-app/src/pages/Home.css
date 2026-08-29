@@ -28,7 +28,7 @@
 }
 
 .home-headline {
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #183820;
   font-size: 3.5rem;
   line-height: 1.2;
@@ -219,7 +219,7 @@
 }
 
 .main-section h2 {
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #183820;
   font-size: 2rem;
   margin-bottom: 32px;
@@ -234,7 +234,7 @@
 }
 
 .achievement-item h3 {
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #183820;
   font-size: 1.5rem;
   margin-bottom: 8px;
@@ -281,7 +281,7 @@
 }
 
 .skills-category h3 {
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #183820;
   font-size: 1.3rem;
   margin-bottom: 16px;
@@ -430,9 +430,19 @@
 }
 
 @media (max-width: 600px) {
+  .home-bg {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
   .hero-section-redesign {
+    grid-template-columns: 1fr;
     gap: 20px;
-    padding: 32px 12px 16px 12px;
+    padding: 32px 0 16px 0;
+  }
+
+  .hero-left-content {
+    padding: 0 16px;
   }
 
   .home-headline {
@@ -442,13 +452,14 @@
   .hero-image-grid {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    max-width: 200px;
+    max-width: none;
+    width: 100%;
     gap: 4px;
-    margin: 0 auto;
+    margin: 0;
   }
 
   .grid-item {
-    min-height: 80px;
+    min-height: 140px;
   }
 
   .grid-item img {
@@ -459,29 +470,20 @@
 /* Keep square grid even on very small screens - never stack vertically */
 @media (max-width: 480px) {
   .hero-section-redesign {
-    grid-template-columns: 1fr;
     gap: 24px;
-    padding: 24px 16px 16px 16px;
+    padding: 24px 0 16px 0;
+  }
+
+  .hero-left-content {
+    padding: 0 16px;
   }
 
   .home-headline {
     font-size: 1.8rem;
   }
 
-  .hero-image-grid {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    max-width: 180px;
-    gap: 4px;
-    margin: 0 auto;
-  }
-
   .grid-item {
-    min-height: 70px;
-  }
-
-  .grid-item img {
-    object-fit: cover;
+    min-height: 120px;
   }
 
   .main-section {

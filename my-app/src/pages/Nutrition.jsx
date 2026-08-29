@@ -66,10 +66,6 @@ function Nutrition() {
           <p className="nutrition-section-summary">
             TDEE-based, evidence-backed, and designed for real budgets. Enter your stats below to get personalized calorie targets, protein goals, and meal recommendations.
           </p>
-          <div className="nutrition-tier-info">
-            <div className="tier-badge free">Free: Basic TDEE + sample day</div>
-            <div className="tier-badge paid">Paid: Full 7-day plan, macro breakdown, auto grocery list, substitutions, saved history</div>
-          </div>
           <MealPlanGenerator onRecipeClick={openRecipe} />
         </section>
 

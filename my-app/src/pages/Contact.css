@@ -17,7 +17,7 @@
 
 .form-group label {
   display: block;
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #183820;
   font-size: 1.1rem;
   margin-bottom: 8px;
@@ -134,7 +134,7 @@ textarea.form-input {
 }
 
 .contact-success h2 {
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #2e5d34;
   font-size: 2rem;
   margin-bottom: 16px;

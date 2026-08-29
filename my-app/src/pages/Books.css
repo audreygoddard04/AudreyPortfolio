@@ -21,7 +21,7 @@
   border: 1.5px solid #e6d7b9;
   border-radius: 8px;
   font-size: 1rem;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #183820;
   background: #fff;
   transition: border-color 0.3s ease;
@@ -41,7 +41,7 @@
   border: 1.5px solid #e6d7b9;
   border-radius: 8px;
   font-size: 1rem;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #183820;
   background: #fff;
   cursor: pointer;
@@ -62,7 +62,7 @@
 }
 
 .bookshelf-table th {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   font-weight: bold;
   font-size: 0.9rem;
   letter-spacing: 0.08em;
@@ -101,18 +101,18 @@
 }
 
 .book-title-cell {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   font-weight: 500;
   color: #183820;
 }
 
 .book-author-cell {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #183820;
 }
 
 .book-category-cell {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #2e5d34;
   font-size: 0.9rem;
 }
@@ -121,11 +121,11 @@
   font-size: 0.9rem;
   color: #999;
   font-style: italic;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .book-rating-cell {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #183820;
 }
 
@@ -146,7 +146,7 @@
 .rating-number {
   font-size: 0.9rem;
   color: #666;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   white-space: nowrap;
 }
 
