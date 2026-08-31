@@ -117,20 +117,18 @@ function ArticlePage() {
         structuredData={structuredData}
       />
       <div className="project-detail-container article-page-container">
-        <header className="project-detail-header">
-          <div className="project-detail-title-section">
-            <p className="article-category-eyebrow">{article.category}</p>
-            <h1>{article.title}</h1>
-            <p className="article-byline">
-              By {siteConfig.author} · <time dateTime={article.pubDate}>{formatDate(article.pubDate)}</time>
-              {article.updatedDate !== article.pubDate && (
-                <> · Updated <time dateTime={article.updatedDate}>{formatDate(article.updatedDate)}</time></>
-              )}
-            </p>
-          </div>
-        </header>
+        <Link to="/articles" className="article-back-to-all article-back-to-all-top">← All articles</Link>
 
         <article className="main-section project-detail-section article-body">
+          <p className="article-category-eyebrow">{article.category}</p>
+          <h1>{article.title}</h1>
+          <p className="article-byline">
+            By {siteConfig.author} · <time dateTime={article.pubDate}>{formatDate(article.pubDate)}</time>
+            {article.updatedDate !== article.pubDate && (
+              <> · Updated <time dateTime={article.updatedDate}>{formatDate(article.updatedDate)}</time></>
+            )}
+          </p>
+
           {article.content.map((block, i) => (
             <ContentBlock block={block} key={i} />
           ))}
@@ -143,7 +141,7 @@ function ArticlePage() {
             rel="noopener noreferrer"
             className="article-substack-secondary-link"
           >
-            Also on Substack →
+            More on Substack →
           </a>
           <Link to="/articles" className="article-back-to-all">← All articles</Link>
         </div>

@@ -7,11 +7,21 @@
   margin: 0 0 8px 0;
 }
 
+.article-body h1 {
+  font-family: 'Times New Roman', Times, serif;
+  color: #183820;
+  font-size: 2rem;
+  line-height: 1.2;
+  margin: 0 0 12px 0;
+}
+
 .article-byline {
   color: #2e5d34;
   font-style: italic;
   font-size: 0.95rem;
-  margin-top: 8px;
+  margin: 0 0 28px 0;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #e6d7b9;
 }
 
 .article-body {
@@ -176,7 +186,7 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 16px;
-  margin: 0 0 40px 0;
+  margin: 40px 0;
 }
 
 .article-substack-secondary-link {
@@ -193,6 +203,11 @@
   color: #183820;
   text-decoration: none;
   font-weight: 500;
+}
+
+.article-back-to-all-top {
+  display: inline-block;
+  margin-bottom: 24px;
 }
 
 .article-back-to-all:hover {
