@@ -20,6 +20,17 @@ function ContentBlock({ block }) {
       return <p>{block.text}</p>;
     case 'quote':
       return <blockquote className="article-blockquote">{block.text}</blockquote>;
+    case 'image':
+      return (
+        <figure className="article-image-figure">
+          <img
+            className={`article-image${block.contain ? ' article-image-contain' : ''}`}
+            src={block.src}
+            alt={block.alt}
+          />
+          {block.caption && <figcaption>{block.caption}</figcaption>}
+        </figure>
+      );
     case 'list':
       return (
         <ul className="article-list">
@@ -48,22 +59,32 @@ function ContentBlock({ block }) {
       return (
         <div className="article-buildings-grid">
           {block.items.map((b) => (
-            <div className="article-building-card" key={b.name}>
+            <div className={`article-building-card${b.image ? ' has-image' : ''}`} key={b.name}>
               <h3>{b.name}</h3>
-              <p className="article-building-blurb">{b.blurb}</p>
-              <dl>
-                <dt>Location</dt><dd>{b.location}</dd>
-                <dt>Architect</dt><dd>{b.architect}</dd>
-                <dt>Year</dt><dd>{b.year}</dd>
-                <dt>Original purpose</dt><dd>{b.originalPurpose}</dd>
-                <dt>Current use</dt><dd>{b.currentUse}</dd>
-                <dt>Land</dt><dd>{b.land}</dd>
-                <dt>Architecture</dt><dd>{b.architecture}</dd>
-                <dt>Ownership</dt><dd>{b.ownership}</dd>
-                <dt>Estimated value</dt><dd>{b.estimatedValue}</dd>
-                <dt>Revenue model</dt><dd>{b.revenueModel}</dd>
-              </dl>
-              <p className="article-building-why"><strong>Why is it valuable?</strong> {b.whyValuable}</p>
+              <div className="article-building-row">
+                {b.image && (
+                  <div className="article-building-media">
+                    <img className="article-building-image" src={b.image} alt={b.name} />
+                    <p className="article-building-caption">{b.blurb}</p>
+                  </div>
+                )}
+                <div className="article-building-content">
+                  {!b.image && <p className="article-building-blurb">{b.blurb}</p>}
+                  <dl>
+                    <dt>Location</dt><dd>{b.location}</dd>
+                    <dt>Architect</dt><dd>{b.architect}</dd>
+                    <dt>Year</dt><dd>{b.year}</dd>
+                    <dt>Original purpose</dt><dd>{b.originalPurpose}</dd>
+                    <dt>Current use</dt><dd>{b.currentUse}</dd>
+                    <dt>Land</dt><dd>{b.land}</dd>
+                    <dt>Architecture</dt><dd>{b.architecture}</dd>
+                    <dt>Ownership</dt><dd>{b.ownership}</dd>
+                    <dt>Estimated value</dt><dd>{b.estimatedValue}</dd>
+                    <dt>Revenue model</dt><dd>{b.revenueModel}</dd>
+                  </dl>
+                  <p className="article-building-why"><strong>Why is it valuable?</strong> {b.whyValuable}</p>
+                </div>
+              </div>
             </div>
           ))}
         </div>
@@ -120,7 +141,6 @@ function ArticlePage() {
         <Link to="/articles" className="article-back-to-all article-back-to-all-top">← All articles</Link>
 
         <article className="main-section project-detail-section article-body">
-          <p className="article-category-eyebrow">{article.category}</p>
           <h1>{article.title}</h1>
           <p className="article-byline">
             By {siteConfig.author} · <time dateTime={article.pubDate}>{formatDate(article.pubDate)}</time>

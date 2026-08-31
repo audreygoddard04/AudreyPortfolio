@@ -160,7 +160,8 @@ main {
 .projects-bg,
 .home-bg,
 .blog-bg,
-.health-bg {
+.health-bg,
+.articles-bg {
   padding-left: 24px;
   padding-right: 24px;
   box-sizing: border-box;
@@ -432,7 +433,7 @@ button:hover, .pill-btn:hover {
     padding: 24px 8px;
     margin: 32px auto 0 auto;
   }
-  .projects-bg, .home-bg, .blog-bg, .health-bg {
+  .projects-bg, .home-bg, .blog-bg, .health-bg, .articles-bg {
     padding-left: 3px;
     padding-right: 3px;
   }

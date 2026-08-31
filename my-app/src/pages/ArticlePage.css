@@ -10,9 +10,15 @@
 .article-body h1 {
   font-family: 'Times New Roman', Times, serif;
   color: #183820;
-  font-size: 2rem;
+  font-size: 2.8rem;
   line-height: 1.2;
   margin: 0 0 12px 0;
+}
+
+@media (max-width: 600px) {
+  .article-body h1 {
+    font-size: 2.1rem;
+  }
 }
 
 .article-byline {
@@ -33,6 +39,8 @@
   color: #183820;
   font-size: 1.5rem;
   margin: 32px 0 16px 0;
+  border-bottom: none;
+  padding-bottom: 0;
 }
 
 .article-body h2:first-child {
@@ -44,10 +52,35 @@
   margin: 0 0 18px 0;
 }
 
+.article-image-figure {
+  margin: 0 0 24px 0;
+}
+
+.article-image {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+.article-image-contain {
+  max-height: none;
+  height: auto;
+  object-fit: contain;
+  background: #f7f5f2;
+}
+
+.article-image-figure figcaption {
+  color: #2e5d34;
+  font-style: italic;
+  font-size: 0.9rem;
+  margin-top: 8px;
+}
+
 .article-blockquote {
-  border-left: 3px solid #e6d7b9;
   margin: 24px 0;
-  padding: 4px 0 4px 20px;
+  padding: 4px 0;
   font-style: italic;
   color: #2e5d34;
   font-size: 1.15rem;
@@ -128,6 +161,53 @@
   padding: 24px;
 }
 
+.article-building-row {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.article-building-media {
+  width: 260px;
+  flex-shrink: 0;
+}
+
+.article-building-image {
+  width: 260px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+
+.article-building-caption {
+  color: #2e5d34;
+  font-style: italic;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin: 8px 0 0 0;
+}
+
+.article-building-content {
+  flex: 1;
+  min-width: 0;
+}
+
+@media (max-width: 700px) {
+  .article-building-row {
+    flex-direction: column;
+  }
+
+  .article-building-media {
+    width: 100%;
+  }
+
+  .article-building-image {
+    width: 100%;
+    height: 220px;
+  }
+}
+
 .article-building-card h3 {
   font-family: 'Times New Roman', Times, serif;
   color: #183820;
@@ -164,9 +244,7 @@
 
 .article-building-why {
   color: #183820;
-  margin: 0;
-  padding-top: 12px;
-  border-top: 1px solid #e6d7b9;
+  margin-top: 12px;
 }
 
 @media (max-width: 600px) {

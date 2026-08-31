@@ -23,6 +23,16 @@ function Articles() {
         <header className="project-detail-header">
           <div className="project-detail-title-section">
             <h1>Articles</h1>
+            <p className="project-detail-subtitle">
+              <a
+                href={SUBSTACK_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="articles-substack-more-link"
+              >
+                More on Substack →
+              </a>
+            </p>
           </div>
         </header>
 

@@ -20,6 +20,7 @@ const articles = [
     substackUrl: 'https://audreyannagoddard.substack.com/p/does-beauty-increase-the-value-of',
     relatedSlugs: [],
     content: [
+      { type: 'image', src: '/buildingcollage.png', alt: 'A collage of beautiful classical buildings', contain: true },
       { type: 'p', text: 'As someone who deeply appreciates the natural beauty of our planet, I have an even greater respect for the man-made ability to evoke a sense of wonder through architectural mastery. Buildings can evoke this wonder through their scale, beauty, symbolism, or simply the act of creation itself. But what is beautiful? And does that determine value?' },
       { type: 'p', text: 'I think the emergence of beauty and value may be part of the same process. I will attempt to lay out how.' },
       { type: 'p', text: 'If we agree that beauty is objective and can be measured roughly by the interest it evokes in its audience and the effort exerted, some buildings will be objectively more beautiful than others. More humans are more amazed by the Sistine Chapel than by, say, a porta potty.' },
@@ -44,6 +45,7 @@ const articles = [
         items: [
           {
             name: 'Astana Opera',
+            image: '/astana%20opera.jpg',
             blurb: 'A national opera and ballet theatre in Astana, designed around classical European architectural traditions while incorporating Kazakh motifs. It is described as the largest theatre of its type in Central Asia.',
             location: 'Astana, Kazakhstan',
             architect: 'ABDR Architetti Associati — Maria Laura Arlotti, Michele Beccu, Paolo Desideri, Filippo Raimondo; Mabetex was the main contractor.',
@@ -59,6 +61,7 @@ const articles = [
           },
           {
             name: 'Ak Orda Presidential Palace',
+            image: '/Ak%20Orda%20Presidential%20Palace.jpeg',
             blurb: 'The official workplace of the President of Kazakhstan and the architectural centrepiece of the capital’s governmental axis.',
             location: 'Astana, Kazakhstan',
             architect: 'Mabetex Group; public sources do not identify a conventional architect.',
@@ -74,6 +77,7 @@ const articles = [
           },
           {
             name: 'Birmingham Town Hall',
+            image: '/Birmingham_Town_Hall.jpg',
             blurb: 'One of Birmingham’s defining civic buildings and one of the earliest major examples of the 19th-century revival of Roman architecture in Britain.',
             location: 'Victoria Square, Birmingham, England',
             architect: 'Joseph Hansom and Edward Welch.',
@@ -89,6 +93,7 @@ const articles = [
           },
           {
             name: 'The San Francisco Civic Center',
+            image: '/sanfran%20civic%20center.webp',
             blurb: 'A monumental civic district built around government, culture, and public space. Its unified Beaux-Arts design was influenced by the City Beautiful movement and the 1905 Burnham Plan. It became the site of major civic and cultural buildings and, in 1945, hosted the conference where the UN Charter was signed.',
             location: 'San Francisco, California, USA',
             architect: 'Arthur Brown Jr. designed more Civic Center buildings than any other individual. Other major figures included John Galen Howard, John Reid Jr., George Kelham, and John Bakewell Jr.',
@@ -104,6 +109,7 @@ const articles = [
           },
           {
             name: 'National Archives Building, Washington DC',
+            image: '/DC.jpg',
             blurb: 'A monumental neoclassical building designed specifically to preserve the nation’s most important records. It was positioned between the White House and Capitol and conceived as a symbolic “temple to history.”',
             location: 'Washington, DC, USA',
             architect: 'John Russell Pope',
@@ -119,6 +125,7 @@ const articles = [
           },
           {
             name: 'Maison Carrée',
+            image: '/Maison_Carree_in_Nimes_(16).jpg',
             blurb: 'A remarkably preserved Roman temple in Nîmes, built during the reign of Augustus and dedicated to his grandsons and heirs, Gaius and Lucius Caesar. It originally stood within the Roman forum.',
             location: 'Nîmes, France',
             architect: 'Unknown Roman architect.',
@@ -134,6 +141,7 @@ const articles = [
           },
           {
             name: 'Parthenon',
+            image: '/parthenon.webp',
             blurb: 'The Parthenon is the principal surviving monument of the Athenian Acropolis and one of history’s most influential architectural works. It was commissioned during Pericles’ building program as a temple dedicated to Athena Parthenos.',
             location: 'Acropolis, Athens, Greece',
             architect: 'Ictinus and Callicrates; Phidias supervised the sculptural program.',
@@ -149,6 +157,7 @@ const articles = [
           },
           {
             name: 'Beaverbrook',
+            image: '/beaverbrook.jpg',
             blurb: 'Historic country estate at Cherkley Court in Surrey, originally built for businessman Abraham Dixon and later the residence of press baron Lord Beaverbrook. It was converted into a luxury hotel and estate.',
             location: 'Leatherhead, Surrey, England',
             architect: 'Original architect not reliably established in the sources reviewed; substantially rebuilt after an 1893 fire in a French château-influenced style.',
@@ -164,6 +173,7 @@ const articles = [
           },
           {
             name: 'Eastnor Castle',
+            image: '/Eastnor_Castle-geograph-3082480-by-Philip-Pankhurst.jpg',
             blurb: 'A 19th-century country house designed to resemble a medieval border fortress, set within a large historic estate at the foot of the Malvern Hills. It remains a private family home while operating as a visitor attraction and events venue.',
             location: 'Eastnor, near Ledbury, Herefordshire, England',
             architect: 'Sir Robert Smirke. The castle was later altered and decorated by A. W. N. Pugin and G. E. Fox.',
@@ -215,6 +225,7 @@ const articles = [
     substackUrl: 'https://audreyannagoddard.substack.com/p/non-fiction-fanatic',
     relatedSlugs: [],
     content: [
+      { type: 'image', src: '/Non-FictionFinatic.png', alt: 'A sunlit classical library' },
       { type: 'quote', text: 'Find a book, pick it up, and all life long you’ll have good luck.' },
       { type: 'p', text: 'Reading non-fiction books has been the single most impactful habit I engineered into my life. Reading not only provided an outlet, but also improved my character. I began to see and appreciate the world differently, and acquire knowledge and interests in fields I would have never expected to even care about. There is no world in which I would have chosen to not start reading non-fiction; the only change I would have made would have been to start sooner.' },
       { type: 'p', text: 'It has been a journey of continuous self-improvement, and if I could inspire someone else to start that journey, I would be thrilled.' },
