@@ -12,7 +12,7 @@ const articles = [
     slug: 'does-beauty-increase-the-value-of-real-estate',
     title: 'Does Beauty Increase The Value Of Real Estate?',
     metaDescription:
-      'Beauty is often dismissed as a matter of taste, but the evidence suggests classical and neo-traditional buildings command real price premiums. An investigation into whether architectural beauty survives contact with the market, with ten case studies and cited research.',
+      'An investigation into whether beauty increases real estate value.',
     category: 'Architecture & Real Estate',
     pillar: 'business-real-estate',
     pubDate: '2026-08-29',
@@ -217,7 +217,7 @@ const articles = [
     slug: 'non-fiction-fanatic',
     title: 'Non-Fiction Fanatic',
     metaDescription:
-      'The 10 non-fiction books that changed how I think — spanning psychology, philosophy, finance, architecture, biography, and self-help, with a one-line takeaway from each.',
+      'The 10 non-fiction books that changed how I think — spanning psychology, philosophy, finance, architecture, biography, and self-help.',
     category: 'Books & Ideas',
     pillar: 'books-ideas',
     pubDate: '2026-08-07',
