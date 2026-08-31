@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 import MealPlanGenerator from '../components/MealPlanGenerator';
 import RecipeModal from '../components/RecipeModal';
 import './ProjectDetail.css';
@@ -41,6 +42,11 @@ function Nutrition() {
 
   return (
     <div className="project-detail-bg health-bg nutrition-page">
+      <SEO
+        title="Nutrition"
+        description="Evidence-backed nutrition tools and guides by Audrey Goddard — custom meal plans, macro breakdowns, fasting protocols, and recipes."
+        path="/nutrition"
+      />
       <div className="project-detail-container">
         <Link to="/about" className="back-link">Back to About Me</Link>
 

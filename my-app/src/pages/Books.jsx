@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import SEO from '../components/SEO';
 import './Books.css';
 import './ProjectDetail.css';
 import BookModal from '../components/BookModal';
@@ -138,6 +139,11 @@ function Books() {
 
   return (
     <div className="bookshelf-outer">
+      <SEO
+        title="Bookshelf"
+        description="Audrey Goddard's bookshelf — non-fiction across business, philosophy, science, and architecture, with ratings and summaries."
+        path="/books"
+      />
       <div className="project-detail-container">
         <header className="project-detail-header">
           <div className="project-detail-title-section">

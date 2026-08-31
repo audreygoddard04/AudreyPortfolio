@@ -1,11 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 import './ProjectDetail.css';
 import './Articles.css';
 
 function About() {
   return (
     <div className="articles-bg">
+      <SEO
+        title="About Me"
+        description="Audrey Goddard is a Genetics graduate from Western University and varsity track & field athlete, writing on research, business, and the built world."
+        path="/about"
+      />
       <div className="project-detail-container">
         <header className="project-detail-header">
           <div className="project-detail-title-section">

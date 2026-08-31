@@ -8,11 +8,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#ffffff" />
-    <meta
-      name="description"
-      content="Personal portfolio of Audrey Goddard — genetics, health, and innovation."
-    />
-    <title>Audrey Goddard | Portfolio</title>
+    <!--
+      No static <meta name="description"> or <title> here — every route
+      sets its own via the <SEO> component (src/components/SEO.jsx) and
+      react-helmet-async, and react-scripts build's prerender step
+      (scripts/prerender.js) bakes the rendered tags into the static HTML
+      for each route. A duplicate static tag here would sit alongside
+      Helmet's version instead of being replaced by it.
+    -->
+    <title>Audrey Goddard | Science, Systems, Business & the Built World</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

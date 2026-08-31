@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
+import SEO from '../components/SEO';
 import './ProjectDetail.css';
 import '../pages/Health.css';
 import './Thesis.css';
@@ -100,6 +101,12 @@ function ProjectDetail() {
   if (projectId === 'rhamm-breast-cancer') {
     return (
       <div className="thesis-bg">
+        <SEO
+          title="RHAMM-Deficient Breast Cancer Lung Metastases"
+          description="Honours thesis: PacBio HiFi long-read sequencing shows that loss of the RHAMM protein reduces genomic heterogeneity and drives clonal dominance in breast cancer lung metastases."
+          path="/projects/rhamm-breast-cancer"
+          type="article"
+        />
         <div className="thesis-container">
           <Link to="/projects" className="back-link">Back to Projects</Link>
 
@@ -316,6 +323,7 @@ function ProjectDetail() {
   if (!project) {
     return (
       <div className="project-detail-bg">
+        <SEO title="Project Not Found" path={`/projects/${projectId}`} noindex />
         <div className="project-not-found">
           <h1>Project Not Found</h1>
           <p>The project you're looking for doesn't exist.</p>

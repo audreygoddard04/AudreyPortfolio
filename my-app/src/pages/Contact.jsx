@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import SEO from '../components/SEO';
 import './Projects.css';
 import './ProjectDetail.css';
 import './Contact.css';
@@ -117,6 +118,11 @@ function Contact() {
 
   return (
     <div className="projects-bg">
+      <SEO
+        title="Website Design & Development"
+        description="Get a custom website built for your business or personal portfolio by Audrey Goddard."
+        path="/contact"
+      />
       <div className="project-detail-container">
         <header className="project-detail-header">
           <div className="project-detail-title-section">

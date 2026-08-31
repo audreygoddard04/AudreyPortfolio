@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 import './Projects.css';
 import './ProjectDetail.css';
 import notionDashboardImage from '../images/notion-dashboard.png';
@@ -66,6 +67,11 @@ function Projects() {
 
   return (
     <div className="projects-bg">
+      <SEO
+        title="Projects"
+        description="Projects by Audrey Goddard spanning genetics research, software, and design — from an honors thesis on breast cancer genomics to full-stack apps."
+        path="/projects"
+      />
       <div className="project-detail-container">
         <header className="project-detail-header">
           <div className="project-detail-title-section">

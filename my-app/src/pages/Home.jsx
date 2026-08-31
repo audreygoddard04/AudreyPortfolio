@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 import './Home.css';
 import img1 from '../images/5D53BECC-FAF0-446A-A6C4-BD43F2593935_1_105_c.jpeg';
 import img2 from '../images/IMG_8914.jpg';
@@ -9,6 +10,11 @@ import img4 from '../images/IMG_7427.jpg';
 function Home() {
   return (
     <div className="home-bg">
+      <SEO
+        title={null}
+        description="Audrey Goddard — Genetics graduate from Western University, varsity track & field athlete, and writer on science, business, architecture, and real estate."
+        path="/"
+      />
       <div className="hero-section-redesign">
         <div className="hero-left-content">
           <h1 className="home-headline">Audrey Anna Goddard.</h1>

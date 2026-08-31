@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import SEO from '../components/SEO';
 import './Health.css';
 // import TDEECalculator from '../components/TDEECalculator'; // Deleted
 
@@ -26,6 +27,11 @@ function Health() {
 
   return (
     <div className="health-bg">
+      <SEO
+        title="Health"
+        description="Health FAQs and evidence-based guidance from Audrey Goddard, covering nutrition basics, calorie deficits, and common health questions."
+        path="/health"
+      />
       <header className="health-header">
         <h1>Health</h1>
         <nav className="health-nav">

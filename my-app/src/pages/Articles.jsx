@@ -1,38 +1,24 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
+import articles from '../data/articles';
 import './ProjectDetail.css';
 import './Articles.css';
 
 const SUBSTACK_URL = 'https://audreyannagoddard.substack.com/';
 
+const sortedArticles = [...articles].sort(
+  (a, b) => new Date(b.pubDate) - new Date(a.pubDate)
+);
+
 function Articles() {
-  const [articles, setArticles] = useState([]);
-  const [status, setStatus] = useState('loading'); // 'loading' | 'ready' | 'error'
-
-  useEffect(() => {
-    let cancelled = false;
-
-    fetch('/api/substack-feed')
-      .then((res) => {
-        if (!res.ok) throw new Error('Failed to load Substack feed');
-        return res.json();
-      })
-      .then((data) => {
-        if (cancelled) return;
-        setArticles(data.articles || []);
-        setStatus('ready');
-      })
-      .catch(() => {
-        if (cancelled) return;
-        setStatus('error');
-      });
-
-    return () => {
-      cancelled = true;
-    };
-  }, []);
-
   return (
     <div className="articles-bg">
+      <SEO
+        title="Articles"
+        description="Original writing and research on science, business, economics, architecture, and real estate by Audrey Goddard."
+        path="/articles"
+      />
       <div className="project-detail-container">
         <header className="project-detail-header">
           <div className="project-detail-title-section">
@@ -41,33 +27,16 @@ function Articles() {
         </header>
 
         <section className="main-section project-detail-section articles-category-section">
-          {status === 'loading' && <p className="articles-empty">Loading articles…</p>}
-
-          {status === 'error' && (
-            <p className="articles-empty">
-              Couldn't load articles right now — read them directly on{' '}
-              <a href={SUBSTACK_URL} target="_blank" rel="noopener noreferrer">Substack</a>.
-            </p>
-          )}
-
-          {status === 'ready' && articles.length === 0 && (
+          {sortedArticles.length === 0 ? (
             <p className="articles-empty">New articles coming soon.</p>
-          )}
-
-          {status === 'ready' && articles.length > 0 && (
+          ) : (
             <div className="articles-list">
-              {articles.map((article) => (
-                <a
-                  key={article.link}
-                  href={article.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="article-card"
-                >
+              {sortedArticles.map((article) => (
+                <Link key={article.slug} to={`/articles/${article.slug}`} className="article-card">
+                  <p className="article-category-eyebrow">{article.category}</p>
                   <h3>{article.title}</h3>
-                  {article.date && <p className="article-date">{article.date}</p>}
-                  {article.excerpt && <p className="article-excerpt">{article.excerpt}</p>}
-                </a>
+                  <p className="article-excerpt">{article.metaDescription}</p>
+                </Link>
               ))}
             </div>
           )}

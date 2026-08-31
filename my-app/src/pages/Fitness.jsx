@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
+import SEO from '../components/SEO';
 import './ProjectDetail.css';
 import '../pages/Health.css';
 import trackImg2 from '../images/IMG_3562.jpg';
@@ -30,6 +31,11 @@ function Fitness() {
 
   return (
     <div className="project-detail-bg health-bg">
+      <SEO
+        title="Fitness & Athletics"
+        description="Audrey Goddard's fitness and athletics background — varsity track & field, training approach, and evidence-based fitness content."
+        path="/fitness"
+      />
       <div className="project-detail-container">
         <Link to="/about" className="back-link">Back to About Me</Link>
 
