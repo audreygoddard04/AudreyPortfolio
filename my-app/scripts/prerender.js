@@ -3,19 +3,27 @@
 // CRA ships one index.html with an empty <div id="root">; Googlebot and
 // most social-card crawlers either don't run JS at all, or only do a
 // delayed "second wave" render. This script boots a static file server
-// on the built app, drives each route in headless Chrome, waits for
-// react-helmet-async's tags to settle, and writes the fully-rendered
-// HTML to build/<route>/index.html so the raw response already has the
-// real title, meta tags, JSON-LD, and content.
+// on the built app, drives each route in headless Chrome, waits for the
+// <SEO> component's tags to settle, and writes the fully-rendered HTML
+// to build/<route>/index.html so the raw response already has the real
+// title, meta tags, JSON-LD, and content.
 //
-// Uses the full `puppeteer` package (not puppeteer-core) so it downloads
-// a matching Chromium for whatever machine runs `npm install` — local Mac
-// or Vercel's Linux build containers alike. No hardcoded browser path.
+// Locally this uses the full `puppeteer` package's bundled Chromium.
+// On Vercel's Linux build containers, that Chromium is missing system
+// shared libraries (libnspr4.so etc.) that aren't installable there, so
+// on Vercel this uses @sparticuz/chromium instead — a Chromium build
+// packaged specifically for restricted serverless/CI environments.
+//
+// IMPORTANT: this step is a nice-to-have SEO enhancement, not something
+// the deploy should ever depend on. If it fails for any reason, it logs
+// a warning and exits 0 so `npm run build` (and the Vercel deploy) still
+// succeeds with the un-prerendered build rather than blocking every
+// future deploy — that happened once already (see git history) and
+// should never happen again.
 
 const fs = require('fs');
 const path = require('path');
 const http = require('http');
-const puppeteer = require('puppeteer');
 
 const staticRoutes = require('../src/data/routes');
 const articles = require('../src/data/articles');
@@ -74,10 +82,25 @@ function serveStatic() {
   });
 }
 
+async function launchBrowser() {
+  if (process.env.VERCEL) {
+    const chromium = require('@sparticuz/chromium');
+    const puppeteerCore = require('puppeteer-core');
+    return puppeteerCore.launch({
+      args: chromium.args,
+      executablePath: await chromium.executablePath(),
+      headless: true,
+    });
+  }
+
+  const puppeteer = require('puppeteer');
+  return puppeteer.launch({ headless: true });
+}
+
 async function prerenderRoute(browser, routePath) {
   const page = await browser.newPage();
   await page.goto(`http://localhost:${PORT}${routePath}`, { waitUntil: 'networkidle0' });
-  // Give react-helmet-async + JSON-LD script tags a beat to settle.
+  // Give the <SEO> component's effect a beat to write its tags to <head>.
   await new Promise((r) => setTimeout(r, 150));
   const html = await page.content();
   await page.close();
@@ -90,8 +113,7 @@ async function prerenderRoute(browser, routePath) {
 
 async function main() {
   if (!fs.existsSync(BUILD_DIR)) {
-    console.error('build/ not found — run `react-scripts build` first.');
-    process.exit(1);
+    throw new Error('build/ not found — run `react-scripts build` first.');
   }
 
   const routes = [
@@ -100,7 +122,7 @@ async function main() {
   ];
 
   const server = await serveStatic();
-  const browser = await puppeteer.launch({ headless: true });
+  const browser = await launchBrowser();
 
   try {
     for (const route of routes) {
@@ -115,6 +137,7 @@ async function main() {
 }
 
 main().catch((err) => {
-  console.error('Prerender failed:', err);
-  process.exit(1);
+  console.warn('Prerender step failed — shipping the un-prerendered build instead.');
+  console.warn(err);
+  process.exit(0);
 });
