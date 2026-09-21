@@ -15,6 +15,7 @@ function Footer() {
 
         <div className="footer-section footer-connect">
           <h3>Connect</h3>
+          <p><a href="/keltner">KELTNER — the journal</a></p>
           <div className="footer-social">
             <a href="https://linkedin.com/in/audrey-goddard" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <FaLinkedin />

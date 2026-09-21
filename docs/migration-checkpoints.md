@@ -22,3 +22,7 @@ Verified: production build; all 13 portfolio routes; server HTML, metadata, imag
 Before merging, inspect the Vercel preview on desktop and mobile, ensure build settings select Next.js, preserve the Resend environment variables, and check contact submission with an authorized test message. Local tests do not send email. Production domain verification requires the existing Vercel account/project connection.
 
 Rollback: revert the migration pull request, or restore the previous deployment from the existing Vercel project. Do not create a replacement project or change DNS for this migration.
+
+## 2. KELTNER publication
+
+Added `/keltner`, four category routes, About, and a newsletter entry point. The portfolio footer links to the journal. Publication styles are separate from portfolio styles; links between them load a fresh document so global legacy styles do not leak. Production build and all seven publication routes passed browser checks; desktop and mobile layouts have no horizontal overflow.
