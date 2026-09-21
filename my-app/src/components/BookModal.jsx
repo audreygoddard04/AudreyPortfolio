@@ -1,5 +1,6 @@
+'use client';
+
 import React, { useEffect } from 'react';
-import './BookModal.css';
 
 function renderStars(rating) {
   if (!rating) return null;

@@ -1,5 +1,6 @@
+'use client';
+
 import React, { useState } from 'react';
-import './FitnessPlanGenerator.css';
 
 function FitnessPlanGenerator() {
   const [formData, setFormData] = useState({
@@ -127,7 +128,7 @@ function FitnessPlanGenerator() {
     // Determine level and equipment type
     const level = formData.fitnessLevel.toLowerCase().includes('beginner') ? 'beginner' :
                   formData.fitnessLevel.toLowerCase().includes('intermediate') ? 'intermediate' : 'advanced';
-    
+
     const equipment = formData.equipment.includes('Full gym') ? 'fullGym' :
                      formData.equipment.includes('Home gym') ? 'homeGym' :
                      formData.equipment.includes('Limited') ? 'limited' : 'bodyweight';

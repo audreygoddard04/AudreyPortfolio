@@ -1,12 +1,14 @@
+'use client';
+
 import React, { useState, useEffect, useRef } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { FaLinkedin, FaInstagram, FaBars, FaTimes } from 'react-icons/fa';
 import { SiSubstack } from 'react-icons/si';
-import './Header.css';
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const location = useLocation();
+  const pathname = usePathname();
   const menuRef = useRef(null);
   const hamburgerRef = useRef(null);
 
@@ -20,9 +22,9 @@ function Header() {
 
   const isActive = (path) => {
     if (path === '/') {
-      return location.pathname === '/';
+      return pathname === '/';
     }
-    return location.pathname.startsWith(path);
+    return pathname.startsWith(path);
   };
 
   // Close menu when clicking outside
@@ -52,18 +54,18 @@ function Header() {
 
   return (
     <div className="header-outer">
-      <Link to="/" className="header-logo-link">
+      <Link href="/" className="header-logo-link">
         <div className="header-logo-placeholder">Audrey Goddard</div>
       </Link>
       <header className="top-nav split-nav">
         <nav ref={menuRef} className={`nav-center ${isMenuOpen ? 'nav-open' : ''}`}>
           <ul>
-            <li><Link to="/" onClick={closeMenu} className={isActive('/') ? 'active' : ''}>Home</Link></li>
-            <li><Link to="/about" onClick={closeMenu} className={isActive('/about') ? 'active' : ''}>About Me</Link></li>
-            <li><Link to="/articles" onClick={closeMenu} className={isActive('/articles') ? 'active' : ''}>Articles</Link></li>
-            <li><Link to="/projects" onClick={closeMenu} className={isActive('/projects') ? 'active' : ''}>Projects</Link></li>
-            <li><Link to="/books" onClick={closeMenu} className={isActive('/books') ? 'active' : ''}>Bookshelf</Link></li>
-            {/* <li><Link to="/website-design" onClick={closeMenu} className={isActive('/website-design') ? 'active' : ''}>Website Design</Link></li> */}
+            <li><Link href="/" onClick={closeMenu} className={isActive('/') ? 'active' : ''}>Home</Link></li>
+            <li><Link href="/about" onClick={closeMenu} className={isActive('/about') ? 'active' : ''}>About Me</Link></li>
+            <li><Link href="/articles" onClick={closeMenu} className={isActive('/articles') ? 'active' : ''}>Articles</Link></li>
+            <li><Link href="/projects" onClick={closeMenu} className={isActive('/projects') ? 'active' : ''}>Projects</Link></li>
+            <li><Link href="/books" onClick={closeMenu} className={isActive('/books') ? 'active' : ''}>Bookshelf</Link></li>
+            {/* <li><Link href="/website-design" onClick={closeMenu} className={isActive('/website-design') ? 'active' : ''}>Website Design</Link></li> */}
           </ul>
         </nav>
         <nav className="nav-right">

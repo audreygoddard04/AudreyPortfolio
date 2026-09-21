@@ -1,7 +1,8 @@
+'use client';
+
 import React, { useState, useEffect, useRef } from 'react';
 import TDEECalculator from './TDEECalculator';
 import RecipeModal from './RecipeModal';
-import './MealPlanGenerator.css';
 
 // Full recipe database with ingredients and directions - organized by serving style
 const getAllRecipes = () => {
@@ -474,7 +475,7 @@ function MealPlanGenerator({ showBrowseOnly = false, onRecipeClick }) {
     const handleClickAnywhere = (event) => {
       // Check if click is on the recipe card header (to toggle)
       const isCardHeader = event.target.closest('.recipe-card-header');
-      
+
       // If click is not on the card header, close all expanded recipes
       // This allows clicking anywhere on the page to close
       if (!isCardHeader) {
@@ -502,7 +503,7 @@ function MealPlanGenerator({ showBrowseOnly = false, onRecipeClick }) {
       ...all.pizza,
       ...all.breakfast
     ];
-    
+
     return {
       breakfast: allRecipes.filter(r => r.mealType === 'breakfast'),
       lunch: allRecipes.filter(r => r.mealType === 'lunch'),
@@ -544,7 +545,7 @@ function MealPlanGenerator({ showBrowseOnly = false, onRecipeClick }) {
     if (dessertOptions.length === 0) dessertOptions = allRecipesByType.desserts;
 
     // Validate we have recipes
-    if (breakfastOptions.length === 0 || lunchOptions.length === 0 || 
+    if (breakfastOptions.length === 0 || lunchOptions.length === 0 ||
         dinnerOptions.length === 0 || snackOptions.length === 0) {
       alert('Unable to generate meal plan. Please adjust your preferences or try again.');
       return;
@@ -557,15 +558,15 @@ function MealPlanGenerator({ showBrowseOnly = false, onRecipeClick }) {
       const lunch = lunchOptions[Math.floor(Math.random() * lunchOptions.length)];
       const dinner = dinnerOptions[Math.floor(Math.random() * dinnerOptions.length)];
       const snack = snackOptions[Math.floor(Math.random() * snackOptions.length)];
-      
+
       if (!breakfast || !lunch || !dinner || !snack) {
         alert('Error generating meal plan. Please try again.');
         return;
       }
-      
+
       const dayCalories = breakfast.calories + lunch.calories + dinner.calories + snack.calories;
       const remainingCalories = dailyCalories - dayCalories;
-      
+
       // Add dessert if within calorie budget and sweet treats limit
       let dessert = null;
       if (day <= sweetTreatsCount && remainingCalories >= 150 && dessertOptions.length > 0) {
@@ -643,8 +644,8 @@ function MealPlanGenerator({ showBrowseOnly = false, onRecipeClick }) {
               <h3>Create Your Custom Meal Plan</h3>
               <p className="generator-description">First, calculate your TDEE, then fill out your preferences to generate a personalized meal plan.</p>
             </div>
-            <button 
-              className="browse-recipes-btn" 
+            <button
+              className="browse-recipes-btn"
               onClick={() => setShowBrowseRecipes(!showBrowseRecipes)}
             >
               {showBrowseRecipes ? 'Hide All Recipes' : 'Browse All Recipes'}
@@ -652,7 +653,7 @@ function MealPlanGenerator({ showBrowseOnly = false, onRecipeClick }) {
           </div>
         </>
       )}
-      
+
       {showBrowseOnly && (
         <>
           <h3>All Recipes</h3>
@@ -679,10 +680,10 @@ function MealPlanGenerator({ showBrowseOnly = false, onRecipeClick }) {
                   {categoryRecipes.map((recipe, index) => {
                     const recipeKey = `${category}-${index}`;
                     const isExpanded = expandedRecipes[recipeKey];
-                    
+
                     return (
                       <div key={index} className={`recipe-browse-card ${isExpanded ? 'expanded' : ''}`}>
-                        <div 
+                        <div
                           className="recipe-card-header"
                           onClick={(e) => {
                             e.stopPropagation();

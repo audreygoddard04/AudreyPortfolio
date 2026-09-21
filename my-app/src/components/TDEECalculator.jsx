@@ -1,5 +1,6 @@
+'use client';
+
 import React, { useState } from 'react';
-import './TDEECalculator.css';
 
 function TDEECalculator({ onCalculate }) {
   const [weight, setWeight] = useState('');
@@ -70,9 +71,9 @@ function TDEECalculator({ onCalculate }) {
       carbs: Math.round(carbGrams * 10) / 10,
       fat: Math.round(fatGrams * 10) / 10
     };
-    
+
     setResults(calculatedResults);
-    
+
     // Pass TDEE to parent component if callback provided
     if (onCalculate) {
       onCalculate(calculatedResults.calorieTarget);
@@ -165,8 +166,8 @@ function TDEECalculator({ onCalculate }) {
           </div>
         </div>
 
-        <button 
-          className={`calculate-btn ${!allFieldsFilled ? 'disabled' : ''}`} 
+        <button
+          className={`calculate-btn ${!allFieldsFilled ? 'disabled' : ''}`}
           onClick={calculateTDEE}
           disabled={!allFieldsFilled}
         >

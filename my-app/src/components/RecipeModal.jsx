@@ -1,5 +1,6 @@
+'use client';
+
 import React, { useEffect, useRef } from 'react';
-import './RecipeModal.css';
 
 function RecipeModal({ recipe, onClose, position }) {
   const contentRef = useRef(null);
@@ -11,13 +12,13 @@ function RecipeModal({ recipe, onClose, position }) {
       // Prevent body scroll when modal is open
       const originalOverflow = document.body.style.overflow;
       document.body.style.overflow = 'hidden';
-      
+
       if (position && position.cardWidth) {
         const updateWidth = () => {
           // Recalculate card width on resize by finding the cta-section
           const categoryElements = document.querySelectorAll('[data-category]');
           let foundWidth = null;
-          
+
           for (const category of categoryElements) {
             const ctaSection = category.closest('.cta-section');
             if (ctaSection) {
@@ -31,7 +32,7 @@ function RecipeModal({ recipe, onClose, position }) {
               }
             }
           }
-          
+
           if (foundWidth) {
             setModalWidth(foundWidth);
           } else if (position.cardWidth) {
@@ -50,9 +51,9 @@ function RecipeModal({ recipe, onClose, position }) {
           clearTimeout(resizeTimeout);
           resizeTimeout = setTimeout(updateWidth, 100);
         };
-        
+
         window.addEventListener('resize', handleResize);
-        
+
         return () => {
           document.body.style.overflow = originalOverflow;
           window.removeEventListener('resize', handleResize);
@@ -70,7 +71,7 @@ function RecipeModal({ recipe, onClose, position }) {
 
   const renderIngredients = () => {
     if (!recipe.ingredients) return null;
-    
+
     return Object.entries(recipe.ingredients).map(([section, items]) => (
       <div key={section} className="ingredient-section">
         <h4 className="ingredient-section-title">
@@ -99,7 +100,7 @@ function RecipeModal({ recipe, onClose, position }) {
 
   return (
     <div className="recipe-modal-overlay" onClick={onClose} ref={overlayRef}>
-      <div 
+      <div
         className={`recipe-modal-content ${position ? 'positioned' : ''}`}
         onClick={(e) => e.stopPropagation()}
         style={position ? modalStyle : {}}
@@ -108,7 +109,7 @@ function RecipeModal({ recipe, onClose, position }) {
         <button className="recipe-modal-close" onClick={onClose}>
           ×
         </button>
-        
+
         <div className="recipe-modal-header">
           <h2>{recipe.name}</h2>
           <div className="recipe-meta">
