@@ -1,3 +1,4 @@
+import { serializeJsonLd } from '@/lib/jsonLd.mjs';
 import React from 'react';
 import Link from 'next/link';
 import articles from '../data/articles';
@@ -122,7 +123,7 @@ function ArticlePage({ article }) {
 
   return (
     <div className="articles-bg">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
 
       <div className="project-detail-container article-page-container">
         <Link href="/articles" className="article-back-to-all article-back-to-all-top">← All articles</Link>

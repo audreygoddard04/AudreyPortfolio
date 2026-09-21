@@ -26,3 +26,9 @@ Rollback: revert the migration pull request, or restore the previous deployment 
 ## 2. KELTNER publication
 
 Added `/keltner`, four category routes, About, and a newsletter entry point. The portfolio footer links to the journal. Publication styles are separate from portfolio styles; links between them load a fresh document so global legacy styles do not leak. Production build and all seven publication routes passed browser checks; desktop and mobile layouts have no horizontal overflow.
+
+## 3. CMS and first-article workflow
+
+Sanity Studio, article/category/product schemas, published-content queries, article templates, images, SEO, automatic affiliate disclosure, and 60-second cache revalidation are prepared. The starter import contains taxonomy and one private introductory draft. Six publishing tests pass, the schema extracts successfully, and a temporary local article fixture passed browser checks for layout, product rendering, and affiliate link markup. The fixture was removed before the final build. Live CMS login and publish/unpublish verification require Audrey’s Sanity project.
+
+Final local verification: Node.js 22 production build, all 20 public portfolio/publication routes, Studio setup page, cross-publication navigation, server metadata, images, 404s, redirect, bookshelf modal, mobile menu, API method checks, sitemap/robots, and all six publishing tests pass. No test article route is included in the final build.

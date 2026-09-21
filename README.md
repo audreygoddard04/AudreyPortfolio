@@ -4,7 +4,7 @@ Next.js App Router, React, JavaScript, and the original portfolio CSS. Deployed 
 
 ## Local development
 
-Use Node.js 22.12 or newer (Node 22 LTS recommended). From this repository's root:
+Use Node.js 22.13 or newer in the 22.x line. From this repository's root:
 
 ```sh
 npm ci
@@ -58,3 +58,7 @@ npm run test:smoke --workspace=my-app
 Set `TEST_BASE_URL` to test a deployment instead. Set `CHROME_PATH` if Chrome is installed elsewhere. The test checks all portfolio routes, server HTML, metadata, image loading, missing pages, legacy redirects, the bookshelf modal, mobile navigation, and API method handling. It never sends a real email.
 
 See [migration checkpoints](docs/migration-checkpoints.md) for scope and release checks.
+
+## KELTNER and Sanity
+
+`/keltner` is the publication. `/studio` is its Sanity editor. See [publishing setup and first-article workflow](docs/publishing.md). Without a Sanity project ID, the site shows an honest empty publication and the editor explains the setup step. No demo products or articles are published.
