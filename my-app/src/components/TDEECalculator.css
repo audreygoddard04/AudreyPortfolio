@@ -4,7 +4,7 @@
 
 .tdee-calculator h3 {
   font-family: 'Times New Roman', Times, serif;
-  color: #183820;
+  color: var(--portfolio-ink);
   font-size: 1.2rem;
   font-weight: 600;
   margin: 0 0 24px 0;
@@ -46,7 +46,7 @@
 
 .form-group label {
   font-family: 'Times New Roman', Times, serif;
-  color: #183820;
+  color: var(--portfolio-ink);
   font-size: 0.95rem;
   font-weight: 500;
   margin-bottom: 8px;
@@ -55,12 +55,12 @@
 .form-group input,
 .form-group select {
   padding: 12px 16px;
-  border: 1px solid #e6d7b9;
-  border-radius: 8px;
+  border: 1px solid var(--portfolio-line);
+  border-radius: 2px;
   font-family: 'Times New Roman', Times, serif;
   font-size: 1rem;
-  color: #183820;
-  background: #fffefb;
+  color: var(--portfolio-ink);
+  background: var(--portfolio-surface);
   transition: border-color 0.2s;
   width: 100%;
   min-height: 44px;
@@ -93,7 +93,7 @@
   right: 16px;
   font-family: 'Times New Roman', Times, serif;
   font-size: 0.95rem;
-  color: #183820;
+  color: var(--portfolio-ink);
   opacity: 0.85;
   pointer-events: none;
 }
@@ -101,17 +101,17 @@
 .form-group input:focus,
 .form-group select:focus {
   outline: none;
-  border-color: #183820;
+  border-color: var(--portfolio-ink);
 }
 
 .calculate-btn {
   width: 100%;
   padding: 12px 24px;
-  background: #f7f5f2;
-  color: #183820;
-  border: 1px solid #e6d7b9;
-  border-radius: 8px;
-  font-family: 'Montserrat', sans-serif;
+  background: var(--portfolio-paper);
+  color: var(--portfolio-ink);
+  border: 1px solid var(--portfolio-line);
+  border-radius: 2px;
+  font-family: Arial, sans-serif;
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
@@ -124,10 +124,10 @@
 }
 
 .calculate-btn:not(.disabled) {
-  background: #183820;
-  color: #fffefb;
+  background: var(--portfolio-ink);
+  color: var(--portfolio-surface);
   cursor: pointer;
-  border-color: #183820;
+  border-color: var(--portfolio-ink);
 }
 
 .calculate-btn.disabled {
@@ -146,20 +146,20 @@
 }
 
 .result-card {
-  background: #f7f5f2;
-  border: 1px solid #e6d7b9;
-  border-radius: 12px;
+  background: var(--portfolio-paper);
+  border: 1px solid var(--portfolio-line);
+  border-radius: 2px;
   padding: 20px;
   text-align: center;
 }
 
 .result-card.highlight {
-  border-color: #183820;
+  border-color: var(--portfolio-ink);
 }
 
 .result-card h4 {
   font-family: 'Times New Roman', Times, serif;
-  color: #183820;
+  color: var(--portfolio-ink);
   font-size: 1rem;
   font-weight: 600;
   margin: 0 0 12px 0;
@@ -167,7 +167,7 @@
 
 .result-value {
   font-family: 'Times New Roman', Times, serif;
-  color: #183820;
+  color: var(--portfolio-ink);
   font-size: 1.75rem;
   font-weight: 700;
   margin: 0;
@@ -175,22 +175,22 @@
 
 .result-note {
   font-family: 'Times New Roman', Times, serif;
-  color: #183820;
+  color: var(--portfolio-ink);
   font-size: 0.9rem;
   margin-top: 8px;
   opacity: 0.85;
 }
 
 .macro-breakdown {
-  background: #f7f5f2;
-  border: 1px solid #e6d7b9;
-  border-radius: 12px;
+  background: var(--portfolio-paper);
+  border: 1px solid var(--portfolio-line);
+  border-radius: 2px;
   padding: 24px;
 }
 
 .macro-breakdown h4 {
   font-family: 'Times New Roman', Times, serif;
-  color: #183820;
+  color: var(--portfolio-ink);
   font-size: 1.1rem;
   font-weight: 600;
   margin: 0 0 20px 0;
@@ -208,14 +208,14 @@
   flex-direction: column;
   align-items: center;
   padding: 16px;
-  background: #fffefb;
-  border-radius: 8px;
-  border: 1px solid #e6d7b9;
+  background: var(--portfolio-surface);
+  border-radius: 2px;
+  border: 1px solid var(--portfolio-line);
 }
 
 .macro-label {
   font-family: 'Times New Roman', Times, serif;
-  color: #183820;
+  color: var(--portfolio-ink);
   font-size: 0.9rem;
   font-weight: 600;
   margin-bottom: 8px;
@@ -225,7 +225,7 @@
 
 .macro-value {
   font-family: 'Times New Roman', Times, serif;
-  color: #183820;
+  color: var(--portfolio-ink);
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 4px;
@@ -233,7 +233,7 @@
 
 .macro-percent {
   font-family: 'Times New Roman', Times, serif;
-  color: #183820;
+  color: var(--portfolio-ink);
   font-size: 0.85rem;
   font-weight: 600;
   opacity: 0.85;

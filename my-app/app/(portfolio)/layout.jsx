@@ -17,6 +17,7 @@ import "../../src/views/Nutrition.css";
 import "../../src/views/Contact.css";
 import "../../src/views/Articles.css";
 import "../../src/views/ArticlePage.css";
+import "../../src/portfolio-theme.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import site from "@/data/siteConfig";

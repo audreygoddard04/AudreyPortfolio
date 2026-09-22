@@ -1,5 +1,5 @@
 .articles-bg {
-  background: #f7f5f2;
+  background: var(--portfolio-paper);
   padding-top: 20px;
   padding-bottom: 20px;
 }
@@ -36,16 +36,16 @@
 }
 
 .life-stage-card {
-  background: #f7f5f2;
-  border: 2px solid #e6d7b9;
-  border-radius: 12px;
+  background: var(--portfolio-paper);
+  border: 1px solid var(--portfolio-line);
+  border-radius: 2px;
   padding: 24px 22px;
 }
 
 .life-stage-label {
   display: block;
   font-family: 'Times New Roman', Times, serif;
-  color: #2e5d34;
+  color: var(--portfolio-muted);
   font-size: 1.2rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -55,7 +55,7 @@
 
 .life-stage-card p {
   margin: 0;
-  color: #183820;
+  color: var(--portfolio-ink);
   font-size: 1.2rem;
   font-weight: 400;
   line-height: 1.7;
@@ -63,13 +63,13 @@
 
 .pillars-heading {
   font-family: 'Times New Roman', Times, serif;
-  color: #183820;
+  color: var(--portfolio-ink);
   font-size: 1.4rem;
   margin: 0 0 16px 0;
 }
 
 .pillars-intro {
-  color: #2e5d34;
+  color: var(--portfolio-muted);
   font-style: italic;
   margin: 0 0 20px 0;
 }
@@ -81,16 +81,16 @@
 }
 
 .pillar-card {
-  background: #f7f5f2;
-  border: 2px solid #e6d7b9;
-  border-radius: 12px;
+  background: var(--portfolio-paper);
+  border: 1px solid var(--portfolio-line);
+  border-radius: 2px;
   padding: 20px;
   text-align: center;
 }
 
 .pillar-card h4 {
   font-family: 'Times New Roman', Times, serif;
-  color: #2e5d34;
+  color: var(--portfolio-muted);
   font-size: 1.05rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -105,7 +105,7 @@
 }
 
 .pillar-links a {
-  color: #2e5d34;
+  color: var(--portfolio-muted);
   font-family: 'Times New Roman', Times, serif;
   font-size: 0.95rem;
   font-weight: 500;
@@ -114,12 +114,12 @@
 }
 
 .pillar-links a:hover {
-  color: #183820;
+  color: var(--portfolio-ink);
   text-decoration: underline;
 }
 
 .articles-category-section .section-intro {
-  color: #2e5d34;
+  color: var(--portfolio-muted);
   font-style: italic;
   margin-bottom: 24px;
 }
@@ -148,42 +148,42 @@
 .article-card {
   display: block;
   background: #fff;
-  border: 3px solid #e6d7b9;
-  border-radius: 12px;
+  border: 1px solid var(--portfolio-line);
+  border-radius: 2px;
   padding: 24px;
   text-decoration: none;
   transition: all 0.3s ease;
 }
 
 .article-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(24, 56, 32, 0.12);
-  border-color: #2e5d34;
+  transform: none;
+  box-shadow: none;
+  border-color: var(--portfolio-muted);
 }
 
 .article-card h3 {
   font-family: 'Times New Roman', Times, serif;
-  color: #183820;
+  color: var(--portfolio-ink);
   font-size: 1.7rem;
   margin: 0 0 8px 0;
 }
 
 .article-date {
-  color: #2e5d34;
+  color: var(--portfolio-muted);
   font-size: 0.9rem;
   font-style: italic;
   margin: 0 0 12px 0;
 }
 
 .article-excerpt {
-  color: #183820;
+  color: var(--portfolio-ink);
   font-size: 0.95rem;
   line-height: 1.6;
   margin: 0;
 }
 
 .articles-empty {
-  color: #2e5d34;
+  color: var(--portfolio-muted);
   font-style: italic;
   opacity: 0.8;
 }
@@ -195,11 +195,11 @@
 .articles-substack-embed {
   max-width: 600px;
   margin: 0 auto;
-  border-radius: 12px;
+  border-radius: 2px;
   overflow: hidden;
 }
 
 .articles-substack-embed iframe {
   display: block;
-  border-radius: 12px;
+  border-radius: 2px;
 }

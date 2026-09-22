@@ -1,5 +1,5 @@
 .projects-bg {
-  background: #f7f5f2;
+  background: var(--portfolio-paper);
   padding-top: 20px;
   padding-bottom: 20px;
 }
@@ -13,13 +13,13 @@
 
 .projects-header h1 {
   font-family: 'Times New Roman', Times, serif;
-  color: #183820;
+  color: var(--portfolio-ink);
   font-size: 2.5rem;
   margin-bottom: 16px;
 }
 
 .projects-subtitle {
-  color: #2e5d34;
+  color: var(--portfolio-muted);
   font-size: 1.2rem;
   font-family: 'Times New Roman', Times, serif;
   margin-bottom: 32px;
@@ -29,22 +29,22 @@
   max-width: 1600px;
   margin: 32px auto 0 auto;
   background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 4px 32px rgba(24,56,32,0.06);
+  border-radius: 2px;
+  box-shadow: none;
   padding: 48px 40px;
   scroll-margin-top: 120px;
-  border: 3px solid #e6d7b9;
+  border: 1px solid var(--portfolio-line);
 }
 
 .main-section h2 {
   font-family: 'Times New Roman', Times, serif;
-  color: #183820;
+  color: var(--portfolio-ink);
   font-size: 2rem;
   margin-bottom: 32px;
 }
 
 .main-section p {
-  color: #183820;
+  color: var(--portfolio-ink);
   font-size: 1.15rem;
   line-height: 1.7;
 }
@@ -61,7 +61,7 @@
 }
 
 .technical-overview-content p {
-  color: #183820;
+  color: var(--portfolio-ink);
   font-size: 1.1rem;
   line-height: 1.8;
   margin: 0;
@@ -77,8 +77,8 @@
 
 .project-card {
   background: #fff;
-  border: 3px solid #e6d7b9;
-  border-radius: 12px;
+  border: 1px solid var(--portfolio-line);
+  border-radius: 2px;
   padding: 24px;
   text-decoration: none;
   color: inherit;
@@ -91,9 +91,9 @@
 }
 
 .project-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(24, 56, 32, 0.12);
-  border-color: #2e5d34;
+  transform: none;
+  box-shadow: none;
+  border-color: var(--portfolio-muted);
 }
 
 .project-content {
@@ -111,9 +111,9 @@
   min-height: 280px;
   max-height: 280px;
   flex-shrink: 0;
-  border-radius: 8px;
+  border-radius: 2px;
   overflow: visible;
-  background: #f7f5f2;
+  background: var(--portfolio-paper);
   display: flex;
   align-items: stretch;
   justify-content: stretch;
@@ -127,7 +127,7 @@
   position: relative;
   display: flex;
   align-items: stretch;
-  border-radius: 8px;
+  border-radius: 2px;
 }
 
 .project-preview-iframe {
@@ -140,14 +140,14 @@
   position: absolute;
   top: 0;
   left: 0;
-  border-radius: 8px;
+  border-radius: 2px;
 }
 
 .project-screenshot {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 2px;
   display: block;
 }
 
@@ -155,7 +155,7 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-  border-radius: 8px;
+  border-radius: 2px;
   display: block;
   padding: 12px;
   box-sizing: border-box;
@@ -172,9 +172,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #ffffff 0%, #f7f5f2 100%);
-  border: 2px solid #e6d7b9;
-  border-radius: 8px;
+  background: linear-gradient(135deg, #ffffff 0%, var(--portfolio-paper) 100%);
+  border: 1px solid var(--portfolio-line);
+  border-radius: 2px;
 }
 
 .notion-icon {
@@ -188,14 +188,14 @@
 
 .notion-text h4 {
   font-family: 'Times New Roman', Times, serif;
-  color: #2e5d34;
+  color: var(--portfolio-muted);
   font-size: 1.2rem;
   margin: 0 0 8px 0;
 }
 
 .notion-text p {
   font-family: 'Times New Roman', Times, serif;
-  color: #2e5d34;
+  color: var(--portfolio-muted);
   font-size: 0.9rem;
   margin: 0;
   opacity: 0.8;
@@ -210,23 +210,23 @@
 
 .project-card h3 {
   font-family: 'Times New Roman', Times, serif;
-  color: #183820;
+  color: var(--portfolio-ink);
   font-size: 1.3rem;
   margin: 0;
   flex: 1;
 }
 
 .project-year {
-  color: #2e5d34;
+  color: var(--portfolio-muted);
   font-size: 0.9rem;
   font-weight: 500;
-  background: rgba(46, 93, 52, 0.1);
+  background: rgba(85, 71, 56, 0.1);
   padding: 4px 12px;
-  border-radius: 12px;
+  border-radius: 2px;
 }
 
 .project-subtitle {
-  color: #2e5d34;
+  color: var(--portfolio-muted);
   font-size: 1rem;
   font-family: 'Times New Roman', Times, serif;
   margin: 0 0 12px 0;
@@ -234,7 +234,7 @@
 }
 
 .project-description {
-  color: #183820;
+  color: var(--portfolio-ink);
   font-size: 0.95rem;
   line-height: 1.6;
   margin: 0 0 20px 0;
@@ -246,14 +246,14 @@
 }
 
 .project-link {
-  color: #2e5d34;
+  color: var(--portfolio-muted);
   font-weight: 500;
   font-size: 1rem;
   transition: color 0.3s ease;
 }
 
 .project-card:hover .project-link {
-  color: #183820;
+  color: var(--portfolio-ink);
 }
 
 @media (max-width: 1200px) {
