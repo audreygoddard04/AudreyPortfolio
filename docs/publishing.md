@@ -1,14 +1,14 @@
 # KELTNER publishing
 
-The site and CMS integration are prepared. No Sanity account, dataset, or live article has been created by this migration.
+The site connects to Audrey's **KELTNER** Sanity project (`ivnvhlvq`), public dataset `production`. Public identifiers live in `my-app/src/sanity/project.mjs`, shared by the website, Studio, and CLI. They are not credentials. No API token is required for published content; editing requires a Sanity account with access to this project.
 
-## Connect Sanity once
+## Open the editor
 
-1. Open https://www.sanity.io/manage and create a project named **KELTNER** with a **public** dataset named `production`. This site's server queries published content without an API token. Draft documents still require authenticated access; a public dataset does not make drafts public. Only store editorial content intended for publication in published documents.
-2. Copy `my-app/.env.example` to `my-app/.env.local`. Add the project ID to `NEXT_PUBLIC_SANITY_PROJECT_ID`; keep `NEXT_PUBLIC_SANITY_DATASET=production`. The project ID is public, not a secret.
-3. In Sanity → API → CORS origins, add `http://localhost:3000` with credentials for local Studio login. Add the precise Vercel preview origin when reviewing it, then `https://audreygoddard.com` for production. Avoid wildcard origins with credentials.
-4. Run `npm run dev` from the repository root and open http://localhost:3000/studio. Sign in with your Sanity account. Sanity manages editor authentication; the website does not implement its own password system.
-5. Add the same two public variables to the existing Vercel project’s Preview and Production environments, then redeploy. Preserve the existing Resend variables.
+1. Run `npm run dev --workspace=my-app -- --port 3333` from the repository root and open http://localhost:3333/studio. Sanity already permits this local origin with credentials. Sign in with your Sanity account.
+2. Before using Studio on a deployed website, open [Sanity → API → CORS origins](https://www.sanity.io/organizations/o90yi6a50/project/ivnvhlvq/api/cors-origins) and add the precise Vercel preview origin with credentials, then `https://audreygoddard.com` for production. Avoid wildcard origins with credentials. This authorizes the editor's browser requests; it does not grant new people access to the project.
+3. The checked-in project identifiers work on Vercel without extra environment configuration. To intentionally use a different project or dataset, set `NEXT_PUBLIC_SANITY_PROJECT_ID` and `NEXT_PUBLIC_SANITY_DATASET` in `.env.local` or the matching Vercel environment and rebuild. Preserve the existing Resend variables.
+
+Draft documents require authenticated access even though the dataset is public. Only store editorial content intended for publication in published documents.
 
 Node.js 22.13 or newer in the 22.x line is supported. Vercel should use Node.js 22.x.
 

@@ -61,4 +61,4 @@ See [migration checkpoints](docs/migration-checkpoints.md) for scope and release
 
 ## KELTNER and Sanity
 
-`/keltner` is the publication. `/studio` is its Sanity editor. See [publishing setup and first-article workflow](docs/publishing.md). Without a Sanity project ID, the site shows an honest empty publication and the editor explains the setup step. No demo products or articles are published.
+`/keltner` is the publication. `/studio` is its Sanity editor. Both connect to the KELTNER project (`ivnvhlvq`), dataset `production`, using shared public configuration. See [publishing setup and first-article workflow](docs/publishing.md). No demo products or articles are published.
