@@ -40,3 +40,7 @@ The website, Studio, and CLI now share the public project ID `ivnvhlvq` and data
 ## 5. Initialize editorial content
 
 Verified authenticated Studio editing. Saved and published the four category records (Style, Places, Motoring, Travel), and saved the introductory article as a private draft with its title, slug, excerpt, author, Style reference, and formatted body. Reloading Studio preserved the draft. An unauthenticated API check returned four categories and zero articles; the draft URL returned 404. Vercel reported success for the connected-site commit `8203bef`. Article review, the first publish/unpublish cycle, and deployed Studio origin authorization remain release checkpoints.
+
+## 6. Brand and domain release
+
+Matched KELTNER to Audrey's supplied logo: original JPEG wordmark, sampled pale background (`#ebeae8`), taupe accents, serif typography, and “Timeless | Classic | Refined” tagline. Added KELTNER to the portfolio's main navigation and retained its footer link. The supplied asset also provides the publication's default social preview. Verified desktop and 390px mobile layouts, the homepage navigation link, Node.js 22 production build, all 20 public routes and existing smoke checks, and six publishing tests. Publishing the site does not publish the introductory Sanity draft.

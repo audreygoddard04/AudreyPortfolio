@@ -21,13 +21,12 @@ export const categories = [
     description: "Thoughtful journeys and the details worth remembering.",
   },
 ];
-export const tagline =
-  "Timeless style, remarkable places, and things worth keeping.";
+export const tagline = "Timeless | Classic | Refined";
 export function publicationMetadata(
   title = "KELTNER",
-  description = tagline,
+  description = "Timeless style, remarkable places, and things worth keeping. An independent journal by Audrey Goddard.",
   path = "/keltner",
-  image,
+  image = "/keltner/logo.jpg",
 ) {
   const fullTitle = title === "KELTNER" ? title : `${title} | KELTNER`;
   return {

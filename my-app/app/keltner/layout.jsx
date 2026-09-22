@@ -15,8 +15,18 @@ export default function PublicationLayout({ children }) {
             className={styles.masthead}
             aria-label="KELTNER home"
           >
-            KELTNER
+            <span className={styles.wordmark}>
+              <img
+                src="/keltner/logo.jpg"
+                alt="KELTNER"
+                width="1920"
+                height="1080"
+                fetchPriority="high"
+              />
+            </span>
           </Link>
+          <div className={styles.brandRule} aria-hidden="true" />
+          <p className={styles.tagline}>{tagline}</p>
           <nav className={styles.nav} aria-label="Publication">
             {categories.map((c) => (
               <Link href={`/keltner/${c.slug}`} key={c.slug}>

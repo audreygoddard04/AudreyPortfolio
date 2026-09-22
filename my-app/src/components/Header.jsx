@@ -63,6 +63,7 @@ function Header() {
             <li><Link href="/" onClick={closeMenu} className={isActive('/') ? 'active' : ''}>Home</Link></li>
             <li><Link href="/about" onClick={closeMenu} className={isActive('/about') ? 'active' : ''}>About Me</Link></li>
             <li><Link href="/articles" onClick={closeMenu} className={isActive('/articles') ? 'active' : ''}>Articles</Link></li>
+            <li><a href="/keltner" onClick={closeMenu}>KELTNER</a></li>
             <li><Link href="/projects" onClick={closeMenu} className={isActive('/projects') ? 'active' : ''}>Projects</Link></li>
             <li><Link href="/books" onClick={closeMenu} className={isActive('/books') ? 'active' : ''}>Bookshelf</Link></li>
             {/* <li><Link href="/website-design" onClick={closeMenu} className={isActive('/website-design') ? 'active' : ''}>Website Design</Link></li> */}
