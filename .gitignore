@@ -27,3 +27,8 @@ yarn-error.log*
 *.swo
 *~
 
+
+.next/
+.vercel/
+.env*
+!.env.example

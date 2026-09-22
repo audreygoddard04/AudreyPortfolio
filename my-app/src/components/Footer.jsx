@@ -1,7 +1,6 @@
 import React from 'react';
 import { FaLinkedin, FaInstagram } from 'react-icons/fa';
 import { SiSubstack } from 'react-icons/si';
-import './Footer.css';
 
 function Footer() {
   return (
@@ -13,9 +12,10 @@ function Footer() {
             <a href="mailto:audreyannagoddard@gmail.com">audreyannagoddard@gmail.com</a>
           </p>
         </div>
-        
+
         <div className="footer-section footer-connect">
           <h3>Connect</h3>
+          <p><a href="/keltner">KELTNER — the journal</a></p>
           <div className="footer-social">
             <a href="https://linkedin.com/in/audrey-goddard" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <FaLinkedin />

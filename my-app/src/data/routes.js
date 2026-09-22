@@ -1,6 +1,4 @@
-// Static route list — shared by scripts/generate-sitemap.js and
-// scripts/prerender.js. Dynamic /articles/:slug routes are derived
-// separately from src/data/articles.js.
+// Portfolio routes used by the Next.js sitemap. Article URLs come from articles.js.
 
 const staticRoutes = [
   { path: '/', changefreq: 'weekly', priority: '1.0' },
