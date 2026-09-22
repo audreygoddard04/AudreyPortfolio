@@ -4,7 +4,7 @@
 
 .fitness-plan-generator h3 {
   font-family: 'Times New Roman', Times, serif;
-  color: #183820;
+  color: var(--portfolio-ink);
   font-size: 1.5rem;
   font-weight: 600;
   margin: 0 0 12px 0;
@@ -13,7 +13,7 @@
 
 .generator-description {
   font-family: 'Times New Roman', Times, serif;
-  color: #2e5d34;
+  color: var(--portfolio-muted);
   font-size: 1rem;
   margin: 0 0 24px 0;
   line-height: 1.6;
@@ -32,7 +32,7 @@
 
 .form-group label {
   font-family: 'Times New Roman', Times, serif;
-  color: #183820;
+  color: var(--portfolio-ink);
   font-size: 0.95rem;
   font-weight: 600;
   margin-bottom: 12px;
@@ -42,12 +42,12 @@
 .form-group select,
 .form-group textarea {
   padding: 12px 16px;
-  border: 2px solid #e6d7b9;
-  border-radius: 8px;
+  border: 1px solid var(--portfolio-line);
+  border-radius: 2px;
   font-family: 'Times New Roman', Times, serif;
   font-size: 1rem;
-  color: #183820;
-  background: #fffefb;
+  color: var(--portfolio-ink);
+  background: var(--portfolio-surface);
   transition: all 0.3s ease;
 }
 
@@ -60,8 +60,8 @@
 .form-group select:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #b6a16b;
-  box-shadow: 0 0 0 3px rgba(182, 161, 107, 0.1);
+  border-color: var(--portfolio-brand);
+  box-shadow: none;
 }
 
 .checkbox-group {
@@ -80,19 +80,19 @@
   align-items: center;
   gap: 8px;
   padding: 10px 12px;
-  background: #fffefb;
-  border: 2px solid #e6d7b9;
-  border-radius: 8px;
+  background: var(--portfolio-surface);
+  border: 1px solid var(--portfolio-line);
+  border-radius: 2px;
   cursor: pointer;
   transition: all 0.3s ease;
   font-family: 'Times New Roman', Times, serif;
   font-size: 0.95rem;
-  color: #183820;
+  color: var(--portfolio-ink);
 }
 
 .checkbox-label:hover {
-  border-color: #b6a16b;
-  background: rgba(182, 161, 107, 0.05);
+  border-color: var(--portfolio-brand);
+  background: rgba(85, 71, 56, 0.05);
 }
 
 .checkbox-label input[type="checkbox"],
@@ -100,22 +100,22 @@
   width: 18px;
   height: 18px;
   cursor: pointer;
-  accent-color: #b6a16b;
+  accent-color: var(--portfolio-brand);
 }
 
 .checkbox-label input[type="checkbox"]:checked + span,
 .checkbox-label input[type="radio"]:checked + span {
   font-weight: 600;
-  color: #183820;
+  color: var(--portfolio-ink);
 }
 
 .generate-btn {
   padding: 14px 32px;
-  background: linear-gradient(135deg, #183820 0%, #2e5d34 100%);
-  color: #fffefb;
+  background: linear-gradient(135deg, var(--portfolio-ink) 0%, var(--portfolio-muted) 100%);
+  color: var(--portfolio-surface);
   border: none;
-  border-radius: 8px;
-  font-family: 'Poppins', sans-serif;
+  border-radius: 2px;
+  font-family: Arial, sans-serif;
   font-size: 1.05rem;
   font-weight: 600;
   cursor: pointer;
@@ -124,8 +124,8 @@
 }
 
 .generate-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(24, 56, 32, 0.3);
+  transform: none;
+  box-shadow: none;
 }
 
 .fitness-plan-results {
@@ -134,7 +134,7 @@
 
 .fitness-plan-results h4 {
   font-family: 'Times New Roman', Times, serif;
-  color: #183820;
+  color: var(--portfolio-ink);
   font-size: 1.3rem;
   font-weight: 600;
   margin: 0 0 20px 0;
@@ -142,22 +142,22 @@
 
 .plan-summary {
   background: linear-gradient(135deg, rgba(255, 254, 251, 0.8) 0%, rgba(247, 245, 242, 0.8) 100%);
-  border: 2px solid #e6d7b9;
-  border-radius: 12px;
+  border: 1px solid var(--portfolio-line);
+  border-radius: 2px;
   padding: 20px;
   margin-bottom: 24px;
 }
 
 .plan-summary p {
   font-family: 'Times New Roman', Times, serif;
-  color: #2e5d34;
+  color: var(--portfolio-muted);
   font-size: 1rem;
   margin: 8px 0;
   line-height: 1.6;
 }
 
 .plan-summary strong {
-  color: #183820;
+  color: var(--portfolio-ink);
   font-weight: 600;
 }
 
@@ -169,19 +169,19 @@
 
 .workout-card {
   background: linear-gradient(135deg, rgba(255, 254, 251, 0.9) 0%, rgba(247, 245, 242, 0.9) 100%);
-  border: 2px solid #e6d7b9;
-  border-radius: 12px;
+  border: 1px solid var(--portfolio-line);
+  border-radius: 2px;
   padding: 20px;
 }
 
 .workout-card h5 {
   font-family: 'Times New Roman', Times, serif;
-  color: #183820;
+  color: var(--portfolio-ink);
   font-size: 1.2rem;
   font-weight: 600;
   margin: 0 0 12px 0;
   padding-bottom: 12px;
-  border-bottom: 2px solid #b6a16b;
+  border-bottom: 1px solid var(--portfolio-brand);
 }
 
 .workout-focus {
@@ -190,13 +190,13 @@
   gap: 8px;
   margin-bottom: 16px;
   padding: 8px 12px;
-  background: rgba(182, 161, 107, 0.1);
-  border-radius: 6px;
+  background: rgba(85, 71, 56, 0.1);
+  border-radius: 2px;
 }
 
 .focus-label {
   font-family: 'Times New Roman', Times, serif;
-  color: #b6a16b;
+  color: var(--portfolio-brand);
   font-size: 0.85rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -205,14 +205,14 @@
 
 .focus-value {
   font-family: 'Times New Roman', Times, serif;
-  color: #183820;
+  color: var(--portfolio-ink);
   font-size: 1rem;
   font-weight: 600;
 }
 
 .exercises-list h6 {
   font-family: 'Times New Roman', Times, serif;
-  color: #183820;
+  color: var(--portfolio-ink);
   font-size: 1rem;
   font-weight: 600;
   margin: 0 0 12px 0;
@@ -226,12 +226,12 @@
 
 .exercises-list li {
   font-family: 'Times New Roman', Times, serif;
-  color: #2e5d34;
+  color: var(--portfolio-muted);
   font-size: 0.95rem;
   padding: 8px 0;
   padding-left: 24px;
   position: relative;
-  border-bottom: 1px solid rgba(230, 215, 185, 0.5);
+  border-bottom: 1px solid rgba(85, 71, 56, 0.5);
 }
 
 .exercises-list li:last-child {
@@ -242,7 +242,7 @@
   content: "•";
   position: absolute;
   left: 0;
-  color: #b6a16b;
+  color: var(--portfolio-brand);
   font-weight: bold;
   font-size: 1.2rem;
 }
@@ -250,14 +250,14 @@
 .plan-notes {
   margin-top: 24px;
   padding: 16px;
-  background: rgba(182, 161, 107, 0.1);
-  border-left: 3px solid #b6a16b;
-  border-radius: 4px;
+  background: rgba(85, 71, 56, 0.1);
+  border-left: 3px solid var(--portfolio-brand);
+  border-radius: 2px;
 }
 
 .plan-notes p {
   font-family: 'Times New Roman', Times, serif;
-  color: #2e5d34;
+  color: var(--portfolio-muted);
   font-size: 0.95rem;
   margin: 0;
   font-style: italic;

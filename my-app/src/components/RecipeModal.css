@@ -14,15 +14,15 @@
 }
 
 .recipe-modal-content {
-  background: #fffefb;
-  border-radius: 16px;
+  background: var(--portfolio-surface);
+  border-radius: 2px;
   max-width: 700px;
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
   position: relative;
-  box-shadow: 0 20px 60px rgba(24, 56, 32, 0.3);
-  border: 2px solid #e6d7b9;
+  box-shadow: none;
+  border: 1px solid var(--portfolio-line);
   margin: auto;
   box-sizing: border-box;
 }
@@ -39,7 +39,7 @@
   top: 16px;
   right: 16px;
   background: transparent;
-  color: #183820;
+  color: var(--portfolio-ink);
   border: none;
   width: 32px;
   height: 32px;
@@ -59,20 +59,20 @@
 .recipe-modal-close:active,
 .recipe-modal-close:focus {
   opacity: 1 !important;
-  transform: none !important;
+  transform: none;
   background: transparent !important;
-  color: #183820 !important;
+  color: var(--portfolio-ink) !important;
   outline: none !important;
 }
 
 .recipe-modal-header {
   padding: 32px 32px 24px;
-  border-bottom: 2px solid #e6d7b9;
+  border-bottom: 1px solid var(--portfolio-line);
 }
 
 .recipe-modal-header h2 {
   font-family: 'Times New Roman', Times, serif;
-  color: #183820;
+  color: var(--portfolio-ink);
   font-size: 2rem;
   font-weight: 600;
   margin: 0 0 16px 0;
@@ -88,10 +88,10 @@
 }
 
 .recipe-category-badge {
-  background: linear-gradient(135deg, #b6a16b 0%, #d4a574 100%);
-  color: #fffefb;
+  background: linear-gradient(135deg, var(--portfolio-brand) 0%, #d4a574 100%);
+  color: var(--portfolio-surface);
   padding: 6px 14px;
-  border-radius: 20px;
+  border-radius: 2px;
   font-size: 0.85rem;
   font-weight: 600;
   text-transform: capitalize;
@@ -99,10 +99,10 @@
 }
 
 .recipe-calories-badge {
-  background: linear-gradient(135deg, #2e5d34 0%, #183820 100%);
-  color: #fffefb;
+  background: linear-gradient(135deg, var(--portfolio-muted) 0%, var(--portfolio-ink) 100%);
+  color: var(--portfolio-surface);
   padding: 6px 14px;
-  border-radius: 20px;
+  border-radius: 2px;
   font-size: 0.85rem;
   font-weight: 600;
   font-family: 'Times New Roman', Times, serif;
@@ -115,10 +115,10 @@
 }
 
 .recipe-macros span {
-  background: rgba(182, 161, 107, 0.1);
-  color: #183820;
+  background: rgba(85, 71, 56, 0.1);
+  color: var(--portfolio-ink);
   padding: 6px 12px;
-  border-radius: 12px;
+  border-radius: 2px;
   font-size: 0.85rem;
   font-weight: 500;
   font-family: 'Times New Roman', Times, serif;
@@ -132,10 +132,10 @@
 }
 
 .recipe-tag {
-  background: rgba(46, 93, 52, 0.1);
-  color: #2e5d34;
+  background: rgba(85, 71, 56, 0.1);
+  color: var(--portfolio-muted);
   padding: 4px 10px;
-  border-radius: 12px;
+  border-radius: 2px;
   font-size: 0.75rem;
   font-weight: 500;
   font-family: 'Times New Roman', Times, serif;
@@ -155,12 +155,12 @@
 
 .recipe-section h3 {
   font-family: 'Times New Roman', Times, serif;
-  color: #183820;
+  color: var(--portfolio-ink);
   font-size: 1.4rem;
   font-weight: 600;
   margin: 0 0 16px 0;
   padding-bottom: 8px;
-  border-bottom: 2px solid #b6a16b;
+  border-bottom: 1px solid var(--portfolio-brand);
 }
 
 .ingredient-section {
@@ -173,7 +173,7 @@
 
 .ingredient-section-title {
   font-family: 'Times New Roman', Times, serif;
-  color: #b6a16b;
+  color: var(--portfolio-brand);
   font-size: 1.1rem;
   font-weight: 600;
   margin: 0 0 12px 0;
@@ -188,7 +188,7 @@
 
 .ingredient-list li {
   font-family: 'Times New Roman', Times, serif;
-  color: #2e5d34;
+  color: var(--portfolio-muted);
   font-size: 1rem;
   line-height: 1.8;
   margin-bottom: 8px;
@@ -200,7 +200,7 @@
   content: "•";
   position: absolute;
   left: 0;
-  color: #b6a16b;
+  color: var(--portfolio-brand);
   font-weight: bold;
   font-size: 1.2rem;
 }
@@ -214,7 +214,7 @@
 
 .directions-list li {
   font-family: 'Times New Roman', Times, serif;
-  color: #2e5d34;
+  color: var(--portfolio-muted);
   font-size: 1rem;
   line-height: 1.8;
   margin-bottom: 16px;
@@ -228,8 +228,8 @@
   position: absolute;
   left: 0;
   top: 0;
-  background: linear-gradient(135deg, #183820 0%, #2e5d34 100%);
-  color: #fffefb;
+  background: linear-gradient(135deg, var(--portfolio-ink) 0%, var(--portfolio-muted) 100%);
+  color: var(--portfolio-surface);
   width: 28px;
   height: 28px;
   border-radius: 50%;
@@ -254,7 +254,7 @@
     width: calc(100% - 20px);
     margin: 0 auto;
     max-height: 90vh;
-    border-radius: 12px;
+    border-radius: 2px;
   }
 
   .recipe-modal-content.positioned {
@@ -321,7 +321,7 @@
     max-width: calc(100% - 20px);
     width: calc(100% - 20px);
     margin: 0 auto;
-    border-radius: 12px;
+    border-radius: 2px;
     max-height: 95vh;
   }
 

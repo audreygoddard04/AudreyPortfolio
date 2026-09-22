@@ -1,5 +1,5 @@
 .bookshelf-outer {
-  background: #f7f5f2;
+  background: var(--portfolio-paper);
   padding-top: 20px;
   padding-bottom: 20px;
   padding-left: 24px;
@@ -18,18 +18,18 @@
   flex: 1;
   min-width: 200px;
   padding: 12px 16px;
-  border: 1.5px solid #e6d7b9;
-  border-radius: 8px;
+  border: 1px solid var(--portfolio-line);
+  border-radius: 2px;
   font-size: 1rem;
   font-family: 'Times New Roman', Times, serif;
-  color: #183820;
+  color: var(--portfolio-ink);
   background: #fff;
   transition: border-color 0.3s ease;
 }
 
 .bookshelf-search:focus {
   outline: none;
-  border-color: #2e5d34;
+  border-color: var(--portfolio-muted);
 }
 
 .bookshelf-search::placeholder {
@@ -38,11 +38,11 @@
 
 .bookshelf-sort {
   padding: 12px 16px;
-  border: 1.5px solid #e6d7b9;
-  border-radius: 8px;
+  border: 1px solid var(--portfolio-line);
+  border-radius: 2px;
   font-size: 1rem;
   font-family: 'Times New Roman', Times, serif;
-  color: #183820;
+  color: var(--portfolio-ink);
   background: #fff;
   cursor: pointer;
   transition: border-color 0.3s ease;
@@ -51,7 +51,7 @@
 
 .bookshelf-sort:focus {
   outline: none;
-  border-color: #2e5d34;
+  border-color: var(--portfolio-muted);
 }
 
 .bookshelf-table {
@@ -66,19 +66,19 @@
   font-weight: bold;
   font-size: 0.9rem;
   letter-spacing: 0.08em;
-  color: #183820;
+  color: var(--portfolio-ink);
   background: #f8f8f8;
   text-transform: uppercase;
   padding: 18px 20px;
   text-align: left;
-  border-bottom: 3px solid #e6d7b9;
+  border-bottom: 1px solid var(--portfolio-line);
 }
 
 .bookshelf-table td {
   padding: 18px 20px;
-  border-bottom: 2px solid #eee;
+  border-bottom: 1px solid #eee;
   font-size: 1rem;
-  color: #183820;
+  color: var(--portfolio-ink);
 }
 
 .book-row {
@@ -94,7 +94,7 @@
 }
 
 .bookshelf-hint {
-  color: #2e5d34;
+  color: var(--portfolio-muted);
   font-style: italic;
   font-size: 0.95rem;
   margin: 0 0 8px 0;
@@ -103,17 +103,17 @@
 .book-title-cell {
   font-family: 'Times New Roman', Times, serif;
   font-weight: 500;
-  color: #183820;
+  color: var(--portfolio-ink);
 }
 
 .book-author-cell {
   font-family: 'Times New Roman', Times, serif;
-  color: #183820;
+  color: var(--portfolio-ink);
 }
 
 .book-category-cell {
   font-family: 'Times New Roman', Times, serif;
-  color: #2e5d34;
+  color: var(--portfolio-muted);
   font-size: 0.9rem;
 }
 
@@ -126,7 +126,7 @@
 
 .book-rating-cell {
   font-family: 'Times New Roman', Times, serif;
-  color: #183820;
+  color: var(--portfolio-ink);
 }
 
 .rating-container {

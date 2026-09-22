@@ -19,34 +19,34 @@
   font-size: 1.1rem;
   font-family: 'Times New Roman', Times, serif;
   font-weight: 600;
-  border-radius: 12px;
+  border-radius: 2px;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .nutrition-cta-primary {
-  background: #183820;
-  color: #fffefb;
-  border: 2px solid #183820;
+  background: var(--portfolio-ink);
+  color: var(--portfolio-surface);
+  border: 1px solid var(--portfolio-ink);
 }
 
 .nutrition-cta-primary:hover {
-  background: #2e5d34;
-  border-color: #2e5d34;
-  transform: translateY(-1px);
+  background: var(--portfolio-muted);
+  border-color: var(--portfolio-muted);
+  transform: none;
 }
 
 .nutrition-cta-secondary {
-  background: #fffefb;
-  color: #183820;
-  border: 2px solid #b6a16b;
+  background: var(--portfolio-surface);
+  color: var(--portfolio-ink);
+  border: 1px solid var(--portfolio-brand);
 }
 
 .nutrition-cta-secondary:hover {
-  background: rgba(182, 161, 107, 0.15);
-  border-color: #183820;
-  color: #183820;
-  transform: translateY(-1px);
+  background: rgba(85, 71, 56, 0.15);
+  border-color: var(--portfolio-ink);
+  color: var(--portfolio-ink);
+  transform: none;
 }
 
 /* Section 2 — Meal Plan Tool */
@@ -57,7 +57,7 @@
 .nutrition-section-summary {
   font-family: 'Times New Roman', Times, serif;
   font-size: 1.1rem;
-  color: #183820;
+  color: var(--portfolio-ink);
   line-height: 1.7;
   margin-bottom: 20px;
 }
@@ -86,9 +86,9 @@
 }
 
 .nutrition-category-card {
-  background: #f7f5f2;
-  border: 2px solid #e6d7b9;
-  border-radius: 16px;
+  background: var(--portfolio-paper);
+  border: 1px solid var(--portfolio-line);
+  border-radius: 2px;
   padding: 28px 24px;
   display: flex;
   flex-direction: column;
@@ -98,26 +98,26 @@
 }
 
 .nutrition-category-card:not(.selected):hover {
-  border-color: #b6a16b;
-  box-shadow: 0 4px 16px rgba(24, 56, 32, 0.08);
+  border-color: var(--portfolio-brand);
+  box-shadow: none;
 }
 
 .nutrition-category-card.selected {
-  border-color: #183820;
-  background: rgba(46, 93, 52, 0.08);
-  box-shadow: 0 4px 20px rgba(24, 56, 32, 0.12);
+  border-color: var(--portfolio-ink);
+  background: rgba(85, 71, 56, 0.08);
+  box-shadow: none;
 }
 
 .nutrition-category-card h3 {
   font-family: 'Times New Roman', Times, serif;
-  color: #183820;
+  color: var(--portfolio-ink);
   font-size: 1.35rem;
   margin: 0;
 }
 
 .nutrition-category-card p {
   font-size: 1rem;
-  color: #183820;
+  color: var(--portfolio-ink);
   line-height: 1.6;
   margin: 0;
   flex: 1;
@@ -125,9 +125,9 @@
 
 .nutrition-explore-btn {
   align-self: flex-start;
-  color: #2e5d34;
+  color: var(--portfolio-muted);
   font-size: 1rem;
-  font-family: 'Montserrat', sans-serif;
+  font-family: Arial, sans-serif;
   font-weight: 600;
   padding: 4px 0;
 }
@@ -145,7 +145,7 @@
 .nutrition-category-content .info-list {
   margin: 0;
   padding-left: 24px;
-  color: #183820;
+  color: var(--portfolio-ink);
   font-size: 1.05rem;
   line-height: 1.7;
 }
@@ -161,23 +161,23 @@
 .nutrition-evidence {
   margin-top: 32px;
   padding-top: 20px;
-  border-top: 1px solid #e6d7b9;
+  border-top: 1px solid var(--portfolio-line);
 }
 
 .nutrition-evidence h4 {
   font-family: 'Times New Roman', Times, serif;
-  color: #2e5d34;
+  color: var(--portfolio-muted);
   font-size: 1rem;
   margin-bottom: 8px;
 }
 
 .nutrition-evidence p {
   font-size: 0.95rem;
-  color: #183820;
+  color: var(--portfolio-ink);
 }
 
 .nutrition-evidence a {
-  color: #2e5d34;
+  color: var(--portfolio-muted);
   text-decoration: underline;
 }
 
@@ -195,11 +195,11 @@
 .sourdough-nav-btn {
   display: inline-block;
   padding: 12px 20px;
-  background: #f7f5f2;
-  color: #183820;
-  border: 2px solid #e6d7b9;
-  border-radius: 12px;
-  font-family: 'Montserrat', sans-serif;
+  background: var(--portfolio-paper);
+  color: var(--portfolio-ink);
+  border: 1px solid var(--portfolio-line);
+  border-radius: 2px;
+  font-family: Arial, sans-serif;
   font-weight: 600;
   font-size: 0.95rem;
   text-decoration: none;
@@ -208,8 +208,8 @@
 }
 
 .sourdough-nav-btn:hover {
-  background: rgba(46, 93, 52, 0.12);
-  border-color: #b6a16b;
+  background: rgba(85, 71, 56, 0.12);
+  border-color: var(--portfolio-brand);
 }
 
 /* Sourdough boxes (Explore-style) */
@@ -221,23 +221,23 @@
 }
 
 .sourdough-box {
-  background: #f7f5f2;
-  border: 2px solid #e6d7b9;
-  border-radius: 16px;
+  background: var(--portfolio-paper);
+  border: 1px solid var(--portfolio-line);
+  border-radius: 2px;
   padding: 28px 24px;
   scroll-margin-top: 100px;
 }
 
 .sourdough-box h3 {
   font-family: 'Times New Roman', Times, serif;
-  color: #183820;
+  color: var(--portfolio-ink);
   font-size: 1.35rem;
   margin: 0 0 12px 0;
 }
 
 .sourdough-box h4 {
   font-family: 'Times New Roman', Times, serif;
-  color: #2e5d34;
+  color: var(--portfolio-muted);
   font-size: 1rem;
   font-weight: 600;
   margin: 16px 0 8px 0;
@@ -245,7 +245,7 @@
 
 .sourdough-box p,
 .sourdough-box .info-list {
-  color: #183820;
+  color: var(--portfolio-ink);
   font-size: 1.05rem;
   line-height: 1.7;
   margin: 0 0 12px 0;
@@ -266,7 +266,7 @@
 
 .sourdough-inclusions-title {
   font-family: 'Times New Roman', Times, serif;
-  color: #183820;
+  color: var(--portfolio-ink);
   font-size: 1.35rem;
   margin: 0 0 16px 0 !important;
 }
@@ -279,7 +279,7 @@
 
 .sourdough-recipe-item {
   padding-bottom: 20px;
-  border-bottom: 1px solid #e6d7b9;
+  border-bottom: 1px solid var(--portfolio-line);
 }
 
 .sourdough-recipe-item:last-child {
@@ -289,7 +289,7 @@
 
 .sourdough-recipe-item h4 {
   font-family: 'Times New Roman', Times, serif;
-  color: #183820;
+  color: var(--portfolio-ink);
   font-size: 1.15rem;
   margin: 0 0 8px 0;
 }
@@ -319,15 +319,15 @@
 }
 
 .hack-card {
-  background: #f7f5f2;
-  border-radius: 12px;
+  background: var(--portfolio-paper);
+  border-radius: 2px;
   padding: 20px;
-  border: 1px solid #e6d7b9;
+  border: 1px solid var(--portfolio-line);
 }
 
 .hack-card h4 {
   font-family: 'Times New Roman', Times, serif;
-  color: #183820;
+  color: var(--portfolio-ink);
   font-size: 1.15rem;
   margin: 0 0 12px 0;
 }
@@ -363,15 +363,15 @@
 }
 
 .fasting-card {
-  background: #f7f5f2;
-  border-radius: 12px;
+  background: var(--portfolio-paper);
+  border-radius: 2px;
   padding: 20px;
-  border: 1px solid #e6d7b9;
+  border: 1px solid var(--portfolio-line);
 }
 
 .fasting-card h4 {
   font-family: 'Times New Roman', Times, serif;
-  color: #183820;
+  color: var(--portfolio-ink);
   font-size: 1.15rem;
   margin: 0 0 12px 0;
 }
@@ -396,16 +396,16 @@
 .vitamins-table td {
   padding: 12px 16px;
   text-align: left;
-  border: 1px solid #e6d7b9;
+  border: 1px solid var(--portfolio-line);
 }
 
 .vitamins-table th {
-  background: #f7f5f2;
+  background: var(--portfolio-paper);
   font-family: 'Times New Roman', Times, serif;
   font-weight: 600;
-  color: #183820;
+  color: var(--portfolio-ink);
 }
 
 .vitamins-table td {
-  color: #183820;
+  color: var(--portfolio-ink);
 }

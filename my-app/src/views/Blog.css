@@ -1,5 +1,5 @@
 .blog-bg {
-  background: #f7f5f2;
+  background: var(--portfolio-paper);
   min-height: 100vh;
   padding-top: 76px;
   padding-bottom: 40px;
@@ -14,13 +14,13 @@
 
 .blog-header h1 {
   font-family: 'Times New Roman', Times, serif;
-  color: #183820;
+  color: var(--portfolio-ink);
   font-size: 2.5rem;
   margin-bottom: 16px;
 }
 
 .blog-subtitle {
-  color: #2e5d34;
+  color: var(--portfolio-muted);
   font-size: 1.2rem;
   font-family: 'Times New Roman', Times, serif;
   margin-bottom: 32px;
@@ -30,22 +30,22 @@
   max-width: 1600px;
   margin: 64px auto 0 auto;
   background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 4px 32px rgba(24,56,32,0.06);
+  border-radius: 2px;
+  box-shadow: none;
   padding: 48px 40px;
   scroll-margin-top: 120px;
-  border: 3px solid #e6d7b9;
+  border: 1px solid var(--portfolio-line);
 }
 
 .main-section h2 {
   font-family: 'Times New Roman', Times, serif;
-  color: #183820;
+  color: var(--portfolio-ink);
   font-size: 2rem;
   margin-bottom: 24px;
 }
 
 .main-section p {
-  color: #183820;
+  color: var(--portfolio-ink);
   font-size: 1.15rem;
   line-height: 1.7;
 }
@@ -69,18 +69,18 @@
 .subscribe-email-input {
   flex: 1;
   padding: 14px 20px;
-  border: 2px solid #e6d7b9;
-  border-radius: 8px;
+  border: 1px solid var(--portfolio-line);
+  border-radius: 2px;
   font-size: 1rem;
   font-family: 'Times New Roman', Times, serif;
-  color: #183820;
+  color: var(--portfolio-ink);
   background: #fff;
   transition: border-color 0.3s ease;
 }
 
 .subscribe-email-input:focus {
   outline: none;
-  border-color: #2e5d34;
+  border-color: var(--portfolio-muted);
 }
 
 .subscribe-email-input::placeholder {
@@ -88,23 +88,23 @@
 }
 
 .subscribe-button {
-  background: #183820;
+  background: var(--portfolio-ink);
   color: #fff;
   border: none;
   padding: 14px 32px;
   font-size: 1rem;
   font-weight: 500;
-  border-radius: 8px;
+  border-radius: 2px;
   cursor: pointer;
-  font-family: 'Montserrat', sans-serif;
+  font-family: Arial, sans-serif;
   transition: all 0.3s ease;
   white-space: nowrap;
 }
 
 .subscribe-button:hover {
-  background: #2e5d34;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(24, 56, 32, 0.2);
+  background: var(--portfolio-muted);
+  transform: none;
+  box-shadow: none;
 }
 
 .subscribe-button:active {
@@ -122,14 +122,14 @@
   margin-top: 24px;
   padding: 16px 24px;
   background: #f0f9f0;
-  border: 2px solid #2e5d34;
-  border-radius: 8px;
-  color: #183820;
+  border: 1px solid var(--portfolio-muted);
+  border-radius: 2px;
+  color: var(--portfolio-ink);
 }
 
 .subscribe-success p {
   margin: 0;
-  color: #183820;
+  color: var(--portfolio-ink);
   font-family: 'Times New Roman', Times, serif;
   font-size: 1rem;
 }

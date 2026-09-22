@@ -96,7 +96,7 @@ function Fitness() {
 
             <div style={{ marginBottom: '32px' }}>
               <h3>Varsity Track & Field Athlete – Western University</h3>
-              <p style={{ color: '#2e5d34', fontSize: '1rem', marginBottom: '20px', fontStyle: 'italic' }}>2022–Present</p>
+              <p style={{ color: 'var(--portfolio-muted)', fontSize: '1rem', marginBottom: '20px', fontStyle: 'italic' }}>2022–Present</p>
               <ul className="research-areas-list">
                 <li>Compete in pentathlon; top OUA results</li>
                 <li>20+ hrs/week of training and competition</li>
@@ -111,7 +111,7 @@ function Fitness() {
 
             <div>
               <h3>Team Ontario Volleyball – Canada Summer Games</h3>
-              <p style={{ color: '#2e5d34', fontSize: '1rem', marginBottom: '20px', fontStyle: 'italic' }}>2022</p>
+              <p style={{ color: 'var(--portfolio-muted)', fontSize: '1rem', marginBottom: '20px', fontStyle: 'italic' }}>2022</p>
               <ul className="research-areas-list">
                 <li>Represented Ontario at national multi-sport games</li>
                 <li>Developed high-level teamwork and resilience under pressure</li>

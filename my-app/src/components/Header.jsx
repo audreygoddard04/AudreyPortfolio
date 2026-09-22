@@ -43,12 +43,21 @@ function Header() {
       }
     };
 
+    const handleEscape = (event) => {
+      if (event.key === 'Escape') {
+        closeMenu();
+        hamburgerRef.current?.focus();
+      }
+    };
+
     if (isMenuOpen) {
       document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('keydown', handleEscape);
     }
 
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleEscape);
     };
   }, [isMenuOpen]);
 
@@ -58,7 +67,7 @@ function Header() {
         <div className="header-logo-placeholder">Audrey Goddard</div>
       </Link>
       <header className="top-nav split-nav">
-        <nav ref={menuRef} className={`nav-center ${isMenuOpen ? 'nav-open' : ''}`}>
+        <nav id="portfolio-navigation" aria-label="Main navigation" ref={menuRef} className={`nav-center ${isMenuOpen ? 'nav-open' : ''}`}>
           <ul>
             <li><Link href="/" onClick={closeMenu} className={isActive('/') ? 'active' : ''}>Home</Link></li>
             <li><Link href="/about" onClick={closeMenu} className={isActive('/about') ? 'active' : ''}>About Me</Link></li>
@@ -69,7 +78,7 @@ function Header() {
             {/* <li><Link href="/website-design" onClick={closeMenu} className={isActive('/website-design') ? 'active' : ''}>Website Design</Link></li> */}
           </ul>
         </nav>
-        <nav className="nav-right">
+        <nav className="nav-right" aria-label="Social links">
           <ul>
             <li>
               <a href="https://linkedin.com/in/audrey-goddard" className="social-icon-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
@@ -92,7 +101,7 @@ function Header() {
               </a>
             </li>
           </ul>
-          <button ref={hamburgerRef} className="hamburger-menu" onClick={toggleMenu} aria-label="Toggle menu">
+          <button ref={hamburgerRef} className="hamburger-menu" onClick={toggleMenu} aria-label="Toggle menu" aria-expanded={isMenuOpen} aria-controls="portfolio-navigation">
             {isMenuOpen ? <FaTimes /> : <FaBars />}
           </button>
         </nav>
