@@ -12,16 +12,22 @@ Draft documents require authenticated access even though the dataset is public. 
 
 Node.js 22.13 or newer in the 22.x line is supported. Vercel should use Node.js 22.x.
 
-## Import the first draft
+## Review the first draft
 
-From `my-app/`, after the project identifiers are configured:
+The four categories and **“Things worth keeping: a beginning”** are already saved in the connected project. Open **Articles** in Studio to review the draft. Studio autosaves edits; only **Publish** makes an article public. The initial draft has no images, products, or affiliate links. Verify the prefilled publication date when you are ready to publish.
+
+Authenticated editing and draft persistence have been verified. The public API returns all four categories and zero articles, and the draft's website URL returns 404.
+
+### Optional import for a fresh dataset
+
+The connected KELTNER dataset does not need an import. For a separate, fresh dataset, the starter source can be imported from `my-app/` after configuring its project identifiers:
 
 ```sh
 npx sanity login
 npx sanity dataset import content/starter.ndjson production
 ```
 
-The import contains four category records and one draft, **“Things worth keeping: a beginning.”** The draft has no publication date, product claims, or affiliate links. It remains unpublished. The import uses fixed IDs; do not add `--replace` when rerunning it, so existing edits are not overwritten.
+The import contains four category records and one unpublished draft. The source omits a publication date. Its fixed IDs match the initialized project; do not add `--replace` when rerunning it, so existing edits are not overwritten.
 
 In Studio, choose **Articles** and open the draft. Edit the voice, title, body, excerpt, category, and publication date. Optional images need alternative text; use your own images or images you have permission to publish and record the credit. Review the text in Studio before publishing. A private on-site draft preview is deliberately outside this first version.
 
@@ -55,6 +61,6 @@ npm run test:publishing --workspace=my-app
 npm run build
 ```
 
-The publishing tests exercise the actual article queries against published, draft, future, and undated fixtures; category/product references; unsafe URL rejection; and disclosure detection. A live publish/unpublish test still needs your Sanity project.
+The publishing tests exercise the actual article queries against published, draft, future, and undated fixtures; category/product references; unsafe URL rejection; and disclosure detection. A real publish/unpublish cycle remains a release checkpoint after Audrey reviews the draft. The draft has not been published as a test.
 
 Implementation references: [Sanity Studio embedding](https://www.sanity.io/docs/nextjs/embedding-sanity-studio-in-nextjs), [Next.js CRA migration](https://nextjs.org/docs/app/guides/migrating/from-create-react-app).

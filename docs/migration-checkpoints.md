@@ -36,3 +36,7 @@ Final local verification: Node.js 22 production build, all 20 public portfolio/p
 ## 4. Connect the KELTNER project
 
 The website, Studio, and CLI now share the public project ID `ivnvhlvq` and dataset `production`. Optional environment overrides remain available. Verified that the dataset is publicly readable and initially empty, the Node.js 22 production build succeeds against the real dataset, all six publishing tests pass, publication/category/Studio/sitemap responses succeed, and the unpublished starter article URL returns 404. Studio renders its login screen at `http://localhost:3333/studio`, using the project's existing allowed origin. Authenticated draft creation and a live publish/unpublish check remain pending.
+
+## 5. Initialize editorial content
+
+Verified authenticated Studio editing. Saved and published the four category records (Style, Places, Motoring, Travel), and saved the introductory article as a private draft with its title, slug, excerpt, author, Style reference, and formatted body. Reloading Studio preserved the draft. An unauthenticated API check returned four categories and zero articles; the draft URL returned 404. Vercel reported success for the connected-site commit `8203bef`. Article review, the first publish/unpublish cycle, and deployed Studio origin authorization remain release checkpoints.
