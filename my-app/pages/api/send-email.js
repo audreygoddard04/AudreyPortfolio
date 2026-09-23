@@ -1,9 +1,27 @@
-const { Resend } = require('resend');
+/**
+ * send-email.js  (pages/api/send-email.js)
+ *
+ * Next.js Pages Router API route — runs as a Vercel serverless function.
+ * Receives a POST request from the Contact form, validates the payload,
+ * and sends an email via the Resend API.
+ *
+ * Required environment variables (set in Vercel project settings or .env.local):
+ *   RESEND_API_KEY   — Your Resend secret key
+ *   RESEND_FROM_EMAIL — "From" address (must be a verified sender in Resend)
+ *   RESEND_TO_EMAIL  — Where incoming inquiries should be delivered
+ */
 
-// Initialize Resend with API key from environment variable
+import { Resend } from 'resend';
 
+// ---------------------------------------------------------------------------
+// Helpers
+// ---------------------------------------------------------------------------
 
-// HTML escape function to prevent XSS in email content
+/**
+ * Escapes HTML special characters to prevent XSS in the email HTML body.
+ * @param {string} text
+ * @returns {string}
+ */
 function escapeHtml(text) {
   if (!text) return '';
   return String(text)
@@ -14,53 +32,58 @@ function escapeHtml(text) {
     .replace(/'/g, '&#039;');
 }
 
-// Vercel serverless function handler
+// ---------------------------------------------------------------------------
+// Handler
+// ---------------------------------------------------------------------------
+
 export default async function handler(req, res) {
-  // Always set JSON content type and CORS headers first
+  // Always respond with JSON and allow cross-origin requests from the site
   res.setHeader('Content-Type', 'application/json');
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-  // Handle preflight request
+  // Handle CORS preflight
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
   }
 
-  // Only allow POST requests
+  // Only accept POST
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  // Check for required environment variables
+  // Guard: ensure the email service is configured before doing any work
   if (!process.env.RESEND_API_KEY) {
     console.error('RESEND_API_KEY is not set');
-    return res.status(500).json({ 
+    return res.status(500).json({
       error: 'Server configuration error',
-      message: 'Email service is not configured. Please contact the administrator.'
+      message: 'Email service is not configured. Please contact the administrator.',
     });
   }
 
   try {
     const { name, email, businessName, projectType, otherSpecify, message } = req.body;
 
-    // Validate required fields
+    // --- Validation ---
+
     if (!name || !email || !message) {
       return res.status(400).json({ error: 'Missing required fields' });
     }
 
-    // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return res.status(400).json({ error: 'Invalid email address' });
     }
 
-    // Build email content with HTML escaping
-    const projectTypeText = projectType === 'other' 
-      ? `Other: ${escapeHtml(otherSpecify || 'Not specified')}` 
-      : escapeHtml(projectType || 'Not specified');
+    // --- Build email content ---
 
-    // Escape message and convert newlines to <br> safely
+    const projectTypeText =
+      projectType === 'other'
+        ? `Other: ${escapeHtml(otherSpecify || 'Not specified')}`
+        : escapeHtml(projectType || 'Not specified');
+
+    // Escape message and render newlines as <br> tags in the HTML version
     const escapedMessage = escapeHtml(message).replace(/\n/g, '<br>');
 
     const emailHtml = `
@@ -73,6 +96,7 @@ export default async function handler(req, res) {
       <p>${escapedMessage}</p>
     `;
 
+    // Plain-text fallback for email clients that don't render HTML
     const emailText = `
 New Website Design Inquiry
 
@@ -82,10 +106,12 @@ ${businessName ? `Business/Organization: ${businessName}\n` : ''}Project Type: $
 
 Message:
 ${message}
-    `;
+    `.trim();
 
-    // Send email using Resend
-    const { data, error } = await new Resend(process.env.RESEND_API_KEY).emails.send({
+    // --- Send via Resend ---
+
+    const resend = new Resend(process.env.RESEND_API_KEY);
+    const { data, error } = await resend.emails.send({
       from: process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev',
       to: process.env.RESEND_TO_EMAIL || 'your-email@example.com',
       replyTo: email,
@@ -94,30 +120,26 @@ ${message}
       text: emailText,
     });
 
-    // Check for Resend API errors
     if (error) {
       console.error('Resend API error:', error);
-      return res.status(500).json({ 
+      return res.status(500).json({
         error: 'Failed to send email',
-        message: error.message || 'Email service returned an error'
+        message: error.message || 'Email service returned an error',
       });
     }
 
-    // Success - Resend returns { data: { id: "..." } }
-    return res.status(200).json({ 
-      success: true, 
+    return res.status(200).json({
+      success: true,
       message: 'Email sent successfully',
-      id: data?.id || 'unknown'
+      id: data?.id || 'unknown',
     });
 
-  } catch (error) {
-    console.error('Error sending email:', error);
-    // Always return JSON, never let errors crash the function
-    return res.status(500).json({ 
+  } catch (err) {
+    console.error('Error sending email:', err);
+    // Always return JSON — never let an uncaught error produce an HTML 500 page
+    return res.status(500).json({
       error: 'Failed to send email',
-      message: error.message || 'An unexpected error occurred'
+      message: err.message || 'An unexpected error occurred',
     });
   }
-};
-
-// Export as default for Vercel
+}

@@ -1,38 +1,62 @@
 'use client';
 
+/**
+ * Contact.jsx
+ *
+ * Website design inquiry form. Collects the visitor's name, email,
+ * optional business name, project type, and a message, then POSTs
+ * to /api/send-email (pages/api/send-email.js).
+ *
+ * Form state is reset 5 seconds after a successful submission so the
+ * user can submit again if needed without refreshing the page.
+ */
+
 import React, { useState } from 'react';
 
-function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    businessName: '',
-    projectType: '',
-    otherSpecify: '',
-    message: ''
-  });
-  const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
+// ---------------------------------------------------------------------------
+// Constants
+// ---------------------------------------------------------------------------
 
+/** Shape of the form's controlled state — used for both initial value and reset */
+const EMPTY_FORM = {
+  name:          '',
+  email:         '',
+  businessName:  '',
+  projectType:   '',
+  otherSpecify:  '',
+  message:       '',
+};
+
+/** Simple email format check */
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+// ---------------------------------------------------------------------------
+// Component
+// ---------------------------------------------------------------------------
+
+function Contact() {
+  // --- State ---
+  const [formData,     setFormData]     = useState(EMPTY_FORM);
+  const [submitted,    setSubmitted]     = useState(false);
+  const [error,        setError]         = useState('');
+  const [isSubmitting, setIsSubmitting]  = useState(false);
+
+  // --- Handlers ---
+
+  /** Syncs each field to formData and clears any previous error message */
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
     setError('');
   };
 
-  const validateEmail = (email) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  };
-
+  /** Validates the form and sends the request to the API route */
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
     setIsSubmitting(true);
+
+    // --- Client-side validation (mirrors server-side checks) ---
 
     if (!formData.name || !formData.email || !formData.message) {
       setError('Please fill in all required fields.');
@@ -46,20 +70,18 @@ function Contact() {
       return;
     }
 
-    if (!validateEmail(formData.email)) {
+    if (!EMAIL_REGEX.test(formData.email)) {
       setError('Please enter a valid email address.');
       setIsSubmitting(false);
       return;
     }
 
-    try {
-      const apiUrl = '/api/send-email';
+    // --- API call ---
 
-      const response = await fetch(apiUrl, {
+    try {
+      const response = await fetch('/api/send-email', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
 
@@ -69,43 +91,35 @@ function Contact() {
       if (contentType.includes('application/json')) {
         try {
           data = await response.json();
-        } catch (jsonError) {
+        } catch {
           const text = await response.text();
           console.error('JSON parse error. Response text:', text.substring(0, 200));
           throw new Error('Server returned an invalid response. The API endpoint may not be configured correctly.');
         }
       } else {
+        // Non-JSON response usually means the API route is misconfigured
         const text = await response.text();
         console.error('Non-JSON response:', text.substring(0, 500));
-        console.error('Response status:', response.status);
-        console.error('Response headers:', Object.fromEntries(response.headers.entries()));
 
         if (response.status === 404) {
-          throw new Error('API endpoint not found. Please ensure Root Directory is set to "my-app" in Vercel settings.');
-        } else if (text.includes('server error') || text.includes('Server Error')) {
-          throw new Error('Server error occurred. Check Vercel function logs and ensure environment variables are set.');
-        } else {
-          throw new Error(`Server returned an invalid response (${response.status}). The API may not be properly deployed.`);
+          throw new Error('API endpoint not found. Ensure the Root Directory is set to "my-app" in Vercel settings.');
         }
+        throw new Error(`Server returned an invalid response (${response.status}).`);
       }
 
       if (!response.ok) {
         throw new Error(data.error || data.message || 'Failed to send email');
       }
 
+      // --- Success ---
       setSubmitted(true);
 
+      // Reset the form after 5 s so the user can submit again without refreshing
       setTimeout(() => {
         setSubmitted(false);
-        setFormData({
-          name: '',
-          email: '',
-          businessName: '',
-          projectType: '',
-          otherSpecify: '',
-          message: ''
-        });
+        setFormData(EMPTY_FORM);
       }, 5000);
+
     } catch (err) {
       console.error('Error submitting form:', err);
       setError(err.message || 'Failed to send email. Please try again later.');
@@ -114,18 +128,24 @@ function Contact() {
     }
   };
 
+  // --- Render ---
+
   return (
     <div className="projects-bg">
-
       <div className="project-detail-container">
+
         <header className="project-detail-header">
           <div className="project-detail-title-section">
-            <h1>Website Design & Development</h1>
-            <p className="project-detail-subtitle">Get a custom website built for your business or personal portfolio</p>
+            <h1>Website Design &amp; Development</h1>
+            <p className="project-detail-subtitle">
+              Get a custom website built for your business or personal portfolio
+            </p>
           </div>
         </header>
 
         <section className="main-section project-detail-section contact-form-section">
+
+          {/* Success confirmation — shown after a successful submission */}
           {submitted ? (
             <div className="contact-success">
               <h2>Thank you for your inquiry!</h2>
@@ -134,10 +154,13 @@ function Contact() {
           ) : (
             <>
               <p className="contact-intro">
-                Fill out the form below to get started. I'll review your project details and get back to you with a quote and timeline.
+                Fill out the form below to get started. I'll review your project details
+                and get back to you with a quote and timeline.
               </p>
 
               <form className="contact-form" onSubmit={handleSubmit}>
+
+                {/* Required fields */}
                 <div className="form-group">
                   <label htmlFor="name">Name *</label>
                   <input
@@ -164,6 +187,7 @@ function Contact() {
                   />
                 </div>
 
+                {/* Optional fields */}
                 <div className="form-group">
                   <label htmlFor="businessName">Business/Organization Name</label>
                   <input
@@ -193,6 +217,7 @@ function Contact() {
                   </select>
                 </div>
 
+                {/* Conditional: only shown when "Other" is selected */}
                 {formData.projectType === 'other' && (
                   <div className="form-group">
                     <label htmlFor="otherSpecify">Please specify *</label>
@@ -223,15 +248,13 @@ function Contact() {
                   />
                 </div>
 
+                {/* Inline error message */}
                 {error && <p className="form-error">{error}</p>}
 
-                <button
-                  type="submit"
-                  className="submit-button"
-                  disabled={isSubmitting}
-                >
+                <button type="submit" className="submit-button" disabled={isSubmitting}>
                   {isSubmitting ? 'Sending...' : 'Submit Inquiry'}
                 </button>
+
               </form>
             </>
           )}

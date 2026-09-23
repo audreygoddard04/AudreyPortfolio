@@ -159,11 +159,13 @@
 .footer {
   padding: 36px 0;
   border-top: 1px solid var(--ink);
+  font-size: 14px;
+}
+.footerTop {
   display: flex;
   justify-content: space-between;
   align-items: start;
   gap: 24px;
-  font-size: 14px;
 }
 .footer p {
   margin: 0;
@@ -175,6 +177,13 @@
   font:
     12px Arial,
     sans-serif;
+}
+.disclosure {
+  margin-top: 36px !important;
+  font-size: 11px;
+  color: var(--muted);
+  max-width: 700px;
+  line-height: 1.5;
 }
 .prose {
   max-width: 740px;
@@ -289,7 +298,7 @@
   .cards {
     grid-template-columns: 1fr;
   }
-  .footer {
+  .footerTop {
     flex-direction: column;
   }
   .prose {

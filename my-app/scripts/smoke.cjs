@@ -22,7 +22,7 @@ const base = process.env.TEST_BASE_URL || "http://localhost:3100";
       "/projects/fitness",
       "/keltner",
       "/keltner/style",
-      "/keltner/places",
+      "/keltner/estates",
       "/keltner/motoring",
       "/keltner/travel",
       "/keltner/about",

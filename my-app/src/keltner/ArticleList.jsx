@@ -8,8 +8,7 @@ export default function ArticleList({ articles, category }) {
         {category
           ? `Our first ${category.toLowerCase()} stories are in the works.`
           : "The first issue is in the works."}{" "}
-        Come back soon for considered stories, useful guides, and things worth
-        keeping.
+        Come back for stories, guides, and things worth keeping.
       </p>
     );
   return (

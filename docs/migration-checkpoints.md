@@ -39,7 +39,7 @@ The website, Studio, and CLI now share the public project ID `ivnvhlvq` and data
 
 ## 5. Initialize editorial content
 
-Verified authenticated Studio editing. Saved and published the four category records (Style, Places, Motoring, Travel), and saved the introductory article as a private draft with its title, slug, excerpt, author, Style reference, and formatted body. Reloading Studio preserved the draft. An unauthenticated API check returned four categories and zero articles; the draft URL returned 404. Vercel reported success for the connected-site commit `8203bef`. Article review, the first publish/unpublish cycle, and deployed Studio origin authorization remain release checkpoints.
+Verified authenticated Studio editing. Saved and published the four category records (Style, Estates, Motoring, Travel), and saved the introductory article as a private draft with its title, slug, excerpt, author, Style reference, and formatted body. Reloading Studio preserved the draft. An unauthenticated API check returned four categories and zero articles; the draft URL returned 404. Vercel reported success for the connected-site commit `8203bef`. Article review, the first publish/unpublish cycle, and deployed Studio origin authorization remain release checkpoints.
 
 ## 6. Brand and domain release
 

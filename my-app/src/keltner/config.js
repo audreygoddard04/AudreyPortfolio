@@ -5,14 +5,14 @@ export const categories = [
     description: "Clothes, craftsmanship, and a wardrobe built to last.",
   },
   {
-    slug: "places",
-    title: "Places",
+    slug: "estates",
+    title: "Estates",
     description:
-      "Architecture, landscapes, and places with a sense of history.",
+      "Architecture, landscapes, and estates with a sense of history.",
   },
   {
-    slug: "motoring",
-    title: "Motoring",
+    slug: "cars",
+    title: "Cars",
     description: "Design, engineering, and the pleasure of the journey.",
   },
   {
@@ -24,7 +24,7 @@ export const categories = [
 export const tagline = "Timeless | Classic | Refined";
 export function publicationMetadata(
   title = "KELTNER",
-  description = "Timeless style, remarkable places, and things worth keeping. An independent journal by Audrey Goddard.",
+  description = "Timeless style, remarkable estates, and things worth keeping. An independent journal by Audrey Goddard.",
   path = "/keltner",
   image = "/keltner/logo.jpg",
 ) {

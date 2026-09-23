@@ -10,17 +10,14 @@ export default async function Page() {
   return (
     <>
       <section className={styles.hero}>
-        <p className={styles.eyebrow}>Style · Places · Motoring · Travel</p>
+        <p className={styles.eyebrow}>Style · Estates · Cars · Travel</p>
         <h1>
-          A journal for things
-          <br />
-          that endure.
+          Things that endure.
         </h1>
-        <p>Timeless style, remarkable places, and things worth keeping.</p>
+        <p>Timeless style, beautiful estates, and things worth keeping.</p>
       </section>
       <div className={styles.sectionHeading}>
         <h2>The journal</h2>
-        <span className={styles.eyebrow}>An eye for the enduring</span>
       </div>
       <ArticleList articles={articles} />
       <div className={styles.categories}>

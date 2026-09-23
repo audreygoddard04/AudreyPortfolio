@@ -1,15 +1,38 @@
-/* Portfolio tokens follow the KELTNER wordmark palette. */
+/* ==========================================================================
+   App.css
+   Global styles for the portfolio. CSS custom properties (design tokens) are
+   defined first, then base resets, then layout primitives, then utilities.
+
+   Design tokens are also used by portfolio-theme.css (loaded after this file)
+   which provides the editorial overrides that tighten the layout.
+   ========================================================================== */
+
+
+/* --------------------------------------------------------------------------
+   1. Design tokens (CSS custom properties)
+   -------------------------------------------------------------------------- */
 :root {
   --portfolio-paper: #ebeae8;
+  /* page background */
   --portfolio-surface: #f3f1ee;
+  /* card / section backgrounds */
   --portfolio-ink: #554738;
+  /* primary text */
   --portfolio-muted: #716253;
+  /* secondary text, dates, labels */
   --portfolio-brand: #88725b;
+  /* accent / hover colour */
   --portfolio-line: #c9c1b8;
+  /* borders and dividers */
 }
 
 
+/* --------------------------------------------------------------------------
+   2. Base resets
+   -------------------------------------------------------------------------- */
 html {
+  font-size: 100%;
+  scroll-behavior: smooth;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -20,13 +43,17 @@ body {
   padding: 0;
   overflow-x: hidden;
   background-color: var(--portfolio-paper);
-  background-image: none; /* subtle linen texture */
-  background-repeat: repeat;
   font-family: 'Times New Roman', Times, serif;
   color: var(--portfolio-ink);
   letter-spacing: 0.01em;
 }
 
+
+/* --------------------------------------------------------------------------
+   3. Root layout primitives
+   -------------------------------------------------------------------------- */
+
+/* #root wraps Header + main + Footer; flex column ensures Footer sticks to bottom */
 #root {
   display: flex;
   flex-direction: column;
@@ -35,6 +62,7 @@ body {
   padding: 0;
 }
 
+/* main flexes to fill remaining space between Header and Footer */
 main {
   flex: 1;
   margin: 0;
@@ -43,6 +71,10 @@ main {
   flex-direction: column;
 }
 
+
+/* --------------------------------------------------------------------------
+   4. Hero section (old / non-redesign layout — kept for any legacy views)
+   -------------------------------------------------------------------------- */
 .hero-section {
   display: flex;
   justify-content: center;
@@ -56,11 +88,18 @@ main {
   align-items: flex-end;
   justify-content: flex-start;
 }
+
 .hero-col.right {
   align-items: flex-start;
   justify-content: flex-start;
   max-width: 500px;
   padding-left: 48px;
+}
+
+/* Center column was removed from the design — hidden to avoid layout impact */
+.hero-col.center,
+.hero-portrait {
+  display: none;
 }
 
 .hero-img {
@@ -69,15 +108,9 @@ main {
   object-fit: cover;
   border-radius: 2px;
   margin-top: 32px;
-  box-shadow: none;
   border: 1px solid var(--portfolio-line);
   background: linear-gradient(120deg, var(--portfolio-paper) 60%, var(--portfolio-line) 100%);
   padding: 8px;
-}
-
-/* Remove center image styles */
-.hero-col.center, .hero-portrait {
-  display: none;
 }
 
 .hero-title {
@@ -93,6 +126,7 @@ main {
   border-bottom: 1px solid var(--portfolio-line);
   padding-bottom: 8px;
 }
+
 .hero-title span {
   font-style: italic;
   color: var(--portfolio-brand);
@@ -106,6 +140,22 @@ main {
   margin-top: 0;
 }
 
+/* Decorative abstract shape behind hero (right side) */
+.hero-section::after {
+  content: '';
+  position: absolute;
+  right: -80px;
+  top: 40px;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle at 60% 40%, var(--portfolio-line) 0%, var(--portfolio-surface) 80%);
+  opacity: 0.13;
+  z-index: 0;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Sidebar social icon strip (old layout) */
 .social-bar {
   position: absolute;
   right: 0;
@@ -119,7 +169,6 @@ main {
   border-radius: 12px 0 0 12px;
   padding: 8px 4px 8px 8px;
   z-index: 10;
-  box-shadow: none;
 }
 
 .social-icon {
@@ -134,16 +183,16 @@ main {
   line-height: 32px;
   margin-bottom: 4px;
   text-decoration: none;
-  transition: background 0.2s, color 0.2s, border 0.2s, box-shadow 0.2s;
+  transition: background 0.2s, color 0.2s, border 0.2s;
   font-family: 'Times New Roman', Times, serif;
   font-weight: 600;
   border: 1px solid var(--portfolio-line);
 }
+
 .social-icon:hover {
   background: var(--portfolio-brand);
   color: var(--portfolio-surface);
-  border: 1px solid var(--portfolio-brand);
-  box-shadow: none;
+  border-color: var(--portfolio-brand);
 }
 
 .social-icon.goodreads {
@@ -151,28 +200,18 @@ main {
   font-weight: bold;
 }
 
-/* Main sections below hero */
+
+/* --------------------------------------------------------------------------
+   5. Main sections (shared card/panel layout used across most pages)
+   -------------------------------------------------------------------------- */
 .main-section {
   max-width: 1000px;
-  margin: 64px auto 0 auto;
+  margin: 64px auto 40px;
   background: var(--portfolio-surface);
   border-radius: 2px;
-  box-shadow: none;
   border: 1px solid var(--portfolio-line);
-  padding: 56px 120px;
+  padding: 56px 40px;
   scroll-margin-top: 120px;
-  margin-bottom: 40px;
-  animation: none;
-  box-sizing: border-box;
-}
-
-.projects-bg,
-.home-bg,
-.blog-bg,
-.health-bg,
-.articles-bg {
-  padding-left: 24px;
-  padding-right: 24px;
   box-sizing: border-box;
 }
 
@@ -193,53 +232,39 @@ main {
   line-height: 1.7;
 }
 
-html {
-  font-size: 100%;
-  scroll-behavior: smooth;
-}
-
-@media (max-width: 1100px) {
-  .hero-section {
-    flex-direction: column;
-    align-items: center;
-    padding: 32px 0 0 0;
-  }
-  .hero-col.left, .hero-col.center, .hero-col.right {
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    max-width: 100%;
-  }
-  .hero-col.right {
-    padding-left: 0;
-    margin-top: 32px;
-  }
-  .social-bar {
-    position: static;
-    flex-direction: row;
-    justify-content: center;
-    margin: 24px auto 0 auto;
-    transform: none;
-    border-radius: 2px;
-    padding: 8px 16px;
-  }
+/* Page-level background wrappers — add horizontal padding on smaller screens */
+.projects-bg,
+.home-bg,
+.blog-bg,
+.health-bg,
+.articles-bg {
+  padding-left: 24px;
+  padding-right: 24px;
+  box-sizing: border-box;
 }
 
 .health-bg {
   background: var(--portfolio-paper);
 }
+
+
+/* --------------------------------------------------------------------------
+   6. Health hub header + nav (used on /health)
+   -------------------------------------------------------------------------- */
 .health-header {
   max-width: 900px;
   margin: 0 auto;
   padding: 48px 0 0 0;
   text-align: center;
 }
+
 .health-header h1 {
   font-family: 'Times New Roman', Times, serif;
   color: var(--portfolio-ink);
   font-size: 2.5rem;
   margin-bottom: 16px;
 }
+
 .health-nav ul {
   display: flex;
   justify-content: center;
@@ -248,6 +273,7 @@ html {
   padding: 0;
   margin: 0 0 32px 0;
 }
+
 .health-nav a {
   color: var(--portfolio-muted);
   text-decoration: none;
@@ -256,12 +282,16 @@ html {
   font-weight: bold;
   transition: color 0.2s;
 }
+
 .health-nav a:hover {
   color: var(--portfolio-ink);
   text-decoration: underline;
 }
 
-/* Add the first name and last name styles */
+
+/* --------------------------------------------------------------------------
+   7. Logo name styles
+   -------------------------------------------------------------------------- */
 .nav-logo .first-name {
   font-family: 'Times New Roman', Times, serif;
   font-weight: 500;
@@ -277,7 +307,10 @@ html {
   margin-left: -2px;
 }
 
-/* Experience Section Styles */
+
+/* --------------------------------------------------------------------------
+   8. Experience / achievement items
+   -------------------------------------------------------------------------- */
 .achievement-item {
   margin-bottom: 32px;
   padding: 24px;
@@ -323,22 +356,10 @@ html {
   color: var(--portfolio-muted);
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .achievement-item {
-    padding: 16px;
-  }
-  
-  .achievement-list li {
-    font-size: 1rem;
-  }
-}
 
-@keyframes fadeInUp {
-  0% { opacity: 0; transform: translateY(40px); }
-  100% { opacity: 1; transform: none; }
-}
-
+/* --------------------------------------------------------------------------
+   9. Book cards
+   -------------------------------------------------------------------------- */
 .books-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -350,23 +371,21 @@ html {
 .book-card {
   background: var(--portfolio-surface);
   border-radius: 2px;
-  box-shadow: none;
   border: 1px solid var(--portfolio-line);
-  padding: 28px 22px 20px 22px;
+  padding: 28px 22px 20px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  transition: box-shadow 0.2s, transform 0.2s, border 0.2s;
+  transition: border 0.2s;
   position: relative;
   overflow: hidden;
-  animation: none;
 }
+
 .book-card:hover {
-  box-shadow: none;
-  border: 1px solid var(--portfolio-brand);
-  transform: none;
+  border-color: var(--portfolio-brand);
   background: linear-gradient(120deg, var(--portfolio-surface) 80%, var(--portfolio-paper) 100%);
 }
+
 .book-title {
   font-weight: bold;
   font-size: 1.13rem;
@@ -374,6 +393,7 @@ html {
   margin-bottom: 8px;
   font-family: 'Times New Roman', Times, serif;
 }
+
 .book-author {
   font-style: italic;
   color: var(--portfolio-muted);
@@ -381,22 +401,12 @@ html {
   font-family: 'Times New Roman', Times, serif;
 }
 
-/* Decorative botanical accent (example, can be replaced with SVG or PNG) */
-.books-grid::before {
-  content: '';
-  display: block;
-  position: absolute;
-  left: -40px;
-  top: -40px;
-  width: 120px;
-  height: 120px;
-  background: url('https://www.transparenttextures.com/patterns/flowers.png');
-  opacity: 0.08;
-  z-index: 0;
-}
 
-/* Pill-shaped button style */
-button, .pill-btn {
+/* --------------------------------------------------------------------------
+   10. Buttons
+   -------------------------------------------------------------------------- */
+button,
+.pill-btn {
   border-radius: 2px;
   border: 1px solid var(--portfolio-line);
   background: var(--portfolio-surface);
@@ -406,49 +416,21 @@ button, .pill-btn {
   font-weight: 600;
   font-size: 1.08rem;
   letter-spacing: 0.04em;
-  transition: background 0.2s, color 0.2s, border 0.2s, box-shadow 0.2s;
-  box-shadow: none;
+  transition: background 0.2s, color 0.2s, border 0.2s;
   margin: 8px 0;
 }
-button:hover, .pill-btn:hover {
+
+button:hover,
+.pill-btn:hover {
   background: var(--portfolio-paper);
   color: var(--portfolio-brand);
-  border: 1px solid var(--portfolio-brand);
-  box-shadow: none;
+  border-color: var(--portfolio-brand);
 }
 
-/* Add more white space and padding to all main sections */
-.main-section {
-  padding: 56px 40px;
-  margin-bottom: 40px;
-}
 
-/* Responsive adjustments for new style */
-@media (max-width: 900px) {
-  .main-section {
-    padding: 32px 32px;
-  }
-  .achievement-item, .book-card {
-    padding: 32px 16px;
-  }
-  .books-grid {
-    gap: 18px;
-  }
-}
-
-@media (max-width: 480px) {
-  .main-section {
-    max-width: 100%;
-    padding: 24px 8px;
-    margin: 32px auto 0 auto;
-  }
-  .projects-bg, .home-bg, .blog-bg, .health-bg, .articles-bg {
-    padding-left: 3px;
-    padding-right: 3px;
-  }
-}
-
-/* Subtle gold line accent for section dividers */
+/* --------------------------------------------------------------------------
+   11. Section divider utility
+   -------------------------------------------------------------------------- */
 .section-divider {
   width: 100%;
   height: 2px;
@@ -458,54 +440,86 @@ button:hover, .pill-btn:hover {
   opacity: 0.7;
 }
 
-/* Example for abstract shape accent */
-.hero-section::after {
-  content: '';
-  position: absolute;
-  right: -80px;
-  top: 40px;
-  width: 180px;
-  height: 180px;
-  background: radial-gradient(circle at 60% 40%, var(--portfolio-line) 0%, var(--portfolio-surface) 80%);
-  opacity: 0.13;
-  z-index: 0;
-  border-radius: 50%;
-  pointer-events: none;
-}
 
-/* --- Fitlab.nl-inspired entrance animations --- */
-@keyframes fadeSlideInUp {
-  0% { opacity: 0; transform: translateY(40px) scale(0.98); }
-  60% { opacity: 0.7; transform: translateY(-8px) scale(1.01); }
-  100% { opacity: 1; transform: none; }
-}
+/* --------------------------------------------------------------------------
+   12. Responsive overrides
+   -------------------------------------------------------------------------- */
+@media (max-width: 1100px) {
+  .hero-section {
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 0 0 0;
+  }
 
-@keyframes fadeSlideInLeft {
-  0% { opacity: 0; transform: translateX(-40px) scale(0.98); }
-  60% { opacity: 0.7; transform: translateX(8px) scale(1.01); }
-  100% { opacity: 1; transform: none; }
-}
+  .hero-col.left,
+  .hero-col.center,
+  .hero-col.right {
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    max-width: 100%;
+  }
 
-@keyframes fadeSlideInRight {
-  0% { opacity: 0; transform: translateX(40px) scale(0.98); }
-  60% { opacity: 0.7; transform: translateX(-8px) scale(1.01); }
-  100% { opacity: 1; transform: none; }
-}
+  .hero-col.right {
+    padding-left: 0;
+    margin-top: 32px;
+  }
 
-.main-section, .tdee-calculator-box {
-  animation: none;
-}
-
-.achievement-item, .book-card {
-  animation: none;
+  .social-bar {
+    position: static;
+    flex-direction: row;
+    justify-content: center;
+    margin: 24px auto 0 auto;
+    transform: none;
+    border-radius: 2px;
+    padding: 8px 16px;
+  }
 }
 
 @media (max-width: 900px) {
-  .main-section, .tdee-calculator-box {
-    animation: none;
+  .main-section {
+    padding: 32px;
   }
-  .achievement-item, .book-card {
-    animation: none;
+
+  .achievement-item,
+  .book-card {
+    padding: 32px 16px;
+  }
+
+  .books-grid {
+    gap: 18px;
   }
 }
-/* --- End fitlab.nl-inspired entrance animations --- */
+
+@media (max-width: 768px) {
+  .achievement-item {
+    padding: 16px;
+  }
+
+  .achievement-list li {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-section {
+    max-width: 100%;
+    padding: 24px 8px;
+    margin: 32px auto 0 auto;
+  }
+
+  .projects-bg,
+  .home-bg,
+  .blog-bg,
+  .health-bg,
+  .articles-bg {
+    padding-left: 3px;
+    padding-right: 3px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

@@ -38,12 +38,18 @@ export default function PublicationLayout({ children }) {
         </header>
         <main>{children}</main>
         <footer className={styles.footer}>
-          <p>{tagline}</p>
-          <nav aria-label="Footer">
-            <Link href="/keltner/newsletter">Newsletter</Link>
-            <Link href="/keltner/about">About</Link>
-            <a href="/">Audrey Goddard</a>
-          </nav>
+          <div className={styles.footerTop}>
+            <p>{tagline}</p>
+            <nav aria-label="Footer">
+              <Link href="/keltner/newsletter">Newsletter</Link>
+              <Link href="/keltner/about">About</Link>
+              <a href="/">Audrey Goddard</a>
+            </nav>
+          </div>
+          <p className={styles.disclosure}>
+            <strong>Product links</strong><br/>
+            Some articles may include affiliate links. When they do, the article will say so before the recommendations. If you buy through one of those links, KELTNER may earn a commission.
+          </p>
         </footer>
       </div>
     </div>
