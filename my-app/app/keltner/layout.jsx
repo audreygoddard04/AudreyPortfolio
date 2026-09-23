@@ -47,7 +47,7 @@ export default function PublicationLayout({ children }) {
             </nav>
           </div>
           <p className={styles.disclosure}>
-            <strong>Product links</strong><br/>
+            <strong>Product links</strong><br />
             Some articles may include affiliate links. When they do, the article will say so before the recommendations. If you buy through one of those links, KELTNER may earn a commission.
           </p>
         </footer>

@@ -30,7 +30,6 @@ import site from '@/data/siteConfig';
 const NAV_LINKS = [
   { href: '/',         label: 'Home' },
   { href: '/about',    label: 'About Me' },
-  { href: '/articles', label: 'Articles' },
   { href: '/projects', label: 'Projects' },
   { href: '/books',    label: 'Bookshelf' },
 ];

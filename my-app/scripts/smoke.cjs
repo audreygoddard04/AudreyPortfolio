@@ -1,6 +1,5 @@
 const assert = require("node:assert/strict");
 const puppeteer = require("puppeteer-core");
-const articles = require("../src/data/articles");
 const routes = require("../src/data/routes");
 const base = process.env.TEST_BASE_URL || "http://localhost:3100";
 (async () => {
@@ -18,12 +17,11 @@ const base = process.env.TEST_BASE_URL || "http://localhost:3100";
   try {
     for (const route of [
       ...routes.map((r) => r.path),
-      ...articles.map((a) => `/articles/${a.slug}`),
       "/projects/fitness",
       "/keltner",
       "/keltner/style",
       "/keltner/estates",
-      "/keltner/motoring",
+      "/keltner/cars",
       "/keltner/travel",
       "/keltner/about",
       "/keltner/newsletter",

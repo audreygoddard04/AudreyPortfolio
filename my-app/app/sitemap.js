@@ -5,18 +5,16 @@
  * Next.js serialises into /sitemap.xml at build time (and revalidates every
  * 60 seconds in production via the `revalidate` export below).
  *
- * The sitemap is split into four groups:
+ * The sitemap is split into three groups:
  *   1. Keltner static pages  — /keltner, /keltner/about, /keltner/newsletter, category pages
  *   2. Keltner articles      — fetched from Sanity via getArticles()
  *   3. Portfolio static pages — from src/data/routes.js
- *   4. Portfolio articles    — from src/data/articles.js (self-hosted, static)
  */
 
 // All imports at the top so the file is easy to scan
 import { getArticles } from "@/keltner/content";
 import { categories }  from "@/keltner/config";
 import routes          from "@/data/routes";
-import articles        from "@/data/articles";
 import site            from "@/data/siteConfig";
 
 /** Revalidate the sitemap every 60 seconds in production (ISR) */
@@ -52,14 +50,6 @@ export default async function sitemap() {
       url: site.siteUrl + route.path,
       changeFrequency: route.changefreq,
       priority: Number(route.priority),
-    })),
-
-    // --- 4. Portfolio self-hosted articles ---
-    ...articles.map((article) => ({
-      url: `${site.siteUrl}/articles/${article.slug}`,
-      lastModified: article.updatedDate,
-      changeFrequency: "monthly",
-      priority: 0.8,
     })),
   ];
 }

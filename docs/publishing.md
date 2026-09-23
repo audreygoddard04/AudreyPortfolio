@@ -48,7 +48,7 @@ The starter draft is introductory copy for Audrey to review. For a first product
 
 Studio separates **Draft** and **Published** versions. An unpublished edit does not change the public article. Publish again to release it. Unpublish removes the published version; the article disappears from listings and its URL returns 404 after cached content expires and is revalidated. Keep a published slug stable to avoid breaking existing links.
 
-The four launch category slugs are `style`, `estates`, `motoring`, and `travel`. Adding another category route is a code change; writing articles within these categories is a CMS task.
+The four launch category slugs are `style`, `estates`, `cars`, and `travel`. Adding another category route is a code change; writing articles within these categories is a CMS task.
 
 ## What is intentionally small
 

@@ -44,7 +44,7 @@ function Home() {
 
           {/* CTA buttons */}
           <div className="home-btn-row">
-            <Link href="/articles" className="view-resume-btn">Articles</Link>
+            <a href="/keltner" className="view-resume-btn">KELTNER</a>
             <Link href="/projects" className="view-projects-btn">Projects</Link>
           </div>
         </div>

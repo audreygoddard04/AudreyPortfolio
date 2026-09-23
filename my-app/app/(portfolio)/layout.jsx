@@ -38,7 +38,6 @@ import "../../src/views/Thesis.css";
 import "../../src/views/Nutrition.css";
 import "../../src/views/Contact.css";
 import "../../src/views/Articles.css";
-import "../../src/views/ArticlePage.css";
 
 // Editorial theme overrides — loaded last so they win over the above
 import "../../src/portfolio-theme.css";

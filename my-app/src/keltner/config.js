@@ -24,7 +24,7 @@ export const categories = [
 export const tagline = "Timeless | Classic | Refined";
 export function publicationMetadata(
   title = "KELTNER",
-  description = "Timeless style, remarkable estates, and things worth keeping. An independent journal by Audrey Goddard.",
+  description = "Timeless style, beautiful estates, and things worth keeping. An independent journal by Audrey Goddard.",
   path = "/keltner",
   image = "/keltner/logo.jpg",
 ) {
