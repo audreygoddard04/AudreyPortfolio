@@ -1,3 +1,4 @@
+import NewsletterSignup from "@/keltner/NewsletterSignup";
 export const revalidate = 60;
 import Link from "next/link";
 import { categories, publicationMetadata } from "@/keltner/config";
@@ -20,6 +21,7 @@ export default async function Page() {
         <h2>The journal</h2>
       </div>
       <ArticleList articles={articles} />
+      <NewsletterSignup />
       <div className={styles.categories}>
         {categories.map((category, index) => (
           <section className={styles.category} key={category.slug}>

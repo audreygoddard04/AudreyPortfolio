@@ -1,3 +1,4 @@
+import NewsletterSignup from "@/keltner/NewsletterSignup";
 import { notFound } from "next/navigation";
 import { getArticle } from "@/keltner/content";
 import { publicationMetadata } from "@/keltner/config";
@@ -27,5 +28,5 @@ export default async function Page({ params }) {
   const { slug } = await params;
   const article = await getArticle(slug);
   if (!article) notFound();
-  return <ArticleContent article={article} />;
+  return <><ArticleContent article={article} /><NewsletterSignup /></>;
 }

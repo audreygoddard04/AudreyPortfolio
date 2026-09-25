@@ -62,3 +62,39 @@ See [migration checkpoints](docs/migration-checkpoints.md) for scope and release
 ## KELTNER and Sanity
 
 `/keltner` is the publication. `/studio` is its Sanity editor. Both connect to the KELTNER project (`ivnvhlvq`), dataset `production`, using shared public configuration. See [publishing setup and first-article workflow](docs/publishing.md). No demo products or articles are published.
+
+## KELTNER newsletter subscriptions
+
+The reusable `src/keltner/NewsletterSignup.jsx` form posts JSON to `/api/subscribe`, a Pages API handler alongside the existing APIs. The homepage, article endings, footer, and `/keltner/newsletter` use it. Sanity remains the article CMS; subscriber addresses are stored only in Resend Contacts. No welcome email or automation is created.
+
+Server-only environment variables (configure in Vercel for Production and any Preview deployments you test, then redeploy):
+
+- `RESEND_API_KEY` — already used by the contact form. It must have **Full access**, because a sending-only key cannot manage Contacts. Never use a `NEXT_PUBLIC_` prefix or commit its value. Local development can use ignored `my-app/.env.local`.
+- `RESEND_KELTNER_SEGMENT_ID` — optional existing Resend segment ID. Create a segment named KELTNER in Resend and set this value if you want to isolate this publication from other lists. Without it, subscribers appear in the account-wide Contacts list. Configure the segment before collecting subscribers if the account serves multiple publications.
+- No sender-address variable is needed for capture. Existing `RESEND_FROM_EMAIL` and `RESEND_TO_EMAIL` still serve the contact form.
+
+Email addresses are trimmed/lowercased and validated. Existing subscribed contacts return the same success response without overwriting profile data; an optional segment is added. Existing global opt-outs are not silently re-enabled: the form directs the reader to contact Audrey. This is single opt-in capture, not proof of mailbox ownership. Use Resend Broadcasts with an unsubscribe link when sending future newsletters.
+
+Protection: POST-only JSON, a 2 KB body limit, same-origin browser checks, a honeypot, provider timeouts, and a bounded five-attempts/minute limit per IP per server instance. The in-memory limit resets on cold starts and is **not a distributed abuse barrier**. For sustained public traffic, add a Vercel Firewall rate-limit rule matching POST `/api/subscribe` (for example five requests/IP/minute). No addresses, raw IPs, API keys, or provider error messages are written to application logs. The endpoint returns 400/403/405/413/415 for invalid requests, 409 for opted-out contacts, 429 for throttling, and 503 for service/configuration failures.
+
+### Verification and one real signup
+
+```sh
+npm run lint --workspace=my-app
+npm run test:subscribe --workspace=my-app
+npm run test:publishing --workspace=my-app
+npm run build
+```
+
+With a production preview running on port 3360, run `npm run test:newsletter-browser --workspace=my-app` to check loading, success, errors, retry, keyboard submission, and responsive form layout. Set `TEST_BASE_URL` to choose another local port.
+
+The subscription tests mock Resend; they never create real subscribers or send email. Lint covers the new integration and App Router files, excluding legacy portfolio components and APIs to avoid unrelated rewrites.
+
+After deploying:
+
+1. Open `https://audreygoddard.com/keltner/newsletter` and submit an email address you own. Expect **You're on the list.** No welcome email is expected.
+2. In Resend **Contacts**, search that address and confirm it appears once and is subscribed. If configured, check the KELTNER segment too.
+3. Reload and submit the same address again: expect the same message and still one Contact.
+4. If signup fails, inspect the `/api/subscribe` response and Vercel function logs. `missing_api_key` means the variable is missing for that deployment; provider 401/403 means check the key and Contacts permissions; 429 means wait a minute. Do not paste the key into the browser or a support message.
+
+Resend API reference: https://resend.com/docs/api-reference/contacts/create-contact
