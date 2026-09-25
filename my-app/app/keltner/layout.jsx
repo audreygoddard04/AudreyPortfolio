@@ -1,3 +1,4 @@
+import NewsletterSignup from "@/keltner/NewsletterSignup";
 import Link from "next/link";
 import styles from "@/keltner/publication.module.css";
 import { categories, tagline } from "@/keltner/config";
@@ -38,6 +39,7 @@ export default function PublicationLayout({ children }) {
         </header>
         <main>{children}</main>
         <footer className={styles.footer}>
+          <NewsletterSignup compact />
           <div className={styles.footerTop}>
             <p>{tagline}</p>
             <nav aria-label="Footer">
