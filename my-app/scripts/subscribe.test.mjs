@@ -20,7 +20,12 @@ async function request(options = {}, overrides = {}) {
       return this;
     },
   };
-  await createSubscribeHandler(options)(
+  await createSubscribeHandler({
+    getContact: async () => ({ error: { name: "not_found" } }),
+    queueWelcome: async () => ({ data: { event: "keltner.subscribed" } }),
+    updateContact: async () => ({ data: { id: "contact-id" } }),
+    ...options,
+  })(
     {
       method: "POST",
       headers: { "content-type": "application/json" },
@@ -103,4 +108,54 @@ test("Popup signup passes the first name to Resend and rejects excessive length"
     ).code,
     400,
   );
+});
+
+
+test("New subscribers trigger the welcome workflow and persist its accepted status", async () => {
+  const calls = [];
+  const result = await request({
+    env,
+    createContact: async () => ({ data: { id: "contact-id" } }),
+    queueWelcome: async (payload) => { calls.push(payload); return { data: { event: payload.event } }; },
+    updateContact: async (payload) => { calls.push(payload); return { data: { id: payload.id } }; },
+  });
+  assert.equal(result.code, 200);
+  assert.deepEqual(calls, [
+    { event: "keltner.subscribed", contactId: "contact-id" },
+    { id: "contact-id", properties: { keltner_welcome_queued: "yes" } },
+  ]);
+});
+
+test("Repeated signups do not queue another welcome", async () => {
+  const result = await request({
+    env,
+    getContact: async () => ({ data: { properties: { keltner_welcome_queued: { value: "yes" } } } }),
+    createContact: async () => ({ data: { id: "contact-id" } }),
+    queueWelcome: async () => { assert.fail("Duplicate welcome"); },
+  });
+  assert.equal(result.code, 200);
+});
+
+test("Welcome queue failures can be retried and do not mark the welcome accepted", async () => {
+  const result = await request({
+    env,
+    createContact: async () => ({ data: { id: "contact-id" } }),
+    queueWelcome: async () => ({ error: { message: "secret" } }),
+    updateContact: async () => { assert.fail("Must not mark a failed welcome"); },
+  });
+  assert.equal(result.code, 502);
+  assert.ok(!JSON.stringify(result.body).includes("secret"));
+});
+
+test("Existing opt-outs and lookup failures cannot be overwritten", async () => {
+  for (const [lookup, status] of [
+    [{ data: { unsubscribed: true } }, 409],
+    [{ error: { name: "invalid_api_key", message: "secret" } }, 502],
+  ]) {
+    const result = await request({ env,
+      getContact: async () => lookup,
+      createContact: async () => { assert.fail("Must not overwrite contact"); },
+    });
+    assert.equal(result.code, status);
+  }
 });

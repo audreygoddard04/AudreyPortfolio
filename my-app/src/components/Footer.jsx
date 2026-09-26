@@ -13,6 +13,7 @@ import React from 'react';
 import { FaLinkedin, FaInstagram } from 'react-icons/fa';
 import { SiSubstack } from 'react-icons/si';
 import site from '@/data/siteConfig';
+import FooterNewsletter from './FooterNewsletter';
 
 // Map each siteConfig.sameAs URL to its icon.
 // Order matches siteConfig: LinkedIn, Instagram, X, Substack.
@@ -35,6 +36,8 @@ function Footer() {
             <a href="mailto:audreyannagoddard@gmail.com">audreyannagoddard@gmail.com</a>
           </p>
         </div>
+
+        <FooterNewsletter />
 
         {/* Social / publication links */}
         <div className="footer-section footer-connect">

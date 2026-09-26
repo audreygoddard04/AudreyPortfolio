@@ -1,0 +1,9 @@
+.signup { width: min(100%, 350px); min-width: 0; }
+.signup h3 { color: var(--brand-heading, #3f2a20); margin: 0 0 8px; font: 20px/1.2 Georgia, serif; }
+.row { display: flex; border-bottom: 1px solid #9a8c7e; }
+.row input { min-width: 0; flex: 1; width: 100%; padding: 9px 0; border: 0; border-radius: 0; background: transparent; color: #3f2a20; font: 16px Georgia, serif; }
+.row button { padding: 9px 0 9px 14px; border: 0; background: transparent; color: #3f2a20; font: 10px Arial, sans-serif; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; }
+.row input:focus-visible, .row button:focus-visible { outline: 1px solid #8f795c; outline-offset: 3px; }
+.row button:disabled { opacity: .6; cursor: default; }
+.signup p { margin: 6px 0 0; font: 11px/1.5 Arial, sans-serif; }
+.label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
