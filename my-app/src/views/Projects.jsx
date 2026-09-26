@@ -36,6 +36,7 @@ const substackBanner       = substackBannerAsset.src;
  *   year           — displayed in the card footer
  *   thumbnail      — optional image URL; falls back to a text placeholder
  *   containThumbnail — if true, uses object-fit:contain instead of cover
+ *   internalLink   — optional same-site destination outside the project detail routes
  *   externalLink   — if set, the card links out instead of to an internal page
  *   useIframe      — if true AND externalLink is set, renders a live preview iframe
  */
@@ -92,6 +93,16 @@ const PROJECTS = [
     year: '2025',
     thumbnail: notionDashboardImage,
     externalLink: 'https://homedashboard-ag.notion.site/HOME-DASHBOARD-2bdc98089aed8172aa34d4c59a8adfaa',
+  },
+  {
+    id: 'keltner',
+    title: 'KELTNER',
+    subtitle: 'Independent Editorial Publication | Style, Places, Cars & Travel',
+    description: 'An independent publication exploring timeless style, remarkable places, and things worth keeping. A home for considered stories, guides, and the KELTNER Classics newsletter.',
+    year: '2026',
+    thumbnail: '/keltner/lake-como.png',
+    internalLink: '/keltner',
+    cta: 'Explore KELTNER →',
   },
 ];
 
@@ -158,7 +169,7 @@ function ProjectThumbnail({ project }) {
  * Extracted so the same JSX isn't duplicated across three link variants.
  */
 function ProjectCardContent({ project }) {
-  const cta = project.externalLink ? 'Visit site →' : 'Read more →';
+  const cta = project.cta || (project.externalLink ? 'Visit site →' : 'Read more →');
 
   return (
     <>
@@ -196,6 +207,15 @@ function Projects() {
         <section className="main-section project-detail-section">
           <div className="projects-grid">
             {PROJECTS.map((project) => {
+              // Load the publication's independent layout without portfolio stylesheet carryover.
+              if (project.internalLink) {
+                return (
+                  <a key={project.id} href={project.internalLink} className="project-card">
+                    <ProjectCardContent project={project} />
+                  </a>
+                );
+              }
+
               // External links → plain <a> that opens in a new tab
               if (project.externalLink) {
                 return (
