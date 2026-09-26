@@ -1,0 +1,14 @@
+/* One palette and masthead treatment for Audrey Goddard and KELTNER. */
+:root {
+  --editorial-paper: #ebeae8;
+  --editorial-surface: #f3f1ee;
+  --editorial-ink: #242720;
+  --editorial-heading: #3f2a20;
+  --editorial-muted: #67665d;
+  --editorial-green: #293b2d;
+  --editorial-line: #cccac3;
+  --editorial-logo-font: "Times New Roman", Times, serif;
+  --editorial-logo-tracking: -0.045em;
+  --editorial-photo-grade: saturate(0.64) sepia(0.14) contrast(0.94)
+    brightness(1.03);
+}

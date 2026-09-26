@@ -20,6 +20,13 @@ const dataset = [
     title: "Style",
     slug: { current: "style" },
   },
+  {
+    _id: "estates",
+    _type: "category",
+    title: "Estates",
+    slug: { current: "estates" },
+  },
+  { _id: "cars", _type: "category", title: "Cars", slug: { current: "cars" } },
   article,
   { ...article, _id: "drafts.article-one", title: "Private draft" },
   { ...article, _id: "future", publishedAt: "2030-01-01T00:00:00Z" },
@@ -101,4 +108,47 @@ test("JSON-LD cannot terminate its script element", () => {
   assert.deepEqual(JSON.parse(text), {
     title: "</script><script>alert(1)</script>",
   });
+});
+
+test("New section names retain articles assigned to legacy CMS categories", async () => {
+  const legacy = [
+    {
+      ...article,
+      _id: "estate-story",
+      slug: { current: "estate-story" },
+      category: { _type: "reference", _ref: "estates" },
+    },
+    {
+      ...article,
+      _id: "car-story",
+      slug: { current: "car-story" },
+      category: { _type: "reference", _ref: "cars" },
+    },
+    {
+      _id: "places",
+      _type: "category",
+      title: "Places",
+      slug: { current: "places" },
+    },
+    {
+      ...article,
+      _id: "new-place-story",
+      category: { _type: "reference", _ref: "places" },
+    },
+  ];
+  for (const [category, ids] of [
+    ["places", ["estate-story", "new-place-story"]],
+    ["estates", ["estate-story", "new-place-story"]],
+    ["motoring", ["car-story"]],
+    ["cars", ["car-story"]],
+  ]) {
+    const result = await (
+      await evaluate(parse(articlesQuery), {
+        dataset: [...dataset, ...legacy],
+        params: { category },
+        timestamp: now,
+      })
+    ).get();
+    assert.deepEqual(result.map((story) => story._id).sort(), ids.sort());
+  }
 });

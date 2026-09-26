@@ -8,16 +8,16 @@
   display: block;
   width: fit-content;
   margin: 0 auto 38px;
-  color: var(--portfolio-brand);
+  color: var(--editorial-heading);
   text-decoration: none;
 }
 
 .header-logo-placeholder {
-  font-family: 'Times New Roman', Georgia, serif;
+  font-family: var(--editorial-logo-font);
   font-size: clamp(34px, 5.7vw, 76px);
   font-weight: 400;
   line-height: 1.1;
-  letter-spacing: -0.045em;
+  letter-spacing: var(--editorial-logo-tracking);
   text-transform: uppercase;
   text-align: center;
 }

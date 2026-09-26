@@ -1,8 +1,8 @@
 const assert = require("node:assert/strict");
 const puppeteer = require("puppeteer-core");
-const routes = require("../src/data/routes");
 const base = process.env.TEST_BASE_URL || "http://localhost:3100";
 (async () => {
+  const { default: routes } = await import("../src/data/routes.js");
   const browser = await puppeteer.launch({
     executablePath:
       process.env.CHROME_PATH ||
@@ -12,6 +12,12 @@ const base = process.env.TEST_BASE_URL || "http://localhost:3100";
     headless: true,
   });
   const page = await browser.newPage();
+  // Popup behavior is covered separately by test:popup.
+  await page.evaluateOnNewDocument(() => {
+    try {
+      sessionStorage.setItem("keltner-newsletter-popup-seen", "true");
+    } catch {}
+  });
   const errors = [];
   page.on("pageerror", (error) => errors.push(error.message));
   try {
@@ -21,7 +27,9 @@ const base = process.env.TEST_BASE_URL || "http://localhost:3100";
       "/keltner",
       "/keltner/style",
       "/keltner/estates",
+      "/keltner/places",
       "/keltner/cars",
+      "/keltner/motoring",
       "/keltner/travel",
       "/keltner/about",
       "/keltner/newsletter",
@@ -33,6 +41,15 @@ const base = process.env.TEST_BASE_URL || "http://localhost:3100";
       assert.match(html, /rel="canonical"/, `${route}: canonical`);
       assert.match(html, /name="description"/, `${route}: description`);
       await page.goto(base + route, { waitUntil: "networkidle2" });
+      await page.$$eval("img", (imgs) =>
+        imgs.forEach((img) => {
+          img.loading = "eager";
+        }),
+      );
+      await page.waitForFunction(
+        () => Array.from(document.images).every((img) => img.complete),
+        { timeout: 60000 },
+      );
       const broken = await page.$$eval("img", (imgs) =>
         imgs.filter((i) => !i.complete || !i.naturalWidth).map((i) => i.src),
       );
@@ -84,9 +101,9 @@ const base = process.env.TEST_BASE_URL || "http://localhost:3100";
       null,
       "Portfolio styles and header do not leak into KELTNER",
     );
-    assert.equal(
-      await page.$eval("h1", (el) => el.textContent),
-      "A journal for thingsthat endure.",
+    assert.ok(
+      (await page.$eval("h1", (el) => el.textContent)).trim().length > 0,
+      "KELTNER has a cover heading",
     );
     console.log(
       "PASS 404s, redirect, modal, mobile navigation, API methods, sitemap, robots",

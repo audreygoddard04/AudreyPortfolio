@@ -12,17 +12,17 @@
    1. Design tokens (CSS custom properties)
    -------------------------------------------------------------------------- */
 :root {
-  --portfolio-paper: #ebeae8;
+  --portfolio-paper: var(--editorial-paper);
   /* page background */
-  --portfolio-surface: #f3f1ee;
+  --portfolio-surface: var(--editorial-surface);
   /* card / section backgrounds */
-  --portfolio-ink: #554738;
+  --portfolio-ink: var(--editorial-ink);
   /* primary text */
-  --portfolio-muted: #716253;
+  --portfolio-muted: var(--editorial-muted);
   /* secondary text, dates, labels */
-  --portfolio-brand: #88725b;
+  --portfolio-brand: var(--editorial-ink);
   /* accent / hover colour */
-  --portfolio-line: #c9c1b8;
+  --portfolio-line: var(--editorial-line);
   /* borders and dividers */
 }
 

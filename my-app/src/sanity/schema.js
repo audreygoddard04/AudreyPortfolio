@@ -52,8 +52,12 @@ export const schemaTypes = [
             .custom(
               (value) =>
                 !value?.current ||
-                categories.some((c) => c.slug === value.current) ||
-                "Use style, estates, cars, or travel.",
+                categories.some(
+                  (c) =>
+                    c.slug === value.current ||
+                    c.aliases?.includes(value.current),
+                ) ||
+                "Use style, places, cars, or travel. Existing estates and motoring slugs are also supported.",
             ),
       }),
     ],
@@ -117,6 +121,14 @@ export const schemaTypes = [
     fields: [
       defineField({ name: "title", type: "string", validation: required }),
       slug,
+      defineField({
+        name: "featured",
+        title: "Feature on the KELTNER cover",
+        type: "boolean",
+        initialValue: false,
+        description:
+          "Replaces the Lake Como introduction with this story. Requires a hero image. If several stories are selected, the newest published story is used.",
+      }),
       defineField({
         name: "excerpt",
         type: "text",

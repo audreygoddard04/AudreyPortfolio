@@ -5,28 +5,39 @@ export const categories = [
     description: "Clothes, craftsmanship, and a wardrobe built to last.",
   },
   {
-    slug: "estates",
-    title: "Estates",
+    slug: "places",
+    title: "Places",
+    aliases: ["estates"],
     description:
-      "Architecture, landscapes, and estates with a sense of history.",
+      "Architecture, landscapes, and remarkable places with a sense of history.",
   },
   {
     slug: "cars",
     title: "Cars",
+    aliases: ["motoring"],
     description: "Design, engineering, and the pleasure of the journey.",
   },
   {
     slug: "travel",
     title: "Travel",
-    description: "Thoughtful journeys and the details worth remembering.",
+    description:
+      "Luxury journeys. Extraordinary stays. A world worth discovering.",
   },
 ];
-export const tagline = "Timeless | Classic | Refined";
+export function getCategory(slug) {
+  return categories.find(
+    (category) => category.slug === slug || category.aliases?.includes(slug),
+  );
+}
+export function categoryTitle(category) {
+  return getCategory(category?.slug)?.title || category?.title || "The journal";
+}
+export const tagline = "A more elegant life.";
 export function publicationMetadata(
   title = "KELTNER",
-  description = "Timeless style, beautiful estates, and things worth keeping. An independent journal by Audrey Goddard.",
+  description = "An independent publication on style, places, cars, and travel. Stories, places, and things worth keeping.",
   path = "/keltner",
-  image = "/keltner/logo.jpg",
+  image = "/keltner/lake-como.png",
 ) {
   const fullTitle = title === "KELTNER" ? title : `${title} | KELTNER`;
   return {

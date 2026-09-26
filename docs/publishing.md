@@ -48,17 +48,28 @@ The starter draft is introductory copy for Audrey to review. For a first product
 
 Studio separates **Draft** and **Published** versions. An unpublished edit does not change the public article. Publish again to release it. Unpublish removes the published version; the article disappears from listings and its URL returns 404 after cached content expires and is revalidated. Keep a published slug stable to avoid breaking existing links.
 
-The four launch category slugs are `style`, `estates`, `cars`, and `travel`. Adding another category route is a code change; writing articles within these categories is a CMS task.
+The section slugs are `style`, `places`, `cars`, and `travel`. Existing `/keltner/estates` URLs remain available with Places canonical URLs; `/keltner/motoring` is also supported as an alias of Cars. Queries include both old and new CMS category slugs, so existing articles do not need migration. Adding another section is a code change; writing articles within these sections is a CMS task.
+
+Use the optional **Feature on the KELTNER cover** article field to replace the temporary Lake Como introduction. The newest published, featured article with a hero image becomes the cover. Title, excerpt, category, image, and story link come from the existing article fields. Drafts and future publication dates remain excluded.
 
 ## What is intentionally small
 
-There is no custom authentication, database, webhook service, checkout, or new mailing list. Studio handles editorial accounts. Sanity stores content and images. Next.js serves the pages and refreshes cached queries. The newsletter page points to Audrey’s existing Substack and clearly identifies it.
+There is no custom authentication, database, webhook service, or checkout. Studio handles editorial accounts. Sanity stores content and images. Next.js serves the pages and refreshes cached queries.
+
+## Newsletter
+
+A shared newsletter section appears once in the layout of every KELTNER page and stays mounted during navigation between publication pages. It is a normal page section, not a fixed overlay. The reusable form posts to `/api/subscribe`. Set server-only `RESEND_API_KEY` (with contacts permissions) and `RESEND_KELTNER_SEGMENT_ID` for the dedicated KELTNER segment in local and deployed environments. The endpoint validates input and creates a subscribed contact in that segment. Without configuration it returns 503 and the form shows an honest unavailable message. It only reports success after Resend returns a contact ID. No test addresses were enrolled; subscription tests use injected or intercepted responses.
 
 ## Checks
 
 ```sh
+npm run lint --workspace=my-app
 npm run test:publishing --workspace=my-app
+npm run test:subscribe --workspace=my-app
 npm run build
+# With a local server running (defaults to port 3100):
+TEST_BASE_URL=http://localhost:3000 npm run test:keltner --workspace=my-app
+TEST_BASE_URL=http://localhost:3000 npm run test:smoke --workspace=my-app
 ```
 
 The publishing tests exercise the actual article queries against published, draft, future, and undated fixtures; category/product references; unsafe URL rejection; and disclosure detection. A real publish/unpublish cycle remains a release checkpoint after Audrey reviews the draft. The draft has not been published as a test.

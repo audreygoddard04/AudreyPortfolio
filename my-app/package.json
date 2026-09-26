@@ -10,7 +10,11 @@
     "build": "next build",
     "start": "next start",
     "test:smoke": "node scripts/smoke.cjs",
-    "test:publishing": "node --test scripts/publishing.test.mjs"
+    "test:publishing": "node --test scripts/publishing.test.mjs",
+    "lint": "eslint app/keltner src/keltner src/sanity/schema.js pages/api/subscribe.js scripts/*.test.mjs src/components/GoldFrame.jsx src/components/NewsletterPopup.jsx src/components/useNewsletterSignup.js app/layout.jsx",
+    "test:subscribe": "node --test scripts/subscribe.test.mjs",
+    "test:keltner": "node scripts/keltner-browser.cjs",
+    "test:popup": "node scripts/popup-browser.cjs"
   },
   "dependencies": {
     "@portabletext/react": "^8.0.1",
@@ -25,6 +29,10 @@
     "styled-components": "^6.5.3"
   },
   "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "eslint": "^9.39.5",
+    "eslint-plugin-react": "^7.37.5",
+    "globals": "^16.5.0",
     "groq-js": "^2.0.0",
     "puppeteer-core": "^25.9.0"
   }

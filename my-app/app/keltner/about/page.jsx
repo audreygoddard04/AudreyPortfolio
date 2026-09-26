@@ -2,7 +2,7 @@ import styles from "@/keltner/publication.module.css";
 import { publicationMetadata } from "@/keltner/config";
 export const metadata = publicationMetadata(
   "About",
-  "A journal of timeless style, remarkable estates, and things worth keeping.",
+  "A journal of timeless style, remarkable places, and things worth keeping.",
   "/keltner/about",
 );
 export default function Page() {
@@ -11,9 +11,8 @@ export default function Page() {
       <p className={styles.eyebrow}>About the journal</p>
       <h1>Things worth keeping.</h1>
       <p>
-        KELTNER is a publication by Audrey Goddard, exploring style,
-        architecture, Cars, and travel through an interest in things that
-        endure.
+        KELTNER is a publication by Audrey Goddard, exploring style, places,
+        cars, and travel through an interest in things that endure.
       </p>
       <p>
         The name comes from my father’s middle name. It is a personal starting
@@ -21,9 +20,7 @@ export default function Page() {
         keep close.
       </p>
       <h2>Our approach</h2>
-      <p>
-        Stories, details, and a preference for lasting interest.
-      </p>
+      <p>Stories, details, and a preference for lasting interest.</p>
       <h2>Product links</h2>
       <p>
         Some articles may include affiliate links. When they do, the article

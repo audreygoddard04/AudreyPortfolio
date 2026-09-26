@@ -1,54 +1,61 @@
 import Link from "next/link";
 import styles from "@/keltner/publication.module.css";
-import { categories, tagline } from "@/keltner/config";
+import { tagline } from "@/keltner/config";
+import PublicationNav from "@/keltner/PublicationNav";
+import Newsletter from "@/keltner/Newsletter";
 export default function PublicationLayout({ children }) {
   return (
     <div className={styles.shell}>
+      <a className={styles.skipLink} href="#publication-content">
+        Skip to content
+      </a>
       <div className={styles.wrap}>
         <header>
-          <div className={styles.topline}>
-            <a href="/">By Audrey Goddard</a>
-            <Link href="/keltner/about">An independent journal</Link>
-          </div>
-          <Link
-            href="/keltner"
-            className={styles.masthead}
-            aria-label="KELTNER home"
-          >
-            <span className={styles.wordmark}>
-              <img
-                src="/keltner/logo.jpg"
-                alt="KELTNER"
-                width="1920"
-                height="1080"
-                fetchPriority="high"
-              />
-            </span>
-          </Link>
-          <div className={styles.brandRule} aria-hidden="true" />
-          <p className={styles.tagline}>{tagline}</p>
-          <nav className={styles.nav} aria-label="Publication">
-            {categories.map((c) => (
-              <Link href={`/keltner/${c.slug}`} key={c.slug}>
-                {c.title}
+          <div className={styles.mastheadRow}>
+            <div className={styles.publicationCredits}>
+              <a className={styles.portfolioLink} href="/">
+                By Audrey Goddard
+              </a>
+              <Link className={styles.publicationCredit} href="/keltner/about">
+                An independent publication
               </Link>
-            ))}
-            <Link href="/keltner/about">About</Link>
-          </nav>
+            </div>
+            <div className={styles.brand}>
+              <Link
+                href="/keltner"
+                className={styles.masthead}
+                aria-label="KELTNER home"
+              >
+                KELTNER
+              </Link>
+              <div className={styles.brandRule} aria-hidden="true" />
+              <p className={styles.tagline}>Timeless | Classic | Refined</p>
+            </div>
+          </div>
+          <PublicationNav />
         </header>
-        <main>{children}</main>
+        <main id="publication-content" tabIndex={-1}>
+          {children}
+          <Newsletter />
+        </main>
         <footer className={styles.footer}>
           <div className={styles.footerTop}>
-            <p>{tagline}</p>
+            <div>
+              <Link className={styles.footerBrand} href="/keltner">
+                KELTNER
+              </Link>
+              <p>{tagline}</p>
+            </div>
             <nav aria-label="Footer">
               <Link href="/keltner/newsletter">Newsletter</Link>
               <Link href="/keltner/about">About</Link>
-              <a href="/">Audrey Goddard</a>
+              <a href="/">Audrey Goddard ↗</a>
             </nav>
           </div>
           <p className={styles.disclosure}>
-            <strong>Product links</strong><br />
-            Some articles may include affiliate links. When they do, the article will say so before the recommendations. If you buy through one of those links, KELTNER may earn a commission.
+            Some stories include affiliate links, identified before the
+            recommendations. If you buy through those links, KELTNER may earn a
+            commission.
           </p>
         </footer>
       </div>

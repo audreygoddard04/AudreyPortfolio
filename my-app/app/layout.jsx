@@ -1,3 +1,5 @@
+import "@/brand-theme.css";
+import NewsletterPopup from "@/components/NewsletterPopup";
 import site from "@/data/siteConfig";
 export const metadata = {
   metadataBase: new URL(site.siteUrl),
@@ -7,7 +9,10 @@ export const viewport = { themeColor: "#ebeae8" };
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body style={{ margin: 0 }}>{children}</body>
+      <body style={{ margin: 0 }}>
+        {children}
+        <NewsletterPopup />
+      </body>
     </html>
   );
 }
