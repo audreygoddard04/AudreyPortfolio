@@ -24,7 +24,7 @@ Implemented on 2026-09-27. After reviewing the changes, Audrey authorized commit
 - Explicit decorative-image support alongside meaningful-alt validation; existing image sizing retained.
 - Added focused publishing/SEO tests and rendered SEO checks. Existing browser tests now disable cache to avoid treating valid 304 cache responses as route failures.
 - No new runtime dependencies or SEO-only client scripts.
-- Added Instagram (@audrey_goddard), Pinterest (audreyannagoddard), Substack (@keltnerco), and YouTube (@audrey_goddard) to the footer on every KELTNER page, using the profile URLs Audrey supplied.
+- Added Instagram (@audcast_), Pinterest (audreyannagoddard), Substack (@keltnerco), and YouTube (@audrey_goddard) to the footer on every KELTNER page, using the profile URLs Audrey supplied.
 
 ## C. Modified files
 

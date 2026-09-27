@@ -34,7 +34,7 @@ export function categoryTitle(category) {
 }
 export const tagline = "A more elegant life.";
 export const socialLinks = [
-  { label: "Instagram", href: "https://www.instagram.com/audrey_goddard/" },
+  { label: "Instagram", href: "https://www.instagram.com/audcast_/" },
   { label: "Pinterest", href: "https://ca.pinterest.com/audreyannagoddard/" },
   { label: "Substack", href: "https://substack.com/@keltnerco" },
   { label: "YouTube", href: "https://www.youtube.com/@audrey_goddard" },
