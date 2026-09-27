@@ -49,7 +49,7 @@ export default function Newsletter() {
             aria-live="polite"
           >
             {message ||
-              "A little perspective, whenever you need it. Unsubscribe anytime."}
+              "A little perspective, whenever you need it."}
           </p>
         </form>
       </div>

@@ -81,7 +81,7 @@ export default function NewsletterPopup() {
         className={styles.form}
         aria-busy={state === "pending"}
       >
-        <GoldFrame artwork>
+        <GoldFrame className={styles.popupFrame}>
           <button
             type="button"
             className={styles.close}
@@ -91,16 +91,15 @@ export default function NewsletterPopup() {
           >
             ×
           </button>
+          <div className={styles.headingArtwork} aria-hidden="true" />
           <h2 id="classics-title" className={styles.srOnly}>
             Join KELTNER Classics
           </h2>
           <p id="classics-description" className={styles.srOnly}>
             Stay in the loop
           </p>
-          <div className={`${styles.field} ${styles.nameField}`}>
-            <label htmlFor="classics-name">
-              <span className={styles.srOnly}>First Name</span>
-            </label>
+          <div className={styles.field}>
+            <label htmlFor="classics-name">First Name</label>
             <input
               id="classics-name"
               name="firstName"
@@ -109,10 +108,8 @@ export default function NewsletterPopup() {
               disabled={state === "success"}
             />
           </div>
-          <div className={`${styles.field} ${styles.emailField}`}>
-            <label htmlFor="classics-email">
-              <span className={styles.srOnly}>Email Address</span>
-            </label>
+          <div className={styles.field}>
+            <label htmlFor="classics-email">Email Address</label>
             <input
               id="classics-email"
               name="email"
@@ -124,23 +121,23 @@ export default function NewsletterPopup() {
               disabled={state === "success"}
             />
           </div>
+          <div className={styles.actions}>
+            <button
+              type="submit"
+              className={styles.subscribe}
+              disabled={state === "pending" || state === "success"}
+            >
+              {state === "pending"
+                ? "Subscribing…"
+                : state === "success"
+                  ? "Subscribed"
+                  : "Join the list"}
+            </button>
+            <p id="classics-status" className={styles.status} role="status">
+              {message}
+            </p>
+          </div>
         </GoldFrame>
-        <div className={styles.actions}>
-          <button
-            type="submit"
-            className={styles.subscribe}
-            disabled={state === "pending" || state === "success"}
-          >
-            {state === "pending"
-              ? "Subscribing…"
-              : state === "success"
-                ? "Subscribed"
-                : "Join the list"}
-          </button>
-          <p id="classics-status" className={styles.status} role="status">
-            {message || "Unsubscribe anytime."}
-          </p>
-        </div>
       </form>
     </dialog>
   );

@@ -20,7 +20,7 @@ export default function FooterNewsletter() {
           </button>
         </div>
         <p id={`${id}-status`} role="status" aria-live="polite">
-          {message || "The occasional letter. Unsubscribe anytime."}
+          {message || "The occasional letter."}
         </p>
       </form>
     </section>

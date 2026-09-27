@@ -362,7 +362,7 @@
 }
 .emailRow {
   display: flex;
-  border: 1px solid #c1c8b7;
+  border: 0;
 }
 .emailRow input {
   min-width: 0;
@@ -1223,3 +1223,7 @@
 .breadcrumbs li + li::before { content: "/"; margin-right: 0.5rem; opacity: 0.5; }
 
 .socialLinks { margin-top: 1.5rem; }
+
+.shell .emailRow :is(input, button):focus-visible { outline: none; box-shadow: none; }
+.shell .emailRow button:focus-visible { text-decoration: underline; text-underline-offset: 4px; }
+.shell .emailRow input:focus-visible { box-shadow: inset 0 -2px currentColor; }
