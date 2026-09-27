@@ -78,7 +78,7 @@ None required. Existing documents and indexed article/category URLs remain valid
 4. Publish ancestor hubs separately if they should appear in breadcrumbs. Related destinations must be published to appear. Confirm optional fields and nested alias redirects with actual new content in preview before publishing it.
 5. After deployment, submit the production sitemap to Search Console/Bing Webmaster Tools; verify deployed structured data with Schema.org Validator and Google's Rich Results Test. Local parsing validates syntax and entity relationships, not eligibility for search features.
 6. Confirm hosting/firewall rules permit the desired crawlers. Local robots changes cannot verify production edge access or guarantee indexing/citation.
-7. No analytics installation was added. If GA4 is later enabled, retain referrers and use consistent `utm_source`, `utm_medium`, `utm_campaign` on owned newsletter/social links. Use source/medium reports to distinguish chatgpt.com, Google, Bing, Pinterest, Instagram and email; no attribution claims can be verified without an installed property.
+7. Follow-up: GA4 tag `G-HSZM1LJV5D` is now installed once in the shared root layout using the user-supplied snippet. Confirm receipt in Google Analytics Realtime after deployment. Retain referrers and use consistent `utm_source`, `utm_medium`, `utm_campaign` on owned newsletter/social links. Use source/medium reports to distinguish chatgpt.com, Google, Bing, Pinterest, Instagram and email; attribution reports require incoming data in the Google Analytics property.
 
 ## H. Intentionally unchanged
 
