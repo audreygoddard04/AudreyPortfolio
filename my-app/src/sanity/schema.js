@@ -1,5 +1,6 @@
 import { defineType, defineField, defineArrayMember } from "sanity";
 import { categories } from "../keltner/config";
+import { validTravelPath } from "../keltner/seo.mjs";
 const required = (rule) => rule.required();
 const image = (name) =>
   defineField({
@@ -11,8 +12,14 @@ const image = (name) =>
         name: "alt",
         title: "Alternative text",
         type: "string",
-        validation: required,
+        validation: (rule) =>
+          rule.custom((value, context) =>
+            context.parent?.decorative || value?.trim()
+              ? true
+              : "Describe the image or mark it decorative.",
+          ),
       }),
+      defineField({ name: "decorative", type: "boolean", initialValue: false }),
       defineField({ name: "caption", type: "string" }),
       defineField({
         name: "credit",
@@ -35,7 +42,68 @@ const slug = defineField({
           "Use lowercase words separated by hyphens.",
       ),
 });
+const faqs = defineField({
+  name: "faqs",
+  title: "FAQ (optional, displayed on the page)",
+  type: "array",
+  of: [
+    defineArrayMember({
+      type: "object",
+      fields: [
+        defineField({ name: "question", type: "string", validation: required }),
+        defineField({ name: "answer", type: "text", validation: required }),
+      ],
+    }),
+  ],
+});
+const travelPathValidation = (rule) =>
+  rule.custom(
+    (value) =>
+      !value ||
+      validTravelPath(value) ||
+      "Use lowercase path segments, e.g. kazakhstan/astana.",
+  );
+const uniquePath = (rule) =>
+  travelPathValidation(rule).custom(async (value, context) => {
+    if (!value) return true;
+    const id = context.document?._id?.replace(/^drafts\./, "");
+    const count = await context
+      .getClient({ apiVersion: "2025-02-19" })
+      .fetch(
+        `count(*[((_type == "destination" && path == $value) || (_type == "article" && travelPath == $value)) && !(_id in [$id, "drafts." + $id])])`,
+        { value, id },
+      );
+    return count === 0 || "This path is already used by another document.";
+  });
 export const schemaTypes = [
+  defineType({
+    name: "destination",
+    title: "Travel destinations",
+    type: "document",
+    fields: [
+      defineField({ name: "title", type: "string", validation: required }),
+      defineField({
+        name: "path",
+        type: "string",
+        description:
+          "Path below /keltner/travel, e.g. kazakhstan/astana. Publish ancestor hubs separately. Keep published paths stable.",
+        validation: (rule) => uniquePath(rule).required(),
+      }),
+      defineField({ name: "description", type: "text", validation: required }),
+      defineField({
+        name: "publishedAt",
+        type: "datetime",
+        validation: required,
+      }),
+      faqs,
+      defineField({
+        name: "relatedDestinations",
+        type: "array",
+        of: [{ type: "reference", to: [{ type: "destination" }] }],
+        validation: (rule) => rule.unique(),
+      }),
+    ],
+  }),
   defineType({
     name: "category",
     title: "Categories",
@@ -150,6 +218,85 @@ export const schemaTypes = [
         type: "datetime",
         validation: required,
       }),
+      defineField({
+        name: "updatedAt",
+        title: "Editorially updated (optional)",
+        type: "datetime",
+        description:
+          "Set only after a meaningful content update; shown to readers.",
+        validation: (rule) =>
+          rule.custom(
+            (value, context) =>
+              !value ||
+              (new Date(value) >= new Date(context.document?.publishedAt) &&
+                new Date(value) <= new Date()) ||
+              "Use a date between publication and today.",
+          ),
+      }),
+      defineField({
+        name: "summary",
+        title: "Concise answer / summary (optional)",
+        type: "text",
+        rows: 3,
+      }),
+      defineField({
+        name: "quickGuide",
+        type: "object",
+        fields: [
+          "bestFor",
+          "location",
+          "whenToGo",
+          "priceRange",
+          "idealStay",
+          "keltnerPick",
+        ].map((name) => defineField({ name, type: "string" })),
+      }),
+      faqs,
+      defineField({
+        name: "guideType",
+        type: "string",
+        options: {
+          list: [
+            "guide",
+            "hotels",
+            "cafes",
+            "restaurants",
+            "itinerary",
+            "packing",
+            "style",
+            "sourcebook",
+          ],
+        },
+      }),
+      defineField({
+        name: "destination",
+        type: "reference",
+        to: [{ type: "destination" }],
+      }),
+      defineField({
+        name: "travelPath",
+        type: "string",
+        description:
+          "Optional travel alias, e.g. kazakhstan/astana/hotels. Redirects to the existing article URL; do not reuse a destination path.",
+        validation: uniquePath,
+      }),
+      defineField({
+        name: "relatedGuides",
+        type: "array",
+        of: [
+          {
+            type: "reference",
+            to: [{ type: "article" }],
+            options: {
+              filter: ({ document }) => ({
+                filter: '!(_id in [$id, "drafts." + $id])',
+                params: { id: document._id.replace(/^drafts\./, "") },
+              }),
+            },
+          },
+        ],
+        validation: (rule) => rule.unique(),
+      }),
       image("heroImage"),
       defineField({
         name: "body",
@@ -194,7 +341,17 @@ export const schemaTypes = [
           defineArrayMember({
             type: "image",
             fields: [
-              { name: "alt", type: "string", validation: required },
+              {
+                name: "alt",
+                type: "string",
+                validation: (rule) =>
+                  rule.custom((value, context) =>
+                    context.parent?.decorative || value?.trim()
+                      ? true
+                      : "Describe the image or mark it decorative.",
+                  ),
+              },
+              { name: "decorative", type: "boolean", initialValue: false },
               { name: "caption", type: "string" },
               { name: "credit", type: "string" },
             ],

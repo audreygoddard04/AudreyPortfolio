@@ -10,6 +10,8 @@ const base = process.env.TEST_BASE_URL || "http://localhost:3100";
     headless: true,
   });
   const page = await browser.newPage();
+  // Each route assertion should exercise a fresh HTTP response.
+  await page.setCacheEnabled(false);
   // Popup behavior is covered separately by test:popup.
   await page.evaluateOnNewDocument(() => {
     try {

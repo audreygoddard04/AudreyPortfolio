@@ -1217,3 +1217,9 @@
     padding-block: 18px 14px;
   }
 }
+
+.breadcrumbs { margin: 1.5rem 0; padding: 0 var(--gutter); font-size: 0.8rem; overflow-wrap: anywhere; }
+.breadcrumbs ol { display: flex; flex-wrap: wrap; gap: 0.5rem; list-style: none; padding: 0; }
+.breadcrumbs li + li::before { content: "/"; margin-right: 0.5rem; opacity: 0.5; }
+
+.socialLinks { margin-top: 1.5rem; }

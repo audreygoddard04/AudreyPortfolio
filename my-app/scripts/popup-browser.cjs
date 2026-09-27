@@ -11,6 +11,7 @@ const base = process.env.TEST_BASE_URL || "http://localhost:3000";
   });
   try {
     const page = await browser.newPage();
+    await page.setCacheEnabled(false);
     fs.mkdirSync("/tmp/keltner-review", { recursive: true });
     for (const [width, height, route] of [
       [1440, 1000, "/keltner"],

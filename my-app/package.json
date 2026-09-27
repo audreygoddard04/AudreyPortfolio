@@ -11,10 +11,12 @@
     "start": "next start",
     "test:smoke": "node scripts/smoke.cjs",
     "test:publishing": "node --test scripts/publishing.test.mjs",
-    "lint": "eslint app/keltner src/keltner src/sanity/schema.js pages/api/subscribe.js scripts/*.test.mjs src/components/GoldFrame.jsx src/components/NewsletterPopup.jsx src/components/useNewsletterSignup.js app/layout.jsx",
+    "lint": "eslint app/keltner src/keltner src/sanity/schema.js pages/api/subscribe.js scripts/*.test.mjs src/components/GoldFrame.jsx src/components/NewsletterPopup.jsx src/components/useNewsletterSignup.js app/layout.jsx app/robots.js app/sitemap.js",
     "test:subscribe": "node --test scripts/subscribe.test.mjs",
     "test:keltner": "node scripts/keltner-browser.cjs",
-    "test:popup": "node scripts/popup-browser.cjs"
+    "test:popup": "node scripts/popup-browser.cjs",
+    "test:seo": "node --test scripts/seo.test.mjs",
+    "test:seo:browser": "node scripts/seo-browser.cjs"
   },
   "dependencies": {
     "@portabletext/react": "^8.0.1",

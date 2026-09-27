@@ -1,4 +1,5 @@
-import { serializeJsonLd } from "@/lib/jsonLd.mjs";
+import { JsonLd, AnswerSections, EditorialFaq } from "./EditorialSupport";
+import { articleData, articlePath } from "./seo.mjs";
 import Link from "next/link";
 import { categoryTitle, getCategory } from "./config";
 import Image from "next/image";
@@ -11,7 +12,7 @@ function EditorialImage({ image, wide = false }) {
     <figure className={styles.editorialFigure}>
       <Image
         src={image.url}
-        alt={image.alt || ""}
+        alt={image.decorative ? "" : image.alt || ""}
         width={image.width || 1200}
         height={image.height || 900}
         sizes={
@@ -59,24 +60,9 @@ export default function ArticleContent({ article }) {
   const products = (article.products || []).filter(
     (p) => p && safeHttpUrl(p.url),
   );
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: article.title,
-    description: article.excerpt,
-    datePublished: article.publishedAt,
-    dateModified: article._updatedAt || article.publishedAt,
-    author: { "@type": "Person", name: article.author },
-    publisher: { "@type": "Organization", name: "KELTNER" },
-    mainEntityOfPage: `https://audreygoddard.com/keltner/articles/${article.slug}`,
-    ...(article.heroImage?.url ? { image: article.heroImage.url } : {}),
-  };
   return (
     <article className={styles.article}>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }}
-      />
+      <JsonLd data={articleData(article)} />
       <header className={styles.articleHeader}>
         <p className={styles.eyebrow}>
           {getCategory(article.category?.slug) ? (
@@ -92,11 +78,28 @@ export default function ArticleContent({ article }) {
           <p className={styles.articleDek}>{article.excerpt}</p>
         )}
         <p className={styles.articleByline}>
-          {article.author && <span>By {article.author}</span>}
+          {article.author && (
+            <span>
+              By{" "}
+              {article.author === "Audrey Goddard" ? (
+                <Link href="/about">{article.author}</Link>
+              ) : (
+                article.author
+              )}
+            </span>
+          )}
           {article.publishedAt && (
             <time dateTime={article.publishedAt}>
               {formatDate(article.publishedAt)}
             </time>
+          )}
+          {article.updatedAt && (
+            <span>
+              Updated{" "}
+              <time dateTime={article.updatedAt}>
+                {formatDate(article.updatedAt)}
+              </time>
+            </span>
           )}
         </p>
       </header>
@@ -108,10 +111,12 @@ export default function ArticleContent({ article }) {
       )}
       <EditorialImage image={article.heroImage} wide />
       <div className={styles.prose}>
+        <AnswerSections article={article} />
         <PortableText
           value={article.body || []}
           components={portableComponents}
         />
+        <EditorialFaq faqs={article.faqs} path={articlePath(article)} />
         {products.length > 0 && (
           <section>
             <h2>Featured in this story</h2>

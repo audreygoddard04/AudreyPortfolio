@@ -10,6 +10,8 @@ export default [
       "src/sanity/schema.js",
       "src/components/{GoldFrame,NewsletterPopup,useNewsletterSignup}.{js,jsx}",
       "app/layout.jsx",
+      "app/robots.js",
+      "app/sitemap.js",
       "pages/api/subscribe.js",
       "scripts/*.test.mjs",
     ],

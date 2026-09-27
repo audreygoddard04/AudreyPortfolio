@@ -1,6 +1,7 @@
+import { Breadcrumbs, DestinationNavigation } from "@/keltner/EditorialSupport";
 import { notFound } from "next/navigation";
 import { categories, getCategory, publicationMetadata } from "@/keltner/config";
-import { getArticles } from "@/keltner/content";
+import { getArticles, getDestinations } from "@/keltner/content";
 import ArticleList, { StoryCard } from "@/keltner/ArticleList";
 import styles from "@/keltner/publication.module.css";
 export const revalidate = 60;
@@ -25,16 +26,24 @@ export default async function Page({ params }) {
   const section = getCategory(category);
   if (!section) notFound();
   const articles = await getArticles(section.slug);
+  const destinations = section.slug === "travel" ? await getDestinations() : [];
   const featured =
     articles.find((article) => article.heroImage?.url) || articles[0];
   const remaining = articles.filter((article) => article._id !== featured?._id);
   return (
     <>
+      <Breadcrumbs
+        items={[
+          { name: "KELTNER", href: "/keltner" },
+          { name: section.title, href: `/keltner/${section.slug}` },
+        ]}
+      />
       <section className={styles.hero}>
         <p className={styles.eyebrow}>The KELTNER journal</p>
         <h1>{section.title}</h1>
         <p>{section.description}</p>
       </section>
+      <DestinationNavigation destinations={destinations} />
       {featured ? (
         <>
           <StoryCard article={featured} featured />

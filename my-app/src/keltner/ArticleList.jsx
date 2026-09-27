@@ -15,7 +15,9 @@ export function StoryCard({ article, featured = false }) {
         >
           <Image
             src={article.heroImage.url}
-            alt={article.heroImage.alt || ""}
+            alt={
+              article.heroImage.decorative ? "" : article.heroImage.alt || ""
+            }
             width={article.heroImage.width || 1200}
             height={article.heroImage.height || 900}
             sizes={

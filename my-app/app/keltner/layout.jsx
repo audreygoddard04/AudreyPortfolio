@@ -1,11 +1,14 @@
+import { JsonLd } from "@/keltner/EditorialSupport";
+import { identityGraph } from "@/keltner/seo.mjs";
 import Link from "next/link";
 import styles from "@/keltner/publication.module.css";
-import { tagline } from "@/keltner/config";
+import { tagline, socialLinks } from "@/keltner/config";
 import PublicationNav from "@/keltner/PublicationNav";
 import Newsletter from "@/keltner/Newsletter";
 export default function PublicationLayout({ children }) {
   return (
     <div className={styles.shell}>
+      <JsonLd data={identityGraph} />
       <a className={styles.skipLink} href="#publication-content">
         Skip to content
       </a>
@@ -52,6 +55,13 @@ export default function PublicationLayout({ children }) {
               <a href="/">Audrey Goddard ↗</a>
             </nav>
           </div>
+          <nav aria-label="KELTNER social profiles" className={styles.socialLinks}>
+            {socialLinks.map(({ label, href }) => (
+              <a key={label} href={href} target="_blank" rel="noopener noreferrer">
+                {label} <span aria-hidden="true">↗</span>
+              </a>
+            ))}
+          </nav>
           <p className={styles.disclosure}>
             Some stories include affiliate links, identified before the
             recommendations. If you buy through those links, KELTNER may earn a

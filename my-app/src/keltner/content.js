@@ -1,7 +1,7 @@
 import "server-only";
 import { cache } from "react";
 import { createClient } from "next-sanity";
-import { articlesQuery, articleQuery } from "./queries.mjs";
+import { articlesQuery, articleQuery, destinationsQuery } from "./queries.mjs";
 import { projectId, dataset } from "../sanity/project.mjs";
 const client = createClient({
   projectId,
@@ -46,3 +46,10 @@ export const getArticles = cache(async (category = "") =>
 export const getArticle = cache(async (slug) =>
   withEditorialImage(await client.fetch(articleQuery, { slug }, options)),
 );
+
+export const getDestinations = cache(async () => {
+  const { validTravelPath } = await import("./seo.mjs");
+  return (await client.fetch(destinationsQuery, {}, options)).filter((d) =>
+    validTravelPath(d.path),
+  );
+});

@@ -12,19 +12,22 @@
  */
 
 // All imports at the top so the file is easy to scan
-import { getArticles } from "@/keltner/content";
-import { categories }  from "@/keltner/config";
-import routes          from "@/data/routes";
-import site            from "@/data/siteConfig";
+import { getArticles, getDestinations } from "@/keltner/content";
+import { categories } from "@/keltner/config";
+import routes from "@/data/routes";
+import site from "@/data/siteConfig";
 
 /** Revalidate the sitemap every 60 seconds in production (ISR) */
 export const revalidate = 60;
 
 export default async function sitemap() {
   // Keltner articles are stored in Sanity CMS — fetch them at render time
-  const publicationArticles = await getArticles();
+  const [publicationArticles, destinations] = await Promise.all([
+    getArticles(),
+    getDestinations(),
+  ]);
 
-  return [
+  const entries = [
     // --- 1. Keltner static pages ---
     ...[
       "/keltner",
@@ -40,9 +43,14 @@ export default async function sitemap() {
     // --- 2. Keltner articles (from Sanity) ---
     ...publicationArticles.map((a) => ({
       url: `${site.siteUrl}/keltner/articles/${a.slug}`,
-      lastModified: a._updatedAt || a.publishedAt,
+      lastModified: a.updatedAt || a._updatedAt || a.publishedAt,
       changeFrequency: "monthly",
       priority: 0.8,
+    })),
+
+    ...destinations.map((d) => ({
+      url: `${site.siteUrl}/keltner/travel/${d.path}`,
+      lastModified: d._updatedAt || d.publishedAt,
     })),
 
     // --- 3. Portfolio static pages ---
@@ -52,4 +60,5 @@ export default async function sitemap() {
       priority: Number(route.priority),
     })),
   ];
+  return [...new Map(entries.map((entry) => [entry.url, entry])).values()];
 }

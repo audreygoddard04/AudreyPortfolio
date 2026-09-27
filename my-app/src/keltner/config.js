@@ -33,6 +33,12 @@ export function categoryTitle(category) {
   return getCategory(category?.slug)?.title || category?.title || "The journal";
 }
 export const tagline = "A more elegant life.";
+export const socialLinks = [
+  { label: "Instagram", href: "https://www.instagram.com/audrey_goddard/" },
+  { label: "Pinterest", href: "https://ca.pinterest.com/audreyannagoddard/" },
+  { label: "Substack", href: "https://substack.com/@keltnerco" },
+  { label: "YouTube", href: "https://www.youtube.com/@audrey_goddard" },
+];
 export function publicationMetadata(
   title = "KELTNER",
   description = "An independent publication on style, places, cars, and travel. Stories, places, and things worth keeping.",
