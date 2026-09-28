@@ -1227,3 +1227,8 @@
 .shell .emailRow :is(input, button):focus-visible { outline: none; box-shadow: none; }
 .shell .emailRow button:focus-visible { text-decoration: underline; text-underline-offset: 4px; }
 .shell .emailRow input:focus-visible { box-shadow: inset 0 -2px currentColor; }
+
+.emailRow button { box-sizing:border-box; width:160px; min-width:160px; flex-shrink:0; white-space:nowrap; }
+@media(max-width:700px) { .emailRow button { width:100%; } }
+
+.newsletter { --autofill-paper:#293b2d; --autofill-ink:#eeece5; } .newsletter .emailRow input { --autofill-paper:var(--paper); --autofill-ink:var(--ink); }

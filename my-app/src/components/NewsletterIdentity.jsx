@@ -1,5 +1,6 @@
 "use client";
 import { useId } from "react";
+import ThemedSelect from "./ThemedSelect";
 import styles from "./NewsletterIdentity.module.css";
 export default function NewsletterIdentity({ disabled = false }) {
   const id = useId();
@@ -27,9 +28,9 @@ export default function NewsletterIdentity({ disabled = false }) {
           disabled={disabled}
         />
       </label>
-      <label className={styles.gender} htmlFor={`${id}-gender`}>
-        Gender
-        <select
+      <div className={styles.gender}>
+        <label htmlFor={`${id}-gender`}>Gender</label>
+        <ThemedSelect
           id={`${id}-gender`}
           name="gender"
           defaultValue=""
@@ -41,8 +42,8 @@ export default function NewsletterIdentity({ disabled = false }) {
           </option>
           <option value="male">Male</option>
           <option value="female">Female</option>
-        </select>
-      </label>
+        </ThemedSelect>
+      </div>
     </div>
   );
 }

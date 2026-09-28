@@ -102,34 +102,40 @@ export default function NewsletterPopup() {
           <p id="classics-description" className={styles.srOnly}>
             Stay in the loop
           </p>
-          <div className={styles.identity}>
-            <NewsletterIdentity disabled={state === "success"} />
-          </div>
-          <div className={styles.field}>
-            <label htmlFor="classics-email">Email Address</label>
-            <input
-              id="classics-email"
-              name="email"
-              type="email"
-              autoComplete="email"
-              required
-              maxLength={254}
-              aria-describedby="classics-status"
-              disabled={state === "success"}
-            />
-          </div>
+          {state !== "success" && (
+            <>
+              <div className={styles.identity}>
+                <NewsletterIdentity disabled={state === "success"} />
+              </div>
+              <div className={styles.field}>
+                <label htmlFor="classics-email">Email Address</label>
+                <input
+                  id="classics-email"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  required
+                  maxLength={254}
+                  aria-describedby="classics-status"
+                  disabled={state === "success"}
+                />
+              </div>
+              <div className={styles.actions}>
+                <button
+                  type="submit"
+                  className={styles.subscribe}
+                  disabled={state === "pending" || state === "success"}
+                >
+                  {state === "pending"
+                    ? "Subscribing…"
+                    : state === "success"
+                      ? "Subscribed"
+                      : "Join the list"}
+                </button>
+              </div>
+            </>
+          )}
           <div className={styles.actions}>
-            <button
-              type="submit"
-              className={styles.subscribe}
-              disabled={state === "pending" || state === "success"}
-            >
-              {state === "pending"
-                ? "Subscribing…"
-                : state === "success"
-                  ? "Subscribed"
-                  : "Join the list"}
-            </button>
             <p id="classics-status" className={styles.status} role="status">
               {message}
             </p>

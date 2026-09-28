@@ -1,4 +1,5 @@
-'use client';
+"use client";
+import ThemedSelect from "../components/ThemedSelect";
 
 /* Website Design page disabled — Resend is used for another site.
    Uncomment below and restore App.js / Header / Footer / BottomNav to re-enable.
@@ -124,13 +125,13 @@ function WebsiteDesign() {
               </div>
               <div className="form-group">
                 <label htmlFor="wd-projectType">Project Type</label>
-                <select id="wd-projectType" name="projectType" value={formData.projectType} onChange={handleChange} className="form-input form-select">
+                <ThemedSelect id="wd-projectType" name="projectType" value={formData.projectType} onChange={handleChange} className="form-input form-select">
                   <option value="">Select a project type</option>
                   <option value="business">Business Website</option>
                   <option value="portfolio">Personal Portfolio</option>
                   <option value="ecommerce">E-commerce Site</option>
                   <option value="other">Other</option>
-                </select>
+                </ThemedSelect>
               </div>
               {formData.projectType === 'other' && (
                 <div className="form-group">

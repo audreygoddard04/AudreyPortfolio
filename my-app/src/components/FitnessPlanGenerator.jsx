@@ -1,4 +1,5 @@
-'use client';
+"use client";
+import ThemedSelect from "./ThemedSelect";
 
 import React, { useState } from 'react';
 
@@ -172,7 +173,7 @@ function FitnessPlanGenerator() {
       <div className="generator-form">
         <div className="form-group">
           <label htmlFor="fitnessLevel">Fitness Level</label>
-          <select
+          <ThemedSelect
             id="fitnessLevel"
             value={formData.fitnessLevel}
             onChange={(e) => setFormData({ ...formData, fitnessLevel: e.target.value })}
@@ -181,7 +182,7 @@ function FitnessPlanGenerator() {
             {fitnessLevels.map(level => (
               <option key={level} value={level}>{level}</option>
             ))}
-          </select>
+          </ThemedSelect>
         </div>
 
         <div className="form-group checkbox-group">
@@ -202,7 +203,7 @@ function FitnessPlanGenerator() {
 
         <div className="form-group">
           <label htmlFor="daysPerWeek">Days Per Week</label>
-          <select
+          <ThemedSelect
             id="daysPerWeek"
             value={formData.daysPerWeek}
             onChange={(e) => setFormData({ ...formData, daysPerWeek: e.target.value })}
@@ -212,7 +213,7 @@ function FitnessPlanGenerator() {
             <option value="4">4 days</option>
             <option value="5">5 days</option>
             <option value="6">6 days</option>
-          </select>
+          </ThemedSelect>
         </div>
 
         <div className="form-group checkbox-group">

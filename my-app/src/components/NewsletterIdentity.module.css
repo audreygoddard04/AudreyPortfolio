@@ -36,11 +36,7 @@
   background: #eeece5;
   color: #36291f;
 }
-.fields input:focus-visible,
-.fields select:focus-visible {
-  outline: 2px solid currentColor;
-  outline-offset: 3px;
-}
 .gender {
   grid-column: 1/-1;
 }
+.fields input:focus { outline:none!important; box-shadow:none!important; border-bottom-width:2px; }

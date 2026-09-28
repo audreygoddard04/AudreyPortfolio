@@ -144,3 +144,6 @@
 .identity {
   margin: 12px 8% 0;
 }
+
+.dialog { --autofill-paper:#eeece5; }
+.actions:has(.status:empty) { display:none; }

@@ -1,4 +1,5 @@
-'use client';
+"use client";
+import ThemedSelect from "../components/ThemedSelect";
 
 /**
  * Contact.jsx
@@ -202,7 +203,7 @@ function Contact() {
 
                 <div className="form-group">
                   <label htmlFor="projectType">Project Type</label>
-                  <select
+                  <ThemedSelect
                     id="projectType"
                     name="projectType"
                     value={formData.projectType}
@@ -214,7 +215,7 @@ function Contact() {
                     <option value="portfolio">Personal Portfolio</option>
                     <option value="ecommerce">E-commerce Site</option>
                     <option value="other">Other</option>
-                  </select>
+                  </ThemedSelect>
                 </div>
 
                 {/* Conditional: only shown when "Other" is selected */}

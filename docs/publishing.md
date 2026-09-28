@@ -140,3 +140,7 @@ Validation passed: production build, lint, 29 unit tests (7 analytics, 9 subscri
 ### Newsletter profile fields
 
 All signup surfaces require first name, last name, Male/Female gender selection, and email. The shared identity component and signup hook send these to Resend; the API validates and stores them, plus a calculated salutation. The dedicated `/keltner/newsletter` page uses an editorial split layout and replaces the shared newsletter section on that route. See `my-app/RESEND_SETUP.md` for the existing welcome automation’s template variable mapping and required publication steps. Personal details are never included in GA events.
+
+### Public form styling and subscriber state
+
+Public controls use underline focus feedback instead of rectangular rings. `ThemedSelect` provides the shared keyboard-operable dropdown used by newsletter, contact, book sorting, and fitness controls. The browser's own autofill suggestion panel remains browser-controlled. Successful newsletter signups replace fields and the submit button with `Thank you, you'll stay caught up xx`; the existing local subscription flag and a window event synchronize this state across forms and subsequent page visits. The Resend welcome HTML preserves the supplied editorial email design and uses `SALUTATION` for the title and last name. Its published template still requires the mapping documented in `my-app/RESEND_SETUP.md`.

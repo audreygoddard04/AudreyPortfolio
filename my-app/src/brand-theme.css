@@ -12,3 +12,21 @@
   --editorial-photo-grade: saturate(0.64) sepia(0.14) contrast(0.94)
     brightness(1.03);
 }
+
+/* Public controls use underlines, never rectangular focus rings. */
+body:has(#root, #publication-content) :is(a,button,input,select,textarea,[tabindex]):focus {
+  outline:none!important;
+  box-shadow:none!important;
+}
+body :is(#root, #publication-content, header, footer) :is(a,button):focus-visible {
+  text-decoration:underline;
+  text-underline-offset:5px;
+}
+body :is(#root, #publication-content, dialog) :is(input,textarea):focus-visible {
+  border-bottom-color:currentColor!important;
+}
+body:has(#root, #publication-content) input:-webkit-autofill {
+  -webkit-text-fill-color:var(--autofill-ink,var(--editorial-heading));
+  -webkit-box-shadow:0 0 0 1000px var(--autofill-paper,var(--editorial-paper)) inset!important;
+  box-shadow:0 0 0 1000px var(--autofill-paper,var(--editorial-paper)) inset!important;
+}

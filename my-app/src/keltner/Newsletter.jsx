@@ -23,33 +23,37 @@ export default function Newsletter({ location } = {}) {
       </div>
       <div className={styles.newsletterForm}>
         <form onSubmit={subscribe} aria-busy={state === "pending"}>
-          <NewsletterIdentity disabled={state === "success"} />
-          <label className={styles.srOnly} htmlFor={`${id}-email`}>
-            Your email address
-          </label>
-          <div className={styles.emailRow}>
-            <input
-              id={`${id}-email`}
-              name="email"
-              type="email"
-              autoComplete="email"
-              required
-              maxLength={254}
-              placeholder="Your email address"
-              aria-describedby={`${id}-status`}
-              disabled={state === "success"}
-            />
-            <button
-              type="submit"
-              disabled={state === "pending" || state === "success"}
-            >
-              {state === "pending"
-                ? "Subscribing…"
-                : state === "success"
-                  ? "Subscribed"
-                  : "Subscribe"}
-            </button>
-          </div>
+          {state !== "success" && (
+            <>
+              <NewsletterIdentity disabled={state === "success"} />
+              <label className={styles.srOnly} htmlFor={`${id}-email`}>
+                Your email address
+              </label>
+              <div className={styles.emailRow}>
+                <input
+                  id={`${id}-email`}
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  required
+                  maxLength={254}
+                  placeholder="Your email address"
+                  aria-describedby={`${id}-status`}
+                  disabled={state === "success"}
+                />
+                <button
+                  type="submit"
+                  disabled={state === "pending" || state === "success"}
+                >
+                  {state === "pending"
+                    ? "Subscribing…"
+                    : state === "success"
+                      ? "Subscribed"
+                      : "Subscribe"}
+                </button>
+              </div>
+            </>
+          )}
           <p
             id={`${id}-status`}
             className={styles.formStatus}

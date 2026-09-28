@@ -10,6 +10,7 @@ const base = process.env.TEST_BASE_URL || "http://localhost:3100";
   });
   try {
     const page = await browser.newPage();
+    await page.evaluateOnNewDocument(() => { localStorage.removeItem("keltner-newsletter-subscribed"); });
     const errors = [];
     page.on("pageerror", (error) => errors.push(error.message));
     let reply = { status: 200, body: { success: true } };
@@ -141,6 +142,8 @@ const base = process.env.TEST_BASE_URL || "http://localhost:3100";
     });
     assert.deepEqual(await page.evaluate(() => window.analyticsCalls), []);
     // Client navigation must use the dedicated newsletter page location.
+    await page.reload({ waitUntil: "networkidle2" });
+    await page.evaluate(() => { window.analyticsCalls = []; window.gtag = (...args) => window.analyticsCalls.push(args); });
     await page.click('footer a[href="/keltner/newsletter"]');
     await page.waitForFunction(
       () => location.pathname === "/keltner/newsletter",

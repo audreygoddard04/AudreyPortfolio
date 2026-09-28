@@ -132,7 +132,7 @@ const base = process.env.TEST_BASE_URL || "http://localhost:3000";
     await page.waitForFunction(() =>
       document
         .querySelector("#classics-status")
-        .textContent.includes("on the list"),
+        .textContent.includes("stay caught up xx"),
     );
     assert.deepEqual(payload, {
       email: "reader@example.com",

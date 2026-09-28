@@ -81,8 +81,8 @@
 }
 .emailRow input:focus-visible,
 .emailRow button:focus-visible {
-  outline: 2px solid currentColor;
-  outline-offset: 3px;
+  outline: none !important;
+  box-shadow: inset 0 -1px currentColor;
 }
 .emailRow button:disabled {
   opacity: 0.6;
@@ -151,7 +151,18 @@
   .form > div:first-child {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
-  .form > div:first-child > label:last-child {
+  .form > div:first-child > :last-child {
     grid-column: auto;
   }
 }
+
+.emailRow button {
+  box-sizing: border-box;
+  width: 140px;
+  min-width: 140px;
+  height: 40px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.page { --autofill-paper:#e5e1d9; }

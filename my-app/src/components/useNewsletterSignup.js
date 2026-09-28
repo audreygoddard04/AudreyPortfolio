@@ -1,11 +1,34 @@
 "use client";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { trackEvent } from "../lib/analytics.mjs";
+export const successMessage = "Thank you, you'll stay caught up xx";
 export const subscribedKey = "keltner-newsletter-subscribed";
 export default function useNewsletterSignup({ location = "footer" } = {}) {
   const submission = useRef("idle");
   const [state, setState] = useState("idle");
   const [message, setMessage] = useState("");
+  useEffect(() => {
+    const showThanks = () => {
+      submission.current = "success";
+      setState("success");
+      setMessage(successMessage);
+    };
+    try {
+      if (localStorage.getItem(subscribedKey) === "true") showThanks();
+    } catch {
+      /* Storage is optional. */
+    }
+    const sync = (event) => {
+      if (event.key === subscribedKey && event.newValue === "true")
+        showThanks();
+    };
+    window.addEventListener("keltner:subscribed", showThanks);
+    window.addEventListener("storage", sync);
+    return () => {
+      window.removeEventListener("keltner:subscribed", showThanks);
+      window.removeEventListener("storage", sync);
+    };
+  }, []);
   async function subscribe(event) {
     event.preventDefault();
     if (submission.current === "pending" || submission.current === "success")
@@ -34,7 +57,7 @@ export default function useNewsletterSignup({ location = "footer" } = {}) {
       submission.current = "success";
       setState("success");
       trackEvent("newsletter_signup", { signup_location: location });
-      setMessage("Thank you. You’re on the list.");
+      setMessage(successMessage);
       form.reset();
       try {
         localStorage.setItem(subscribedKey, "true");

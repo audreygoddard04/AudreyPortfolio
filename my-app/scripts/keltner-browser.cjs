@@ -179,11 +179,11 @@ const base = process.env.TEST_BASE_URL || "http://localhost:3100";
     await page.waitForFunction(() =>
       document
         .querySelector('[role="status"]')
-        .textContent.includes("on the list"),
+        .textContent.includes("stay caught up xx"),
     );
     assert.equal(
-      await page.$eval('button[type="submit"]', (button) => button.disabled),
-      true,
+      await page.$$eval('main button[type="submit"]', (buttons) => buttons.length),
+      0,
     );
     assert.deepEqual(errors, [], "No browser errors");
     console.log(

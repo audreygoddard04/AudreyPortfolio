@@ -1,4 +1,5 @@
-'use client';
+"use client";
+import ThemedSelect from "./ThemedSelect";
 
 import React, { useState } from 'react';
 
@@ -127,21 +128,21 @@ function TDEECalculator({ onCalculate }) {
 
           <div className="form-group">
             <label htmlFor="sex">Sex</label>
-            <select
+            <ThemedSelect
               id="sex"
               value={sex}
               onChange={(e) => setSex(e.target.value)}
             >
               <option value="Female">Female</option>
               <option value="Male">Male</option>
-            </select>
+            </ThemedSelect>
           </div>
         </div>
 
         <div className="form-row">
           <div className="form-group">
             <label htmlFor="activity">Activity Level</label>
-            <select
+            <ThemedSelect
               id="activity"
               value={activityFactor}
               onChange={(e) => setActivityFactor(e.target.value)}
@@ -149,12 +150,12 @@ function TDEECalculator({ onCalculate }) {
               {Object.entries(activityFactors).map(([value, label]) => (
                 <option key={value} value={value}>{label}</option>
               ))}
-            </select>
+            </ThemedSelect>
           </div>
 
           <div className="form-group">
             <label htmlFor="deficit">Calorie Deficit</label>
-            <select
+            <ThemedSelect
               id="deficit"
               value={deficitLevel}
               onChange={(e) => setDeficitLevel(e.target.value)}
@@ -162,7 +163,7 @@ function TDEECalculator({ onCalculate }) {
               {Object.entries(deficitLevels).map(([value, label]) => (
                 <option key={value} value={value}>{label}</option>
               ))}
-            </select>
+            </ThemedSelect>
           </div>
         </div>
 

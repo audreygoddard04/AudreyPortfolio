@@ -24,35 +24,39 @@ export default function NewsletterLanding() {
           aria-busy={state === "pending"}
           className={styles.form}
         >
-          <NewsletterIdentity disabled={state === "success"} />
-          <div className={styles.emailRow}>
-            <label htmlFor={`${id}-email`}>
-              Email address
-              <input
-                id={`${id}-email`}
-                name="email"
-                type="email"
-                autoComplete="email"
-                maxLength={254}
-                required
-                disabled={state === "success"}
-                aria-describedby={`${id}-status`}
-              />
-            </label>
-            <button
-              type="submit"
-              disabled={state === "pending" || state === "success"}
-            >
-              {state === "pending"
-                ? "Subscribing…"
-                : state === "success"
-                  ? "Subscribed"
-                  : "Subscribe"}
-            </button>
-          </div>
-          <p className={styles.note}>
-            By subscribing, you agree to receive the KELTNER newsletter.
-          </p>
+          {state !== "success" && (
+            <>
+              <NewsletterIdentity disabled={state === "success"} />
+              <div className={styles.emailRow}>
+                <label htmlFor={`${id}-email`}>
+                  Email address
+                  <input
+                    id={`${id}-email`}
+                    name="email"
+                    type="email"
+                    autoComplete="email"
+                    maxLength={254}
+                    required
+                    disabled={state === "success"}
+                    aria-describedby={`${id}-status`}
+                  />
+                </label>
+                <button
+                  type="submit"
+                  disabled={state === "pending" || state === "success"}
+                >
+                  {state === "pending"
+                    ? "Subscribing…"
+                    : state === "success"
+                      ? "Subscribed"
+                      : "Subscribe"}
+                </button>
+              </div>
+              <p className={styles.note}>
+                By subscribing, you agree to receive the KELTNER newsletter.
+              </p>
+            </>
+          )}
           <p
             id={`${id}-status`}
             role="status"

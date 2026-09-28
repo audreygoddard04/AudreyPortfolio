@@ -1,4 +1,5 @@
-'use client';
+"use client";
+import ThemedSelect from "../components/ThemedSelect";
 
 import React, { useState, useMemo } from 'react';
 import BookModal from '../components/BookModal';
@@ -156,8 +157,8 @@ function Books() {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
-          <select
-            className="bookshelf-sort"
+          <ThemedSelect
+            aria-label="Sort books" className="bookshelf-sort"
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value)}
           >
@@ -165,7 +166,7 @@ function Books() {
             <option value="author">Sort by Author</option>
             <option value="category">Sort by Category</option>
             <option value="rating">Sort by Rating</option>
-          </select>
+          </ThemedSelect>
         </div>
 
         <table className="bookshelf-table">
