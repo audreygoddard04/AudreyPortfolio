@@ -7,6 +7,7 @@ export function createSubscribeHandler({
   env = process.env,
   createContact,
   getContact,
+  listContactSegments,
   queueWelcome,
   updateContact,
 } = {}) {
@@ -39,12 +40,10 @@ export function createSubscribeHandler({
     const validName = (name) =>
       name.length > 0 && name.length <= 80 && !/[<>\p{Cc}]/u.test(name);
     if (!validName(firstName) || !validName(lastName))
-      return res
-        .status(400)
-        .json({
-          error:
-            "Please enter your first and last names (up to 80 characters each).",
-        });
+      return res.status(400).json({
+        error:
+          "Please enter your first and last names (up to 80 characters each).",
+      });
     if (gender !== "male" && gender !== "female")
       return res.status(400).json({ error: "Please select Male or Female." });
     const salutation = `${gender === "male" ? "Mr." : "Ms."} ${lastName}`;
@@ -64,12 +63,41 @@ export function createSubscribeHandler({
       }
       // Preserve an existing opt-out; a public form must not silently undo it.
       if (existing.data?.unsubscribed) {
-        return res
-          .status(409)
-          .json({
-            error:
-              "This address has unsubscribed. Please contact Audrey to rejoin.",
+        return res.status(409).json({
+          error:
+            "This address has unsubscribed. Please contact Audrey to rejoin.",
+        });
+      }
+      // A contact may belong to another list, so check KELTNER membership.
+      // Completed site signups already carry a durable welcome marker.
+      let alreadySubscribed =
+        existing.data?.properties?.keltner_welcome_queued?.value === "yes";
+      if (existing.data?.id && !alreadySubscribed) {
+        let after;
+        do {
+          const segments = await (
+            listContactSegments ||
+            ((options) => resend.contacts.segments.list(options))
+          )({
+            contactId: existing.data.id,
+            limit: 100,
+            ...(after ? { after } : {}),
           });
+          if (segments.error || !segments.data)
+            throw new Error("Membership lookup failed");
+          alreadySubscribed = segments.data.data.some(
+            (segment) => segment.id === env.RESEND_KELTNER_SEGMENT_ID,
+          );
+          if (alreadySubscribed || !segments.data.has_more) break;
+          const next = segments.data.data.at(-1)?.id;
+          if (!next || next === after)
+            throw new Error("Membership pagination failed");
+          after = next;
+        } while (after);
+      }
+      if (alreadySubscribed) {
+        // Do not overwrite their profile or queue a second welcome.
+        return res.status(200).json({ success: true, alreadySubscribed: true });
       }
       const contact = {
         email,

@@ -2,32 +2,27 @@
 import { useEffect, useRef, useState } from "react";
 import { trackEvent } from "../lib/analytics.mjs";
 export const successMessage = "Thank you, you'll stay caught up xx";
+export const alreadySubscribedMessage =
+  "You're already signed up for the KELTNER newsletter. Keep an eye on your inbox for your next read.";
 export const subscribedKey = "keltner-newsletter-subscribed";
 export default function useNewsletterSignup({ location = "footer" } = {}) {
   const submission = useRef("idle");
   const [state, setState] = useState("idle");
   const [message, setMessage] = useState("");
   useEffect(() => {
-    const showThanks = () => {
+    const showThanks = (event) => {
       submission.current = "success";
       setState("success");
-      setMessage(successMessage);
+      setMessage(
+        event.detail?.alreadySubscribed
+          ? alreadySubscribedMessage
+          : successMessage,
+      );
     };
-    try {
-      if (localStorage.getItem(subscribedKey) === "true") showThanks();
-    } catch {
-      /* Storage is optional. */
-    }
-    const sync = (event) => {
-      if (event.key === subscribedKey && event.newValue === "true")
-        showThanks();
-    };
+    // Confirmation is temporary. Every full reload starts with a fresh form.
+    // The stored flag is used only to suppress the automatic popup.
     window.addEventListener("keltner:subscribed", showThanks);
-    window.addEventListener("storage", sync);
-    return () => {
-      window.removeEventListener("keltner:subscribed", showThanks);
-      window.removeEventListener("storage", sync);
-    };
+    return () => window.removeEventListener("keltner:subscribed", showThanks);
   }, []);
   async function subscribe(event) {
     event.preventDefault();
@@ -56,15 +51,22 @@ export default function useNewsletterSignup({ location = "footer" } = {}) {
         );
       submission.current = "success";
       setState("success");
-      trackEvent("newsletter_signup", { signup_location: location });
-      setMessage(successMessage);
+      if (!result.alreadySubscribed)
+        trackEvent("newsletter_signup", { signup_location: location });
+      setMessage(
+        result.alreadySubscribed ? alreadySubscribedMessage : successMessage,
+      );
       form.reset();
       try {
         localStorage.setItem(subscribedKey, "true");
       } catch {
         /* Storage can be disabled. */
       }
-      window.dispatchEvent(new Event("keltner:subscribed"));
+      window.dispatchEvent(
+        new CustomEvent("keltner:subscribed", {
+          detail: { alreadySubscribed: result.alreadySubscribed === true },
+        }),
+      );
     } catch (error) {
       submission.current = "idle";
       setState("error");

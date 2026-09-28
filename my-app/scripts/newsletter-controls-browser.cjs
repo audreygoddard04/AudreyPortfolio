@@ -134,24 +134,73 @@ const puppeteer = require("puppeteer-core");
     );
     const returning = await browser.newPage();
     await returning.setRequestInterception(true);
-    returning.on("request", request => /google-analytics|googletagmanager/.test(request.url()) ? request.respond({status:200,body:""}) : request.continue());
-    await returning.goto("http://localhost:3100/keltner/newsletter", { waitUntil: "domcontentloaded" });
-    await returning.waitForFunction(() => document.querySelector("main [role=status]")?.textContent === "Thank you, you'll stay caught up xx");
+    returning.on("request", (request) => {
+      if (request.url().endsWith("/api/subscribe"))
+        return request.respond({
+          status: 200,
+          contentType: "application/json",
+          body: JSON.stringify({ success: true, alreadySubscribed: true }),
+        });
+      if (/google-analytics|googletagmanager/.test(request.url()))
+        return request.respond({ status: 200, body: "" });
+      request.continue();
+    });
+    await returning.goto("http://localhost:3100/keltner/newsletter", {
+      waitUntil: "domcontentloaded",
+    });
+    await returning.waitForSelector('main input[name="firstName"]');
     assert.equal(
-      await returning.$$eval(
-        "main form input, main form button, main form select",
-        (elements) => elements.length,
-      ),
+      await returning.$$eval("main form [name]", (elements) => elements.length),
+      4,
+      "Stored subscriber flag does not hide form",
+    );
+    await returning.evaluate(() => {
+      window.analyticsCalls = [];
+      window.gtag = (...args) => window.analyticsCalls.push(args);
+    });
+    await returning.type('main input[name="firstName"]', "Audrey");
+    await returning.type('main input[name="lastName"]', "Goddard");
+    await returning.type('main input[name="email"]', "reader@example.com");
+    await returning.click('main [role="combobox"]');
+    await returning.keyboard.press("End");
+    await returning.keyboard.press("Enter");
+    await returning.click('main button[type="submit"]');
+    const duplicateMessage =
+      "You're already signed up for the KELTNER newsletter. Keep an eye on your inbox for your next read.";
+    await returning.waitForFunction(
+      (message) =>
+        document.querySelector("main [role=status]")?.textContent === message,
+      {},
+      duplicateMessage,
+    );
+    assert.equal(
+      await returning.$$eval("main form [name]", (elements) => elements.length),
       0,
+    );
+    assert.deepEqual(
+      await returning.evaluate(() => window.analyticsCalls),
+      [],
+      "Existing subscriber is not tracked as a new signup",
+    );
+    await returning.reload({ waitUntil: "domcontentloaded" });
+    await returning.waitForSelector('main input[name="firstName"]');
+    assert.equal(
+      await returning.$eval(
+        'main input[name="email"]',
+        (element) => element.value,
+      ),
+      "",
     );
     assert.equal(
       await returning.$eval(
-        "main [role=status]",
+        'main [role="status"]',
         (element) => element.textContent,
       ),
-      "Thank you, you'll stay caught up xx",
+      "",
     );
-    console.log("PASS returning subscribers see only their thank-you message");
+    console.log(
+      "PASS reload restores fields; duplicate signup shows friendly confirmation without a new analytics event",
+    );
   } finally {
     await browser.close();
   }

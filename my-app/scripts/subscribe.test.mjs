@@ -23,6 +23,7 @@ async function request(options = {}, overrides = {}) {
   };
   await createSubscribeHandler({
     getContact: async () => ({ error: { name: "not_found" } }),
+    listContactSegments: async () => ({ data: { data: [], has_more: false } }),
     queueWelcome: async () => ({ data: { event: "keltner.subscribed" } }),
     updateContact: async () => ({ data: { id: "contact-id" } }),
     ...options,
@@ -234,8 +235,7 @@ test("Identity is required, validated, and normalized before a welcome is queued
   });
 });
 
-test("An existing contact's identity is updated before the welcome, without overwriting opt-out or queued status", async () => {
-  const calls = [];
+test("Already subscribed addresses return a friendly status without profile changes or welcome emails", async () => {
   const result = await request({
     env,
     getContact: async () => ({
@@ -244,22 +244,56 @@ test("An existing contact's identity is updated before the welcome, without over
         properties: { keltner_welcome_queued: { value: "yes" } },
       },
     }),
-    createContact: async () => ({ data: { id: "existing" } }),
-    updateContact: async (payload) => {
-      calls.push(payload);
-      return { data: { id: "existing" } };
-    },
-    queueWelcome: async () => assert.fail("No repeated welcome"),
+    createContact: async () =>
+      assert.fail("Do not recreate existing subscriber"),
+    updateContact: async () =>
+      assert.fail("Do not overwrite subscriber profile"),
+    queueWelcome: async () => assert.fail("Do not resend welcome"),
   });
   assert.equal(result.code, 200);
-  assert.deepEqual(calls, [
-    {
-      id: "existing",
-      firstName: "Audrey",
-      lastName: "Goddard",
-      properties: { gender: "female", salutation: "Ms. Goddard" },
+  assert.deepEqual(result.body, { success: true, alreadySubscribed: true });
+});
+test("Imported KELTNER subscribers are recognized across segment pages", async () => {
+  const result = await request({
+    env,
+    getContact: async () => ({ data: { id: "existing" } }),
+    listContactSegments: async ({ after }) => ({
+      data: {
+        data: [{ id: after ? "keltner-segment" : "other-list" }],
+        has_more: !after,
+      },
+    }),
+    createContact: async () => assert.fail("Already in newsletter"),
+    queueWelcome: async () => assert.fail("Do not resend welcome"),
+  });
+  assert.deepEqual(result.body, { success: true, alreadySubscribed: true });
+});
+test("A contact in another list can join KELTNER", async () => {
+  let welcomed = false;
+  const result = await request({
+    env,
+    getContact: async () => ({ data: { id: "existing" } }),
+    listContactSegments: async () => ({
+      data: { data: [{ id: "other-list" }], has_more: false },
+    }),
+    createContact: async () => ({ data: { id: "existing" } }),
+    queueWelcome: async () => {
+      welcomed = true;
+      return { data: { event: "keltner.subscribed" } };
     },
-  ]);
+  });
+  assert.equal(result.code, 200);
+  assert.equal(result.body.alreadySubscribed, undefined);
+  assert.equal(welcomed, true);
+});
+test("Membership lookup failures do not create contacts or send welcomes", async () => {
+  const result = await request({
+    env,
+    getContact: async () => ({ data: { id: "existing" } }),
+    listContactSegments: async () => ({ error: { name: "provider_error" } }),
+    createContact: async () => assert.fail("Do not mutate on lookup failure"),
+  });
+  assert.equal(result.code, 502);
 });
 test("A failed profile update cannot queue a welcome", async () => {
   const result = await request({
