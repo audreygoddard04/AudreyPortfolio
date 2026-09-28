@@ -1,3 +1,4 @@
+import AffiliateLink from "../components/AffiliateLink";
 import { JsonLd, AnswerSections, EditorialFaq } from "./EditorialSupport";
 import { articleData, articlePath } from "./seo.mjs";
 import Link from "next/link";
@@ -32,30 +33,53 @@ function EditorialImage({ image, wide = false }) {
     </figure>
   );
 }
-const portableComponents = {
-  types: { image: ({ value }) => <EditorialImage image={value} /> },
-  marks: {
-    link: ({ value, children }) => {
-      const href = safeHttpUrl(value.href);
-      return href ? (
-        <a
-          href={href}
-          target="_blank"
-          rel={
-            value.isAffiliate
-              ? "sponsored noopener noreferrer"
-              : "noopener noreferrer"
-          }
+function EditorialLink({
+  href,
+  isAffiliate,
+  context,
+  merchant,
+  placement,
+  children,
+}) {
+  const url = safeHttpUrl(href);
+  if (!url) return <span>{children}</span>;
+  return isAffiliate ? (
+    <AffiliateLink
+      href={url}
+      {...context}
+      merchant={merchant}
+      placement={placement}
+    >
+      {children}
+    </AffiliateLink>
+  ) : (
+    <a href={url} target="_blank" rel="noopener noreferrer">
+      {children}
+    </a>
+  );
+}
+export default function ArticleContent({ article }) {
+  const context = {
+    articleSlug: article.slug,
+    category:
+      getCategory(article.category?.slug)?.slug || article.category?.slug,
+    destination: article.destination?.path,
+  };
+  const portableComponents = {
+    types: { image: ({ value }) => <EditorialImage image={value} /> },
+    marks: {
+      link: ({ value, children }) => (
+        <EditorialLink
+          href={value.href}
+          isAffiliate={value.isAffiliate}
+          context={context}
+          placement="article_inline"
         >
           {children}
-        </a>
-      ) : (
-        <span>{children}</span>
-      );
+        </EditorialLink>
+      ),
     },
-  },
-};
-export default function ArticleContent({ article }) {
+  };
   const affiliate = hasAffiliateLinks(article);
   const products = (article.products || []).filter(
     (p) => p && safeHttpUrl(p.url),
@@ -133,17 +157,15 @@ export default function ArticleContent({ article }) {
                       {formatDate(product.priceCheckedAt)}. Prices may change.
                     </p>
                   )}
-                  <a
-                    href={safeHttpUrl(product.url)}
-                    target="_blank"
-                    rel={
-                      product.isAffiliate
-                        ? "sponsored noopener noreferrer"
-                        : "noopener noreferrer"
-                    }
+                  <EditorialLink
+                    href={product.url}
+                    isAffiliate={product.isAffiliate}
+                    context={context}
+                    merchant={product.retailer}
+                    placement="product_card"
                   >
                     View at {product.retailer} ↗
-                  </a>
+                  </EditorialLink>
                 </section>
               ))}
             </div>

@@ -5,7 +5,7 @@ import styles from "./FooterNewsletter.module.css";
 
 export default function FooterNewsletter() {
   const id = useId();
-  const { state, message, subscribe } = useNewsletterSignup();
+  const { state, message, subscribe } = useNewsletterSignup({ location: "footer" });
   return (
     <section className={styles.signup} aria-labelledby={`${id}-title`}>
       <h3 id={`${id}-title`}>The KELTNER Newsletter</h3>

@@ -10,7 +10,7 @@ export default function NewsletterPopup() {
   const dialog = useRef(null);
   const shown = useRef(false);
   const [open, setOpen] = useState(false);
-  const { state, message, subscribe } = useNewsletterSignup();
+  const { state, message, subscribe } = useNewsletterSignup({ location: "popup" });
   useEffect(() => {
     if (pathname.startsWith("/studio")) return;
     const onSubscribed = () => {

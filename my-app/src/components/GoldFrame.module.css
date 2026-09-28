@@ -1,7 +1,8 @@
 .frame {
   box-sizing: border-box;
   border: clamp(44px, 12vw, 80px) solid transparent;
-  border-image: url("/brand/email-popup.png") 160 143 160 143 / 1 / 0 stretch;
+  /* The source artwork is asymmetric: keep the full inner trim on each side. */
+  border-image: url("/brand/email-popup.png") 160 160 168 148 / 1 / 0 stretch;
   background: #eeece5;
   background-clip: padding-box;
   color: var(--editorial-heading);

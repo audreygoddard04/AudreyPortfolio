@@ -1,10 +1,15 @@
 "use client";
+import { usePathname } from "next/navigation";
+import { newsletterLocation } from "../lib/analytics.mjs";
 import { useId } from "react";
 import useNewsletterSignup from "../components/useNewsletterSignup";
 import styles from "./publication.module.css";
-export default function Newsletter() {
+export default function Newsletter({ location } = {}) {
   const id = useId();
-  const { state, message, subscribe } = useNewsletterSignup();
+  const pathname = usePathname();
+  const { state, message, subscribe } = useNewsletterSignup({
+    location: location || newsletterLocation(pathname),
+  });
   return (
     <section className={styles.newsletter} aria-labelledby={`${id}-title`}>
       <div>
@@ -48,8 +53,7 @@ export default function Newsletter() {
             role="status"
             aria-live="polite"
           >
-            {message ||
-              "A little perspective, whenever you need it."}
+            {message || "A little perspective, whenever you need it."}
           </p>
         </form>
       </div>
