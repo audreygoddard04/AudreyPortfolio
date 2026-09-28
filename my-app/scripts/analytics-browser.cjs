@@ -72,6 +72,9 @@ const base = process.env.TEST_BASE_URL || "http://localhost:3100";
         0,
         "Invalid form cannot track",
       );
+      await page.type(`${selector} input[name="firstName"]`, "Audrey");
+      await page.type(`${selector} input[name="lastName"]`, "Goddard");
+      await page.select(`${selector} select[name="gender"]`, "female");
       await page.type(`${selector} input[name="email"]`, "reader@example.com");
       if (location === "footer" && path === "/") {
         for (const response of [
@@ -137,11 +140,14 @@ const base = process.env.TEST_BASE_URL || "http://localhost:3100";
       link.click();
     });
     assert.deepEqual(await page.evaluate(() => window.analyticsCalls), []);
-    // The shared form survives client navigation; its location must update.
+    // Client navigation must use the dedicated newsletter page location.
     await page.click('footer a[href="/keltner/newsletter"]');
     await page.waitForFunction(
       () => location.pathname === "/keltner/newsletter",
     );
+    await page.type('main input[name="firstName"]', "Audrey");
+    await page.type('main input[name="lastName"]', "Goddard");
+    await page.select('main select[name="gender"]', "female");
     await page.type('main input[name="email"]', "reader@example.com");
     await page.$eval("main form", (form) => form.requestSubmit());
     await page.waitForFunction(() => window.analyticsCalls.length === 1);
@@ -149,7 +155,7 @@ const base = process.env.TEST_BASE_URL || "http://localhost:3100";
       ["event", "newsletter_signup", { signup_location: "newsletter_page" }],
     ]);
     console.log(
-      "PASS retained newsletter form uses updated location after client navigation.",
+      "PASS newsletter page uses the correct location after client navigation.",
     );
     assert.deepEqual(errors, []);
     console.log(

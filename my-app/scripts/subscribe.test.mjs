@@ -1,6 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { createSubscribeHandler } from "../pages/api/subscribe.js";
+const identity = { firstName: "Audrey", lastName: "Goddard", gender: "female" };
 const env = {
   RESEND_API_KEY: "test-key",
   RESEND_KELTNER_SEGMENT_ID: "keltner-segment",
@@ -29,7 +30,7 @@ async function request(options = {}, overrides = {}) {
     {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: { email: "Reader@example.com" },
+      body: { ...identity, email: "Reader@example.com" },
       ...overrides,
     },
     response,
@@ -67,6 +68,9 @@ test("Successful signup records the normalized email in the KELTNER segment", as
   assert.equal(result.code, 200);
   assert.deepEqual(sent, {
     email: "reader@example.com",
+    firstName: "Audrey",
+    lastName: "Goddard",
+    properties: { gender: "female", salutation: "Ms. Goddard" },
     unsubscribed: false,
     segments: [{ id: "keltner-segment" }],
   });
@@ -95,7 +99,9 @@ test("Popup signup passes the first name to Resend and rejects excessive length"
         return { data: { id: "contact-id" } };
       },
     },
-    { body: { email: "reader@example.com", firstName: " Audrey " } },
+    {
+      body: { ...identity, email: "reader@example.com", firstName: " Audrey " },
+    },
   );
   assert.equal(result.code, 200);
   assert.equal(sent.firstName, "Audrey");
@@ -103,21 +109,32 @@ test("Popup signup passes the first name to Resend and rejects excessive length"
     (
       await request(
         { env },
-        { body: { email: "reader@example.com", firstName: "a".repeat(81) } },
+        {
+          body: {
+            ...identity,
+            email: "reader@example.com",
+            firstName: "a".repeat(81),
+          },
+        },
       )
     ).code,
     400,
   );
 });
 
-
 test("New subscribers trigger the welcome workflow and persist its accepted status", async () => {
   const calls = [];
   const result = await request({
     env,
     createContact: async () => ({ data: { id: "contact-id" } }),
-    queueWelcome: async (payload) => { calls.push(payload); return { data: { event: payload.event } }; },
-    updateContact: async (payload) => { calls.push(payload); return { data: { id: payload.id } }; },
+    queueWelcome: async (payload) => {
+      calls.push(payload);
+      return { data: { event: payload.event } };
+    },
+    updateContact: async (payload) => {
+      calls.push(payload);
+      return { data: { id: payload.id } };
+    },
   });
   assert.equal(result.code, 200);
   assert.deepEqual(calls, [
@@ -129,9 +146,13 @@ test("New subscribers trigger the welcome workflow and persist its accepted stat
 test("Repeated signups do not queue another welcome", async () => {
   const result = await request({
     env,
-    getContact: async () => ({ data: { properties: { keltner_welcome_queued: { value: "yes" } } } }),
+    getContact: async () => ({
+      data: { properties: { keltner_welcome_queued: { value: "yes" } } },
+    }),
     createContact: async () => ({ data: { id: "contact-id" } }),
-    queueWelcome: async () => { assert.fail("Duplicate welcome"); },
+    queueWelcome: async () => {
+      assert.fail("Duplicate welcome");
+    },
   });
   assert.equal(result.code, 200);
 });
@@ -141,7 +162,9 @@ test("Welcome queue failures can be retried and do not mark the welcome accepted
     env,
     createContact: async () => ({ data: { id: "contact-id" } }),
     queueWelcome: async () => ({ error: { message: "secret" } }),
-    updateContact: async () => { assert.fail("Must not mark a failed welcome"); },
+    updateContact: async () => {
+      assert.fail("Must not mark a failed welcome");
+    },
   });
   assert.equal(result.code, 502);
   assert.ok(!JSON.stringify(result.body).includes("secret"));
@@ -152,10 +175,99 @@ test("Existing opt-outs and lookup failures cannot be overwritten", async () => 
     [{ data: { unsubscribed: true } }, 409],
     [{ error: { name: "invalid_api_key", message: "secret" } }, 502],
   ]) {
-    const result = await request({ env,
+    const result = await request({
+      env,
       getContact: async () => lookup,
-      createContact: async () => { assert.fail("Must not overwrite contact"); },
+      createContact: async () => {
+        assert.fail("Must not overwrite contact");
+      },
     });
     assert.equal(result.code, status);
   }
+});
+
+test("Identity is required, validated, and normalized before a welcome is queued", async () => {
+  for (const patch of [
+    { firstName: " " },
+    { lastName: "" },
+    { lastName: "a".repeat(81) },
+    { gender: "" },
+    { gender: "other" },
+    { gender: [] },
+    { lastName: "<b>Smith</b>" },
+    { lastName: "Smith\nTest" },
+  ]) {
+    const result = await request(
+      {
+        env,
+        createContact: async () =>
+          assert.fail("Invalid identity cannot be saved"),
+      },
+      { body: { email: "reader@example.com", ...identity, ...patch } },
+    );
+    assert.equal(result.code, 400);
+  }
+  let saved;
+  const result = await request(
+    {
+      env,
+      createContact: async (contact) => {
+        saved = contact;
+        return { data: { id: "contact-id" } };
+      },
+    },
+    {
+      body: {
+        email: "reader@example.com",
+        firstName: " José ",
+        lastName: " O’Neill-Smith ",
+        gender: "male",
+      },
+    },
+  );
+  assert.equal(result.code, 200);
+  assert.equal(saved.firstName, "José");
+  assert.equal(saved.lastName, "O’Neill-Smith");
+  assert.deepEqual(saved.properties, {
+    gender: "male",
+    salutation: "Mr. O’Neill-Smith",
+  });
+});
+
+test("An existing contact's identity is updated before the welcome, without overwriting opt-out or queued status", async () => {
+  const calls = [];
+  const result = await request({
+    env,
+    getContact: async () => ({
+      data: {
+        id: "existing",
+        properties: { keltner_welcome_queued: { value: "yes" } },
+      },
+    }),
+    createContact: async () => ({ data: { id: "existing" } }),
+    updateContact: async (payload) => {
+      calls.push(payload);
+      return { data: { id: "existing" } };
+    },
+    queueWelcome: async () => assert.fail("No repeated welcome"),
+  });
+  assert.equal(result.code, 200);
+  assert.deepEqual(calls, [
+    {
+      id: "existing",
+      firstName: "Audrey",
+      lastName: "Goddard",
+      properties: { gender: "female", salutation: "Ms. Goddard" },
+    },
+  ]);
+});
+test("A failed profile update cannot queue a welcome", async () => {
+  const result = await request({
+    env,
+    getContact: async () => ({ data: { id: "existing" } }),
+    updateContact: async () => ({ error: { name: "validation_error" } }),
+    createContact: async () => assert.fail("Stop after failed profile save"),
+    queueWelcome: async () => assert.fail("Do not queue welcome"),
+  });
+  assert.equal(result.code, 502);
 });

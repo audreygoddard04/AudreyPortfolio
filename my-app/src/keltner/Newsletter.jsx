@@ -3,6 +3,7 @@ import { usePathname } from "next/navigation";
 import { newsletterLocation } from "../lib/analytics.mjs";
 import { useId } from "react";
 import useNewsletterSignup from "../components/useNewsletterSignup";
+import NewsletterIdentity from "../components/NewsletterIdentity";
 import styles from "./publication.module.css";
 export default function Newsletter({ location } = {}) {
   const id = useId();
@@ -10,6 +11,7 @@ export default function Newsletter({ location } = {}) {
   const { state, message, subscribe } = useNewsletterSignup({
     location: location || newsletterLocation(pathname),
   });
+  if (pathname === "/keltner/newsletter") return null;
   return (
     <section className={styles.newsletter} aria-labelledby={`${id}-title`}>
       <div>
@@ -21,6 +23,7 @@ export default function Newsletter({ location } = {}) {
       </div>
       <div className={styles.newsletterForm}>
         <form onSubmit={subscribe} aria-busy={state === "pending"}>
+          <NewsletterIdentity disabled={state === "success"} />
           <label className={styles.srOnly} htmlFor={`${id}-email`}>
             Your email address
           </label>

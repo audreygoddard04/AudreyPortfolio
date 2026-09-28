@@ -164,6 +164,9 @@ const base = process.env.TEST_BASE_URL || "http://localhost:3100";
           })
         : request.continue(),
     );
+    await page.type('main input[name="firstName"]', "Audrey");
+    await page.type('main input[name="lastName"]', "Goddard");
+    await page.select('main select[name="gender"]', "female");
     await page.type('input[name="email"]', "reader@example.com");
     await page.click('button[type="submit"]');
     await page.waitForFunction(() =>

@@ -21,9 +21,9 @@ export default function useNewsletterSignup({ location = "footer" } = {}) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           email: data.get("email"),
-          ...(data.get("firstName")
-            ? { firstName: data.get("firstName") }
-            : {}),
+          firstName: data.get("firstName"),
+          lastName: data.get("lastName"),
+          gender: data.get("gender"),
         }),
       });
       const result = await response.json();

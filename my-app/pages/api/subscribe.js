@@ -32,10 +32,22 @@ export function createSubscribeHandler({
     }
     const firstName =
       typeof req.body?.firstName === "string" ? req.body.firstName.trim() : "";
-    if (firstName.length > 80)
+    const lastName =
+      typeof req.body?.lastName === "string" ? req.body.lastName.trim() : "";
+    const gender = req.body?.gender;
+    // Preserve international names, but exclude markup and control characters.
+    const validName = (name) =>
+      name.length > 0 && name.length <= 80 && !/[<>\p{Cc}]/u.test(name);
+    if (!validName(firstName) || !validName(lastName))
       return res
         .status(400)
-        .json({ error: "Please use a first name under 80 characters." });
+        .json({
+          error:
+            "Please enter your first and last names (up to 80 characters each).",
+        });
+    if (gender !== "male" && gender !== "female")
+      return res.status(400).json({ error: "Please select Male or Female." });
+    const salutation = `${gender === "male" ? "Mr." : "Ms."} ${lastName}`;
     if (!env.RESEND_API_KEY || !env.RESEND_KELTNER_SEGMENT_ID) {
       return res.status(503).json({
         error:
@@ -44,20 +56,42 @@ export function createSubscribeHandler({
     }
     try {
       const resend = new Resend(env.RESEND_API_KEY);
-      const existing = await (getContact || ((email) => resend.contacts.get({ email })))(email);
+      const existing = await (
+        getContact || ((email) => resend.contacts.get({ email }))
+      )(email);
       if (existing.error && existing.error.name !== "not_found") {
         throw new Error("Contact lookup failed");
       }
       // Preserve an existing opt-out; a public form must not silently undo it.
       if (existing.data?.unsubscribed) {
-        return res.status(409).json({ error: "This address has unsubscribed. Please contact Audrey to rejoin." });
+        return res
+          .status(409)
+          .json({
+            error:
+              "This address has unsubscribed. Please contact Audrey to rejoin.",
+          });
       }
       const contact = {
         email,
-        ...(firstName ? { firstName } : {}),
+        firstName,
+        lastName,
+        properties: { gender, salutation },
         unsubscribed: false,
         segments: [{ id: env.RESEND_KELTNER_SEGMENT_ID }],
       };
+      // Existing contacts need their new profile saved before a welcome event.
+      if (existing.data?.id) {
+        const updated = await (
+          updateContact || ((payload) => resend.contacts.update(payload))
+        )({
+          id: existing.data.id,
+          firstName,
+          lastName,
+          properties: { gender, salutation },
+        });
+        if (updated.error || !updated.data)
+          throw new Error("Contact profile could not be saved");
+      }
       const result = createContact
         ? await createContact(contact)
         : await resend.contacts.create(contact);
@@ -67,18 +101,24 @@ export function createSubscribeHandler({
         });
       }
       if (existing.data?.properties?.keltner_welcome_queued?.value !== "yes") {
-        const welcome = await (queueWelcome || ((payload) => resend.events.send(payload)))({
+        const welcome = await (
+          queueWelcome || ((payload) => resend.events.send(payload))
+        )({
           event: "keltner.subscribed",
           contactId: result.data.id,
         });
-        if (welcome.error || !welcome.data) throw new Error("Welcome could not be queued");
+        if (welcome.error || !welcome.data)
+          throw new Error("Welcome could not be queued");
         // Resend owns delivery/retries. Store the accepted event on the contact so
         // later signups do not trigger another welcome, even after a server restart.
-        const marked = await (updateContact || ((payload) => resend.contacts.update(payload)))({
+        const marked = await (
+          updateContact || ((payload) => resend.contacts.update(payload))
+        )({
           id: result.data.id,
           properties: { keltner_welcome_queued: "yes" },
         });
-        if (marked.error || !marked.data) throw new Error("Welcome status could not be saved");
+        if (marked.error || !marked.data)
+          throw new Error("Welcome status could not be saved");
       }
       return res.status(200).json({ success: true });
     } catch {

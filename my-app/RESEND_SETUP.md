@@ -96,3 +96,36 @@ The API function already includes CORS headers. If you're still getting errors, 
 
 For Resend-specific issues, check the [Resend documentation](https://resend.com/docs).
 
+
+## Newsletter names and personalized welcome
+
+Every newsletter signup now requires first name, last name, email, and a Male/Female selection. Resend stores standard `firstName` and `lastName`, plus string contact properties `gender` and `salutation`. The site calculates `Mr. [last name]` for Male and `Ms. [last name]` for Female before triggering `keltner.subscribed`. Analytics never receives these personal fields.
+
+The `gender` and `salutation` property definitions were created in the connected Resend account on September 28, 2026. For a different Resend account, run from `my-app`:
+
+```sh
+node --env-file=.env.local scripts/setup-newsletter-properties.mjs
+```
+
+This idempotent setup creates property definitions only; it does not enroll contacts or send email. Existing subscribers are not assigned inferred genders. `salutation` has the neutral fallback `Reader`.
+
+### Update the existing welcome email in Resend
+
+1. In **Automations**, open **KELTNER — Welcome to the Classics**. Its trigger is `keltner.subscribed`. Open its **Send email** step and the selected template (ID `62cbff43-1c4a-4d14-bcbe-368663e06405`).
+2. In that template, add a **string** variable named `SALUTATION`, with fallback `Reader`. In the visual editor, type `{{` or choose **Variable** to insert it. Start the message with `Dear [SALUTATION variable],`. In HTML the greeting is `<p>Dear {{{SALUTATION}}},</p>`. The repository copy is `emails/keltner-welcome.html`.
+3. In the automation's Send email step, bind the template variable `SALUTATION` to the contact's `salutation` property. The API representation within the existing template configuration is:
+
+```json
+{
+  "id": "62cbff43-1c4a-4d14-bcbe-368663e06405",
+  "variables": {
+    "SALUTATION": { "var": "contact.properties.salutation" }
+  }
+}
+```
+
+4. Preview with `Ms. Goddard`, `Mr. Smith`, and the fallback `Reader`. Publish the template and save the automation changes; keep its existing sender, trigger, and unsubscribe link. If you choose to send a test email, use your own address.
+
+The local HTML change does **not** automatically edit the published Resend template. The published welcome and automation were left unchanged, so these dashboard steps are still required. Updating the template does not resend welcomes to existing subscribers. For future newsletters, insert the `salutation` contact property using Resend's personalization picker; do not guess an existing reader's title when their information is absent.
+
+Official documentation: [Template variables](https://resend.com/docs/dashboard/templates/template-variables) and [Automation Send Email](https://resend.com/docs/dashboard/automations/send-email).

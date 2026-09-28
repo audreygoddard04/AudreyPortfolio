@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import GoldFrame from "./GoldFrame";
 import useNewsletterSignup, { subscribedKey } from "./useNewsletterSignup";
+import NewsletterIdentity from "./NewsletterIdentity";
 import styles from "./NewsletterPopup.module.css";
 const seenKey = "keltner-newsletter-popup-seen";
 export default function NewsletterPopup() {
@@ -10,9 +11,12 @@ export default function NewsletterPopup() {
   const dialog = useRef(null);
   const shown = useRef(false);
   const [open, setOpen] = useState(false);
-  const { state, message, subscribe } = useNewsletterSignup({ location: "popup" });
+  const { state, message, subscribe } = useNewsletterSignup({
+    location: "popup",
+  });
   useEffect(() => {
-    if (pathname.startsWith("/studio")) return;
+    if (pathname.startsWith("/studio") || pathname === "/keltner/newsletter")
+      return;
     const onSubscribed = () => {
       shown.current = true;
     };
@@ -98,15 +102,8 @@ export default function NewsletterPopup() {
           <p id="classics-description" className={styles.srOnly}>
             Stay in the loop
           </p>
-          <div className={styles.field}>
-            <label htmlFor="classics-name">First Name</label>
-            <input
-              id="classics-name"
-              name="firstName"
-              autoComplete="given-name"
-              maxLength={80}
-              disabled={state === "success"}
-            />
+          <div className={styles.identity}>
+            <NewsletterIdentity disabled={state === "success"} />
           </div>
           <div className={styles.field}>
             <label htmlFor="classics-email">Email Address</label>

@@ -116,7 +116,9 @@ const base = process.env.TEST_BASE_URL || "http://localhost:3000";
         });
       } else request.continue();
     });
-    await page.type("#classics-name", "Audrey");
+    await page.type('dialog input[name="firstName"]', "Audrey");
+    await page.type('dialog input[name="lastName"]', "Goddard");
+    await page.select('dialog select[name="gender"]', "female");
     await page.type("#classics-email", "reader@example.com");
     assert.deepEqual(
       await page.$eval("#classics-email", (input) => ({
@@ -135,6 +137,8 @@ const base = process.env.TEST_BASE_URL || "http://localhost:3000";
     assert.deepEqual(payload, {
       email: "reader@example.com",
       firstName: "Audrey",
+      lastName: "Goddard",
+      gender: "female",
     });
     assert.equal(
       await page.evaluate(() =>
