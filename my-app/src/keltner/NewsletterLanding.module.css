@@ -28,8 +28,9 @@
 .editorial header p {
   margin: 0;
   font:
-    15px/1.8 Arial,
-    sans-serif;
+    15px/1.8 "Times New Roman",
+    Times,
+    serif;
   letter-spacing: 0.06em;
   max-width: 540px;
 }
@@ -91,8 +92,9 @@
 .note,
 .status {
   font:
-    12px/1.8 Arial,
-    sans-serif;
+    12px/1.8 "Times New Roman",
+    Times,
+    serif;
   letter-spacing: 0.04em;
 }
 .note {

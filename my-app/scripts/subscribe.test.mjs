@@ -148,7 +148,7 @@ test("Repeated signups do not queue another welcome", async () => {
   const result = await request({
     env,
     getContact: async () => ({
-      data: { properties: { keltner_welcome_queued: { value: "yes" } } },
+      data: { id: "existing", properties: { keltner_welcome_queued: { value: "yes" } } },
     }),
     createContact: async () => ({ data: { id: "contact-id" } }),
     queueWelcome: async () => {
@@ -244,6 +244,9 @@ test("Already subscribed addresses return a friendly status without profile chan
         properties: { keltner_welcome_queued: { value: "yes" } },
       },
     }),
+    listContactSegments: async () => ({
+      data: { data: [{ id: "keltner-segment" }], has_more: false },
+    }),
     createContact: async () =>
       assert.fail("Do not recreate existing subscriber"),
     updateContact: async () =>
@@ -304,4 +307,33 @@ test("A failed profile update cannot queue a welcome", async () => {
     queueWelcome: async () => assert.fail("Do not queue welcome"),
   });
   assert.equal(result.code, 502);
+});
+
+ test("A former member with a welcome marker can rejoin without a false duplicate message", async () => {
+  let joined = false;
+  const result = await request({
+    env,
+    getContact: async () => ({ data: {
+      id: "former-member",
+      properties: { keltner_welcome_queued: { value: "yes" } },
+    } }),
+    listContactSegments: async () => ({ data: { data: [], has_more: false } }),
+    createContact: async () => { joined = true; return { data: { id: "former-member" } }; },
+    queueWelcome: async () => assert.fail("Do not repeat an accepted welcome"),
+  });
+  assert.equal(joined, true);
+  assert.deepEqual(result.body, { success: true });
+});
+
+test("A deleted contact is enrolled as new and receives a new welcome event", async () => {
+  let welcomed = false;
+  const result = await request({
+    env,
+    getContact: async () => ({ data: null, error: { name: "not_found" } }),
+    listContactSegments: async () => assert.fail("Deleted contacts have no membership"),
+    createContact: async () => ({ data: { id: "new-contact" } }),
+    queueWelcome: async ({ contactId }) => { assert.equal(contactId, "new-contact"); welcomed = true; return { data: { id: "new-event" } }; },
+  });
+  assert.equal(welcomed, true);
+  assert.deepEqual(result.body, { success: true });
 });

@@ -69,10 +69,9 @@ export function createSubscribeHandler({
         });
       }
       // A contact may belong to another list, so check KELTNER membership.
-      // Completed site signups already carry a durable welcome marker.
-      let alreadySubscribed =
-        existing.data?.properties?.keltner_welcome_queued?.value === "yes";
-      if (existing.data?.id && !alreadySubscribed) {
+      // A historical welcome event is not proof of current membership.
+      let alreadySubscribed = false;
+      if (existing.data?.id) {
         let after;
         do {
           const segments = await (
