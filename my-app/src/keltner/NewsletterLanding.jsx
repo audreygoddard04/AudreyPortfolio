@@ -13,10 +13,10 @@ export default function NewsletterLanding() {
       <div className={styles.editorial}>
         <header>
           <h1>
-            KELTNER <em>with you</em>
+            KELTNER <em>for you</em>
           </h1>
           <p>
-            Stories, places, and things worth keeping, delivered to your inbox.
+            Stories, places, and things worth your time.
           </p>
         </header>
         <form
