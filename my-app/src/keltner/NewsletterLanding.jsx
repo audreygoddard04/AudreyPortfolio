@@ -66,11 +66,6 @@ export default function NewsletterLanding() {
             {message}
           </p>
         </form>
-        <img
-          className={styles.detail}
-          src="/keltner/beautiful-estate-cover.png"
-          alt="An elegant estate framed by garden greenery"
-        />
       </div>
       <img
         className={styles.hero}

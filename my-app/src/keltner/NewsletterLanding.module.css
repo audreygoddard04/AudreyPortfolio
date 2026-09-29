@@ -104,13 +104,6 @@
 .status:empty {
   display: none;
 }
-.detail {
-  display: block;
-  width: 46%;
-  height: clamp(200px, 24vw, 390px);
-  object-fit: cover;
-  margin-top: auto;
-}
 .hero {
   display: block;
   width: 100%;
@@ -133,9 +126,6 @@
   }
   .form {
     margin-top: 36px;
-  }
-  .detail {
-    display: none;
   }
   .hero {
     min-height: 0;
