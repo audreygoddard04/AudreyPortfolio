@@ -74,8 +74,8 @@ export default function NewsletterLanding() {
       </div>
       <img
         className={styles.hero}
-        src="/keltner/lake-como.png"
-        alt="Lakeside architecture and gardens at Lake Como"
+        src="/keltner/italyBoat.png"
+        alt="A wooden boat approaching a lakeside villa beneath the Italian mountains"
       />
     </section>
   );
