@@ -16,8 +16,10 @@ export default function PublicationNav() {
         aria-controls="publication-navigation"
         onClick={() => setOpen(!open)}
       >
-        <span aria-hidden="true">{open ? "−" : "+"}</span>{" "}
         {open ? "Close" : "Menu"}
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true" focusable="false">
+          <path d={open ? "M6 6l12 12M6 18L18 6" : "M3 6h18M3 12h18M3 18h18"} />
+        </svg>
       </button>
       <nav
         id="publication-navigation"

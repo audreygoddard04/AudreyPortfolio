@@ -737,11 +737,9 @@
       sans-serif !important;
     letter-spacing: 1.6px;
     text-transform: uppercase;
-    width: 100%;
-  }
-  .menuButton span {
-    font-size: 21px;
-    font-weight: 300;
+    width: fit-content;
+    margin-left: auto;
+    justify-content: flex-end;
   }
   .nav {
     display: none;
