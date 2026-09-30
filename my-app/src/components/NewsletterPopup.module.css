@@ -38,16 +38,16 @@
   padding: 8px;
   isolation: isolate;
 }
-.headingArtwork {
-  width: 100%;
-  aspect-ratio: 460 / 337;
-  /* Keep the original lettering, removing its separate paper background. */
-  filter: grayscale(1) contrast(1.65) brightness(1.15);
-  /* Exclude the source artwork's inner frame edges from the heading crop. */
-  clip-path: inset(0 3%);
-  mix-blend-mode: multiply;
-  background: url("/brand/email-popup.png") 47.7% 34.9% / 166.52% 287.24%
-    no-repeat;
+.heading {
+  margin: 52px 8% 14px;
+  text-align: center;
+  font: 400 clamp(26px, 6vw, 42px)/1.15 "Times New Roman", Times, serif;
+}
+.heading em { display: block; font-weight: 400; }
+.description {
+  margin: 0 8% 28px;
+  text-align: center;
+  font: 16px/1.5 "Times New Roman", Times, serif;
 }
 .dialog .close {
   position: absolute;

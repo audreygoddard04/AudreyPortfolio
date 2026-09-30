@@ -95,12 +95,11 @@ export default function NewsletterPopup() {
           >
             ×
           </button>
-          <div className={styles.headingArtwork} aria-hidden="true" />
-          <h2 id="classics-title" className={styles.srOnly}>
-            Join KELTNER Classics
+          <h2 id="classics-title" className={styles.heading}>
+            KELTNER <em>for you</em>
           </h2>
-          <p id="classics-description" className={styles.srOnly}>
-            Stay in the loop
+          <p id="classics-description" className={styles.description}>
+            Stories, places, and things worth your time.
           </p>
           {state !== "success" && (
             <>

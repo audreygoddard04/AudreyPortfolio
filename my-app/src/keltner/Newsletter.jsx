@@ -15,10 +15,9 @@ export default function Newsletter({ location } = {}) {
   return (
     <section className={styles.newsletter} aria-labelledby={`${id}-title`}>
       <div>
-        <p className={styles.eyebrow}>The occasional letter</p>
-        <h2 id={`${id}-title`}>The KELTNER Newsletter</h2>
+        <h2 id={`${id}-title`}>KELTNER <em>for you</em></h2>
         <p>
-          Stories, places, and things worth keeping, delivered to your inbox.
+          Stories, places, and things worth your time.
         </p>
       </div>
       <div className={styles.newsletterForm}>
@@ -60,7 +59,7 @@ export default function Newsletter({ location } = {}) {
             role="status"
             aria-live="polite"
           >
-            {message || "A little perspective, whenever you need it."}
+            {message}
           </p>
         </form>
       </div>

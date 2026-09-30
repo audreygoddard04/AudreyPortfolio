@@ -11,7 +11,8 @@ export default function FooterNewsletter() {
   });
   return (
     <section className={styles.signup} aria-labelledby={`${id}-title`}>
-      <h3 id={`${id}-title`}>The KELTNER Newsletter</h3>
+      <h3 id={`${id}-title`}>KELTNER <em>for you</em></h3>
+      <p>Stories, places, and things worth your time.</p>
       <form onSubmit={subscribe} aria-busy={state === "pending"}>
         {state !== "success" && (
           <>
@@ -45,7 +46,7 @@ export default function FooterNewsletter() {
           </>
         )}
         <p id={`${id}-status`} role="status" aria-live="polite">
-          {message || "The occasional letter."}
+          {message}
         </p>
       </form>
     </section>

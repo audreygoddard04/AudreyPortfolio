@@ -1232,3 +1232,8 @@
 @media(max-width:700px) { .emailRow button { width:100%; } }
 
 .newsletter { --autofill-paper:#293b2d; --autofill-ink:#eeece5; } .newsletter .emailRow input { --autofill-paper:var(--paper); --autofill-ink:var(--ink); }
+
+/* Keep the seven publication sections comfortably spaced in the header. */
+.navSections a { font-size: 18px; }
+.navSecondary { font-size: 10px; }
+.newsletter h2 em { font-weight: 400; }
