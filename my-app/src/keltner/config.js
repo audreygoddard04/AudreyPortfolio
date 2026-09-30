@@ -12,9 +12,9 @@ export const categories = [
       "Architecture, landscapes, and remarkable places with a sense of history.",
   },
   {
-    slug: "cars",
-    title: "Cars",
-    aliases: ["motoring"],
+    slug: "motors",
+    title: "Motors",
+    aliases: ["cars", "motoring"],
     description: "Design, engineering, and the pleasure of the journey.",
   },
   {
@@ -23,6 +23,9 @@ export const categories = [
     description:
       "Luxury journeys. Extraordinary stays. A world worth discovering.",
   },
+  { slug: "the-home", title: "The Home", description: "Interiors, objects, and the art of living well at home." },
+  { slug: "music", title: "Music", description: "Artists, recordings, and sounds worth returning to." },
+  { slug: "culture", title: "Culture", description: "Art, books, and ideas that shape the way we live." },
 ];
 export function getCategory(slug) {
   return categories.find(
@@ -41,7 +44,7 @@ export const socialLinks = [
 ];
 export function publicationMetadata(
   title = "KELTNER",
-  description = "An independent publication on style, places, cars, and travel. Stories, places, and things worth keeping.",
+  description = "An independent publication on style, places, motors, travel, the home, music, and culture. Stories, places, and things worth keeping.",
   path = "/keltner",
   image = "/keltner/lake-como.png",
 ) {

@@ -129,6 +129,7 @@
 }
 .nav {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   gap: 24px;
@@ -137,6 +138,7 @@
 .navSections,
 .navSecondary {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: clamp(20px, 3.6vw, 60px);
 }

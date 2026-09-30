@@ -125,7 +125,7 @@ export const schemaTypes = [
                     c.slug === value.current ||
                     c.aliases?.includes(value.current),
                 ) ||
-                "Use style, places, cars, or travel. Existing estates and motoring slugs are also supported.",
+                "Use style, places, motors, travel, the-home, music, or culture. Legacy section slugs are also supported.",
             ),
       }),
     ],

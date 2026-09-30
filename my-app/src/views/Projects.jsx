@@ -97,7 +97,7 @@ const PROJECTS = [
   {
     id: 'keltner',
     title: 'KELTNER',
-    subtitle: 'Independent Editorial Publication | Style, Places, Cars & Travel',
+    subtitle: 'Independent Editorial Publication | Style, Places, Motors, Travel, The Home, Music & Culture',
     description: 'An independent publication exploring timeless style, remarkable places, and things worth keeping. A home for considered stories, guides, and the KELTNER Classics newsletter.',
     year: '2026',
     thumbnail: '/keltner/lake-como.png',

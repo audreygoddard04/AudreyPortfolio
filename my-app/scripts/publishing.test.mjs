@@ -139,6 +139,7 @@ test("New section names retain articles assigned to legacy CMS categories", asyn
   for (const [category, ids] of [
     ["places", ["estate-story", "new-place-story"]],
     ["estates", ["estate-story", "new-place-story"]],
+    ["motors", ["car-story"]],
     ["motoring", ["car-story"]],
     ["cars", ["car-story"]],
   ]) {
@@ -150,5 +151,14 @@ test("New section names retain articles assigned to legacy CMS categories", asyn
       })
     ).get();
     assert.deepEqual(result.map((story) => story._id).sort(), ids.sort());
+  }
+});
+
+test("New magazine sections filter stories independently", async () => {
+  for (const slug of ["motors", "the-home", "music", "culture"]) {
+    const data = [...dataset, { _id: slug, _type: "category", title: slug, slug: { current: slug } },
+      { ...article, _id: "section-story", category: { _type: "reference", _ref: slug } }];
+    const result = await (await evaluate(parse(articlesQuery), { dataset: data, params: { category: slug }, timestamp: now })).get();
+    assert.deepEqual(result.map(story => story._id), ["section-story"]);
   }
 });
