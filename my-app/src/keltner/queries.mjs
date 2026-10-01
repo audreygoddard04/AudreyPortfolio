@@ -1,7 +1,7 @@
 // Explicitly exclude drafts in addition to the client's published perspective.
 export const publishedFilter = `_type == "article" && !(_id in path("drafts.**")) && defined(slug.current) && defined(publishedAt) && dateTime(publishedAt) <= dateTime(now())`;
 const imageFields = `{alt, decorative, caption, credit, "url": asset->url, "width": asset->metadata.dimensions.width, "height": asset->metadata.dimensions.height}`;
-const cardFields = `_id, title, featured, "slug": slug.current, excerpt, author, publishedAt, updatedAt, _updatedAt, guideType, travelPath, "destination": destination->{_id,title,path}, category->{title,"slug":slug.current}, heroImage${imageFields}`;
+const cardFields = `_id, title, featured, "slug": slug.current, excerpt, author, publishedAt, updatedAt, _updatedAt, guideType, travelPath, topics, relatedArticles, relatedGuides, commercialGuide, pillarArticle, isCommercialGuide, "destination": destination->{_id,title,path}, category->{title,"slug":slug.current}, heroImage${imageFields}`;
 export const articlesQuery = `*[${publishedFilter} && ($category == "" || category->slug.current == $category || ($category in ["places", "estates"] && category->slug.current in ["places", "estates"]) || ($category in ["motors", "motoring", "cars"] && category->slug.current in ["motors", "motoring", "cars"]))] | order(publishedAt desc){${cardFields}}`;
 export const articleQuery = `*[${publishedFilter} && slug.current == $slug][0]{${cardFields}, seoTitle, seoDescription, summary, quickGuide, faqs, "relatedGuides": (relatedGuides[]->)[${publishedFilter}]{${cardFields}}, body[]{..., _type == "image" => ${imageFields}}, "products": products[]->{_id,name,brand,description,retailer,url,isAffiliate,price,currency,priceCheckedAt,image${imageFields}}}`;
 

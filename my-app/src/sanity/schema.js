@@ -281,6 +281,30 @@ export const schemaTypes = [
         validation: uniquePath,
       }),
       defineField({
+        name: "topics", title: "Topic clusters", type: "array",
+        of: [{ type: "string" }], options: { layout: "tags" },
+        description: "Reuse precise topics such as grand-hotels, timeless-wardrobe, or historic-houses. Shared topics connect related stories automatically.",
+        validation: (rule) => rule.unique(),
+      }),
+      defineField({
+        name: "relatedArticles", title: "Related articles", type: "array",
+        of: [{ type: "reference", to: [{ type: "article" }] }],
+        description: "Choose 2–4 closely related published stories when available. These connections also appear back on the linked stories. Never add unrelated links just to reach a count.",
+        validation: (rule) => rule.unique().max(4),
+      }),
+      defineField({
+        name: "isCommercialGuide", title: "Commercial guide", type: "boolean", initialValue: false,
+        description: "Mark buying, booking, or sourcebook guides eligible for relevant recommendations.",
+      }),
+      defineField({
+        name: "commercialGuide", title: "Relevant commercial guide", type: "reference", to: [{ type: "article" }],
+        description: "One useful published buying or booking guide. Leave blank if none exists yet.",
+      }),
+      defineField({
+        name: "pillarArticle", title: "Broader pillar article", type: "reference", to: [{ type: "article" }],
+        description: "Optional broader published guide. Every article also links back to its section hub.",
+      }),
+      defineField({
         name: "relatedGuides",
         type: "array",
         of: [
