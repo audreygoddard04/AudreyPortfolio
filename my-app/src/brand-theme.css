@@ -29,4 +29,14 @@ body:has(#root, #publication-content) input:-webkit-autofill {
   -webkit-text-fill-color:var(--autofill-ink,var(--editorial-heading));
   -webkit-box-shadow:0 0 0 1000px var(--autofill-paper,var(--editorial-paper)) inset!important;
   box-shadow:0 0 0 1000px var(--autofill-paper,var(--editorial-paper)) inset!important;
+  background-color:var(--autofill-paper,var(--editorial-paper))!important;
+  caret-color:var(--autofill-ink,var(--editorial-heading));
+  transition:background-color 9999s ease-out 0s;
+}
+body:has(#root, #publication-content) input:-webkit-autofill:focus,
+body:has(#root, #publication-content) input:-webkit-autofill:hover,
+body:has(#root, #publication-content) input:-webkit-autofill:active {
+  -webkit-box-shadow:0 0 0 1000px var(--autofill-paper,var(--editorial-paper)) inset!important;
+  box-shadow:0 0 0 1000px var(--autofill-paper,var(--editorial-paper)) inset!important;
+  background-color:var(--autofill-paper,var(--editorial-paper))!important;
 }
