@@ -16,11 +16,17 @@ import { getArticles, getDestinations } from "@/keltner/content";
 import { categories } from "@/keltner/config";
 import routes from "@/data/routes";
 import site from "@/data/siteConfig";
+import { headers } from "next/headers";
+import { publicationUrl } from "@/keltner/urls.mjs";
 
 /** Revalidate the sitemap every 60 seconds in production (ISR) */
-export const revalidate = 60;
+export const dynamic = "force-dynamic";
 
 export default async function sitemap() {
+  const host = (await headers()).get("host") || "";
+  if (!["keltnerpress.com", "www.keltnerpress.com", "keltner.vercel.app"].includes(host.split(":")[0])) {
+    return routes.map((route) => ({ url: site.siteUrl + route.path, changeFrequency: route.changefreq, priority: Number(route.priority) }));
+  }
   // Keltner articles are stored in Sanity CMS — fetch them at render time
   const [publicationArticles, destinations] = await Promise.all([
     getArticles(),
@@ -35,30 +41,24 @@ export default async function sitemap() {
       "/keltner/newsletter",
       ...categories.map((c) => `/keltner/${c.slug}`),
     ].map((path) => ({
-      url: site.siteUrl + path,
+      url: publicationUrl(path),
       changeFrequency: "weekly",
       priority: 0.7,
     })),
 
     // --- 2. Keltner articles (from Sanity) ---
     ...publicationArticles.map((a) => ({
-      url: `${site.siteUrl}/keltner/articles/${a.slug}`,
+      url: publicationUrl(`/articles/${a.slug}`),
       lastModified: a.updatedAt || a._updatedAt || a.publishedAt,
       changeFrequency: "monthly",
       priority: 0.8,
     })),
 
     ...destinations.map((d) => ({
-      url: `${site.siteUrl}/keltner/travel/${d.path}`,
+      url: publicationUrl(`/travel/${d.path}`),
       lastModified: d._updatedAt || d.publishedAt,
     })),
 
-    // --- 3. Portfolio static pages ---
-    ...routes.map((route) => ({
-      url: site.siteUrl + route.path,
-      changeFrequency: route.changefreq,
-      priority: Number(route.priority),
-    })),
   ];
   return [...new Map(entries.map((entry) => [entry.url, entry])).values()];
 }

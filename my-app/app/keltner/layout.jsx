@@ -1,6 +1,6 @@
 import { JsonLd } from "@/keltner/EditorialSupport";
 import { identityGraph } from "@/keltner/seo.mjs";
-import Link from "next/link";
+import Link from "@/keltner/PublicationLink";
 import styles from "@/keltner/publication.module.css";
 import { tagline, socialLinks } from "@/keltner/config";
 import PublicationNav from "@/keltner/PublicationNav";
@@ -16,7 +16,7 @@ export default function PublicationLayout({ children }) {
         <header>
           <div className={styles.mastheadRow}>
             <div className={styles.publicationCredits}>
-              <a className={styles.portfolioLink} href="/">
+              <a className={styles.portfolioLink} href="https://audreygoddard.com">
                 By Audrey Goddard
               </a>
               <Link className={styles.publicationCredit} href="/keltner/about">
@@ -52,7 +52,7 @@ export default function PublicationLayout({ children }) {
             <nav aria-label="Footer">
               <Link href="/keltner/newsletter">Newsletter</Link>
               <Link href="/keltner/about">About</Link>
-              <a href="/">Audrey Goddard ↗</a>
+              <a href="https://audreygoddard.com">Audrey Goddard ↗</a>
             </nav>
           </div>
           <nav aria-label="KELTNER social profiles" className={styles.socialLinks}>

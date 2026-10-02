@@ -15,7 +15,7 @@ export default function NewsletterPopup() {
     location: "popup",
   });
   useEffect(() => {
-    if (pathname.startsWith("/studio") || pathname === "/keltner/newsletter")
+    if (pathname.startsWith("/studio") || ["/keltner/newsletter", "/newsletter"].includes(pathname))
       return;
     const onSubscribed = () => {
       shown.current = true;

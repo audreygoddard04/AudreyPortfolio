@@ -101,7 +101,7 @@ test("Article identity uses absolute image URLs and never invents missing author
   });
   assert.equal(
     data.image,
-    "https://audreygoddard.com/keltner/beautiful-estate-cover.png",
+    "https://keltnerpress.com/keltner/beautiful-estate-cover.png",
   );
   assert.equal("author" in data, false);
   const authored = articleData({

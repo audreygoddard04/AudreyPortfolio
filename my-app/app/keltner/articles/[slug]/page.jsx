@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { getArticle, getArticles, getDestinations } from "@/keltner/content";
-import Link from "next/link";
+import Link from "@/keltner/PublicationLink";
 import { editorialLinks } from "@/keltner/linking.mjs";
 import styles from "@/keltner/publication.module.css";
 import { publicationMetadata, categoryTitle } from "@/keltner/config";

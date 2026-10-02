@@ -8,9 +8,9 @@ export const signupLocations = [
   "newsletter_page",
 ];
 export function newsletterLocation(pathname) {
-  if (pathname === "/keltner") return "homepage";
-  if (pathname === "/keltner/newsletter") return "newsletter_page";
-  if (pathname?.startsWith("/keltner/articles/")) return "article_end";
+  if (pathname === "/keltner" || pathname === "/") return "homepage";
+  if (["/keltner/newsletter", "/newsletter"].includes(pathname)) return "newsletter_page";
+  if (pathname?.startsWith("/keltner/articles/") || pathname?.startsWith("/articles/")) return "article_end";
   return "footer";
 }
 export function analyticsUrl(value) {

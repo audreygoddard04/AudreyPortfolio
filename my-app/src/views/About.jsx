@@ -40,7 +40,7 @@ function About() {
             <div className="pillar-card">
               <h4>Research & Curiosity</h4>
               <div className="pillar-links">
-                <a href="/keltner">KELTNER →</a>
+                <a href="https://keltnerpress.com/">KELTNER →</a>
                 <a href="https://audreyannagoddard.substack.com/" target="_blank" rel="noopener noreferrer">Substack →</a>
               </div>
             </div>

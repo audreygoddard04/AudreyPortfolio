@@ -10,6 +10,7 @@ if (existing.data.has_more)
 for (const property of [
   { key: "gender", type: "string", fallbackValue: "" },
   { key: "salutation", type: "string", fallbackValue: "Reader" },
+  { key: "keltner_welcome_queued", type: "string", fallbackValue: "no" },
 ]) {
   const found = existing.data.data.find((item) => item.key === property.key);
   if (found) {

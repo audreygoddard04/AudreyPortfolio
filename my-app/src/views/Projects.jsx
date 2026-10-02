@@ -101,7 +101,7 @@ const PROJECTS = [
     description: 'An independent publication exploring timeless style, remarkable places, and things worth keeping. A home for considered stories, guides, and the KELTNER Classics newsletter.',
     year: '2026',
     thumbnail: '/keltner/lake-como.png',
-    internalLink: '/keltner',
+    externalLink: 'https://keltnerpress.com/',
     cta: 'Explore KELTNER →',
   },
 ];

@@ -1,6 +1,8 @@
 import site from "../data/siteConfig.js";
+import { publicationUrl, publicationOrigin, portfolioOrigin } from "./urls.mjs";
 import { getCategory, categoryTitle } from "./config.js";
-export const absoluteUrl = (path) => new URL(path, site.siteUrl).href;
+export const absoluteUrl = (path) => /^\/keltner(?:\/|#|\?|$)/.test(path) && !/\.[^/]+$/.test(path)
+  ? publicationUrl(path) : new URL(path, publicationOrigin).href;
 export const articlePath = (article) => `/keltner/articles/${article.slug}`;
 export const destinationPath = (destination) =>
   `/keltner/travel/${destination.path}`;
@@ -9,9 +11,9 @@ export const validTravelPath = (path) =>
   /^[a-z0-9]+(?:-[a-z0-9]+)*(?:\/[a-z0-9]+(?:-[a-z0-9]+)*)*$/.test(path);
 export const person = {
   "@type": "Person",
-  "@id": absoluteUrl("/about#person"),
+  "@id": `${portfolioOrigin}/about#person`,
   name: site.author,
-  url: absoluteUrl("/about"),
+  url: `${portfolioOrigin}/about`,
   sameAs: site.sameAs,
 };
 export const publication = {

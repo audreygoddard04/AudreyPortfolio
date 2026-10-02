@@ -1,11 +1,16 @@
 import site from "@/data/siteConfig";
-export default function robots() {
+import { headers } from "next/headers";
+import { publicationOrigin } from "@/keltner/urls.mjs";
+export const dynamic = "force-dynamic";
+export default async function robots() {
+  const host = (await headers()).get("host") || "";
+  const origin = ["keltnerpress.com", "www.keltnerpress.com", "keltner.vercel.app"].includes(host.split(":")[0]) ? publicationOrigin : site.siteUrl;
   return {
     rules: ["*", "Googlebot", "Bingbot", "OAI-SearchBot"].map((userAgent) => ({
       userAgent,
       allow: "/",
       disallow: ["/studio", "/api/"],
     })),
-    sitemap: `${site.siteUrl}/sitemap.xml`,
+    sitemap: `${origin}/sitemap.xml`,
   };
 }

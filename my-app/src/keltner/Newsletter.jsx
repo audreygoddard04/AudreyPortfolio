@@ -11,7 +11,7 @@ export default function Newsletter({ location } = {}) {
   const { state, message, subscribe } = useNewsletterSignup({
     location: location || newsletterLocation(pathname),
   });
-  if (pathname === "/keltner/newsletter") return null;
+  if (["/keltner/newsletter", "/newsletter"].includes(pathname)) return null;
   return (
     <section className={styles.newsletter} aria-labelledby={`${id}-title`}>
       <div>

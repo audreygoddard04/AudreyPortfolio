@@ -1,13 +1,14 @@
 "use client";
 import { useState } from "react";
-import Link from "next/link";
+import Link from "@/keltner/PublicationLink";
 import { usePathname } from "next/navigation";
 import { categories, getCategory } from "./config";
+import { publicationPath } from "./urls.mjs";
 import styles from "./publication.module.css";
 export default function PublicationNav() {
   const [open, setOpen] = useState(false);
-  const pathname = usePathname();
-  const current = getCategory(pathname.split("/")[2]);
+  const pathname = publicationPath(usePathname());
+  const current = getCategory(pathname.split("/")[1]);
   return (
     <div className={styles.navigation}>
       <button
@@ -46,7 +47,7 @@ export default function PublicationNav() {
           </Link>
           <Link
             href="/keltner/about"
-            aria-current={pathname === "/keltner/about" ? "page" : undefined}
+            aria-current={pathname === "/about" ? "page" : undefined}
             onClick={() => setOpen(false)}
           >
             About
@@ -54,7 +55,7 @@ export default function PublicationNav() {
           <Link
             href="/keltner/newsletter"
             aria-current={
-              pathname === "/keltner/newsletter" ? "page" : undefined
+              pathname === "/newsletter" ? "page" : undefined
             }
             onClick={() => setOpen(false)}
           >

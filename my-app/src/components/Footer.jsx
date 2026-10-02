@@ -41,7 +41,7 @@ function Footer() {
 
         {/* Social / publication links */}
         <div className="footer-section footer-connect">
-          <p><a href="/keltner">KELTNER — the journal</a></p>
+          <p><a href="https://keltnerpress.com/">KELTNER — the journal</a></p>
           <div className="footer-social">
             {SOCIAL_ICONS.map(({ href, label, icon }) => (
               <a

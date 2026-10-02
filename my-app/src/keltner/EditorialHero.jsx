@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import Link from "@/keltner/PublicationLink";
 import { categoryTitle } from "./config";
 import styles from "./publication.module.css";
 const introduction = {

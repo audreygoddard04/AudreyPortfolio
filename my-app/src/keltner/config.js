@@ -1,3 +1,4 @@
+import { publicationOrigin, publicationUrl } from "./urls.mjs";
 export const categories = [
   {
     slug: "style",
@@ -50,13 +51,14 @@ export function publicationMetadata(
 ) {
   const fullTitle = title === "KELTNER" ? title : `${title} | KELTNER`;
   return {
+    metadataBase: new URL(publicationOrigin),
     title: { absolute: fullTitle },
     description,
-    alternates: { canonical: path },
+    alternates: { canonical: publicationUrl(path) },
     openGraph: {
       title: fullTitle,
       description,
-      url: path,
+      url: publicationUrl(path),
       siteName: "KELTNER",
       type: "website",
       ...(image ? { images: [image] } : {}),

@@ -1,7 +1,7 @@
 import AffiliateLink from "../components/AffiliateLink";
 import { JsonLd, AnswerSections, EditorialFaq } from "./EditorialSupport";
 import { articleData, articlePath } from "./seo.mjs";
-import Link from "next/link";
+import Link from "@/keltner/PublicationLink";
 import { categoryTitle, getCategory } from "./config";
 import Image from "next/image";
 import { PortableText } from "@portabletext/react";
@@ -106,7 +106,7 @@ export default function ArticleContent({ article }) {
             <span>
               By{" "}
               {article.author === "Audrey Goddard" ? (
-                <Link href="/about">{article.author}</Link>
+                <Link href="https://audreygoddard.com/about">{article.author}</Link>
               ) : (
                 article.author
               )}

@@ -1,4 +1,5 @@
 import "@/brand-theme.css";
+import { Analytics } from "@vercel/analytics/next";
 import NewsletterPopup from "@/components/NewsletterPopup";
 import site from "@/data/siteConfig";
 export const metadata = {
@@ -24,6 +25,7 @@ gtag('config', 'G-HSZM1LJV5D');`,
       <body style={{ margin: 0 }}>
         {children}
         <NewsletterPopup />
+        <Analytics />
       </body>
     </html>
   );

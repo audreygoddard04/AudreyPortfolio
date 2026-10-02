@@ -142,7 +142,7 @@ function Header() {
               </li>
             ))}
             {/* KELTNER uses a plain <a> because it's a separate publication sub-site */}
-            <li><a href="/keltner" onClick={closeMenu}>KELTNER</a></li>
+            <li><a href="https://keltnerpress.com/" onClick={closeMenu}>KELTNER</a></li>
           </ul>
         </nav>
 

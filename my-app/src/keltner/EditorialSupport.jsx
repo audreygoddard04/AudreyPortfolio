@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/keltner/PublicationLink";
 import { serializeJsonLd } from "../lib/jsonLd.mjs";
 import {
   breadcrumbData,
