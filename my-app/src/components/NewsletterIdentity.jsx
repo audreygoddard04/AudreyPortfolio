@@ -11,7 +11,7 @@ export default function NewsletterIdentity({ disabled = false }) {
         <input
           id={`${id}-first`}
           name="firstName"
-          autoComplete="given-name"
+          autoComplete="new-password"
           maxLength={80}
           required
           disabled={disabled}
@@ -22,7 +22,7 @@ export default function NewsletterIdentity({ disabled = false }) {
         <input
           id={`${id}-last`}
           name="lastName"
-          autoComplete="family-name"
+          autoComplete="new-password"
           maxLength={80}
           required
           disabled={disabled}

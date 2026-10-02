@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { trackEvent } from "../lib/analytics.mjs";
-export const successMessage = "Thank you, you'll stay caught up xx";
+export const successMessage = "Thank you kindly, you'll stay caught up";
 export const alreadySubscribedMessage =
   "You're already signed up for the KELTNER newsletter. Keep an eye on your inbox for your next read.";
 export const subscribedKey = "keltner-newsletter-subscribed";

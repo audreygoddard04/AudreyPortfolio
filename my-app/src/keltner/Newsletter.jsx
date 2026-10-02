@@ -33,7 +33,7 @@ export default function Newsletter({ location } = {}) {
                   id={`${id}-email`}
                   name="email"
                   type="email"
-                  autoComplete="email"
+                  autoComplete="new-password"
                   required
                   maxLength={254}
                   placeholder="Your email address"

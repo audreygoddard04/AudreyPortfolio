@@ -25,7 +25,7 @@ export default function FooterNewsletter() {
                 id={`${id}-email`}
                 name="email"
                 type="email"
-                autoComplete="email"
+                autoComplete="new-password"
                 placeholder="Your email address"
                 maxLength={254}
                 required

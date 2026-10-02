@@ -34,7 +34,7 @@ export default function NewsletterLanding() {
                     id={`${id}-email`}
                     name="email"
                     type="email"
-                    autoComplete="email"
+                    autoComplete="new-password"
                     maxLength={254}
                     required
                     disabled={state === "success"}

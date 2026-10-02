@@ -90,7 +90,7 @@ const puppeteer = require("puppeteer-core");
         (selector) =>
           document
             .querySelector(selector)
-            .textContent.includes("Thank you, you'll stay caught up xx"),
+            .textContent.includes("Thank you kindly, you'll stay caught up"),
         {},
         form,
       );
