@@ -42,16 +42,6 @@ export default function PublicationNav() {
           ))}
         </div>
         <div className={styles.navSecondary}>
-          <Link href="/keltner#journal" onClick={() => setOpen(false)}>
-            The Journal
-          </Link>
-          <Link
-            href="/keltner/about"
-            aria-current={pathname === "/about" ? "page" : undefined}
-            onClick={() => setOpen(false)}
-          >
-            About
-          </Link>
           <Link
             href="/keltner/newsletter"
             aria-current={

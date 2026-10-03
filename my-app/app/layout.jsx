@@ -11,6 +11,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        <link rel="preload" as="image" href="/brand/email-popup.png" />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-HSZM1LJV5D" />
         <script
           id="google-analytics"
