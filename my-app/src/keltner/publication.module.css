@@ -80,12 +80,12 @@
   top: 12px;
 }
 .mastheadRow {
-  min-height: 153px;
+  min-height: 108px;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: start;
-  gap: 24px;
-  padding: 24px var(--gutter) 20px;
+  gap: 16px;
+  padding: 14px var(--gutter) 12px;
 }
 .mastheadNote,
 .mastheadAbout {
@@ -104,7 +104,7 @@
 }
 .masthead {
   display: block;
-  font-size: clamp(44px, 5.4vw, 79px);
+  font-size: clamp(36px, 4.2vw, 60px);
   line-height: 1;
   letter-spacing: 0.13em;
   padding-left: 0.13em;
@@ -1052,7 +1052,7 @@
 @media (max-width: 700px) {
   .mastheadRow {
     padding-top: 48px;
-    padding-bottom: 20px;
+    padding-bottom: 12px;
   }
   .menuButton {
     padding-inline: var(--gutter);
@@ -1132,7 +1132,7 @@
 }
 @media (max-width: 700px) {
   .shell .masthead {
-    font-size: 54px;
+    font-size: 42px;
   }
   .brandRule {
     margin: 16px auto 14px;
@@ -1203,7 +1203,7 @@
     grid-column: 1;
   }
   .mastheadRow {
-    padding-top: 76px;
+    padding-top: 52px;
   }
 }
 @media (max-width: 700px) {
