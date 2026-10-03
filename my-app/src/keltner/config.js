@@ -11,11 +11,6 @@ export const categories = [
       "Architecture, landscapes, and estates with a sense of history.",
   },
   {
-    slug: "cars",
-    title: "Cars",
-    description: "Design, engineering, and the pleasure of the journey.",
-  },
-  {
     slug: "travel",
     title: "Travel",
     description: "Thoughtful journeys and the details worth remembering.",

@@ -7,27 +7,24 @@ export default function PublicationLayout({ children }) {
     <div className={styles.shell}>
       <div className={styles.wrap}>
         <header>
-          <div className={styles.topline}>
-            <a href="/">By Audrey Goddard</a>
-            <Link href="/keltner/about">An independent journal</Link>
+          <div className={styles.mastheadRow}>
+            <a href="/" className={styles.byline}>By Audrey Goddard</a>
+            <Link
+              href="/keltner"
+              className={styles.masthead}
+              aria-label="KELTNER home"
+            >
+              <span className={styles.wordmark}>
+                <img
+                  src="/keltner/logo.jpg"
+                  alt="KELTNER"
+                  width="1920"
+                  height="1080"
+                  fetchPriority="high"
+                />
+              </span>
+            </Link>
           </div>
-          <Link
-            href="/keltner"
-            className={styles.masthead}
-            aria-label="KELTNER home"
-          >
-            <span className={styles.wordmark}>
-              <img
-                src="/keltner/logo.jpg"
-                alt="KELTNER"
-                width="1920"
-                height="1080"
-                fetchPriority="high"
-              />
-            </span>
-          </Link>
-          <div className={styles.brandRule} aria-hidden="true" />
-          <p className={styles.tagline}>{tagline}</p>
           <nav className={styles.nav} aria-label="Publication">
             {categories.map((c) => (
               <Link href={`/keltner/${c.slug}`} key={c.slug}>

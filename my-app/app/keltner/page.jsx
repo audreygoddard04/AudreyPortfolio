@@ -11,7 +11,7 @@ export default async function Page() {
   return (
     <>
       <section className={styles.hero}>
-        <p className={styles.eyebrow}>Style · Estates · Cars · Travel</p>
+        <p className={styles.eyebrow}>Style · Estates · Travel</p>
         <h1>
           Things that endure.
         </h1>

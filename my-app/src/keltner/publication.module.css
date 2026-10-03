@@ -1,3 +1,9 @@
+/* Match the supplied KELTNER template, including the overscroll canvas. */
+:global(html):has(.shell),
+:global(body):has(.shell) {
+  background-color: #ebeae8;
+}
+
 .shell {
   --ink: #554738;
   --brand: #88725b;
@@ -26,12 +32,14 @@
   outline: 2px solid currentColor;
   outline-offset: 6px;
 }
-.topline {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 16px 0;
-  border-bottom: 1px solid var(--line);
+.mastheadRow {
+  position: relative;
+  padding-top: 16px;
+}
+.byline {
+  position: absolute;
+  top: 16px;
+  left: 0;
   font-family: Arial, sans-serif;
   font-size: 11px;
   text-transform: uppercase;
@@ -44,7 +52,7 @@
 .masthead {
   display: block;
   width: min(760px, 100%);
-  margin: 54px auto 0;
+  margin: 0 auto;
 }
 .wordmark {
   display: block;
@@ -60,19 +68,6 @@
   height: auto;
   left: -60.6897%;
   top: -191.7722%;
-}
-.brandRule {
-  width: 48px;
-  height: 2px;
-  margin: 32px auto 24px;
-  background: var(--brand);
-}
-.tagline {
-  color: var(--muted);
-  text-align: center;
-  font-size: clamp(18px, 2.4vw, 25px);
-  letter-spacing: 0.02em;
-  margin: 0 0 42px;
 }
 .nav {
   display: flex;
@@ -258,22 +253,16 @@
   border-bottom: 1px solid var(--line);
 }
 @media (max-width: 700px) {
-  .masthead {
-    margin-top: 38px;
+  .mastheadRow {
+    padding-top: 38px;
   }
-  .brandRule {
-    margin: 24px auto 18px;
-    width: 36px;
-  }
-  .tagline {
-    margin-bottom: 30px;
+  .byline {
+    top: 8px;
+    font-size: 9px;
+    letter-spacing: 1px;
   }
   .wrap {
     width: calc(100% - 36px);
-  }
-  .topline {
-    font-size: 9px;
-    letter-spacing: 1px;
   }
   .nav {
     gap: 12px 20px;

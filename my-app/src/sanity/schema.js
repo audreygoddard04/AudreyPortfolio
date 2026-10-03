@@ -53,7 +53,7 @@ export const schemaTypes = [
               (value) =>
                 !value?.current ||
                 categories.some((c) => c.slug === value.current) ||
-                "Use style, estates, cars, or travel.",
+                "Use style, estates, or travel.",
             ),
       }),
     ],
