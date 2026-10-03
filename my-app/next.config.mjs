@@ -9,8 +9,6 @@ export default {
   },
   async redirects() {
     return [
-      { source: "/keltner/cars", destination: "/keltner/motors", permanent: true },
-      { source: "/keltner/motoring", destination: "/keltner/motors", permanent: true },
       {
         source: "/projects/athletics",
         destination: "/fitness",

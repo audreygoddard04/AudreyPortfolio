@@ -12,7 +12,7 @@ export default function Page() {
       <h1>Things worth keeping.</h1>
       <p>
         KELTNER is a publication by Audrey Goddard, exploring style, places,
-        motors, travel, the home, music, and culture through an interest in things that endure.
+        travel, the home, music, and culture through an interest in things that endure.
       </p>
       <p>
         The name comes from my father’s middle name. It is a personal starting

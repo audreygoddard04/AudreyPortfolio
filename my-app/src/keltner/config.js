@@ -13,12 +13,6 @@ export const categories = [
       "Architecture, landscapes, and remarkable places with a sense of history.",
   },
   {
-    slug: "motors",
-    title: "Motors",
-    aliases: ["cars", "motoring"],
-    description: "Design, engineering, and the pleasure of the journey.",
-  },
-  {
     slug: "travel",
     title: "Travel",
     description:
@@ -45,7 +39,7 @@ export const socialLinks = [
 ];
 export function publicationMetadata(
   title = "KELTNER",
-  description = "An independent publication on style, places, motors, travel, the home, music, and culture. Stories, places, and things worth keeping.",
+  description = "An independent publication on style, places, travel, the home, music, and culture. Stories, places, and things worth keeping.",
   path = "/keltner",
   image = "/keltner/lake-como.png",
 ) {

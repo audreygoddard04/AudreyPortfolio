@@ -83,7 +83,7 @@
   min-height: 153px;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
-  align-items: center;
+  align-items: start;
   gap: 24px;
   padding: 24px var(--gutter) 20px;
 }

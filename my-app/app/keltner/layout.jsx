@@ -19,9 +19,6 @@ export default function PublicationLayout({ children }) {
               <a className={styles.portfolioLink} href="https://audreygoddard.com">
                 By Audrey Goddard
               </a>
-              <Link className={styles.publicationCredit} href="/keltner/about">
-                An independent publication
-              </Link>
             </div>
             <div className={styles.brand}>
               <Link
@@ -31,8 +28,6 @@ export default function PublicationLayout({ children }) {
               >
                 KELTNER
               </Link>
-              <div className={styles.brandRule} aria-hidden="true" />
-              <p className={styles.tagline}>Timeless | Classic | Refined</p>
             </div>
           </div>
           <PublicationNav />

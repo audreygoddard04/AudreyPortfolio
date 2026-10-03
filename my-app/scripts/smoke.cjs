@@ -30,7 +30,6 @@ const base = process.env.TEST_BASE_URL || "http://localhost:3100";
       "/keltner/style",
       "/keltner/estates",
       "/keltner/places",
-      "/keltner/cars",
       "/keltner/motoring",
       "/keltner/travel",
       "/keltner/about",
