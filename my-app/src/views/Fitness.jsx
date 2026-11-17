@@ -37,7 +37,7 @@ function Fitness() {
     <div className="project-detail-bg health-bg">
 
       <div className="project-detail-container">
-        <Link href="/about" className="back-link">Back to About Me</Link>
+        <Link href="/" className="back-link">Back to Home</Link>
 
         <header className="project-detail-header">
           <div className="project-detail-title-section">

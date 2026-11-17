@@ -223,7 +223,7 @@
 .fitness-image-grid {
   display: grid;
   grid-template-columns: 1.15fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
   gap: 8px;
   width: 100%;
   max-width: 800px;
@@ -234,6 +234,8 @@
 }
 
 .fitness-image-grid .grid-item {
+  min-width: 0;
+  min-height: 0;
   border-radius: 2px;
   overflow: hidden;
   position: relative;
@@ -290,6 +292,7 @@
   .fitness-image-grid {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(3, 200px);
+    aspect-ratio: auto;
     height: auto;
     gap: 8px;
     max-height: none;

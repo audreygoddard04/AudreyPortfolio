@@ -128,14 +128,18 @@ function ProjectDetail({ projectId }) {
           {/* Presentation */}
           <section className="thesis-section">
             <h2>Thesis Presentation</h2>
-            <div className="thesis-slides-wrapper" onFocus={(e) => e.preventDefault()}>
-              <iframe
-                src="https://docs.google.com/presentation/d/e/2PACX-1vRwHkw0a81hWC63xGwgm-32fEn0Vzzi1vwZ-AvoNbp586IrfzTA1J_g9WZzsrXon8PT99atml_DH0lI/embed?start=false&loop=false&delayms=10000"
-                title="Thesis Presentation"
-                allowFullScreen
-                scrolling="no"
-                className="thesis-slides-iframe"
-              />
+            <p>
+              The embedded slide deck was not loading reliably, so here is the direct Google Slides link.
+            </p>
+            <div className="thesis-presentation-link-wrap">
+              <a
+                href="https://docs.google.com/presentation/d/2PACX-1vRwHkw0a81hWC63xGwgm-32fEn0Vzzi1vwZ-AvoNbp586IrfzTA1J_g9WZzsrXon8PT99atml_DH0lI/present"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="thesis-btn thesis-btn-primary"
+              >
+                Open Thesis Presentation
+              </a>
             </div>
           </section>
 

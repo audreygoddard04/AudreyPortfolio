@@ -42,7 +42,7 @@ function Nutrition() {
     <div className="project-detail-bg health-bg nutrition-page">
 
       <div className="project-detail-container">
-        <Link href="/about" className="back-link">Back to About Me</Link>
+        <Link href="/" className="back-link">Back to Home</Link>
 
         {/* Section 1 — Header + Hero Subheader */}
         <header className="project-detail-header nutrition-header">

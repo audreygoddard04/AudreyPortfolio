@@ -29,7 +29,6 @@ import site from '@/data/siteConfig';
 /** Main navigation links shown in the center of the header */
 const NAV_LINKS = [
   { href: '/',         label: 'Home' },
-  { href: '/about',    label: 'About Me' },
   { href: '/projects', label: 'Projects' },
   { href: '/books',    label: 'Bookshelf' },
 ];

@@ -106,7 +106,7 @@ export default function ArticleContent({ article }) {
             <span>
               By{" "}
               {article.author === "Audrey Goddard" ? (
-                <Link href="https://audreygoddard.com/about">{article.author}</Link>
+                <Link href="https://audreygoddard.com/">{article.author}</Link>
               ) : (
                 article.author
               )}

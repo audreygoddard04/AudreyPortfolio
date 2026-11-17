@@ -2,18 +2,13 @@
  * Footer.jsx
  *
  * Site-wide footer rendered by the portfolio layout.
- * Contains a contact email, a link to the KELTNER publication,
- * and social media icons.
- *
- * Social URLs come from siteConfig so they stay in sync with the Header
- * and the JSON-LD structured data — no duplicate hard-coding.
+ * Contains a contact email and social media links.
  */
 
 import React from 'react';
 import { FaLinkedin, FaInstagram } from 'react-icons/fa';
 import { SiSubstack } from 'react-icons/si';
 import site from '@/data/siteConfig';
-import FooterNewsletter from './FooterNewsletter';
 
 // Map each siteConfig.sameAs URL to its icon.
 // Order matches siteConfig: LinkedIn, Instagram, X, Substack.
@@ -28,8 +23,6 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="footer-content">
-
-        {/* Contact section */}
         <div className="footer-section">
           <h3>Contact</h3>
           <p>
@@ -37,11 +30,7 @@ function Footer() {
           </p>
         </div>
 
-        <FooterNewsletter />
-
-        {/* Social / publication links */}
         <div className="footer-section footer-connect">
-          <p><a href="https://keltnerpress.com/">KELTNER — the journal</a></p>
           <div className="footer-social">
             {SOCIAL_ICONS.map(({ href, label, icon }) => (
               <a
@@ -56,10 +45,8 @@ function Footer() {
             ))}
           </div>
         </div>
-
       </div>
 
-      {/* Copyright line — year updates automatically */}
       <div className="footer-bottom">
         <p>&copy; {new Date().getFullYear()} Audrey Goddard. All rights reserved.</p>
       </div>

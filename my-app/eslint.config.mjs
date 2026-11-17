@@ -8,6 +8,7 @@ export default [
       "app/keltner/**/*.{js,jsx}",
       "src/keltner/**/*.{js,jsx,mjs}",
       "src/sanity/schema.js",
+      "src/views/Projects.jsx",
       "src/lib/analytics.mjs",
       "src/components/{ThemedSelect,NewsletterIdentity,GoldFrame,NewsletterPopup,FooterNewsletter,AffiliateLink,useNewsletterSignup}.{js,jsx}",
       "app/layout.jsx",
